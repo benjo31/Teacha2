@@ -12,7 +12,7 @@ export function PendingApprovalPage() {
 
   useEffect(() => {
     if (!user) {
-      navigate('/login')
+      //navigate('/login')
       return
     }
 

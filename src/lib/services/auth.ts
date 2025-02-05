@@ -11,15 +11,15 @@ type SchoolData = z.infer<typeof schoolSchema>
 
 export async function registerTeacher(data: TeacherData) {
   const { email, password, cv, photo, street, zipCode, city, ...teacherData } = data
-  
+
   try {
     // Créer l'utilisateur dans Firebase Auth
     const userCredential = await createUserWithEmailAndPassword(auth, email, password)
-    
+
     // Se connecter explicitement pour garantir les permissions
     await signInWithEmailAndPassword(auth, email, password)
     const coordinates = await getCoordinates(city)
-    
+
     try {
       // Créer d'abord le document Firestore sans les URLs
       await setDoc(doc(db, 'teachers', userCredential.user.uid), {
@@ -29,9 +29,11 @@ export async function registerTeacher(data: TeacherData) {
           street,
           zipCode,
           city,
-          ...(coordinates && { 
-            location: { lat: coordinates.lat, lng: coordinates.lng },
-            geohash: coordinates.geohash
+          ...(coordinates && {
+            geodata: {
+              location: { lat: coordinates.lat, lng: coordinates.lng },
+              geohash: coordinates.geohash
+            }
           })
         },
         status: 'pending',
@@ -65,7 +67,7 @@ export async function registerTeacher(data: TeacherData) {
           // Ne pas propager l'erreur pour permettre la création du compte
         }
       }
-      
+
       return userCredential.user
     } catch (error) {
       console.error('Erreur lors de la création du profil:', error)
@@ -82,19 +84,27 @@ export async function registerTeacher(data: TeacherData) {
 
 export async function registerSchool(data: SchoolData) {
   const { email, password, ...schoolData } = data
-  
+
   try {
     // Créer l'utilisateur dans Firebase Auth
     const userCredential = await createUserWithEmailAndPassword(auth, email, password)
-    
+    const coordinates = await getCoordinates(schoolData.address)
+
+
     // Stocker les données supplémentaires dans Firestore
     await setDoc(doc(db, 'schools', userCredential.user.uid), {
       ...schoolData,
       email,
       status: 'pending',
       createdAt: serverTimestamp(),
+      ...(coordinates && {
+        geodata: {
+          location: { lat: coordinates.lat, lng: coordinates.lng },
+          geohash: coordinates.geohash
+        }
+      })
     })
-    
+
     return userCredential.user
   } catch (error: any) {
     if (error.code === 'auth/email-already-in-use') {
