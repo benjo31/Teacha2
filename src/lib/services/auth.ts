@@ -4,6 +4,7 @@ import { doc, setDoc, serverTimestamp } from 'firebase/firestore'
 import { z } from 'zod'
 import { teacherSchema, schoolSchema } from '../schemas/auth'
 import { uploadCV, uploadPhoto } from './storage'
+import { getCoordinates } from '../../services/geocoding'
 
 type TeacherData = z.infer<typeof teacherSchema>
 type SchoolData = z.infer<typeof schoolSchema>
@@ -17,6 +18,7 @@ export async function registerTeacher(data: TeacherData) {
     
     // Se connecter explicitement pour garantir les permissions
     await signInWithEmailAndPassword(auth, email, password)
+    const coordinates = await getCoordinates(city)
     
     try {
       // Créer d'abord le document Firestore sans les URLs
@@ -26,7 +28,11 @@ export async function registerTeacher(data: TeacherData) {
         address: {
           street,
           zipCode,
-          city
+          city,
+          ...(coordinates && { 
+            location: { lat: coordinates.lat, lng: coordinates.lng },
+            geohash: coordinates.geohash
+          })
         },
         status: 'pending',
         createdAt: serverTimestamp(),
