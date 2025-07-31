@@ -1,0 +1,20 @@
+# Ignore Firebase functions directory
+functions/
+
+# Ignore Firebase configuration files
+firebase.json
+firestore.rules
+firestore.indexes.json
+storage.rules
+
+# Ignore environment files
+.env
+.env.*
+
+# Ignore git files
+.git/
+.gitignore
+
+# Ignore documentation
+CLAUDE.md
+README.md
