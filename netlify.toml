@@ -8,14 +8,7 @@
   # Directory that contains the deploy-ready files
   publish = "dist"
   
-  # Directory with the serverless functions (we're excluding this)
-  # functions = "functions"
-
-# Ignore the functions directory entirely
-[build.ignore]
-  # This tells Netlify to ignore changes in the functions directory
-  # when determining if a build is needed
-  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF . ':(exclude)functions'"
+  # Don't specify functions directory to avoid Netlify trying to build them
 
 # Node.js version
 [build.environment]

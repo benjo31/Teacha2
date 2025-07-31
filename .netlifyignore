@@ -1,6 +1,3 @@
-# Ignore Firebase functions directory
-functions/
-
 # Ignore Firebase configuration files
 firebase.json
 firestore.rules
