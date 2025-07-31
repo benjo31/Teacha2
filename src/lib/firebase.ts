@@ -3,13 +3,13 @@ import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCx3epVPmzkKVG-uCk_vluKeOGcdYL99_o",
-  authDomain: "swiss-teacher-replacement.firebaseapp.com",
-  projectId: "swiss-teacher-replacement",
-  storageBucket: "swiss-teacher-replacement.firebasestorage.app",
-  messagingSenderId: "994626704267",
-  appId: "1:994626704267:web:0f3de9138c5c1e025e158e",
-  measurementId: "G-QX0MEH1MZ2"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 }
 
 export const app = initializeApp(firebaseConfig)
