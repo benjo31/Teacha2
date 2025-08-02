@@ -3,6 +3,7 @@ import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from '../../lib/context/LanguageContext'
 import { teacherSchema } from '../../lib/schemas/auth'
 import { Input } from '../ui/Input'
 import { MultiSelect } from '../ui/MultiSelect'
@@ -15,6 +16,7 @@ import { CheckCircle } from 'lucide-react'
 type TeacherFormData = z.infer<typeof teacherSchema>
 
 export function TeacherRegistrationForm() {
+  const { t } = useTranslation()
   const [error, setError] = useState('')
   const [uploadSuccess, setUploadSuccess] = useState({
     photo: false,
@@ -55,7 +57,7 @@ export function TeacherRegistrationForm() {
       await registerTeacher(data)
       navigate('/pending-approval')
     } catch (err) {
-      setError('Une erreur est survenue lors de l\'inscription')
+      setError(t('teacher.registration.error'))
     }
   }
 
@@ -69,7 +71,7 @@ export function TeacherRegistrationForm() {
       
       <div className="space-y-4">
         <ImageUpload
-          label="Photo de profil"
+          label={t('teacher.registration.photo')}
           onChange={handlePhotoChange}
           error={errors.photo?.message}
           aspectRatio={1}
@@ -79,7 +81,7 @@ export function TeacherRegistrationForm() {
         {uploadSuccess.photo && (
           <div className="flex items-center text-green-600 text-sm">
             <CheckCircle className="h-4 w-4 mr-2" />
-            Photo téléchargée avec succès
+            {t('teacher.registration.success.photoUploaded')}
           </div>
         )}
       </div>
@@ -89,7 +91,7 @@ export function TeacherRegistrationForm() {
         control={control}
         render={({ field }) => (
           <MultiSelect
-            label="Civilité"
+            label={t('teacher.registration.civility')}
             options={CIVILITY}
             value={field.value ? [field.value] : []}
             onChange={(values) => field.onChange(values[0])}
@@ -100,13 +102,13 @@ export function TeacherRegistrationForm() {
 
       <div className="grid grid-cols-2 gap-4">
         <Input
-          label="Prénom"
+          label={t('teacher.registration.firstName')}
           {...register('firstName')}
           error={errors.firstName?.message}
           className="h-14 text-lg"
         />
         <Input
-          label="Nom"
+          label={t('teacher.registration.lastName')}
           {...register('lastName')}
           error={errors.lastName?.message}
           className="h-14 text-lg"
@@ -118,7 +120,7 @@ export function TeacherRegistrationForm() {
         control={control}
         render={({ field }) => (
           <MultiSelect
-            label="Langue natale"
+            label={t('teacher.registration.nativeLanguage')}
             options={NATIVE_LANGUAGES}
             value={field.value ? [field.value] : []}
             onChange={(values) => field.onChange(values[0])}
@@ -128,7 +130,7 @@ export function TeacherRegistrationForm() {
       />
       
       <Input
-        label="Email"
+        label={t('teacher.registration.email')}
         type="email"
         {...register('email')}
         error={errors.email?.message}
@@ -136,7 +138,7 @@ export function TeacherRegistrationForm() {
       />
       
       <Input
-        label="Mot de passe"
+        label={t('teacher.registration.password')}
         type="password"
         {...register('password')}
         error={errors.password?.message}
@@ -144,7 +146,7 @@ export function TeacherRegistrationForm() {
       />
       
       <Input
-        label="Âge"
+        label={t('teacher.registration.age')}
         type="number"
         {...register('age', { valueAsNumber: true })}
         error={errors.age?.message}
@@ -152,7 +154,7 @@ export function TeacherRegistrationForm() {
       />
       
       <Input
-        label="Téléphone (facultatif)"
+        label={t('teacher.registration.phone')}
         type="tel"
         {...register('phone')}
         error={errors.phone?.message}
@@ -160,22 +162,22 @@ export function TeacherRegistrationForm() {
       />
 
       <div className="space-y-4">
-        <h3 className="font-medium">Adresse</h3>
+        <h3 className="font-medium">{t('teacher.registration.address')}</h3>
         <Input
-          label="Rue et numéro"
+          label={t('teacher.registration.street')}
           {...register('street')}
           error={errors.street?.message}
           className="h-14 text-lg"
         />
         <div className="grid grid-cols-2 gap-4">
           <Input
-            label="NPA"
+            label={t('teacher.registration.zipCode')}
             {...register('zipCode')}
             error={errors.zipCode?.message}
             className="h-14 text-lg"
           />
           <Input
-            label="Ville"
+            label={t('teacher.registration.city')}
             {...register('city')}
             error={errors.city?.message}
             className="h-14 text-lg"
@@ -188,7 +190,7 @@ export function TeacherRegistrationForm() {
         control={control}
         render={({ field }) => (
           <MultiSelect
-            label="Canton"
+            label={t('teacher.registration.canton')}
             options={CANTONS}
             value={field.value ? [field.value] : []}
             onChange={(values) => field.onChange(values[0])}
@@ -202,7 +204,7 @@ export function TeacherRegistrationForm() {
         control={control}
         render={({ field }) => (
           <MultiSelect
-            label="Niveaux d'enseignement"
+            label={t('teacher.registration.teachingLevels')}
             options={TEACHING_LEVELS}
             value={field.value || []}
             onChange={field.onChange}
@@ -216,7 +218,7 @@ export function TeacherRegistrationForm() {
         control={control}
         render={({ field }) => (
           <MultiSelect
-            label="Branches"
+            label={t('teacher.registration.subjects')}
             options={SUBJECTS}
             value={field.value || []}
             onChange={field.onChange}
@@ -227,7 +229,7 @@ export function TeacherRegistrationForm() {
 
       <div className="space-y-4">
         <FileUpload
-          label="CV (PDF, max 2 Mo)"
+          label={t('teacher.registration.cv')}
           accept="application/pdf"
           onChange={handleFileChange}
           error={errors.cv?.message}
@@ -235,7 +237,7 @@ export function TeacherRegistrationForm() {
         {uploadSuccess.cv && selectedCV && (
           <div className="flex items-center text-green-600 text-sm">
             <CheckCircle className="h-4 w-4 mr-2" />
-            CV téléchargé avec succès : {selectedCV.name}
+            {t('teacher.registration.success.cvUploaded', { filename: selectedCV.name })}
           </div>
         )}
       </div>
@@ -245,7 +247,7 @@ export function TeacherRegistrationForm() {
         disabled={isSubmitting}
         className="btn btn-primary w-full h-14 text-lg"
       >
-        {isSubmitting ? 'Inscription en cours...' : 'S\'inscrire comme remplaçant'}
+        {isSubmitting ? t('teacher.registration.submitting') : t('teacher.registration.submit')}
       </button>
     </form>
   )

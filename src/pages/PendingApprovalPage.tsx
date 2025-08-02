@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../lib/context/AuthContext'
+import { useTranslation } from '../lib/context/LanguageContext'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../lib/firebase'
 import { ClockIcon } from 'lucide-react'
@@ -8,6 +9,7 @@ import { ClockIcon } from 'lucide-react'
 export function PendingApprovalPage() {
   const { user } = useAuth()
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const [userType, setUserType] = useState<'teacher' | 'school' | null>(null)
 
   useEffect(() => {
@@ -40,14 +42,12 @@ export function PendingApprovalPage() {
     <div className="max-w-md mx-auto mt-16 text-center">
       <div className="bg-white p-8 rounded-lg shadow-md">
         <ClockIcon className="w-16 h-16 text-primary mx-auto mb-4" />
-        <h1 className="text-2xl font-bold mb-4">Compte en attente de validation</h1>
+        <h1 className="text-2xl font-bold mb-4">{t('auth.pendingApproval.title')}</h1>
         <p className="text-gray-600 mb-4">
-          {userType === 'teacher'
-            ? 'Votre compte remplaçant est en cours de validation par notre équipe.'
-            : 'Votre compte école est en cours de validation par notre équipe.'}
+          {t('auth.pendingApproval.message')}
         </p>
         <p className="text-sm text-gray-500">
-          Vous recevrez un email dès que votre compte sera validé.
+          {t('auth.pendingApproval.checkLater')}
         </p>
       </div>
     </div>

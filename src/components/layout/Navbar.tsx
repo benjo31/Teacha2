@@ -2,16 +2,19 @@ import { Link, useLocation } from 'react-router-dom'
 import { GraduationCap, MessageCircle, School } from 'lucide-react'
 import { useAuth } from '../../lib/context/AuthContext'
 import { useAdmin } from '../../lib/hooks/useAdmin'
+import { useTranslation } from '../../lib/context/LanguageContext'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
 import { useEffect, useState } from 'react'
 import { NotificationsDropdown } from '../notifications/NotificationsDropdown'
 import { UserMenu } from './UserMenu'
 import { useUnreadMessages } from '../../hooks/useUnreadMessages'
+import { LanguageSwitcher } from '../ui/LanguageSwitcher'
 
 export function Navbar() {
   const { user } = useAuth()
   const { isAdmin } = useAdmin()
+  const { t } = useTranslation()
   const [userType, setUserType] = useState<'teacher' | 'school' | null>(null)
   const location = useLocation()
   const unreadMessages = useUnreadMessages(user?.uid)
@@ -53,19 +56,19 @@ export function Navbar() {
                   to="/how-it-works"
                   className={`hover:text-primary ${isActive('/how-it-works')}`}
                 >
-                  Comment ça marche ?
+                  {t('landing.howItWorks.title')}
                 </Link>
                 <Link
                   to="/pricing"
                   className={`hover:text-primary ${isActive('/pricing')}`}
                 >
-                  Prix
+                  {t('navigation.main.pricing')}
                 </Link>
                 <Link
                   to="/help"
                   className={`hover:text-primary ${isActive('/help')}`}
                 >
-                  Aide
+                  {t('navigation.main.help')}
                 </Link>
               </div>
             )}
@@ -77,7 +80,7 @@ export function Navbar() {
                     to="/admin"
                     className={`hover:text-primary ${isActive('/admin')}`}
                   >
-                    Tableau de bord
+                    {t('navigation.admin.dashboard')}
                   </Link>
                 )}
 
@@ -87,19 +90,19 @@ export function Navbar() {
                       to="/teacher-home"
                       className={`hover:text-primary ${isActive('/teacher-home')}`}
                     >
-                      Tableau de bord
+                      {t('navigation.teacher.dashboard')}
                     </Link>
                     <Link
                       to="/teacher-dashboard"
                       className={`hover:text-primary ${isActive('/teacher-dashboard')}`}
                     >
-                      Offres disponibles
+                      {t('navigation.teacher.offers')}
                     </Link>
                     <Link
                       to="/teacher-applications"
                       className={`hover:text-primary ${isActive('/teacher-applications')}`}
                     >
-                      Mes candidatures
+                      {t('navigation.teacher.applications')}
                     </Link>
                     <Link
                       to="/schools"
@@ -107,7 +110,7 @@ export function Navbar() {
                     >
                       <div className="flex items-center space-x-1">
                         <School className="h-4 w-4" />
-                        <span>Écoles</span>
+                        <span>{t('navigation.main.schools')}</span>
                       </div>
                     </Link>
                   </>
@@ -119,25 +122,25 @@ export function Navbar() {
                       to="/school-home"
                       className={`hover:text-primary ${isActive('/school-home')}`}
                     >
-                      Tableau de bord
+                      {t('navigation.school.dashboard')}
                     </Link>
                     <Link
                       to="/school-dashboard"
                       className={`hover:text-primary ${isActive('/school-dashboard')}`}
                     >
-                      Mes offres
+                      {t('navigation.school.offers')}
                     </Link>
                     <Link
                       to="/school-applications"
                       className={`hover:text-primary ${isActive('/school-applications')}`}
                     >
-                      Candidatures reçues
+                      {t('navigation.school.applications')}
                     </Link>
                     <Link
                       to="/school-history"
                       className={`hover:text-primary ${isActive('/school-history')}`}
                     >
-                      Historique
+                      {t('navigation.school.history')}
                     </Link>
                   </>
                 )}
@@ -162,22 +165,24 @@ export function Navbar() {
 
             {user ? (
               <>
+                <LanguageSwitcher variant="compact" showIcon={false} />
                 <NotificationsDropdown />
                 <UserMenu />
               </>
             ) : (
               <>
+                <LanguageSwitcher variant="compact" showIcon={false} />
                 <Link
                   to="/login"
                   className={`hover:text-primary ${isActive('/login')}`}
                 >
-                  Connexion
+                  {t('auth.login.title')}
                 </Link>
                 <Link
                   to="/register"
                   className="btn btn-primary shadow-md hover:shadow-lg"
                 >
-                  Inscription
+                  {t('auth.register.title')}
                 </Link>
               </>
             )}

@@ -3,6 +3,7 @@ import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useAuth } from '../../lib/context/AuthContext'
+import { useTranslation } from '../../lib/context/LanguageContext'
 import { replacementOfferSchema, type ReplacementOffer } from '../../lib/schemas/offer'
 import { Input } from '../ui/Input'
 import { Select } from '../ui/Select'
@@ -14,6 +15,7 @@ import { SubjectsSelector } from './SubjectsSelector'
 
 export function CreateOfferForm() {
   const { user } = useAuth()
+  const { t } = useTranslation()
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -42,7 +44,7 @@ export function CreateOfferForm() {
       setError('')
 
       if (!user) {
-        throw new Error('Vous devez être connecté pour créer une offre')
+        throw new Error(t('school.createOffer.errors.notLoggedIn'))
       }
 
       const startDate = new Date(data.startDate)
@@ -53,11 +55,11 @@ export function CreateOfferForm() {
       startDate.setHours(0, 0, 0, 0)
       
       if (startDate < now) {
-        throw new Error('La date de début doit être égale ou postérieure à aujourd\'hui')
+        throw new Error(t('school.createOffer.errors.startDateInvalid'))
       }
       
       if (endDate < startDate) {
-        throw new Error('La date de fin doit être postérieure à la date de début')
+        throw new Error(t('school.createOffer.errors.endDateInvalid'))
       }
 
       const offerData = {
@@ -72,7 +74,7 @@ export function CreateOfferForm() {
       setTimeout(() => setSuccess(false), 3000)
     } catch (err: any) {
       console.error('Erreur lors de la création de l\'offre:', err)
-      setError(err.message || 'Une erreur est survenue lors de la création de l\'offre')
+      setError(err.message || t('school.createOffer.errors.general'))
     } finally {
       setIsSubmitting(false)
     }
@@ -88,21 +90,21 @@ export function CreateOfferForm() {
       
       {success && (
         <div className="bg-green-50 text-success p-4 rounded-lg border border-green-200 flex items-center space-x-2 mb-6">
-          <p>Offre créée avec succès</p>
+          <p>{t('school.createOffer.success')}</p>
         </div>
       )}
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
         <div className="bg-white p-6 rounded-lg shadow-sm border space-y-6">
-          <h3 className="font-semibold text-lg mb-4">Informations principales</h3>
+          <h3 className="font-semibold text-lg mb-4">{t('school.createOffer.basicInfo')}</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Classe
+                {t('school.createOffer.class')}
               </label>
               <Input
-                placeholder="ex: 3H"
+                placeholder={t('school.createOffer.classPlaceholder')}
                 {...register('class')}
                 error={errors.class?.message}
                 className="h-12"
@@ -111,10 +113,10 @@ export function CreateOfferForm() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Lieu
+                {t('school.createOffer.location')}
               </label>
               <Input
-                placeholder="ex: Lausanne"
+                placeholder={t('school.createOffer.locationPlaceholder')}
                 {...register('location')}
                 error={errors.location?.message}
                 className="h-12"
@@ -136,7 +138,7 @@ export function CreateOfferForm() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Niveau d'enseignement
+              {t('school.createOffer.teachingLevel')}
             </label>
             <Controller
               name="teachingLevel"
@@ -147,7 +149,7 @@ export function CreateOfferForm() {
                   error={errors.teachingLevel?.message}
                   className="h-12"
                 >
-                  <option value="">Sélectionner un niveau</option>
+                  <option value="">{t('school.createOffer.selectLevel')}</option>
                   {TEACHING_LEVELS.map((level) => (
                     <option key={level} value={level}>{level}</option>
                   ))}
@@ -158,12 +160,12 @@ export function CreateOfferForm() {
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-sm border space-y-6">
-          <h3 className="font-semibold text-lg mb-4">Période et horaires</h3>
+          <h3 className="font-semibold text-lg mb-4">{t('school.createOffer.period')}</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Date de début
+                {t('school.createOffer.startDate')}
               </label>
               <div className="relative">
                 <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -179,7 +181,7 @@ export function CreateOfferForm() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Date de fin
+                {t('school.createOffer.endDate')}
               </label>
               <div className="relative">
                 <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -208,7 +210,7 @@ export function CreateOfferForm() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Nombre total de leçons
+              {t('school.createOffer.totalLessons')}
             </label>
             <div className="relative">
               <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -217,34 +219,34 @@ export function CreateOfferForm() {
                 {...register('totalLessons', { valueAsNumber: true })}
                 error={errors.totalLessons?.message}
                 className="pl-10 h-12"
-                placeholder="ex: 10"
+                placeholder={t('school.createOffer.totalLessonsPlaceholder')}
               />
             </div>
           </div>
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-sm border space-y-6">
-          <h3 className="font-semibold text-lg mb-4">Informations complémentaires</h3>
+          <h3 className="font-semibold text-lg mb-4">{t('school.createOffer.additionalInfo')}</h3>
           
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Horaires, lieu de rendez-vous et informations utiles sur le remplacement (facultatif)
+              {t('school.createOffer.topicLabel')}
             </label>
             <textarea
               {...register('topic')}
               className="input min-h-[100px] resize-none w-full"
-              placeholder="Précisez les horaires exacts, le lieu de rendez-vous et toute information utile pour le bon déroulement du remplacement..."
+              placeholder={t('school.createOffer.topicPlaceholder')}
             />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Qualifications souhaitées (facultatif)
+              {t('school.createOffer.qualifications')}
             </label>
             <textarea
               {...register('qualifications')}
               className="input min-h-[100px] resize-none w-full"
-              placeholder="Décrivez les qualifications souhaitées pour ce remplacement..."
+              placeholder={t('school.createOffer.qualificationsPlaceholder')}
             />
           </div>
         </div>
@@ -255,7 +257,7 @@ export function CreateOfferForm() {
             disabled={isSubmitting}
             className="btn btn-primary px-8 py-4 text-lg shadow-lg hover:shadow-xl"
           >
-            {isSubmitting ? 'Publication en cours...' : 'Publier l\'offre'}
+            {isSubmitting ? t('school.createOffer.submitting') : t('school.createOffer.submit')}
           </button>
         </div>
       </form>

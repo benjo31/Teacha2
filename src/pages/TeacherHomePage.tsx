@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useAuth } from '../lib/context/AuthContext'
+import { useTranslation } from '../lib/context/LanguageContext'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../lib/firebase'
 import { TeacherStats } from '../components/teachers/TeacherStats'
@@ -9,72 +10,73 @@ import {
   FileText, Download, HelpCircle
 } from 'lucide-react'
 
-const quickActions = [
-  {
-    icon: Search,
-    title: "Chercher des remplacements",
-    description: "Parcourez les offres disponibles",
-    link: "/teacher-dashboard",
-    color: "bg-primary/10 text-primary"
-  },
-  {
-    icon: BookOpen,
-    title: "Mes candidatures",
-    description: "Suivez vos postulations en cours",
-    link: "/teacher-applications",
-    color: "bg-green-100 text-green-600"
-  },
-  {
-    icon: MessageCircle,
-    title: "Messages",
-    description: "Gérez vos conversations",
-    link: "/messages",
-    color: "bg-blue-100 text-blue-600"
-  },
-  {
-    icon: Settings,
-    title: "Mon profil",
-    description: "Mettez à jour vos informations",
-    link: "/account",
-    color: "bg-gray-100 text-gray-600"
-  }
-]
-
-const resources = [
-  {
-    icon: FileText,
-    title: "Guide du remplaçant",
-    description: "Conseils et bonnes pratiques pour réussir vos remplacements",
-    link: "/teacher-guide",
-    color: "bg-purple-100 text-purple-600"
-  },
-  {
-    icon: HelpCircle,
-    title: "FAQ & Support",
-    description: "Réponses à vos questions fréquentes",
-    link: "/help",
-    color: "bg-orange-100 text-orange-600"
-  }
-]
-
-const documents = [
-  {
-    icon: FileText,
-    title: "Modèle de rapport de remplacement",
-    description: "Document à remplir après chaque mission",
-    downloadUrl: "#"
-  },
-  {
-    icon: FileText,
-    title: "Check-list de préparation",
-    description: "Liste des points essentiels avant un remplacement",
-    downloadUrl: "#"
-  }
-]
-
 export function TeacherHomePage() {
   const { user } = useAuth()
+  const { t } = useTranslation()
   const [loading, setLoading] = useState(true)
+
+  const quickActions = [
+    {
+      icon: Search,
+      title: t('teacher.home.actions.searchReplacements'),
+      description: t('teacher.home.actions.searchDescription'),
+      link: "/teacher-dashboard",
+      color: "bg-primary/10 text-primary"
+    },
+    {
+      icon: BookOpen,
+      title: t('teacher.home.actions.myApplications'),
+      description: t('teacher.home.actions.applicationsDescription'),
+      link: "/teacher-applications",
+      color: "bg-green-100 text-green-600"
+    },
+    {
+      icon: MessageCircle,
+      title: t('teacher.home.actions.viewMessages'),
+      description: t('teacher.home.actions.messagesDescription'),
+      link: "/messages",
+      color: "bg-blue-100 text-blue-600"
+    },
+    {
+      icon: Settings,
+      title: t('teacher.home.actions.profile'),
+      description: t('teacher.home.actions.profileDescription'),
+      link: "/account",
+      color: "bg-gray-100 text-gray-600"
+    }
+  ]
+
+  const resources = [
+    {
+      icon: FileText,
+      title: t('teacher.home.resources.guide'),
+      description: t('teacher.home.resources.guideDescription'),
+      link: "/teacher-guide",
+      color: "bg-purple-100 text-purple-600"
+    },
+    {
+      icon: HelpCircle,
+      title: t('teacher.home.resources.faq'),
+      description: t('teacher.home.resources.faqDescription'),
+      link: "/help",
+      color: "bg-orange-100 text-orange-600"
+    }
+  ]
+
+  const documents = [
+    {
+      icon: FileText,
+      title: t('teacher.home.documents.reportTemplate'),
+      description: t('teacher.home.documents.reportDescription'),
+      downloadUrl: "#"
+    },
+    {
+      icon: FileText,
+      title: t('teacher.home.documents.checklist'),
+      description: t('teacher.home.documents.checklistDescription'),
+      downloadUrl: "#"
+    }
+  ]
 
   useEffect(() => {
     async function loadData() {
@@ -94,7 +96,7 @@ export function TeacherHomePage() {
   }, [user])
 
   if (loading) {
-    return <div>Chargement...</div>
+    return <div>{t('common.loading')}</div>
   }
 
   return (
@@ -103,7 +105,7 @@ export function TeacherHomePage() {
 
       {/* Actions rapides */}
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Actions rapides</h2>
+        <h2 className="text-xl font-semibold">{t('teacher.home.quickActions')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {quickActions.map((action, index) => (
             <Link
@@ -125,7 +127,7 @@ export function TeacherHomePage() {
 
       {/* Ressources et guides */}
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Ressources utiles</h2>
+        <h2 className="text-xl font-semibold">{t('teacher.home.resources')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {resources.map((resource, index) => (
             <Link
@@ -145,7 +147,7 @@ export function TeacherHomePage() {
 
       {/* Documents utiles */}
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Documents utiles</h2>
+        <h2 className="text-xl font-semibold">{t('teacher.home.documents')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {documents.map((doc, index) => (
             <a
@@ -161,7 +163,7 @@ export function TeacherHomePage() {
                 <p className="text-sm text-gray-600 mb-2">{doc.description}</p>
                 <span className="text-primary text-sm flex items-center">
                   <Download className="h-4 w-4 mr-1" />
-                  Télécharger
+                  {t('teacher.home.documents.download')}
                 </span>
               </div>
             </a>
@@ -176,12 +178,12 @@ export function TeacherHomePage() {
             <HelpCircle className="h-6 w-6" />
           </div>
           <div>
-            <h3 className="font-semibold mb-2">Besoin d'aide ?</h3>
+            <h3 className="font-semibold mb-2">{t('teacher.home.needHelp')}</h3>
             <p className="text-sm text-gray-600 mb-4">
-              Notre équipe est là pour vous aider à optimiser votre expérience de remplacement.
+              {t('teacher.home.helpDescription')}
             </p>
             <Link to="/help" className="text-primary hover:text-primary-dark text-sm flex items-center">
-              Consulter le centre d'aide
+              {t('common.help')}
             </Link>
           </div>
         </div>
