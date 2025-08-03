@@ -32,7 +32,11 @@
     "error": "Erreur",
     "success": "Succès",
     "warning": "Attention",
-    "info": "Information"
+    "info": "Information",
+    "details": "Détails",
+    "noResults": "Aucun résultat",
+    "noDataAvailable": "Aucune donnée disponible",
+    "noNotifications": "Aucune notification"
   },
   "auth": {
     "login": {
@@ -502,7 +506,8 @@
         "school": "Filtrer par école...",
         "status": "Tous les statuts",
         "urgentOnly": "Urgentes uniquement"
-      }
+      },
+      "noOffersFound": "Aucune offre trouvée"
     },
     "analytics": {
       "title": "Analytics",
@@ -524,7 +529,9 @@
     "typeMessage": "Écrivez votre message...",
     "attachment": "Joindre un fichier",
     "unread": "non lu(s)",
-    "createError": "Erreur lors de la création de la conversation"
+    "createError": "Erreur lors de la création de la conversation",
+    "noMessages": "Aucun message. Commencez la conversation !",
+    "selectConversation": "Sélectionnez une conversation pour commencer"
   },
   "status": {
     "active": "Actif",

@@ -32,7 +32,11 @@
     "error": "Error",
     "success": "Success",
     "warning": "Warning",
-    "info": "Information"
+    "info": "Information",
+    "details": "Details",
+    "noResults": "No results",
+    "noDataAvailable": "No data available",
+    "noNotifications": "No notifications"
   },
   "auth": {
     "login": {
@@ -502,7 +506,8 @@
         "school": "Filter by school...",
         "status": "All statuses",
         "urgentOnly": "Urgent only"
-      }
+      },
+      "noOffersFound": "No offers found"
     },
     "analytics": {
       "title": "Analytics",
@@ -524,7 +529,9 @@
     "typeMessage": "Type your message...",
     "attachment": "Attach file",
     "unread": "unread",
-    "createError": "Error creating conversation"
+    "createError": "Error creating conversation",
+    "noMessages": "No messages. Start the conversation!",
+    "selectConversation": "Select a conversation to start"
   },
   "status": {
     "active": "Active",

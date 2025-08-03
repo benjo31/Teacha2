@@ -169,7 +169,7 @@ export function GlobalOffersView() {
         
         {filteredOffers.length === 0 && (
           <div className="text-center py-8 text-gray-500">
-            Aucune offre trouvée
+            {t('admin.offers.noOffersFound')}
           </div>
         )}
       </div>

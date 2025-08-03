@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { collection, query, where, orderBy, limit, onSnapshot, doc, updateDoc, writeBatch } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
 import { useAuth } from '../../lib/context/AuthContext'
+import { useTranslation } from '../../lib/context/LanguageContext'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 
 type Notification = {
@@ -18,6 +19,7 @@ type Notification = {
 
 export function NotificationsDropdown() {
   const { user } = useAuth()
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const [notifications, setNotifications] = useState<Notification[]>([])
   const [isOpen, setIsOpen] = useState(false)
@@ -119,7 +121,7 @@ export function NotificationsDropdown() {
 
           {notifications.length === 0 ? (
             <div className="px-4 py-3 text-sm text-gray-500">
-              Aucune notification
+              {t('common.noNotifications')}
             </div>
           ) : (
             <div className="max-h-96 overflow-y-auto">

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useMessages } from '../../hooks/useMessages'
 import { useAuth } from '../../lib/context/AuthContext'
+import { useTranslation } from '../../lib/context/LanguageContext'
 import { UserCircle2 } from 'lucide-react'
 import { MessageBubble } from './MessageBubble'
 import { LoadingSpinner } from '../ui/LoadingSpinner'
@@ -21,6 +22,7 @@ interface MessageListProps {
 export function MessageList({ conversationId, metadata }: MessageListProps) {
   const { messages, loading, error } = useMessages(conversationId)
   const { user } = useAuth()
+  const { t } = useTranslation()
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const messagesContainerRef = useRef<HTMLDivElement>(null)
   const previousMessagesLengthRef = useRef(0)
@@ -157,7 +159,7 @@ export function MessageList({ conversationId, metadata }: MessageListProps) {
       >
         {messages.length === 0 ? (
           <div className="text-center text-gray-500 py-8">
-            Aucun message. Commencez la conversation !
+            {t('messages.noMessages')}
           </div>
         ) : (
           messages.map((message) => (
