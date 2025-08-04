@@ -10,6 +10,7 @@ import { rejectOtherApplications } from '../lib/services/applications'
 import { CheckCircle, Clock, Eye } from 'lucide-react'
 import OfferDetailsModal from '../components/teachers/OfferDetailsModal'
 import { getSubjectsDisplay } from '../lib/utils/subjects'
+import { useTranslation } from '../lib/context/LanguageContext'
 
 type GroupedApplications = {
   [offerId: string]: {
@@ -31,6 +32,7 @@ type GroupedApplications = {
 }
 
 export function SchoolApplications() {
+  const { t } = useTranslation()
   const { user } = useAuth()
   const [schoolData, setSchoolData] = useState<any>(null)
   const [error, setError] = useState('')
@@ -59,7 +61,7 @@ export function SchoolApplications() {
       }
     } catch (err) {
       console.error('Erreur lors du chargement des données de l\'école:', err)
-      setError('Erreur lors du chargement des données')
+      setError(t('admin.offers.errorLoad'))
     }
   }
 
@@ -100,13 +102,13 @@ export function SchoolApplications() {
       await notifyApplicationAccepted(teacherId, schoolData.name, subject)
       await rejectOtherApplications(applicationId, offerId)
       
-      setSuccessMessage('Candidature acceptée avec succès !')
+      setSuccessMessage(t('admin.offers.successAccept'))
       setTimeout(() => setSuccessMessage(''), 3000)
       
       await refresh()
     } catch (err) {
       console.error('Erreur lors de l\'acceptation de la candidature:', err)
-      setError('Erreur lors de l\'acceptation de la candidature')
+      setError(t('admin.offers.errorAccept'))
     }
   }
 
@@ -121,9 +123,9 @@ export function SchoolApplications() {
   if (Object.keys(groupedApplications).length === 0) {
     return (
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-2xl font-bold mb-6">Candidatures reçues</h1>
+        <h1 className="text-2xl font-bold mb-6">{t('school.applications.title')}</h1>
         <div className="bg-white p-6 rounded-lg shadow-sm border text-center text-gray-500">
-          Aucune candidature reçue
+          {t('admin.offers.empty')}
         </div>
       </div>
     )
@@ -152,12 +154,12 @@ export function SchoolApplications() {
                   {hasAcceptedApplication ? (
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-green-100 text-green-800">
                       <CheckCircle className="h-4 w-4 mr-1" />
-                      Pourvu
+                      {t('status.filled')}
                     </span>
                   ) : (
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800">
                       <Clock className="h-4 w-4 mr-1" />
-                      Ouvert
+                      {t('status.active')}
                     </span>
                   )}
                 </div>
@@ -170,7 +172,7 @@ export function SchoolApplications() {
                   className="flex items-center text-primary hover:text-primary-dark"
                 >
                   <Eye className="h-4 w-4 mr-1" />
-                  Détails
+                  {t('common.details')}
                 </button>
               </div>
             </div>

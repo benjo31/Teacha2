@@ -156,7 +156,7 @@ export function MultiSelect({
                     }}
                     className="flex w-full items-center px-4 py-2 text-sm text-primary hover:bg-gray-50"
                   >
-                    Ajouter "{search.trim()}"
+                    {t('multiselect.addOption', { option: search.trim() })}
                   </button>
                 )}
               </>

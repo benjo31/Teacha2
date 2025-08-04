@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../lib/context/AuthContext'
 import { UserCircle2, Settings, LogOut } from 'lucide-react'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 export function UserMenu() {
+  const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const { signOut } = useAuth()
   const navigate = useNavigate()
@@ -36,7 +38,7 @@ export function UserMenu() {
             className="w-full flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
           >
             <Settings className="h-4 w-4 mr-2" />
-            Mon compte
+            {t('userMenu.account')}
           </button>
 
           <button
@@ -44,7 +46,7 @@ export function UserMenu() {
             className="w-full flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
           >
             <LogOut className="h-4 w-4 mr-2" />
-            Déconnexion
+            {t('userMenu.logout')}
           </button>
         </div>
       )}

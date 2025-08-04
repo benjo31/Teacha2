@@ -5,8 +5,10 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '../ui/Tabs'
 import { UserList } from './UserList'
 import { School, GraduationCap } from 'lucide-react'
 import { LoadingSpinner } from '../ui/LoadingSpinner'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 export function UserManagement() {
+  const { t } = useTranslation()
   const [teachers, setTeachers] = useState<any[]>([])
   const [schools, setSchools] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
@@ -49,17 +51,17 @@ export function UserManagement() {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-semibold">Gestion des utilisateurs</h2>
+      <h2 className="text-xl font-semibold">{t('admin.userManagement.title')}</h2>
 
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList>
           <TabsTrigger value="teachers" className="flex items-center gap-2">
             <GraduationCap className="h-4 w-4" />
-            Remplaçants ({teachers.length})
+            {t('admin.userManagement.teachers')} ({teachers.length})
           </TabsTrigger>
           <TabsTrigger value="schools" className="flex items-center gap-2">
             <School className="h-4 w-4" />
-            Écoles ({schools.length})
+            {t('admin.userManagement.schools')} ({schools.length})
           </TabsTrigger>
         </TabsList>
 
@@ -68,11 +70,11 @@ export function UserManagement() {
             users={teachers}
             type="teacher"
             columns={[
-              { key: 'firstName', label: 'Prénom' },
-              { key: 'lastName', label: 'Nom' },
-              { key: 'email', label: 'Email' },
-              { key: 'status', label: 'Statut' },
-              { key: 'canton', label: 'Canton' }
+              { key: 'firstName', label: t('admin.userManagement.columns.firstName') },
+              { key: 'lastName', label: t('admin.userManagement.columns.lastName') },
+              { key: 'email', label: t('admin.userManagement.columns.email') },
+              { key: 'status', label: t('admin.userManagement.columns.status') },
+              { key: 'canton', label: t('admin.userManagement.columns.canton') }
             ]}
           />
         </TabsContent>
@@ -82,11 +84,11 @@ export function UserManagement() {
             users={schools}
             type="school"
             columns={[
-              { key: 'name', label: 'Nom' },
-              { key: 'email', label: 'Email' },
-              { key: 'status', label: 'Statut' },
-              { key: 'canton', label: 'Canton' },
-              { key: 'classCount', label: 'Classes' }
+              { key: 'name', label: t('admin.userManagement.columns.name') },
+              { key: 'email', label: t('admin.userManagement.columns.email') },
+              { key: 'status', label: t('admin.userManagement.columns.status') },
+              { key: 'canton', label: t('admin.userManagement.columns.canton') },
+              { key: 'classCount', label: t('admin.userManagement.columns.classes') }
             ]}
           />
         </TabsContent>

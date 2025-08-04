@@ -4,6 +4,7 @@ import { collection, query, where, getDocs, doc, updateDoc, deleteDoc } from 'fi
 import { db } from '../lib/firebase'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { School, Clock, CheckCircle, XCircle } from 'lucide-react'
+import { useTranslation } from '../lib/context/LanguageContext'
 
 type Invitation = {
   schoolId: string
@@ -13,6 +14,7 @@ type Invitation = {
 }
 
 export function TeacherInvitationsPage() {
+  const { t } = useTranslation()
   const { user } = useAuth()
   const [invitations, setInvitations] = useState<Invitation[]>([])
   const [loading, setLoading] = useState(true)
@@ -42,7 +44,7 @@ export function TeacherInvitationsPage() {
       setInvitations(invitationsData)
     } catch (err) {
       console.error('Error loading invitations:', err)
-      setError('Une erreur est survenue lors du chargement des invitations')
+      setError(t('teacherInvitations.errorLoading'))
     } finally {
       setLoading(false)
     }
@@ -63,7 +65,7 @@ export function TeacherInvitationsPage() {
       await loadInvitations()
     } catch (err) {
       console.error('Error accepting invitation:', err)
-      setError('Une erreur est survenue lors de l\'acceptation de l\'invitation')
+      setError(t('teacherInvitations.errorAccepting'))
     }
   }
 
@@ -75,7 +77,7 @@ export function TeacherInvitationsPage() {
       await loadInvitations()
     } catch (err) {
       console.error('Error rejecting invitation:', err)
-      setError('Une erreur est survenue lors du rejet de l\'invitation')
+      setError(t('teacherInvitations.errorRejecting'))
     }
   }
 
@@ -85,7 +87,7 @@ export function TeacherInvitationsPage() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Invitations reçues</h1>
+      <h1 className="text-2xl font-bold mb-6">{t('teacherInvitations.title')}</h1>
 
       {error && (
         <div className="bg-red-50 text-red-600 p-4 rounded-lg mb-6">
@@ -105,7 +107,7 @@ export function TeacherInvitationsPage() {
                   <h3 className="font-semibold">{invitation.schoolName}</h3>
                   <div className="flex items-center text-yellow-600 mt-1">
                     <Clock className="h-4 w-4 mr-1" />
-                    <span className="text-sm">En attente de réponse</span>
+                    <span className="text-sm">{t('teacherInvitations.pendingResponse')}</span>
                   </div>
                 </div>
               </div>
@@ -116,14 +118,14 @@ export function TeacherInvitationsPage() {
                   className="flex items-center space-x-1 bg-green-500 text-white px-3 py-1.5 rounded-md hover:bg-green-600"
                 >
                   <CheckCircle className="h-4 w-4" />
-                  <span>Accepter</span>
+                  <span>{t('teacherInvitations.accept')}</span>
                 </button>
                 <button
                   onClick={() => handleReject(invitation.id)}
                   className="flex items-center space-x-1 bg-red-500 text-white px-3 py-1.5 rounded-md hover:bg-red-600"
                 >
                   <XCircle className="h-4 w-4" />
-                  <span>Refuser</span>
+                  <span>{t('teacherInvitations.reject')}</span>
                 </button>
               </div>
             </div>
@@ -132,7 +134,7 @@ export function TeacherInvitationsPage() {
 
         {invitations.length === 0 && (
           <div className="text-center py-8 text-gray-500">
-            Aucune invitation en attente
+            {t('teacherInvitations.noInvitations')}
           </div>
         )}
       </div>

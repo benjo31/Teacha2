@@ -6,7 +6,7 @@ const storage = getStorage(app)
 
 async function ensureAuthenticated() {
   if (!auth.currentUser) {
-    throw new Error('Utilisateur non authentifié')
+    throw new Error('USER_NOT_AUTHENTICATED')
   }
   return auth.currentUser
 }

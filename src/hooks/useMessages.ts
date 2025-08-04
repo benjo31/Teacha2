@@ -45,16 +45,16 @@ export function useMessages(conversationId: string | undefined) {
           setLoading(false)
         },
         (err) => {
-          console.error('Erreur lors du chargement des messages:', err)
-          setError('Erreur lors du chargement des messages')
+          console.error('Error loading messages:', err)
+          setError('ERROR_LOADING_MESSAGES')
           setLoading(false)
         }
       )
 
       return () => unsubscribe()
     } catch (err) {
-      console.error('Erreur lors de l\'initialisation:', err)
-      setError('Erreur lors de l\'initialisation')
+      console.error('Error during initialization:', err)
+      setError('ERROR_INITIALIZATION')
       setLoading(false)
     }
   }, [conversationId])

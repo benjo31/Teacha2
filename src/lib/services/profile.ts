@@ -47,6 +47,6 @@ export async function updateTeacherProfile(data: TeacherProfileData, newPhoto?: 
     return { success: true }
   } catch (error) {
     console.error('Erreur lors de la mise à jour du profil:', error)
-    throw new Error('Erreur lors de la mise à jour du profil')
+    throw new Error('PROFILE_UPDATE_ERROR')
   }
 }

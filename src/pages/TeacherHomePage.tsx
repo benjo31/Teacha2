@@ -127,7 +127,7 @@ export function TeacherHomePage() {
 
       {/* Ressources et guides */}
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">{t('teacher.home.resources')}</h2>
+        <h2 className="text-xl font-semibold">{t('teacher.home.resourcesTitle')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {resources.map((resource, index) => (
             <Link
@@ -147,7 +147,7 @@ export function TeacherHomePage() {
 
       {/* Documents utiles */}
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">{t('teacher.home.documents')}</h2>
+        <h2 className="text-xl font-semibold">{t('teacher.home.documentsTitle')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {documents.map((doc, index) => (
             <a

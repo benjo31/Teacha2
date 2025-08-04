@@ -9,17 +9,24 @@ import { useEffect, useState } from 'react'
 import { HeroSection } from '../components/landing/HeroSection'
 import { fadeIn, stagger } from '../lib/animations'
 import { 
-  teacherBenefits,
-  schoolBenefits,
-  features,
-  platformAdvantages,
-  testimonials
+  getTeacherBenefits,
+  getSchoolBenefits,
+  getFeatures,
+  getPlatformAdvantages,
+  getTestimonials
 } from '../lib/constants/landing'
 import { Star } from 'lucide-react'
 
 export function LandingPage() {
   const { user } = useAuth()
   const { t } = useTranslation()
+  
+  // Get translated content
+  const teacherBenefits = getTeacherBenefits(t)
+  const schoolBenefits = getSchoolBenefits(t)
+  const features = getFeatures(t)
+  const platformAdvantages = getPlatformAdvantages(t)
+  const testimonials = getTestimonials(t)
   const [userType, setUserType] = useState<'teacher' | 'school' | null>(null)
   const [heroRef, heroInView] = useInView({ triggerOnce: true })
   const [benefitsRef, benefitsInView] = useInView({ triggerOnce: true, threshold: 0.1 })
@@ -120,7 +127,7 @@ export function LandingPage() {
               <motion.div variants={fadeIn} className="text-center mb-12">
                 <h2 className="text-3xl font-bold mb-4">{t('landing.benefits.teacher.title')}</h2>
                 <p className="text-xl text-gray-600">
-                  Transformez votre expertise en opportunités enrichissantes
+                  {t('landingPage.teacherSubtitle')}
                 </p>
               </motion.div>
 
@@ -146,7 +153,7 @@ export function LandingPage() {
               <motion.div variants={fadeIn} className="text-center mb-12">
                 <h2 className="text-3xl font-bold mb-4">{t('landing.benefits.school.title')}</h2>
                 <p className="text-xl text-gray-600">
-                  Assurez la continuité pédagogique en toute sérénité
+                  {t('landingPage.schoolSubtitle')}
                 </p>
               </motion.div>
 
@@ -180,9 +187,9 @@ export function LandingPage() {
             className="max-w-4xl mx-auto"
           >
             <motion.div variants={fadeIn} className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4">Fonctionnalités innovantes</h2>
+              <h2 className="text-3xl font-bold mb-4">{t('landingPage.featuresTitle')}</h2>
               <p className="text-xl text-gray-600">
-                Des outils puissants pour une gestion efficace des remplacements
+                {t('landingPage.featuresSubtitle')}
               </p>
             </motion.div>
 
@@ -219,7 +226,7 @@ export function LandingPage() {
             <motion.div variants={fadeIn} className="text-center mb-16">
               <h2 className="text-3xl font-bold mb-4">{t('landing.benefits.title')}</h2>
               <p className="text-xl text-gray-600">
-                Une solution complète pour répondre à vos besoins
+                {t('landingPage.platformSubtitle')}
               </p>
             </motion.div>
 
@@ -255,7 +262,7 @@ export function LandingPage() {
             <motion.div variants={fadeIn} className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">{t('landing.testimonials.title')}</h2>
               <p className="text-xl text-gray-600">
-                Découvrez les expériences de nos utilisateurs
+                {t('landingPage.testimonialsSubtitle')}
               </p>
             </motion.div>
 
@@ -292,7 +299,7 @@ export function LandingPage() {
                 {t('landing.cta.title')}
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                Rejoignez la communauté Teacha et simplifiez vos recherches de remplacements
+                {t('landingPage.ctaSubtitle')}
               </p>
               {renderActionButtons()}
             </div>

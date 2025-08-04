@@ -1,5 +1,28 @@
 {
+  "errors": {
+    "ADMIN_ALREADY_EXISTS": "Administrator existiert bereits",
+    "EMAIL_ALREADY_USED": "Diese E-Mail-Adresse wird bereits verwendet",
+    "ALREADY_APPLIED": "Sie haben sich bereits für dieses Angebot beworben",
+    "EMAIL_ALREADY_IN_USE": "Diese E-Mail-Adresse wird bereits verwendet",
+    "TEACHER_SCHOOL_ID_REQUIRED": "Lehrer-ID und Schul-ID sind erforderlich",
+    "CONVERSATION_STARTED": "Unterhaltung begonnen",
+    "CONVERSATION_NOT_FOUND": "Unterhaltung nicht gefunden",
+    "TEACHER_ALREADY_INVITED": "Dieser Lehrer wurde bereits eingeladen",
+    "USER_NOT_AUTHENTICATED": "Benutzer nicht authentifiziert",
+    "ERROR_LOADING_MESSAGES": "Fehler beim Laden der Nachrichten",
+    "ERROR_INITIALIZATION": "Fehler bei der Initialisierung",
+    "loadUserData": "Fehler beim Laden der Benutzerdaten"
+  },
   "common": {
+    "imageUpload": {
+      "uploadImage": "Bild hochladen",
+      "fileFormats": "Nur PNG oder JPG",
+      "previewAlt": "Vorschau",
+      "currentImageAlt": "Aktuelles Foto",
+      "validateCrop": "Zuschnitt bestätigen",
+      "minSizeError": "Bild muss mindestens {{width}}x{{height}} Pixel groß sein",
+      "cropError": "Fehler beim Zuschneiden des Bildes"
+    },
     "loading": "Laden...",
     "save": "Speichern",
     "cancel": "Abbrechen",
@@ -83,7 +106,8 @@
       "home": "Startseite",
       "offers": "Angebote",
       "schools": "Schulen",
-      "pricing": "Preise"
+      "pricing": "Preise",
+      "help": "Hilfe"
     },
     "teacher": {
       "dashboard": "Dashboard",
@@ -102,11 +126,7 @@
       "history": "Verlauf"
     },
     "admin": {
-      "dashboard": "Administration",
-      "users": "Benutzer",
-      "offers": "Alle Angebote",
-      "analytics": "Analytics",
-      "settings": "Einstellungen"
+      "dashboard": "Dashboard"
     }
   },
   "teacher": {
@@ -159,8 +179,8 @@
     },
     "home": {
       "quickActions": "Schnellaktionen",
-      "resources": "Nützliche Ressourcen",
-      "documents": "Nützliche Dokumente",
+      "resourcesTitle": "Nützliche Ressourcen",
+      "documentsTitle": "Nützliche Dokumente",
       "needHelp": "Brauchen Sie Hilfe?",
       "helpDescription": "Unser Team hilft Ihnen dabei, Ihre Stellvertretungserfahrung zu optimieren.",
       "actions": {
@@ -282,19 +302,19 @@
       }
     },
     "home": {
-      "quickActions": "Schnellaktionen",
+      "schoolQuickActions": "Schnellaktionen",
       "planningTools": "Planungstools",
-      "resources": "Ressourcen & Vorlagen",
+      "schoolResources": "Ressourcen & Vorlagen",
       "templates": "Herunterladbare Vorlagen",
-      "needHelp": "Brauchen Sie Hilfe?",
-      "helpDescription": "Unser Team unterstützt Sie bei der Verwaltung Ihrer Stellvertretungen.",
-      "actions": {
+      "schoolNeedHelp": "Brauchen Sie Hilfe?",
+      "schoolHelpDescription": "Unser Team unterstützt Sie bei der Verwaltung Ihrer Stellvertretungen.",
+      "schoolActions": {
         "publishOffer": "Angebot veröffentlichen",
         "publishDescription": "Ein neues Stellvertretungsangebot erstellen",
         "searchSubstitutes": "Stellvertreter suchen",
-        "searchDescription": "Unsere Datenbank qualifizierter Stellvertreter durchsuchen",
-        "viewMessages": "Nachrichten",
-        "messagesDescription": "Unterhaltungen mit Stellvertretern verwalten",
+        "schoolSearchDescription": "Unsere Datenbank qualifizierter Stellvertreter durchsuchen",
+        "schoolViewMessages": "Nachrichten",
+        "schoolMessagesDescription": "Unterhaltungen mit Stellvertretern verwalten",
         "settings": "Einstellungen",
         "settingsDescription": "Profil und Einstellungen konfigurieren"
       },
@@ -306,7 +326,7 @@
         "favoriteSubstitutes": "Liste der bevorzugten Stellvertreter",
         "favoritesDescription": "Pool regelmäßiger Stellvertreter verwalten"
       },
-      "resources": {
+      "schoolResourcesSection": {
         "welcomeGuide": "Willkommensleitfaden",
         "welcomeDescription": "Dokument für Stellvertreter anpassen",
         "internalProcedures": "Interne Verfahren",
@@ -315,7 +335,7 @@
         "evaluationDescription": "Zur Verfolgung durchgeführter Stellvertretungen",
         "download": "Herunterladen"
       },
-      "templates": {
+      "schoolTemplates": {
         "specificationTemplate": "Anforderungsvorlage",
         "specificationDescription": "Zur Detaillierung von Stellvertretungsaufgaben",
         "handoverSheet": "Übergabeblatt",
@@ -401,12 +421,18 @@
       },
       "status": {
         "accepted": "Angenommen",
-        "positionFilled": "Stelle bereits besetzt"
+        "positionFilled": "Stelle bereits besetzt",
+        "filled": "Besetzt",
+        "open": "Offen"
       },
       "candidateMessage": "Nachricht des Bewerbers",
       "confirmAcceptTitle": "Annahme bestätigen",
       "confirmAcceptMessage": "Sind Sie sicher, dass Sie diese Bewerbung annehmen möchten? Andere Bewerber werden automatisch benachrichtigt, dass die Stelle besetzt wurde.",
-      "detailsUnavailable": "Details dieser Bewerbung sind nicht mehr verfügbar"
+      "detailsUnavailable": "Details dieser Bewerbung sind nicht mehr verfügbar",
+      "empty": "Keine Bewerbungen erhalten",
+      "successAccept": "Bewerbung erfolgreich angenommen!",
+      "errorAccept": "Fehler beim Annehmen der Bewerbung",
+      "errorLoad": "Fehler beim Laden der Daten"
     },
     "team": {
       "title": "Lehrerteam",
@@ -492,6 +518,20 @@
         "sendMessage": "Nachricht senden"
       }
     },
+    "userManagement": {
+      "title": "Benutzerverwaltung",
+      "teachers": "Stellvertreter",
+      "schools": "Schulen",
+      "columns": {
+        "firstName": "Vorname",
+        "lastName": "Nachname",
+        "name": "Name",
+        "email": "E-Mail",
+        "status": "Status",
+        "canton": "Kanton",
+        "classes": "Klassen"
+      }
+    },
     "offers": {
       "title": "Alle Angebote",
       "stats": {
@@ -507,7 +547,11 @@
         "status": "Alle Status",
         "urgentOnly": "Nur dringende"
       },
-      "noOffersFound": "Keine Angebote gefunden"
+      "noOffersFound": "Keine Angebote gefunden",
+      "empty": "Keine Bewerbungen erhalten",
+      "successAccept": "Bewerbung erfolgreich angenommen!",
+      "errorAccept": "Fehler beim Annehmen der Bewerbung",
+      "errorLoad": "Fehler beim Laden der Daten"
     },
     "analytics": {
       "title": "Analytics",
@@ -544,65 +588,6 @@
     "cancelled": "Abgebrochen",
     "urgent": "Dringend"
   },
-  "subjects": {
-    "french": "Französisch",
-    "german": "Deutsch",
-    "english": "Englisch",
-    "mathematics": "Mathematik",
-    "sciences": "Naturwissenschaften",
-    "history": "Geschichte",
-    "geography": "Geografie",
-    "music": "Musik",
-    "art": "Bildnerisches Gestalten",
-    "physicalEducation": "Sport",
-    "computerScience": "Informatik",
-    "economics": "Wirtschaft",
-    "law": "Recht",
-    "philosophy": "Philosophie",
-    "biology": "Biologie",
-    "chemistry": "Chemie",
-    "physics": "Physik",
-    "italian": "Italienisch",
-    "spanish": "Spanisch",
-    "latin": "Latein",
-    "greek": "Altgriechisch"
-  },
-  "teachingLevels": {
-    "kindergarten": "Kindergarten",
-    "primary": "Primarschule",
-    "secondaryI": "Sekundarstufe I",
-    "secondaryII": "Sekundarstufe II",
-    "specialized": "Sonderschule",
-    "professional": "Berufsschule"
-  },
-  "cantons": {
-    "AG": "Aargau",
-    "AI": "Appenzell Innerrhoden",
-    "AR": "Appenzell Ausserrhoden",
-    "BE": "Bern",
-    "BL": "Basel-Landschaft",
-    "BS": "Basel-Stadt",
-    "FR": "Freiburg",
-    "GE": "Genf",
-    "GL": "Glarus",
-    "GR": "Graubünden",
-    "JU": "Jura",
-    "LU": "Luzern",
-    "NE": "Neuenburg",
-    "NW": "Nidwalden",
-    "OW": "Obwalden",
-    "SG": "St. Gallen",
-    "SH": "Schaffhausen",
-    "SO": "Solothurn",
-    "SZ": "Schwyz",
-    "TG": "Thurgau",
-    "TI": "Tessin",
-    "UR": "Uri",
-    "VD": "Waadt",
-    "VS": "Wallis",
-    "ZG": "Zug",
-    "ZH": "Zürich"
-  },
   "errors": {
     "general": "Ein Fehler ist aufgetreten",
     "network": "Verbindungsfehler",
@@ -619,7 +604,16 @@
     "invalidCredentials": "Ungültige E-Mail oder Passwort",
     "emailInUse": "Diese E-Mail wird bereits verwendet",
     "weakPassword": "Passwort ist zu schwach",
-    "tooManyRequests": "Zu viele Versuche. Bitte versuchen Sie es später erneut"
+    "tooManyRequests": "Zu viele Versuche. Bitte versuchen Sie es später erneut",
+    "services": {
+      "emailAlreadyExists": "Diese E-Mail-Adresse wird bereits verwendet",
+      "alreadyApplied": "Sie haben sich bereits für dieses Angebot beworben",
+      "profileUpdateError": "Fehler beim Aktualisieren des Profils",
+      "adminAlreadyExists": "Ein Administrator mit dieser E-Mail existiert bereits",
+      "emailAlreadyUsed": "Diese E-Mail wird bereits verwendet. Bitte wählen Sie eine andere.",
+      "userNotAuthenticated": "Benutzer nicht authentifiziert",
+      "teacherAlreadyInvited": "Dieser Lehrer ist bereits eingeladen"
+    }
   },
   "success": {
     "saved": "Erfolgreich gespeichert",
@@ -640,8 +634,9 @@
   },
   "landing": {
     "hero": {
-      "title": "Vereinfachen Sie Ihre Lehrervertretungen",
-      "subtitle": "Die Plattform, die Schulen und qualifizierte Stellvertreter in der Schweiz verbindet",
+      "badge": "Die innovative Lösung für Schulvertretungen",
+      "title": "Teacha - Die erste Schul-Stellvertreter-Verbindungsplattform in der Schweiz",
+      "subtitle": "Vereinfachen Sie das Management von Schulvertretungen mit unserer innovativen Lösung, die Schulen intelligent mit qualifizierten Stellvertretern verbindet.",
       "cta": {
         "teacher": "Ich bin Stellvertreter",
         "school": "Ich bin eine Schule"
@@ -683,12 +678,12 @@
     "cta": {
       "title": "Bereit, Ihre Vertretungen zu vereinfachen?",
       "button": "Jetzt starten"
+    },
+    "demo": {
+      "title": "Entdecken Sie Teacha in Aktion",
+      "description": "Eine schnelle Demonstration unserer Vertretungsmanagement-Plattform",
+      "altText": "Video-Vorschau"
     }
-  },
-  "footer": {
-    "terms": "Nutzungsbedingungen",
-    "privacy": "Datenschutz",
-    "copyright": "© {{year}} Teacha. Alle Rechte vorbehalten."
   },
   "guide": {
     "title": "Der vollständige Stellvertreter-Leitfaden",
@@ -851,6 +846,454 @@
         "question": "Was tun bei technischen Problemen?",
         "answer": "Bei technischen Problemen kontaktieren Sie unseren Support unter hello@cta-ecom.com. Unser Team verpflichtet sich, Ihnen so schnell wie möglich zu antworten."
       }
+    }
+  },
+  "howItWorks": {
+    "title": "Wie funktioniert es?",
+    "subtitle": "RemplaceProf vereinfacht die Verbindung zwischen Schulen und Stellvertretern. Entdecken Sie, wie unsere Plattform Ihnen helfen kann.",
+    "forTeachers": "Für Stellvertreter",
+    "forSchools": "Für Schulen",
+    "teacher": {
+      "step1": {
+        "title": "1. Erstellen Sie Ihr Profil",
+        "description": "Melden Sie sich als Stellvertreter an und vervollständigen Sie Ihr Profil mit Ihren Fähigkeiten und Verfügbarkeiten."
+      },
+      "step2": {
+        "title": "2. Finden Sie Aufträge",
+        "description": "Durchsuchen Sie Stellvertretungsangebote, die zu Ihrem Profil und Ihren Kriterien passen."
+      },
+      "step3": {
+        "title": "3. Bewerben Sie sich einfach",
+        "description": "Bewerben Sie sich mit wenigen Klicks und kommunizieren Sie direkt mit den Schulen."
+      },
+      "step4": {
+        "title": "4. Verwalten Sie Ihre Aufträge",
+        "description": "Verfolgen Sie Ihre Bewerbungen und organisieren Sie Ihren Vertretungsplan."
+      }
+    },
+    "school": {
+      "step1": {
+        "title": "1. Registrieren Sie Ihre Schule",
+        "description": "Erstellen Sie das Profil Ihrer Schule und geben Sie Ihre spezifischen Bedürfnisse an."
+      },
+      "step2": {
+        "title": "2. Veröffentlichen Sie Ihre Bedürfnisse",
+        "description": "Erstellen Sie detaillierte Stellvertretungsangebote in nur wenigen Minuten."
+      },
+      "step3": {
+        "title": "3. Wählen Sie Ihre Stellvertreter",
+        "description": "Prüfen Sie Bewerbungen und wählen Sie das ideale Profil für Ihre Klasse."
+      },
+      "step4": {
+        "title": "4. Kommunizieren Sie direkt",
+        "description": "Tauschen Sie sich mit Kandidaten aus und organisieren Sie Vertretungen effizient."
+      }
+    },
+    "cta": {
+      "title": "Bereit zu beginnen?",
+      "teacher": "Ich bin Stellvertreter",
+      "school": "Ich bin eine Schule"
+    }
+  },
+  "userMenu": {
+    "account": "Mein Konto",
+    "logout": "Abmelden"
+  },
+  "footer": {
+    "description": "Die erste Schule-Stellvertreter-Verbindungsplattform in der Schweiz",
+    "navigation": "Navigation",
+    "howItWorks": "Wie funktioniert es?",
+    "pricing": "Preise",
+    "help": "Hilfe",
+    "information": "Informationen",
+    "legal": "Impressum",
+    "terms": "Allgemeine Geschäftsbedingungen",
+    "contact": "Kontakt",
+    "copyright": "© {{year}} Teacha. Alle Rechte vorbehalten."
+  },
+  "multiselect": {
+    "addOption": "\"{{option}}\" hinzufügen"
+  },
+  "legal": {
+    "title": "Impressum",
+    "contentRedaction": {
+      "title": "Inhalt und Redaktion",
+      "description": "Teacha ist die sichere Web-Kommunikationslösung für Stellvertreter und Schulen, die allen DSGVO-Bestimmungen entspricht."
+    },
+    "coordinates": {
+      "title": "Kontaktdaten"
+    },
+    "disclaimer": {
+      "title": "Haftungsausschluss",
+      "content1": "Der Inhalt dieser Webseiten wird mit grösster Sorgfalt gepflegt. Dennoch lehnen wir jede Verantwortung für deren Inhalt ab.",
+      "content2": "Druckfehler, Irrtümer und Änderungen vorbehalten.",
+      "content3": "Sämtliche Urheberrechte gehören Teacha. Der Inhalt dieser Website darf ohne Genehmigung von Teacha nicht verwendet werden, und die Quelle muss angegeben werden."
+    },
+    "dataProtection": {
+      "title": "Datenschutz",
+      "description": "Beim Ausfüllen von Formularen übermittelte persönliche Daten sind vertraulich und werden nicht an Dritte weitergegeben."
+    }
+  },
+  "terms": {
+    "title": "Allgemeine Geschäftsbedingungen",
+    "introduction": {
+      "title": "1. Einführung",
+      "object": {
+        "title": "Gegenstand",
+        "description": "Diese Bedingungen regeln die Nutzung der Teacha-Plattform, die einen Verbindungsservice zwischen Schulen und Stellvertretern anbietet."
+      },
+      "acceptance": {
+        "title": "Annahme der Bedingungen",
+        "description": "Durch die Nutzung der Teacha-Plattform akzeptieren Sie diese allgemeinen Verkaufs- und Servicebedingungen."
+      }
+    },
+    "serviceDescription": {
+      "title": "2. Servicebeschreibung",
+      "pilot": {
+        "title": "Pilotphase",
+        "description": "Während der Pilotprojektphase ist der Zugang zur Plattform für alle Schulen und Stellvertreter kostenlos."
+      },
+      "paidServices": {
+        "title": "Kostenpflichtige Services",
+        "description": "Nach der Pilotphase wird der Zugang zu bestimmten Services für Schulen in Form von Abonnements kostenpflichtig."
+      }
+    },
+    "accountCreation": {
+      "title": "3. Kontoerstellung",
+      "registration": {
+        "title": "Registrierung erforderlich",
+        "description": "Um auf Services zuzugreifen, müssen Schulen und Stellvertreter ein Konto erstellen und genaue und vollständige Informationen bereitstellen."
+      },
+      "responsibility": {
+        "title": "Verantwortung",
+        "description": "Jeder Benutzer ist für die Sicherheit seines Kontos und Passworts verantwortlich."
+      }
+    },
+    "financialConditions": {
+      "title": "4. Finanzielle Bedingungen",
+      "payment": {
+        "title": "Zahlungsbedingungen",
+        "description": "Kostenpflichtige Abonnements für Schulen werden über Stripe abgerechnet. Details zu Abonnementgebühren werden vor dem Abonnement bereitgestellt."
+      },
+      "renewal": {
+        "title": "Verlängerung und Kündigung",
+        "description": "Das Abonnement wird automatisch verlängert, es sei denn, es wird vor dem Verlängerungsdatum gekündigt."
+      }
+    },
+    "userObligations": {
+      "title": "5. Benutzerverpflichtungen",
+      "conduct": {
+        "title": "Benutzerverhalten",
+        "description": "Benutzer verpflichten sich, die Plattform ethisch und in Übereinstimmung mit geltendem Recht zu nutzen."
+      },
+      "confidentiality": {
+        "title": "Vertraulichkeit",
+        "description": "Benutzer müssen über Teacha erhaltene Informationen vertraulich behandeln."
+      }
+    },
+    "intellectualProperty": {
+      "title": "6. Geistiges Eigentum",
+      "rights": {
+        "title": "Rechte",
+        "description": "Der Inhalt von Teacha, einschließlich Texte, Grafiken, Logos usw., ist durch das Urheberrecht geschützt und bleibt ausschließliches Eigentum von Teacha."
+      },
+      "prohibitions": {
+        "title": "Verbote",
+        "description": "Es ist verboten, Inhalte der Plattform ohne ausdrückliche Genehmigung von Teacha zu reproduzieren, zu modifizieren oder zu verwerten."
+      }
+    },
+    "liability": {
+      "title": "7. Haftungsbeschränkung",
+      "warranties": {
+        "title": "Garantien",
+        "description": "Teacha garantiert nicht, dass der Service frei von Unterbrechungen oder Fehlern sein wird."
+      },
+      "limitation": {
+        "title": "Haftungsbeschränkung",
+        "description": "Teacha ist nicht verantwortlich für indirekte Schäden, die aus der Nutzung der Plattform entstehen."
+      }
+    },
+    "modifications": {
+      "title": "8. Änderungen der Bedingungen",
+      "right": {
+        "title": "Änderungsrecht",
+        "description": "Teacha behält sich das Recht vor, die allgemeinen Bedingungen jederzeit zu ändern."
+      },
+      "notification": {
+        "title": "Benachrichtigung",
+        "description": "Änderungen werden den Benutzern über die Plattform oder per E-Mail mitgeteilt."
+      }
+    },
+    "jurisdiction": {
+      "title": "9. Gerichtsstand und anwendbares Recht",
+      "law": {
+        "title": "Anwendbares Recht",
+        "description": "Diese Bedingungen unterliegen und werden nach schweizerischem Recht ausgelegt."
+      },
+      "courts": {
+        "title": "Gerichtsstand",
+        "description": "Alle Streitigkeiten im Zusammenhang mit der Nutzung von Teacha unterliegen den zuständigen Gerichten von Biel, Schweiz."
+      }
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Für Fragen zu diesen Bedingungen wenden Sie sich bitte an Teacha:"
+    }
+  },
+  "teacherApplications": {
+    "title": "Meine Bewerbungen",
+    "empty": "Sie haben sich noch nicht für Stellvertretungen beworben",
+    "confirmWithdraw": "Sind Sie sicher, dass Sie Ihre Bewerbung zurückziehen möchten?",
+    "status": {
+      "accepted": "Bewerbung angenommen",
+      "rejected": "Stelle besetzt",
+      "pending": "Ausstehend"
+    },
+    "lessons": "Lektionen",
+    "dateFrom": "Vom",
+    "dateTo": "bis",
+    "message": "Nachricht",
+    "withdraw": "Zurückziehen",
+    "withdrawing": "Zurückziehen...",
+    "offerUnavailable": "Dieses Angebot ist nicht mehr verfügbar",
+    "schoolDefault": "Schule"
+  },
+  "schoolsList": {
+    "title": "Registrierte Schulen",
+    "searchSchool": "Nach einer Schule suchen...",
+    "searchCity": "Nach Stadt suchen...",
+    "allCantons": "Alle Kantone",
+    "showFavoritesOnly": "Nur meine Lieblingsschulen anzeigen",
+    "noSchoolsFound": "Keine Schulen entsprechen Ihren Kriterien",
+    "classes": "Klassen",
+    "viewProfile": "Profil anzeigen",
+    "errorLoading": "Fehler beim Laden der Schulen"
+  },
+  "landingPage": {
+    "teacherSubtitle": "Verwandeln Sie Ihr Fachwissen in bereichernde Möglichkeiten",
+    "schoolSubtitle": "Gewährleisten Sie die pädagogische Kontinuität in aller Ruhe",
+    "featuresTitle": "Innovative Funktionen",
+    "featuresSubtitle": "Mächtige Tools für effizientes Vertretungsmanagement",
+    "platformSubtitle": "Eine umfassende Lösung für Ihre Bedürfnisse",
+    "testimonialsSubtitle": "Entdecken Sie die Erfahrungen unserer Nutzer",
+    "ctaSubtitle": "Treten Sie der Teacha-Community bei und vereinfachen Sie Ihre Vertretungssuche",
+    "teacherBenefits": {
+      "flexible": {
+        "title": "Flexibles Zusatzeinkommen",
+        "description": "Wählen Sie Ihre Aufträge nach Ihrer Verfügbarkeit und Ihren Vorlieben"
+      },
+      "targeted": {
+        "title": "Gezielte Möglichkeiten",
+        "description": "Erhalten Sie Angebote, die Ihren Fähigkeiten und Ihrem geografischen Bereich entsprechen"
+      },
+      "simplified": {
+        "title": "Vereinfachter Prozess",
+        "description": "Ein-Klick-Bewerbung und Echtzeitverfolgung Ihrer Bewerbungen"
+      },
+      "communication": {
+        "title": "Direkte Kommunikation",
+        "description": "Tauschen Sie sich einfach mit Schulen über unser integriertes Messaging aus"
+      }
+    },
+    "schoolBenefits": {
+      "fast": {
+        "title": "Schnelle Antwort",
+        "description": "Finden Sie qualifizierte Stellvertreter in Stunden, auch dringend"
+      },
+      "talent": {
+        "title": "Talentpool",
+        "description": "Zugang zu einer Basis von verifizierten und sofort verfügbaren Stellvertretern"
+      },
+      "management": {
+        "title": "Vereinfachte Verwaltung",
+        "description": "Planen und verwalten Sie Ihre Vertretungen über eine intuitive Oberfläche"
+      },
+      "quality": {
+        "title": "Qualität gewährleistet",
+        "description": "Qualifizierte Profile, die von unserem Expertenteam validiert wurden"
+      }
+    },
+    "features": {
+      "notifications": {
+        "title": "Echtzeit-Benachrichtigungen",
+        "description": "Werden Sie sofort über neue Bewerbungen und Antworten auf Ihre Bewerbungen benachrichtigt"
+      },
+      "geolocation": {
+        "title": "Intelligente Geolokalisierung",
+        "description": "Finden Sie Vertretungen in Ihrer Nähe oder in Gebieten Ihrer Wahl"
+      },
+      "dashboard": {
+        "title": "Personalisiertes Dashboard",
+        "description": "Verfolgen Sie Ihre Statistiken und verwalten Sie Ihre Aktivitäten über eine dedizierte Oberfläche"
+      },
+      "documents": {
+        "title": "Dokumentenverwaltung",
+        "description": "Zentralisieren Sie alle Ihre wichtigen Dokumente (Lebenslauf, Diplome, Bewertungen)"
+      }
+    },
+    "platformAdvantages": {
+      "speed": {
+        "title": "Ausführungsgeschwindigkeit",
+        "description": "Angebotsveröffentlichung und Verbindung in Minuten"
+      },
+      "guarantee": {
+        "title": "Qualität garantiert",
+        "description": "Rigorose Profilüberprüfung und Bewertungssystem"
+      },
+      "support": {
+        "title": "Personalisierter Support",
+        "description": "Ein engagiertes Team, das Ihnen zuhört und Sie begleitet"
+      }
+    },
+    "testimonials": {
+      "marie": {
+        "name": "Marie L.",
+        "role": "Grundschul-Stellvertreterin",
+        "content": "Teacha ermöglichte es mir, schnell Aufträge zu finden, die meiner Verfügbarkeit entsprechen. Die Oberfläche ist super intuitiv und der Support ist sehr reaktionsschnell!"
+      },
+      "school": {
+        "name": "Lilas Schule",
+        "role": "Grundschule, Lausanne",
+        "content": "Erhebliche Zeitersparnis bei unserer Suche nach Stellvertretern. Der Prozess ist reibungslos und ermöglicht es uns, unerwartete Abwesenheiten effizient zu verwalten."
+      },
+      "thomas": {
+        "name": "Thomas R.",
+        "role": "Sekundarschul-Stellvertreter",
+        "content": "Ich kann meine Bewerbungen einfach verwalten und mit Schulen kommunizieren. Die Plattform half mir, mein berufliches Netzwerk zu entwickeln."
+      }
+    }
+  },
+  "teacherInvitations": {
+    "title": "Erhaltene Einladungen",
+    "pendingResponse": "Wartet auf Antwort",
+    "accept": "Annehmen",
+    "reject": "Ablehnen",
+    "noInvitations": "Keine ausstehenden Einladungen",
+    "errorLoading": "Fehler beim Laden der Einladungen",
+    "errorAccepting": "Fehler beim Annehmen der Einladung",
+    "errorRejecting": "Fehler beim Ablehnen der Einladung"
+  },
+  "accountPage": {
+    "title": "Mein Konto",
+    "profile": "Profil",
+    "team": "Team",
+    "security": "Sicherheit",
+    "errorGeneral": "Ein Fehler ist aufgetreten",
+    "errorLoading": "Fehler beim Laden der Daten",
+    "dangerZone": "Gefahrenbereich",
+    "deleteAccount": "Mein Konto löschen",
+    "confirmDeletion": "Löschung bestätigen",
+    "deletionMessage": "Um Ihr Konto zu löschen, senden Sie bitte eine Anfrage per E-Mail an unser Support-Team. Möchten Sie diese Anfrage jetzt senden?",
+    "cancel": "Abbrechen",
+    "sendRequest": "Anfrage senden",
+    "emailSubject": "Antrag auf Kontolöschung",
+    "emailBody": "Hallo,\n\nIch möchte mein Teacha-Konto löschen.\n\nMeine Informationen:\nName: {{name}}\nE-Mail: {{email}}\n\nMit freundlichen Grüßen"
+  },
+  "schoolHistory": {
+    "title": "Vertretungsverlauf",
+    "noReplacements": "Keine Vertretungen durchgeführt",
+    "lessons": "Lektionen",
+    "message": "Nachricht",
+    "details": "Details",
+    "errorConversation": "Unterhaltung kann derzeit nicht erstellt werden"
+  },
+  "constants": {
+    "teachingLevels": {
+      "kindergarten": "Kindergarten",
+      "primary": "Primarstufe",
+      "secondary1": "Sekundarstufe I",
+      "secondary2": "Sekundarstufe II",
+      "tertiary": "Tertiärstufe"
+    },
+    "subjects": {
+      "french": "Französisch",
+      "german": "Deutsch",
+      "english": "Englisch",
+      "italian": "Italienisch",
+      "latin": "Latein",
+      "greek": "Griechisch",
+      "spanish": "Spanisch",
+      "mathematics": "Mathematik",
+      "naturalSciences": "Naturwissenschaften",
+      "biology": "Biologie",
+      "physics": "Physik",
+      "chemistry": "Chemie",
+      "computerScience": "Informatik",
+      "history": "Geschichte",
+      "geography": "Geographie",
+      "citizenship": "Staatsbürgerkunde",
+      "philosophy": "Philosophie",
+      "economics": "Wirtschaft",
+      "law": "Recht",
+      "psychology": "Psychologie",
+      "pedagogy": "Pädagogik",
+      "visualArts": "Bildende Kunst",
+      "music": "Musik",
+      "manualCreativeActivities": "Handwerkliche kreative Aktivitäten",
+      "textileCreativeActivities": "Textile kreative Aktivitäten",
+      "physicalEducation": "Sportunterricht",
+      "healthEducation": "Gesundheitserziehung",
+      "mitic": "MITIC",
+      "generalCulture": "Allgemeinbildung",
+      "accounting": "Buchhaltung",
+      "marketing": "Marketing",
+      "businessManagement": "Unternehmensführung",
+      "technicalSciences": "Technische Wissenschaften",
+      "technicalDrawing": "Technisches Zeichnen",
+      "medicine": "Medizin",
+      "nursing": "Krankenpflege",
+      "architecture": "Architektur",
+      "engineering": "Ingenieurwesen",
+      "communication": "Kommunikation",
+      "journalism": "Journalismus",
+      "design": "Design"
+    },
+    "cantons": {
+      "aargau": "Aargau",
+      "appenzellOuterrhoden": "Appenzell Ausserrhoden",
+      "appenzellInnerrhoden": "Appenzell Innerrhoden",
+      "baselLandschaft": "Basel-Landschaft",
+      "baselStadt": "Basel-Stadt",
+      "bern": "Bern",
+      "fribourg": "Freiburg",
+      "geneva": "Genf",
+      "glarus": "Glarus",
+      "graubunden": "Graubünden",
+      "jura": "Jura",
+      "lucerne": "Luzern",
+      "neuchatel": "Neuenburg",
+      "nidwalden": "Nidwalden",
+      "obwalden": "Obwalden",
+      "stGallen": "St. Gallen",
+      "schaffhausen": "Schaffhausen",
+      "schwyz": "Schwyz",
+      "solothurn": "Solothurn",
+      "ticino": "Tessin",
+      "thurgau": "Thurgau",
+      "uri": "Uri",
+      "valais": "Wallis",
+      "vaud": "Waadt",
+      "zug": "Zug",
+      "zurich": "Zürich"
+    },
+    "specialClasses": {
+      "welcomeClass": "Empfangsklasse",
+      "developmentClass": "Entwicklungsklasse",
+      "reducedSizeClass": "Klasse mit reduzierter Größe",
+      "supportClass": "Förderklasse",
+      "mcdi": "MCDI (Wandernder Entwicklungsklassenlehrer)",
+      "relayClass": "Relaisklasse"
+    },
+    "civility": {
+      "mr": "Herr",
+      "mrs": "Frau",
+      "neutral": "Neutral",
+      "unspecified": "Nicht angegeben"
+    },
+    "nativeLanguages": {
+      "french": "Französisch",
+      "german": "Deutsch",
+      "italian": "Italienisch"
     }
   }
 }

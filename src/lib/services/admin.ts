@@ -7,7 +7,7 @@ export async function createAdminUser(email: string, password: string) {
     // Vérifier si l'email existe déjà dans la collection admins
     const adminsSnapshot = await getDoc(doc(db, 'admins', email))
     if (adminsSnapshot.exists()) {
-      throw new Error('Un administrateur avec cet email existe déjà')
+      throw new Error('ADMIN_ALREADY_EXISTS')
     }
 
     // Créer l'utilisateur dans Firebase Auth
@@ -23,7 +23,7 @@ export async function createAdminUser(email: string, password: string) {
     return userCredential.user
   } catch (error: any) {
     if (error.code === 'auth/email-already-in-use') {
-      throw new Error('Cet email est déjà utilisé. Veuillez en choisir un autre.')
+      throw new Error('EMAIL_ALREADY_USED')
     }
     throw error
   }

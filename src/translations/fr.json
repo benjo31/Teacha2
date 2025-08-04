@@ -1,5 +1,28 @@
 {
+  "errors": {
+    "ADMIN_ALREADY_EXISTS": "Un administrateur existe déjà",
+    "EMAIL_ALREADY_USED": "Cette adresse email est déjà utilisée",
+    "ALREADY_APPLIED": "Vous avez déjà postulé pour cette offre",
+    "EMAIL_ALREADY_IN_USE": "Cette adresse email est déjà utilisée",
+    "TEACHER_SCHOOL_ID_REQUIRED": "L'ID de l'enseignant et de l'école sont requis",
+    "CONVERSATION_STARTED": "Conversation démarrée",
+    "CONVERSATION_NOT_FOUND": "Conversation non trouvée",
+    "TEACHER_ALREADY_INVITED": "Cet enseignant a déjà été invité",
+    "USER_NOT_AUTHENTICATED": "Utilisateur non authentifié",
+    "ERROR_LOADING_MESSAGES": "Erreur lors du chargement des messages",
+    "ERROR_INITIALIZATION": "Erreur lors de l'initialisation",
+    "loadUserData": "Erreur lors du chargement des données utilisateur"
+  },
   "common": {
+    "imageUpload": {
+      "uploadImage": "Télécharger une image",
+      "fileFormats": "PNG ou JPG uniquement",
+      "previewAlt": "Aperçu",
+      "currentImageAlt": "Photo actuelle",
+      "validateCrop": "Valider le recadrage",
+      "minSizeError": "L'image doit faire au minimum {{width}}x{{height}} pixels",
+      "cropError": "Erreur lors du crop de l'image"
+    },
     "loading": "Chargement...",
     "save": "Enregistrer",
     "cancel": "Annuler",
@@ -83,7 +106,8 @@
       "home": "Accueil",
       "offers": "Offres",
       "schools": "Écoles",
-      "pricing": "Tarifs"
+      "pricing": "Tarifs",
+      "help": "Aide"
     },
     "teacher": {
       "dashboard": "Tableau de bord",
@@ -102,11 +126,7 @@
       "history": "Historique"
     },
     "admin": {
-      "dashboard": "Administration",
-      "users": "Utilisateurs",
-      "offers": "Toutes les offres",
-      "analytics": "Analytics",
-      "settings": "Paramètres"
+      "dashboard": "Tableau de bord"
     }
   },
   "teacher": {
@@ -159,8 +179,8 @@
     },
     "home": {
       "quickActions": "Actions rapides",
-      "resources": "Ressources utiles",
-      "documents": "Documents utiles",
+      "resourcesTitle": "Ressources utiles",
+      "documentsTitle": "Documents utiles",
       "needHelp": "Besoin d'aide ?",
       "helpDescription": "Notre équipe est là pour vous aider à optimiser votre expérience de remplacement.",
       "actions": {
@@ -282,19 +302,19 @@
       }
     },
     "home": {
-      "quickActions": "Actions rapides",
+      "schoolQuickActions": "Actions rapides",
       "planningTools": "Outils de planification",
-      "resources": "Ressources et modèles",
+      "schoolResources": "Ressources et modèles",
       "templates": "Modèles téléchargeables",
-      "needHelp": "Besoin d'aide ?",
-      "helpDescription": "Notre équipe vous accompagne dans la gestion de vos remplacements.",
-      "actions": {
+      "schoolNeedHelp": "Besoin d'aide ?",
+      "schoolHelpDescription": "Notre équipe vous accompagne dans la gestion de vos remplacements.",
+      "schoolActions": {
         "publishOffer": "Publier une offre",
         "publishDescription": "Créez une nouvelle offre de remplacement",
         "searchSubstitutes": "Rechercher des remplaçants",
-        "searchDescription": "Parcourez notre base de remplaçants qualifiés",
-        "viewMessages": "Messages",
-        "messagesDescription": "Gérez vos conversations avec les remplaçants",
+        "schoolSearchDescription": "Parcourez notre base de remplaçants qualifiés",
+        "schoolViewMessages": "Messages",
+        "schoolMessagesDescription": "Gérez vos conversations avec les remplaçants",
         "settings": "Paramètres",
         "settingsDescription": "Configurez votre profil et vos préférences"
       },
@@ -306,7 +326,7 @@
         "favoriteSubstitutes": "Liste des remplaçants favoris",
         "favoritesDescription": "Gérez votre pool de remplaçants réguliers"
       },
-      "resources": {
+      "schoolResourcesSection": {
         "welcomeGuide": "Guide d'accueil",
         "welcomeDescription": "Document à personnaliser pour les remplaçants",
         "internalProcedures": "Procédures internes",
@@ -315,7 +335,7 @@
         "evaluationDescription": "Pour le suivi des remplacements effectués",
         "download": "Télécharger"
       },
-      "templates": {
+      "schoolTemplates": {
         "specificationTemplate": "Modèle de cahier des charges",
         "specificationDescription": "Pour détailler les missions de remplacement",
         "handoverSheet": "Fiche de transmission",
@@ -401,12 +421,18 @@
       },
       "status": {
         "accepted": "Acceptée",
-        "positionFilled": "Poste déjà pourvu"
+        "positionFilled": "Poste déjà pourvu",
+        "filled": "Pourvu",
+        "open": "Ouvert"
       },
       "candidateMessage": "Message du candidat",
       "confirmAcceptTitle": "Confirmer l'acceptation",
       "confirmAcceptMessage": "Êtes-vous sûr de vouloir accepter cette candidature ? Les autres candidats seront automatiquement notifiés que le poste a été pourvu.",
-      "detailsUnavailable": "Les détails de cette candidature ne sont plus disponibles"
+      "detailsUnavailable": "Les détails de cette candidature ne sont plus disponibles",
+      "empty": "Aucune candidature reçue",
+      "successAccept": "Candidature acceptée avec succès !",
+      "errorAccept": "Erreur lors de l'acceptation de la candidature",
+      "errorLoad": "Erreur lors du chargement des données"
     },
     "team": {
       "title": "Équipe enseignante",
@@ -509,6 +535,20 @@
       },
       "noOffersFound": "Aucune offre trouvée"
     },
+    "userManagement": {
+      "title": "Gestion des utilisateurs",
+      "teachers": "Remplaçants",
+      "schools": "Écoles",
+      "columns": {
+        "firstName": "Prénom",
+        "lastName": "Nom",
+        "name": "Nom",
+        "email": "Email",
+        "status": "Statut",
+        "canton": "Canton",
+        "classes": "Classes"
+      }
+    },
     "analytics": {
       "title": "Analytics",
       "metrics": {
@@ -544,65 +584,6 @@
     "cancelled": "Annulé",
     "urgent": "Urgent"
   },
-  "subjects": {
-    "french": "Français",
-    "german": "Allemand",
-    "english": "Anglais",
-    "mathematics": "Mathématiques",
-    "sciences": "Sciences",
-    "history": "Histoire",
-    "geography": "Géographie",
-    "music": "Musique",
-    "art": "Arts visuels",
-    "physicalEducation": "Éducation physique",
-    "computerScience": "Informatique",
-    "economics": "Économie",
-    "law": "Droit",
-    "philosophy": "Philosophie",
-    "biology": "Biologie",
-    "chemistry": "Chimie",
-    "physics": "Physique",
-    "italian": "Italien",
-    "spanish": "Espagnol",
-    "latin": "Latin",
-    "greek": "Grec ancien"
-  },
-  "teachingLevels": {
-    "kindergarten": "École enfantine",
-    "primary": "Primaire",
-    "secondaryI": "Secondaire I",
-    "secondaryII": "Secondaire II",
-    "specialized": "École spécialisée",
-    "professional": "École professionnelle"
-  },
-  "cantons": {
-    "AG": "Argovie",
-    "AI": "Appenzell Rhodes-Intérieures",
-    "AR": "Appenzell Rhodes-Extérieures",
-    "BE": "Berne",
-    "BL": "Bâle-Campagne",
-    "BS": "Bâle-Ville",
-    "FR": "Fribourg",
-    "GE": "Genève",
-    "GL": "Glaris",
-    "GR": "Grisons",
-    "JU": "Jura",
-    "LU": "Lucerne",
-    "NE": "Neuchâtel",
-    "NW": "Nidwald",
-    "OW": "Obwald",
-    "SG": "Saint-Gall",
-    "SH": "Schaffhouse",
-    "SO": "Soleure",
-    "SZ": "Schwyz",
-    "TG": "Thurgovie",
-    "TI": "Tessin",
-    "UR": "Uri",
-    "VD": "Vaud",
-    "VS": "Valais",
-    "ZG": "Zoug",
-    "ZH": "Zurich"
-  },
   "errors": {
     "general": "Une erreur est survenue",
     "network": "Erreur de connexion",
@@ -619,7 +600,16 @@
     "invalidCredentials": "Email ou mot de passe incorrect",
     "emailInUse": "Cette adresse email est déjà utilisée",
     "weakPassword": "Le mot de passe est trop faible",
-    "tooManyRequests": "Trop de tentatives. Veuillez réessayer plus tard"
+    "tooManyRequests": "Trop de tentatives. Veuillez réessayer plus tard",
+    "services": {
+      "emailAlreadyExists": "Cette adresse email est déjà utilisée",
+      "alreadyApplied": "Vous avez déjà postulé à cette offre",
+      "profileUpdateError": "Erreur lors de la mise à jour du profil",
+      "adminAlreadyExists": "Un administrateur avec cet email existe déjà",
+      "emailAlreadyUsed": "Cet email est déjà utilisé. Veuillez en choisir un autre.",
+      "userNotAuthenticated": "Utilisateur non authentifié",
+      "teacherAlreadyInvited": "Cet enseignant est déjà invité"
+    }
   },
   "success": {
     "saved": "Enregistré avec succès",
@@ -640,8 +630,9 @@
   },
   "landing": {
     "hero": {
-      "title": "Simplifiez vos remplacements d'enseignants",
-      "subtitle": "La plateforme qui connecte écoles et remplaçants qualifiés en Suisse romande",
+      "badge": "La solution innovante pour les remplacements scolaires",
+      "title": "Teacha - La première plateforme de mise en relation école-remplaçants en Suisse",
+      "subtitle": "Simplifiez la gestion des remplacements scolaires grâce à notre solution innovante qui connecte intelligemment les écoles avec des remplaçants qualifiés.",
       "cta": {
         "teacher": "Je suis remplaçant",
         "school": "Je suis une école"
@@ -683,12 +674,12 @@
     "cta": {
       "title": "Prêt à simplifier vos remplacements ?",
       "button": "Commencer maintenant"
+    },
+    "demo": {
+      "title": "Découvrez Teacha en action",
+      "description": "Une démonstration rapide de notre plateforme de gestion des remplacements",
+      "altText": "Aperçu de la vidéo"
     }
-  },
-  "footer": {
-    "terms": "Conditions d'utilisation",
-    "privacy": "Politique de confidentialité",
-    "copyright": "© {{year}} Teacha. Tous droits réservés."
   },
   "guide": {
     "title": "Le guide complet du remplaçant",
@@ -851,6 +842,454 @@
         "question": "Que faire en cas de problème technique ?",
         "answer": "En cas de problème technique, contactez notre support à hello@cta-ecom.com. Notre équipe s'engage à vous répondre dans les plus brefs délais."
       }
+    }
+  },
+  "howItWorks": {
+    "title": "Comment ça marche ?",
+    "subtitle": "RemplaceProf simplifie la mise en relation entre les écoles et les remplaçants. Découvrez comment notre plateforme peut vous aider.",
+    "forTeachers": "Pour les remplaçants",
+    "forSchools": "Pour les écoles",
+    "teacher": {
+      "step1": {
+        "title": "1. Créez votre profil",
+        "description": "Inscrivez-vous en tant que remplaçant et complétez votre profil avec vos compétences et disponibilités."
+      },
+      "step2": {
+        "title": "2. Trouvez des missions",
+        "description": "Parcourez les offres de remplacement qui correspondent à votre profil et à vos critères."
+      },
+      "step3": {
+        "title": "3. Postulez simplement",
+        "description": "Candidatez en quelques clics et échangez directement avec les établissements."
+      },
+      "step4": {
+        "title": "4. Gérez vos missions",
+        "description": "Suivez vos candidatures et organisez votre planning de remplacements."
+      }
+    },
+    "school": {
+      "step1": {
+        "title": "1. Inscrivez votre école",
+        "description": "Créez le profil de votre établissement et précisez vos besoins spécifiques."
+      },
+      "step2": {
+        "title": "2. Publiez vos besoins",
+        "description": "Créez des offres de remplacement détaillées en quelques minutes."
+      },
+      "step3": {
+        "title": "3. Sélectionnez vos remplaçants",
+        "description": "Examinez les candidatures et choisissez le profil idéal pour votre classe."
+      },
+      "step4": {
+        "title": "4. Communiquez directement",
+        "description": "Échangez avec les candidats et organisez les remplacements efficacement."
+      }
+    },
+    "cta": {
+      "title": "Prêt à commencer ?",
+      "teacher": "Je suis remplaçant",
+      "school": "Je suis une école"
+    }
+  },
+  "userMenu": {
+    "account": "Mon compte",
+    "logout": "Déconnexion"
+  },
+  "footer": {
+    "description": "La première plateforme de mise en relation école-remplaçants en Suisse",
+    "navigation": "Navigation",
+    "howItWorks": "Comment ça marche ?",
+    "pricing": "Prix",
+    "help": "Aide",
+    "information": "Informations",
+    "legal": "Mentions légales",
+    "terms": "Conditions générales",
+    "contact": "Contact",
+    "copyright": "© {{year}} Teacha. Tous droits réservés."
+  },
+  "multiselect": {
+    "addOption": "Ajouter \"{{option}}\""
+  },
+  "legal": {
+    "title": "Mentions légales",
+    "contentRedaction": {
+      "title": "Contenu et Rédaction",
+      "description": "Teacha est la solution web de communication remplaçants et établissements scolaires, sécurisée et répondant à toutes les réglementations RGPD."
+    },
+    "coordinates": {
+      "title": "Coordonnées"
+    },
+    "disclaimer": {
+      "title": "Clause de non-responsabilité",
+      "content1": "Le contenu de ces pages web est maintenu avec le plus grand soin. Cependant, nous déclinons toute responsabilité quant à leur contenu.",
+      "content2": "Erreurs d'impression, fautes et modifications réservées.",
+      "content3": "L'intégralité des droits d'auteurs appartiennent à Teacha. Le contenu de ce site web ne peut être utilisé sans autorisation de la part de Teacha, et la source doit être indiquée."
+    },
+    "dataProtection": {
+      "title": "Protection des données",
+      "description": "Les données personnelles transmises lors du remplissage de formulaires sont confidentielles et ne seront pas transmises à des tiers."
+    }
+  },
+  "terms": {
+    "title": "Conditions Générales de Vente",
+    "introduction": {
+      "title": "1. Introduction",
+      "object": {
+        "title": "Objet",
+        "description": "Les présentes conditions régissent l'utilisation de la plateforme Teacha, qui offre un service de mise en relation entre écoles et enseignants remplaçants."
+      },
+      "acceptance": {
+        "title": "Acceptation des conditions",
+        "description": "En utilisant la plateforme Teacha, vous acceptez ces conditions générales de vente et de service."
+      }
+    },
+    "serviceDescription": {
+      "title": "2. Description du Service",
+      "pilot": {
+        "title": "Phase pilote",
+        "description": "Durant la phase de projet pilote, l'accès à la plateforme est gratuit pour toutes les écoles et remplaçants."
+      },
+      "paidServices": {
+        "title": "Services payants",
+        "description": "À l'issue de la phase pilote, l'accès à certains services deviendra payant pour les écoles sous forme d'abonnement."
+      }
+    },
+    "accountCreation": {
+      "title": "3. Création de compte",
+      "registration": {
+        "title": "Inscription requise",
+        "description": "Pour accéder aux services, les écoles et les remplaçants doivent créer un compte en fournissant des informations exactes et complètes."
+      },
+      "responsibility": {
+        "title": "Responsabilité",
+        "description": "Chaque utilisateur est responsable de la sécurité de son compte et de son mot de passe."
+      }
+    },
+    "financialConditions": {
+      "title": "4. Conditions Financières",
+      "payment": {
+        "title": "Modalités de paiement",
+        "description": "Les abonnements payants pour les écoles seront facturés via Stripe. Les détails des frais d'abonnement seront fournis avant la souscription."
+      },
+      "renewal": {
+        "title": "Renouvellement et annulation",
+        "description": "L'abonnement est renouvelé automatiquement sauf annulation avant la date de renouvellement."
+      }
+    },
+    "userObligations": {
+      "title": "5. Obligations des Utilisateurs",
+      "conduct": {
+        "title": "Conduite des utilisateurs",
+        "description": "Les utilisateurs s'engagent à utiliser la plateforme de manière éthique et conforme aux lois en vigueur."
+      },
+      "confidentiality": {
+        "title": "Confidentialité",
+        "description": "Les utilisateurs doivent traiter les informations obtenues via Teacha de manière confidentielle."
+      }
+    },
+    "intellectualProperty": {
+      "title": "6. Propriété intellectuelle",
+      "rights": {
+        "title": "Droits",
+        "description": "Le contenu de Teacha, y compris les textes, graphiques, logos, etc., est protégé par le droit de la propriété intellectuelle et reste la propriété exclusive de Teacha."
+      },
+      "prohibitions": {
+        "title": "Interdictions",
+        "description": "Il est interdit de reproduire, modifier ou exploiter les contenus de la plateforme sans l'autorisation expresse de Teacha."
+      }
+    },
+    "liability": {
+      "title": "7. Limitation de responsabilité",
+      "warranties": {
+        "title": "Garanties",
+        "description": "Teacha ne garantit pas que le service sera exempt d'interruptions ou d'erreurs."
+      },
+      "limitation": {
+        "title": "Limitation de responsabilité",
+        "description": "Teacha ne sera pas responsable des dommages indirects découlant de l'utilisation de la plateforme."
+      }
+    },
+    "modifications": {
+      "title": "8. Modifications des conditions",
+      "right": {
+        "title": "Droit de modification",
+        "description": "Teacha se réserve le droit de modifier les conditions générales à tout moment."
+      },
+      "notification": {
+        "title": "Notification",
+        "description": "Les modifications seront notifiées aux utilisateurs par la plateforme ou par email."
+      }
+    },
+    "jurisdiction": {
+      "title": "9. Juridiction et droit applicable",
+      "law": {
+        "title": "Droit applicable",
+        "description": "Ces conditions sont régies et interprétées conformément au droit suisse."
+      },
+      "courts": {
+        "title": "Juridiction",
+        "description": "Tout litige relatif à l'utilisation de Teacha sera soumis aux tribunaux compétents de Bienne, Suisse."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Pour toute question concernant ces conditions, veuillez contacter Teacha :"
+    }
+  },
+  "teacherApplications": {
+    "title": "Mes candidatures",
+    "empty": "Vous n'avez pas encore postulé à des remplacements",
+    "confirmWithdraw": "Êtes-vous sûr de vouloir retirer votre candidature ?",
+    "status": {
+      "accepted": "Candidature acceptée",
+      "rejected": "Remplacement pourvu",
+      "pending": "En attente"
+    },
+    "lessons": "leçons",
+    "dateFrom": "Du",
+    "dateTo": "au",
+    "message": "Message",
+    "withdraw": "Retirer",
+    "withdrawing": "Retrait...",
+    "offerUnavailable": "Cette offre n'est plus disponible",
+    "schoolDefault": "École"
+  },
+  "schoolsList": {
+    "title": "Écoles inscrites",
+    "searchSchool": "Rechercher une école...",
+    "searchCity": "Rechercher par ville...",
+    "allCantons": "Tous les cantons",
+    "showFavoritesOnly": "Afficher uniquement mes écoles favorites",
+    "noSchoolsFound": "Aucune école ne correspond à vos critères",
+    "classes": "classes",
+    "viewProfile": "Voir le profil",
+    "errorLoading": "Une erreur est survenue lors du chargement des écoles"
+  },
+  "landingPage": {
+    "teacherSubtitle": "Transformez votre expertise en opportunités enrichissantes",
+    "schoolSubtitle": "Assurez la continuité pédagogique en toute sérénité",
+    "featuresTitle": "Fonctionnalités innovantes",
+    "featuresSubtitle": "Des outils puissants pour une gestion efficace des remplacements",
+    "platformSubtitle": "Une solution complète pour répondre à vos besoins",
+    "testimonialsSubtitle": "Découvrez les expériences de nos utilisateurs",
+    "ctaSubtitle": "Rejoignez la communauté Teacha et simplifiez vos recherches de remplacements",
+    "teacherBenefits": {
+      "flexible": {
+        "title": "Revenu complémentaire flexible",
+        "description": "Choisissez vos missions selon vos disponibilités et vos préférences"
+      },
+      "targeted": {
+        "title": "Opportunités ciblées",
+        "description": "Recevez des offres correspondant à vos compétences et votre zone géographique"
+      },
+      "simplified": {
+        "title": "Processus simplifié",
+        "description": "Candidature en un clic et suivi en temps réel de vos postulations"
+      },
+      "communication": {
+        "title": "Communication directe",
+        "description": "Échangez facilement avec les établissements via notre messagerie intégrée"
+      }
+    },
+    "schoolBenefits": {
+      "fast": {
+        "title": "Réponse rapide",
+        "description": "Trouvez des remplaçants qualifiés en quelques heures, même en urgence"
+      },
+      "talent": {
+        "title": "Vivier de talents",
+        "description": "Accédez à une base de remplaçants vérifiés et disponibles immédiatement"
+      },
+      "management": {
+        "title": "Gestion simplifiée",
+        "description": "Planifiez et gérez vos remplacements depuis une interface intuitive"
+      },
+      "quality": {
+        "title": "Qualité assurée",
+        "description": "Des profils qualifiés et validés par notre équipe d'experts"
+      }
+    },
+    "features": {
+      "notifications": {
+        "title": "Notifications en temps réel",
+        "description": "Soyez alerté instantanément des nouvelles candidatures et des réponses à vos postulations"
+      },
+      "geolocation": {
+        "title": "Géolocalisation intelligente",
+        "description": "Trouvez des remplacements près de chez vous ou dans les zones de votre choix"
+      },
+      "dashboard": {
+        "title": "Tableau de bord personnalisé",
+        "description": "Suivez vos statistiques et gérez vos activités depuis une interface dédiée"
+      },
+      "documents": {
+        "title": "Gestion documentaire",
+        "description": "Centralisez tous vos documents importants (CV, diplômes, évaluations)"
+      }
+    },
+    "platformAdvantages": {
+      "speed": {
+        "title": "Rapidité d'exécution",
+        "description": "Publication d'offres et mise en relation en quelques minutes"
+      },
+      "guarantee": {
+        "title": "Qualité garantie",
+        "description": "Vérification rigoureuse des profils et système d'évaluation"
+      },
+      "support": {
+        "title": "Support personnalisé",
+        "description": "Une équipe dédiée à votre écoute pour vous accompagner"
+      }
+    },
+    "testimonials": {
+      "marie": {
+        "name": "Marie L.",
+        "role": "Remplaçante en primaire",
+        "content": "Teacha m'a permis de trouver rapidement des missions qui correspondent à mes disponibilités. L'interface est super intuitive et le support est très réactif !"
+      },
+      "school": {
+        "name": "École des Lilas",
+        "role": "École primaire, Lausanne",
+        "content": "Un gain de temps considérable dans notre recherche de remplaçants. Le processus est fluide et nous permet de gérer efficacement les absences imprévues."
+      },
+      "thomas": {
+        "name": "Thomas R.",
+        "role": "Remplaçant en secondaire",
+        "content": "Je peux facilement gérer mes candidatures et communiquer avec les écoles. La plateforme m'a permis de développer mon réseau professionnel."
+      }
+    }
+  },
+  "teacherInvitations": {
+    "title": "Invitations reçues",
+    "pendingResponse": "En attente de réponse",
+    "accept": "Accepter",
+    "reject": "Refuser",
+    "noInvitations": "Aucune invitation en attente",
+    "errorLoading": "Une erreur est survenue lors du chargement des invitations",
+    "errorAccepting": "Une erreur est survenue lors de l'acceptation de l'invitation",
+    "errorRejecting": "Une erreur est survenue lors du rejet de l'invitation"
+  },
+  "accountPage": {
+    "title": "Mon compte",
+    "profile": "Profil",
+    "team": "Équipe",
+    "security": "Sécurité",
+    "errorGeneral": "Une erreur est survenue",
+    "errorLoading": "Erreur lors du chargement des données",
+    "dangerZone": "Zone de danger",
+    "deleteAccount": "Supprimer mon compte",
+    "confirmDeletion": "Confirmer la suppression",
+    "deletionMessage": "Pour supprimer votre compte, nous vous invitons à envoyer une demande par email à notre équipe support. Voulez-vous envoyer cette demande maintenant ?",
+    "cancel": "Annuler",
+    "sendRequest": "Envoyer la demande",
+    "emailSubject": "Demande de suppression de compte",
+    "emailBody": "Bonjour,\n\nJe souhaite supprimer mon compte Teacha.\n\nMes informations :\nNom : {{name}}\nEmail : {{email}}\n\nCordialement"
+  },
+  "schoolHistory": {
+    "title": "Historique des remplacements",
+    "noReplacements": "Aucun remplacement effectué",
+    "lessons": "leçons",
+    "message": "Message",
+    "details": "Détails",
+    "errorConversation": "Impossible de créer la conversation pour le moment"
+  },
+  "constants": {
+    "teachingLevels": {
+      "kindergarten": "École enfantine",
+      "primary": "Primaire",
+      "secondary1": "Secondaire I",
+      "secondary2": "Secondaire II",
+      "tertiary": "Tertiaire"
+    },
+    "subjects": {
+      "french": "Français",
+      "german": "Allemand",
+      "english": "Anglais",
+      "italian": "Italien",
+      "latin": "Latin",
+      "greek": "Grec",
+      "spanish": "Espagnol",
+      "mathematics": "Mathématiques",
+      "naturalSciences": "Sciences de la nature",
+      "biology": "Biologie",
+      "physics": "Physique",
+      "chemistry": "Chimie",
+      "computerScience": "Informatique",
+      "history": "Histoire",
+      "geography": "Géographie",
+      "citizenship": "Citoyenneté",
+      "philosophy": "Philosophie",
+      "economics": "Économie",
+      "law": "Droit",
+      "psychology": "Psychologie",
+      "pedagogy": "Pédagogie",
+      "visualArts": "Arts visuels",
+      "music": "Musique",
+      "manualCreativeActivities": "Activités créatrices manuelles",
+      "textileCreativeActivities": "Activités créatrices textiles",
+      "physicalEducation": "Éducation physique",
+      "healthEducation": "Éducation à la santé",
+      "mitic": "MITIC",
+      "generalCulture": "Culture générale",
+      "accounting": "Comptabilité",
+      "marketing": "Marketing",
+      "businessManagement": "Gestion d'entreprise",
+      "technicalSciences": "Sciences techniques",
+      "technicalDrawing": "Dessin technique",
+      "medicine": "Médecine",
+      "nursing": "Soins infirmiers",
+      "architecture": "Architecture",
+      "engineering": "Ingénierie",
+      "communication": "Communication",
+      "journalism": "Journalisme",
+      "design": "Design"
+    },
+    "cantons": {
+      "aargau": "Argovie",
+      "appenzellOuterrhoden": "Appenzell Rhodes-Extérieures",
+      "appenzellInnerrhoden": "Appenzell Rhodes-Intérieures",
+      "baselLandschaft": "Bâle-Campagne",
+      "baselStadt": "Bâle-Ville",
+      "bern": "Berne",
+      "fribourg": "Fribourg",
+      "geneva": "Genève",
+      "glarus": "Glaris",
+      "graubunden": "Grisons",
+      "jura": "Jura",
+      "lucerne": "Lucerne",
+      "neuchatel": "Neuchâtel",
+      "nidwalden": "Nidwald",
+      "obwalden": "Obwald",
+      "stGallen": "Saint-Gall",
+      "schaffhausen": "Schaffhouse",
+      "schwyz": "Schwytz",
+      "solothurn": "Soleure",
+      "ticino": "Tessin",
+      "thurgau": "Thurgovie",
+      "uri": "Uri",
+      "valais": "Valais",
+      "vaud": "Vaud",
+      "zug": "Zoug",
+      "zurich": "Zurich"
+    },
+    "specialClasses": {
+      "welcomeClass": "Classe d'accueil",
+      "developmentClass": "Classe de développement",
+      "reducedSizeClass": "Classe à effectif réduit",
+      "supportClass": "Classe de soutien",
+      "mcdi": "MCDI (Maître de classe de développement itinérant)",
+      "relayClass": "Classe relais"
+    },
+    "civility": {
+      "mr": "Monsieur",
+      "mrs": "Madame",
+      "neutral": "Neutre",
+      "unspecified": "Non spécifié"
+    },
+    "nativeLanguages": {
+      "french": "Français",
+      "german": "Allemand",
+      "italian": "Italien"
     }
   }
 }

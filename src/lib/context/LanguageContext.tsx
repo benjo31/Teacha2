@@ -28,7 +28,19 @@ const languageOptions = [
   { code: 'de' as const, name: 'Deutsch', flag: '🇩🇪' }
 ]
 
-const LanguageContext = createContext<LanguageContextType | null>(null)
+// Create default context value to avoid null context issues
+const defaultContextValue: LanguageContextType = {
+  language: 'fr',
+  setLanguage: () => {},
+  t: (key: string) => key,
+  languages: [
+    { code: 'fr' as const, name: 'Français', flag: '🇫🇷' },
+    { code: 'en' as const, name: 'English', flag: '🇬🇧' },
+    { code: 'de' as const, name: 'Deutsch', flag: '🇩🇪' }
+  ]
+}
+
+const LanguageContext = createContext<LanguageContextType>(defaultContextValue)
 
 // Helper function to get nested object values using dot notation
 function getNestedValue(obj: any, path: string): string {
@@ -73,6 +85,10 @@ export function LanguageProvider({ children }: PropsWithChildren) {
 
   // Translation function
   const t = (key: string, params?: Record<string, string | number>): string => {
+    if (!translations[language]) {
+      console.warn(`Translation language '${language}' not found, falling back to French`)
+      return getNestedValue(translations.fr, key) || key
+    }
     const translation = getNestedValue(translations[language], key)
     
     if (translation === undefined) {
@@ -101,14 +117,16 @@ export function LanguageProvider({ children }: PropsWithChildren) {
     t,
     languages: languageOptions
   }
-
+  
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>
 }
 
 export function useLanguage() {
   const context = useContext(LanguageContext)
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider')
+  // With the default context value, this should never be null
+  // But we keep the check for safety
+  if (!context || context === defaultContextValue) {
+    console.warn('Using default LanguageContext - LanguageProvider may not be properly set up')
   }
   return context
 }
