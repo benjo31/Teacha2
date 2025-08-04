@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { collection, query, where, getDocs, doc, updateDoc } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
 import { Check, X } from 'lucide-react'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 type Teacher = {
   id: string
@@ -16,6 +17,7 @@ type Teacher = {
 }
 
 export function PendingTeachersList() {
+  const { t } = useTranslation()
   const [teachers, setTeachers] = useState<Teacher[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -54,11 +56,11 @@ export function PendingTeachersList() {
   }
 
   if (loading) {
-    return <div>Chargement...</div>
+    return <div>{t('admin.loading')}</div>
   }
 
   if (teachers.length === 0) {
-    return <div>Aucun remplaçant en attente de validation</div>
+    return <div>{t('admin.noPendingTeachers')}</div>
   }
 
   return (
@@ -74,9 +76,9 @@ export function PendingTeachersList() {
             </h3>
             <p className="text-sm text-gray-500">{teacher.email}</p>
             <div className="mt-2 text-sm">
-              <p>Âge: {teacher.age} ans</p>
-              <p>Niveaux: {teacher.teachingLevels.join(', ')}</p>
-              <p>Branches: {teacher.subjects.join(', ')}</p>
+              <p>{t('admin.teacherDetails.age')}: {t('admin.teacherDetails.yearsOld', { age: teacher.age })}</p>
+              <p>{t('admin.teacherDetails.levels')}: {teacher.teachingLevels.join(', ')}</p>
+              <p>{t('admin.teacherDetails.subjects')}: {teacher.subjects.join(', ')}</p>
             </div>
           </div>
           

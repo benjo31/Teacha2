@@ -26,30 +26,36 @@ export function GlobalOffersView() {
 
   useEffect(() => {
     const q = query(
-      collection(db, 'offers'),
+      collection(db, 'replacement-offers'),
       orderBy('createdAt', 'desc')
     )
 
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const offersData: Offer[] = []
-      snapshot.forEach((doc) => {
-        const data = doc.data()
-        offersData.push({
-          id: doc.id,
-          title: data.title || '',
-          schoolName: data.schoolName || '',
-          startDate: data.startDate || '',
-          endDate: data.endDate || '',
-          status: data.status || 'active',
-          urgent: data.urgent || false,
-          subjects: data.subjects || [],
-          teachingLevels: data.teachingLevels || [],
-          applicationCount: data.applicationCount || 0
+    const unsubscribe = onSnapshot(q, 
+      (snapshot) => {
+        const offersData: Offer[] = []
+        snapshot.forEach((doc) => {
+          const data = doc.data()
+          offersData.push({
+            id: doc.id,
+            title: data.title || '',
+            schoolName: data.schoolName || '',
+            startDate: data.startDate || '',
+            endDate: data.endDate || '',
+            status: data.status || 'active',
+            urgent: data.urgent || false,
+            subjects: data.subjects || [],
+            teachingLevels: data.teachingLevels || [],
+            applicationCount: data.applicationCount || 0
+          })
         })
-      })
-      setOffers(offersData)
-      setLoading(false)
-    })
+        setOffers(offersData)
+        setLoading(false)
+      },
+      (error) => {
+        console.error('Error loading offers:', error)
+        setLoading(false)
+      }
+    )
 
     return () => unsubscribe()
   }, [])

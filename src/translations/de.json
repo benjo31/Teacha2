@@ -1,4 +1,31 @@
 {
+  "validation": {
+    "required": "Dieses Feld ist erforderlich",
+    "email": "Ungültige E-Mail",
+    "minLength": "Muss mindestens {{min}} Zeichen enthalten",
+    "maxLength": "Darf {{max}} Zeichen nicht überschreiten",
+    "minValue": "Mindestwert ist {{min}}",
+    "maxValue": "Höchstwert ist {{max}}",
+    "addressRequired": "Adresse ist erforderlich",
+    "civilityRequired": "Anrede ist erforderlich",
+    "nativeLanguageRequired": "Muttersprache ist erforderlich",
+    "cantonRequired": "Kanton ist erforderlich",
+    "selectAtLeastOneLevel": "Wählen Sie mindestens eine Stufe",
+    "selectAtLeastOneSubject": "Wählen Sie mindestens ein Fach",
+    "fileSizeLimit": "Datei darf {{size}} MB nicht überschreiten",
+    "pdfOnly": "Nur PDF-Dateien sind akzeptiert",
+    "imageFormat": "Akzeptiertes Format: JPG oder PNG",
+    "invalidUrl": "Ungültige URL",
+    "invalidTimeFormat": "Ungültiges Format (HH:MM)",
+    "minAge": "Sie müssen mindestens {{age}} Jahre alt sein",
+    "phoneRequired": "Telefonnummer ist erforderlich",
+    "schoolNameRequired": "Schulname ist erforderlich",
+    "classCountRequired": "Anzahl Klassen ist erforderlich",
+    "nameRequired": "Name ist erforderlich",
+    "roleRequired": "Rolle ist erforderlich",
+    "streetRequired": "Strasse ist erforderlich",
+    "cityRequired": "Ort ist erforderlich"
+  },
   "errors": {
     "ADMIN_ALREADY_EXISTS": "Administrator existiert bereits",
     "EMAIL_ALREADY_USED": "Diese E-Mail-Adresse wird bereits verwendet",
@@ -11,7 +38,72 @@
     "USER_NOT_AUTHENTICATED": "Benutzer nicht authentifiziert",
     "ERROR_LOADING_MESSAGES": "Fehler beim Laden der Nachrichten",
     "ERROR_INITIALIZATION": "Fehler bei der Initialisierung",
-    "loadUserData": "Fehler beim Laden der Benutzerdaten"
+    "loadUserData": "Fehler beim Laden der Benutzerdaten",
+    "SCHOOL_NOT_FOUND": "Schule nicht gefunden",
+    "INVITATION_LIMIT_REACHED": "Einladungslimit erreicht"
+  },
+  "roles": {
+    "director": "Direktor",
+    "teacher": "Lehrer"
+  },
+  "team": {
+    "title": "Team-Management",
+    "inviteTeacher": "Lehrer einladen",
+    "invitationLimit": "{{used}}/{{max}} Einladungen verwendet",
+    "limitReached": "Einladungslimit erreicht",
+    "nearLimit": "Nahe am Limit",
+    "activeTeachers": "Aktive Lehrer",
+    "pendingInvitations": "Ausstehende Einladungen",
+    "acceptanceRate": "Akzeptanzrate",
+    "removeTeacher": "Aus Team entfernen",
+    "changeRole": "Rolle ändern",
+    "confirmRemove": "Sind Sie sicher, dass Sie diesen Lehrer aus dem Team entfernen möchten?",
+    "invitationSent": "Einladung erfolgreich gesendet",
+    "teacherRemoved": "Lehrer aus Team entfernt",
+    "roleUpdated": "Rolle erfolgreich aktualisiert"
+  },
+  "school": {
+    "home": {
+      "quickActions": "Schnellaktionen",
+      "planningTools": "Planungstools",
+      "resources": "Ressourcen und Leitfäden",
+      "templates": "Dokumentvorlagen",
+      "needHelp": "Hilfe benötigt?",
+      "helpDescription": "Unser Team ist da, um Ihnen bei der effektiven Nutzung der Plattform zu helfen.",
+      "actions": {
+        "publishOffer": "Angebot veröffentlichen",
+        "publishDescription": "Eine neue Vertretungsanfrage erstellen",
+        "searchSubstitutes": "Vertretungen suchen",
+        "searchDescription": "Eingegangene Bewerbungen durchsuchen",
+        "viewMessages": "Nachrichten anzeigen",
+        "messagesDescription": "Mit Ihren Vertretungen kommunizieren",
+        "settings": "Einstellungen",
+        "settingsDescription": "Profil und Präferenzen verwalten"
+      },
+      "planning": {
+        "absenceCalendar": "Abwesenheitskalender",
+        "absenceDescription": "Ihre Vertretungsanfragen planen",
+        "periodCalculator": "Periodenrechner",
+        "calculatorDescription": "Die Dauer Ihrer Vertretungen berechnen",
+        "favoriteSubstitutes": "Bevorzugte Vertretungen",
+        "favoritesDescription": "Ihre Liste bevorzugter Vertretungen verwalten"
+      },
+      "resources": {
+        "download": "Herunterladen",
+        "welcomeGuide": "Willkommensleitfaden",
+        "welcomeDescription": "Lernen Sie, wie Sie die Plattform effektiv nutzen",
+        "internalProcedures": "Interne Verfahren",
+        "proceduresDescription": "Überprüfen Sie die Verfahren Ihrer Institution",
+        "evaluationGrid": "Bewertungsraster",
+        "evaluationDescription": "Die Qualität der Vertretungen bewerten"
+      },
+      "templates": {
+        "specificationTemplate": "Spezifikationsvorlage",
+        "specificationDescription": "Vorlage zur Definition von Vertretungserwartungen",
+        "handoverSheet": "Übergabeblatt",
+        "handoverDescription": "Übergangsdokument für Vertretungen"
+      }
+    }
   },
   "common": {
     "imageUpload": {
@@ -55,6 +147,8 @@
     "error": "Fehler",
     "success": "Erfolgreich",
     "warning": "Warnung",
+    "statistics": "Statistiken",
+    "close": "Schließen",
     "info": "Information",
     "details": "Details",
     "noResults": "Keine Ergebnisse",
@@ -86,7 +180,7 @@
       "title": "Registrieren",
       "subtitle": "Erstellen Sie Ihr Konto",
       "asTeacher": "Ich bin Stellvertreter",
-      "asSchool": "Ich bin eine Schule",
+      "asSchool": "Ich bin Admin",
       "hasAccount": "Bereits ein Konto?",
       "login": "Anmelden",
       "step": "Schritt {{current}} von {{total}}"
@@ -561,6 +655,21 @@
         "successRate": "Erfolgsrate",
         "avgTimeToFill": "Durchschnittliche Besetzungszeit"
       }
+    },
+    "loading": "Laden...",
+    "noPendingSchools": "Keine Schulen warten auf Genehmigung",
+    "noPendingTeachers": "Keine Stellvertreter warten auf Genehmigung",
+    "schoolDetails": {
+      "address": "Adresse",
+      "canton": "Kanton",
+      "levels": "Stufen",
+      "classCount": "Anzahl Klassen"
+    },
+    "teacherDetails": {
+      "age": "Alter",
+      "yearsOld": "{{age}} Jahre alt",
+      "levels": "Stufen",
+      "subjects": "Fächer"
     }
   },
   "messages": {
@@ -639,7 +748,7 @@
       "subtitle": "Vereinfachen Sie das Management von Schulvertretungen mit unserer innovativen Lösung, die Schulen intelligent mit qualifizierten Stellvertretern verbindet.",
       "cta": {
         "teacher": "Ich bin Stellvertreter",
-        "school": "Ich bin eine Schule"
+        "school": "Ich bin Admin"
       }
     },
     "benefits": {
@@ -892,7 +1001,7 @@
     "cta": {
       "title": "Bereit zu beginnen?",
       "teacher": "Ich bin Stellvertreter",
-      "school": "Ich bin eine Schule"
+      "school": "Ich bin Admin"
     }
   },
   "userMenu": {

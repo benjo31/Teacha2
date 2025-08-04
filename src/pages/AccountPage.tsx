@@ -9,10 +9,13 @@ import { TeamManagement } from '../components/schools/TeamManagement'
 import { User, Shield, Trash2, Users } from 'lucide-react'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { useTranslation } from '../lib/context/LanguageContext'
+import { PermissionGuard } from '../components/auth/PermissionGuard'
+import { usePermissions } from '../lib/hooks/usePermissions'
 
 export function AccountPage() {
   const { t } = useTranslation()
   const { user } = useAuth()
+  const { isDirector } = usePermissions()
   const [userData, setUserData] = useState<any>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -93,12 +96,12 @@ export function AccountPage() {
             <User className="h-4 w-4" />
             {t('accountPage.profile')}
           </TabsTrigger>
-          {userType === 'school' && (
+          <PermissionGuard permission="team:view_all">
             <TabsTrigger value="team" className="flex items-center gap-2">
               <Users className="h-4 w-4" />
-              {t('accountPage.team')}
+              {t('team.title')}
             </TabsTrigger>
-          )}
+          </PermissionGuard>
           <TabsTrigger value="security" className="flex items-center gap-2">
             <Shield className="h-4 w-4" />
             {t('accountPage.security')}

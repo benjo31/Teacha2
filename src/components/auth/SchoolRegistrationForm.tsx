@@ -4,18 +4,19 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from '../../lib/context/LanguageContext'
-import { schoolSchema } from '../../lib/schemas/auth'
+import { createSchoolSchema } from '../../lib/schemas/validationSchemas'
 import { Input } from '../ui/Input'
 import { MultiSelect } from '../ui/MultiSelect'
-import { TEACHING_LEVELS, CANTONS, SPECIAL_CLASSES } from '../../lib/constants'
+import { getTeachingLevels, getCantons, getSpecialClasses } from '../../lib/constants'
 import { registerSchool } from '../../lib/services/auth'
-
-type SchoolFormData = z.infer<typeof schoolSchema>
 
 export function SchoolRegistrationForm() {
   const { t } = useTranslation()
   const [error, setError] = useState('')
   const navigate = useNavigate()
+  
+  const schoolSchema = createSchoolSchema(t)
+  type SchoolFormData = z.infer<typeof schoolSchema>
   
   const {
     register,
@@ -38,8 +39,12 @@ export function SchoolRegistrationForm() {
     try {
       await registerSchool(data)
       navigate('/pending-approval')
-    } catch (err) {
-      setError(t('school.registration.error'))
+    } catch (err: any) {
+      if (err.message === 'EMAIL_ALREADY_IN_USE') {
+        setError(t('errors.emailInUse'))
+      } else {
+        setError(t('school.registration.error'))
+      }
     }
   }
 
@@ -87,7 +92,7 @@ export function SchoolRegistrationForm() {
         render={({ field }) => (
           <MultiSelect
             label={t('school.registration.canton')}
-            options={CANTONS}
+            options={getCantons(t)}
             value={field.value ? [field.value] : []}
             onChange={(values) => field.onChange(values[0])}
             error={errors.canton?.message}
@@ -101,7 +106,7 @@ export function SchoolRegistrationForm() {
         render={({ field }) => (
           <MultiSelect
             label={t('school.registration.teachingLevels')}
-            options={TEACHING_LEVELS}
+            options={getTeachingLevels(t)}
             value={field.value || []}
             onChange={field.onChange}
             error={errors.teachingLevels?.message}
@@ -148,7 +153,7 @@ export function SchoolRegistrationForm() {
         render={({ field }) => (
           <MultiSelect
             label={t('school.registration.specialClasses')}
-            options={SPECIAL_CLASSES}
+            options={getSpecialClasses(t)}
             value={field.value || []}
             onChange={field.onChange}
             error={errors.specialClasses?.message}

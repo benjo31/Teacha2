@@ -1,4 +1,31 @@
 {
+  "validation": {
+    "required": "This field is required",
+    "email": "Invalid email",
+    "minLength": "Must contain at least {{min}} characters",
+    "maxLength": "Must not exceed {{max}} characters",
+    "minValue": "Minimum value is {{min}}",
+    "maxValue": "Maximum value is {{max}}",
+    "addressRequired": "Address is required",
+    "civilityRequired": "Title is required",
+    "nativeLanguageRequired": "Native language is required",
+    "cantonRequired": "Canton is required",
+    "selectAtLeastOneLevel": "Select at least one level",
+    "selectAtLeastOneSubject": "Select at least one subject",
+    "fileSizeLimit": "File must not exceed {{size}} MB",
+    "pdfOnly": "Only PDF files are accepted",
+    "imageFormat": "Accepted format: JPG or PNG",
+    "invalidUrl": "Invalid URL",
+    "invalidTimeFormat": "Invalid format (HH:MM)",
+    "minAge": "You must be at least {{age}} years old",
+    "phoneRequired": "Phone number is required",
+    "schoolNameRequired": "School name is required",
+    "classCountRequired": "Number of classes is required",
+    "nameRequired": "Name is required",
+    "roleRequired": "Role is required",
+    "streetRequired": "Street is required",
+    "cityRequired": "City is required"
+  },
   "errors": {
     "ADMIN_ALREADY_EXISTS": "Admin already exists",
     "EMAIL_ALREADY_USED": "This email address is already in use",
@@ -11,7 +38,72 @@
     "USER_NOT_AUTHENTICATED": "User not authenticated",
     "ERROR_LOADING_MESSAGES": "Error loading messages",
     "ERROR_INITIALIZATION": "Error during initialization",
-    "loadUserData": "Error loading user data"
+    "loadUserData": "Error loading user data",
+    "SCHOOL_NOT_FOUND": "School not found",
+    "INVITATION_LIMIT_REACHED": "Invitation limit reached"
+  },
+  "roles": {
+    "director": "Director",
+    "teacher": "Teacher"
+  },
+  "team": {
+    "title": "Team Management",
+    "inviteTeacher": "Invite Teacher",
+    "invitationLimit": "{{used}}/{{max}} invitations used",
+    "limitReached": "Invitation limit reached",
+    "nearLimit": "Near limit",
+    "activeTeachers": "Active teachers",
+    "pendingInvitations": "Pending invitations",
+    "acceptanceRate": "Acceptance rate",
+    "removeTeacher": "Remove from team",
+    "changeRole": "Change role",
+    "confirmRemove": "Are you sure you want to remove this teacher from the team?",
+    "invitationSent": "Invitation sent successfully",
+    "teacherRemoved": "Teacher removed from team",
+    "roleUpdated": "Role updated successfully"
+  },
+  "school": {
+    "home": {
+      "quickActions": "Quick Actions",
+      "planningTools": "Planning Tools",
+      "resources": "Resources and Guides",
+      "templates": "Document Templates",
+      "needHelp": "Need Help?",
+      "helpDescription": "Our team is here to help you use the platform effectively.",
+      "actions": {
+        "publishOffer": "Publish Offer",
+        "publishDescription": "Create a new substitute request",
+        "searchSubstitutes": "Search Substitutes",
+        "searchDescription": "Browse received applications",
+        "viewMessages": "View Messages",
+        "messagesDescription": "Communicate with your substitutes",
+        "settings": "Settings",
+        "settingsDescription": "Manage your profile and preferences"
+      },
+      "planning": {
+        "absenceCalendar": "Absence Calendar",
+        "absenceDescription": "Plan your substitute requests",
+        "periodCalculator": "Period Calculator",
+        "calculatorDescription": "Calculate the duration of your replacements",
+        "favoriteSubstitutes": "Favorite Substitutes",
+        "favoritesDescription": "Manage your list of preferred substitutes"
+      },
+      "resources": {
+        "download": "Download",
+        "welcomeGuide": "Welcome Guide",
+        "welcomeDescription": "Learn how to use the platform effectively",
+        "internalProcedures": "Internal Procedures",
+        "proceduresDescription": "Review your institution's procedures",
+        "evaluationGrid": "Evaluation Grid",
+        "evaluationDescription": "Evaluate the quality of substitutions"
+      },
+      "templates": {
+        "specificationTemplate": "Specification Template",
+        "specificationDescription": "Template to define substitution expectations",
+        "handoverSheet": "Handover Sheet",
+        "handoverDescription": "Transition document for substitutes"
+      }
+    }
   },
   "common": {
     "imageUpload": {
@@ -54,6 +146,8 @@
     "help": "Help",
     "error": "Error",
     "success": "Success",
+    "statistics": "Statistics",
+    "close": "Close",
     "warning": "Warning",
     "info": "Information",
     "details": "Details",
@@ -86,7 +180,7 @@
       "title": "Sign Up",
       "subtitle": "Create your account",
       "asTeacher": "I'm a substitute teacher",
-      "asSchool": "I'm a school",
+      "asSchool": "I'm an admin",
       "hasAccount": "Already have an account?",
       "login": "Sign in",
       "step": "Step {{current}} of {{total}}"
@@ -561,6 +655,21 @@
         "successRate": "Success Rate",
         "avgTimeToFill": "Average Time to Fill"
       }
+    },
+    "loading": "Loading...",
+    "noPendingSchools": "No schools pending approval",
+    "noPendingTeachers": "No teachers pending approval",
+    "schoolDetails": {
+      "address": "Address",
+      "canton": "Canton",
+      "levels": "Levels",
+      "classCount": "Number of classes"
+    },
+    "teacherDetails": {
+      "age": "Age",
+      "yearsOld": "{{age}} years old",
+      "levels": "Levels",
+      "subjects": "Subjects"
     }
   },
   "messages": {
@@ -639,7 +748,7 @@
       "subtitle": "Simplify school replacement management with our innovative solution that intelligently connects schools with qualified substitutes.",
       "cta": {
         "teacher": "I'm a substitute",
-        "school": "I'm a school"
+        "school": "I'm an admin"
       }
     },
     "benefits": {
@@ -892,7 +1001,7 @@
     "cta": {
       "title": "Ready to get started?",
       "teacher": "I'm a substitute",
-      "school": "I'm a school"
+      "school": "I'm an admin"
     }
   },
   "userMenu": {

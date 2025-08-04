@@ -10,6 +10,7 @@ import { LoginPage } from './pages/LoginPage'
 import { RegisterPage } from './pages/RegisterPage'
 import { AdminLoginPage } from './pages/AdminLoginPage'
 import { AdminDashboard } from './pages/AdminDashboard'
+import { CreateAdminPage } from './pages/CreateAdminPage'
 import { TeacherHomePage } from './pages/TeacherHomePage'
 import { TeacherDashboard } from './pages/TeacherDashboard'
 import { TeacherInvitationsPage } from './pages/TeacherInvitationsPage'
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="/help" element={<HelpPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/admin-login" element={<AdminLoginPage />} />
+          <Route path="/create-admin" element={<CreateAdminPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/pending-approval" element={<PendingApprovalPage />} />
           <Route path="/account" element={<ProtectedRoute><AccountPage /></ProtectedRoute>} />

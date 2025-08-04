@@ -1,4 +1,31 @@
 {
+  "validation": {
+    "required": "Ce champ est requis",
+    "email": "Email invalide",
+    "minLength": "Doit contenir au moins {{min}} caractères",
+    "maxLength": "Ne doit pas dépasser {{max}} caractères", 
+    "minValue": "La valeur minimale est {{min}}",
+    "maxValue": "La valeur maximale est {{max}}",
+    "addressRequired": "L'adresse est requise",
+    "civilityRequired": "La civilité est requise",
+    "nativeLanguageRequired": "La langue natale est requise",
+    "cantonRequired": "Le canton est requis",
+    "selectAtLeastOneLevel": "Sélectionnez au moins un niveau",
+    "selectAtLeastOneSubject": "Sélectionnez au moins une branche",
+    "fileSizeLimit": "Le fichier ne doit pas dépasser {{size}} Mo",
+    "pdfOnly": "Seuls les fichiers PDF sont acceptés",
+    "imageFormat": "Format accepté : JPG ou PNG",
+    "invalidUrl": "URL invalide",
+    "invalidTimeFormat": "Format invalide (HH:MM)",
+    "minAge": "Vous devez avoir au moins {{age}} ans",
+    "phoneRequired": "Le numéro de téléphone est requis",
+    "schoolNameRequired": "Le nom de l'école est requis",
+    "classCountRequired": "Le nombre de classes est requis",
+    "nameRequired": "Le nom est requis",
+    "roleRequired": "Le rôle est requis",
+    "streetRequired": "La rue est requise",
+    "cityRequired": "La ville est requise"
+  },
   "errors": {
     "ADMIN_ALREADY_EXISTS": "Un administrateur existe déjà",
     "EMAIL_ALREADY_USED": "Cette adresse email est déjà utilisée",
@@ -11,7 +38,72 @@
     "USER_NOT_AUTHENTICATED": "Utilisateur non authentifié",
     "ERROR_LOADING_MESSAGES": "Erreur lors du chargement des messages",
     "ERROR_INITIALIZATION": "Erreur lors de l'initialisation",
-    "loadUserData": "Erreur lors du chargement des données utilisateur"
+    "loadUserData": "Erreur lors du chargement des données utilisateur",
+    "SCHOOL_NOT_FOUND": "École non trouvée",
+    "INVITATION_LIMIT_REACHED": "Limite d'invitations atteinte"
+  },
+  "roles": {
+    "director": "Directeur",
+    "teacher": "Enseignant"
+  },
+  "team": {
+    "title": "Gestion d'équipe",
+    "inviteTeacher": "Inviter un enseignant",
+    "invitationLimit": "{{used}}/{{max}} invitations utilisées",
+    "limitReached": "Limite d'invitations atteinte",
+    "nearLimit": "Proche de la limite",
+    "activeTeachers": "Enseignants actifs",
+    "pendingInvitations": "Invitations en attente",
+    "acceptanceRate": "Taux d'acceptation",
+    "removeTeacher": "Retirer de l'équipe",
+    "changeRole": "Modifier le rôle",
+    "confirmRemove": "Êtes-vous sûr de vouloir retirer cet enseignant de l'équipe ?",
+    "invitationSent": "Invitation envoyée avec succès",
+    "teacherRemoved": "Enseignant retiré de l'équipe",
+    "roleUpdated": "Rôle mis à jour avec succès"
+  },
+  "school": {
+    "home": {
+      "quickActions": "Actions rapides",
+      "planningTools": "Outils de planification",
+      "resources": "Ressources et guides",
+      "templates": "Modèles de documents",
+      "needHelp": "Besoin d'aide ?",
+      "helpDescription": "Notre équipe est là pour vous accompagner dans l'utilisation de la plateforme.",
+      "actions": {
+        "publishOffer": "Publier une offre",
+        "publishDescription": "Créez une nouvelle demande de suppléance",
+        "searchSubstitutes": "Rechercher des suppléants",
+        "searchDescription": "Parcourez les candidatures reçues",
+        "viewMessages": "Voir les messages",
+        "messagesDescription": "Communiquez avec vos suppléants",
+        "settings": "Paramètres",
+        "settingsDescription": "Gérez votre profil et préférences"
+      },
+      "planning": {
+        "absenceCalendar": "Calendrier d'absences",
+        "absenceDescription": "Planifiez vos demandes de suppléance",
+        "periodCalculator": "Calculateur de périodes",
+        "calculatorDescription": "Calculez la durée de vos remplacements",
+        "favoriteSubstitutes": "Suppléants favoris",
+        "favoritesDescription": "Gérez votre liste de suppléants préférés"
+      },
+      "resources": {
+        "download": "Télécharger",
+        "welcomeGuide": "Guide de bienvenue",
+        "welcomeDescription": "Découvrez comment utiliser la plateforme efficacement",
+        "internalProcedures": "Procédures internes",
+        "proceduresDescription": "Consultez les procédures de votre établissement",
+        "evaluationGrid": "Grille d'évaluation",
+        "evaluationDescription": "Évaluez la qualité des suppléances"
+      },
+      "templates": {
+        "specificationTemplate": "Modèle de cahier des charges",
+        "specificationDescription": "Template pour définir les attentes de suppléance",
+        "handoverSheet": "Fiche de passation",
+        "handoverDescription": "Document de transition pour les suppléants"
+      }
+    }
   },
   "common": {
     "imageUpload": {
@@ -54,6 +146,8 @@
     "help": "Aide",
     "error": "Erreur",
     "success": "Succès",
+    "statistics": "Statistiques",
+    "close": "Fermer",
     "warning": "Attention",
     "info": "Information",
     "details": "Détails",
@@ -86,7 +180,7 @@
       "title": "Inscription",
       "subtitle": "Créez votre compte",
       "asTeacher": "Je suis remplaçant",
-      "asSchool": "Je suis une école",
+      "asSchool": "Je suis admin",
       "hasAccount": "Déjà un compte ?",
       "login": "Se connecter",
       "step": "Étape {{current}} sur {{total}}"
@@ -557,6 +651,21 @@
         "successRate": "Taux de succès",
         "avgTimeToFill": "Temps moyen de remplacement"
       }
+    },
+    "loading": "Chargement...",
+    "noPendingSchools": "Aucune école en attente de validation",
+    "noPendingTeachers": "Aucun remplaçant en attente de validation",
+    "schoolDetails": {
+      "address": "Adresse",
+      "canton": "Canton",
+      "levels": "Niveaux",
+      "classCount": "Nombre de classes"
+    },
+    "teacherDetails": {
+      "age": "Âge",
+      "yearsOld": "{{age}} ans",
+      "levels": "Niveaux",
+      "subjects": "Branches"
     }
   },
   "messages": {
@@ -635,7 +744,7 @@
       "subtitle": "Simplifiez la gestion des remplacements scolaires grâce à notre solution innovante qui connecte intelligemment les écoles avec des remplaçants qualifiés.",
       "cta": {
         "teacher": "Je suis remplaçant",
-        "school": "Je suis une école"
+        "school": "Je suis admin"
       }
     },
     "benefits": {
@@ -888,7 +997,7 @@
     "cta": {
       "title": "Prêt à commencer ?",
       "teacher": "Je suis remplaçant",
-      "school": "Je suis une école"
+      "school": "Je suis admin"
     }
   },
   "userMenu": {

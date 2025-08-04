@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { collection, query, where, getDocs, doc, updateDoc } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
 import { Check, X } from 'lucide-react'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 type School = {
   id: string
@@ -16,6 +17,7 @@ type School = {
 }
 
 export function PendingSchoolsList() {
+  const { t } = useTranslation()
   const [schools, setSchools] = useState<School[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -40,10 +42,14 @@ export function PendingSchoolsList() {
   }
 
   async function handleApprove(schoolId: string) {
-    await updateDoc(doc(db, 'schools', schoolId), {
-      status: 'approved'
-    })
-    await loadPendingSchools()
+    try {
+      await updateDoc(doc(db, 'schools', schoolId), {
+        status: 'approved'
+      })
+      await loadPendingSchools()
+    } catch (error) {
+      console.error('Error approving school:', error)
+    }
   }
 
   async function handleReject(schoolId: string) {
@@ -54,11 +60,11 @@ export function PendingSchoolsList() {
   }
 
   if (loading) {
-    return <div>Chargement...</div>
+    return <div>{t('admin.loading')}</div>
   }
 
   if (schools.length === 0) {
-    return <div>Aucune école en attente de validation</div>
+    return <div>{t('admin.noPendingSchools')}</div>
   }
 
   return (
@@ -72,10 +78,10 @@ export function PendingSchoolsList() {
             <h3 className="font-medium">{school.name}</h3>
             <p className="text-sm text-gray-500">{school.email}</p>
             <div className="mt-2 text-sm">
-              <p>Adresse: {school.address}</p>
-              <p>Canton: {school.canton}</p>
-              <p>Niveaux: {school.teachingLevels.join(', ')}</p>
-              <p>Nombre de classes: {school.classCount}</p>
+              <p>{t('admin.schoolDetails.address')}: {school.address}</p>
+              <p>{t('admin.schoolDetails.canton')}: {school.canton}</p>
+              <p>{t('admin.schoolDetails.levels')}: {school.teachingLevels.join(', ')}</p>
+              <p>{t('admin.schoolDetails.classCount')}: {school.classCount}</p>
             </div>
           </div>
           
