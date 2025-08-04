@@ -170,7 +170,7 @@ export function SchoolHomePage() {
     <div className="max-w-6xl mx-auto space-y-6">
       <SchoolStats schoolId={user?.uid || ''} />
 
-      {/* Actions rapides */}
+      {/* Quick Actions */}
       <div className="space-y-4">
         <h2 className="text-xl font-semibold">{t('school.home.quickActions')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -214,7 +214,7 @@ export function SchoolHomePage() {
 
       {/* Ressources et guides */}
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">{t('school.home.resources')}</h2>
+        <h2 className="text-xl font-semibold">{t('school.home.resourcesTitle')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {resources.map((resource, index) => (
             <a
@@ -240,7 +240,7 @@ export function SchoolHomePage() {
 
       {/* Modèles de documents */}
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">{t('school.home.templates')}</h2>
+        <h2 className="text-xl font-semibold">{t('school.home.templatesTitle')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {templates.map((template, index) => (
             <a
