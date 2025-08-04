@@ -3,6 +3,7 @@ import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from '../../lib/context/LanguageContext'
 import { schoolSchema } from '../../lib/schemas/auth'
 import { Input } from '../ui/Input'
 import { MultiSelect } from '../ui/MultiSelect'
@@ -12,6 +13,7 @@ import { registerSchool } from '../../lib/services/auth'
 type SchoolFormData = z.infer<typeof schoolSchema>
 
 export function SchoolRegistrationForm() {
+  const { t } = useTranslation()
   const [error, setError] = useState('')
   const navigate = useNavigate()
   
@@ -37,7 +39,7 @@ export function SchoolRegistrationForm() {
       await registerSchool(data)
       navigate('/pending-approval')
     } catch (err) {
-      setError('Une erreur est survenue lors de l\'inscription')
+      setError(t('school.registration.error'))
     }
   }
 
@@ -50,14 +52,14 @@ export function SchoolRegistrationForm() {
       )}
       
       <Input
-        label="Nom de l'école"
+        label={t('school.registration.name')}
         {...register('name')}
         error={errors.name?.message}
         className="h-14 text-lg"
       />
       
       <Input
-        label="Email"
+        label={t('school.registration.email')}
         type="email"
         {...register('email')}
         error={errors.email?.message}
@@ -65,7 +67,7 @@ export function SchoolRegistrationForm() {
       />
       
       <Input
-        label="Mot de passe"
+        label={t('school.registration.password')}
         type="password"
         {...register('password')}
         error={errors.password?.message}
@@ -73,7 +75,7 @@ export function SchoolRegistrationForm() {
       />
       
       <Input
-        label="Adresse"
+        label={t('school.registration.address')}
         {...register('address')}
         error={errors.address?.message}
         className="h-14 text-lg"
@@ -84,7 +86,7 @@ export function SchoolRegistrationForm() {
         control={control}
         render={({ field }) => (
           <MultiSelect
-            label="Canton"
+            label={t('school.registration.canton')}
             options={CANTONS}
             value={field.value ? [field.value] : []}
             onChange={(values) => field.onChange(values[0])}
@@ -98,7 +100,7 @@ export function SchoolRegistrationForm() {
         control={control}
         render={({ field }) => (
           <MultiSelect
-            label="Niveaux d'enseignement"
+            label={t('school.registration.teachingLevels')}
             options={TEACHING_LEVELS}
             value={field.value || []}
             onChange={field.onChange}
@@ -108,7 +110,7 @@ export function SchoolRegistrationForm() {
       />
       
       <Input
-        label="Nombre de classes"
+        label={t('school.registration.classCount')}
         type="number"
         {...register('classCount', { valueAsNumber: true })}
         error={errors.classCount?.message}
@@ -117,12 +119,12 @@ export function SchoolRegistrationForm() {
 
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
-          Description de l'établissement (facultatif)
+          {t('school.registration.description')}
         </label>
         <textarea
           {...register('description')}
           className="input min-h-[8rem] text-lg"
-          placeholder="Décrivez brièvement votre établissement..."
+          placeholder={t('school.registration.descriptionPlaceholder')}
         />
         {errors.description?.message && (
           <p className="mt-1 text-sm text-error animate-fade-in">
@@ -132,7 +134,7 @@ export function SchoolRegistrationForm() {
       </div>
 
       <Input
-        label="Site web (facultatif)"
+        label={t('school.registration.website')}
         type="url"
         {...register('website')}
         error={errors.website?.message}
@@ -145,7 +147,7 @@ export function SchoolRegistrationForm() {
         control={control}
         render={({ field }) => (
           <MultiSelect
-            label="Classes spéciales"
+            label={t('school.registration.specialClasses')}
             options={SPECIAL_CLASSES}
             value={field.value || []}
             onChange={field.onChange}
@@ -156,12 +158,12 @@ export function SchoolRegistrationForm() {
 
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
-          Projets pédagogiques particuliers (facultatif)
+          {t('school.registration.pedagogicalProjects')}
         </label>
         <textarea
           {...register('pedagogicalProjects')}
           className="input min-h-[8rem] text-lg"
-          placeholder="Décrivez vos projets pédagogiques particuliers..."
+          placeholder={t('school.registration.pedagogicalProjectsPlaceholder')}
         />
         {errors.pedagogicalProjects?.message && (
           <p className="mt-1 text-sm text-error animate-fade-in">
@@ -171,24 +173,24 @@ export function SchoolRegistrationForm() {
       </div>
 
       <div className="space-y-4 border-t border-gray-200 pt-4">
-        <h3 className="font-medium">Personne de contact principale</h3>
+        <h3 className="font-medium">{t('school.registration.contactPerson')}</h3>
         
         <Input
-          label="Nom"
+          label={t('school.registration.contactName')}
           {...register('contactPerson.name')}
           error={errors.contactPerson?.name?.message}
           className="h-14 text-lg"
         />
         
         <Input
-          label="Rôle"
+          label={t('school.registration.contactRole')}
           {...register('contactPerson.role')}
           error={errors.contactPerson?.role?.message}
           className="h-14 text-lg"
         />
         
         <Input
-          label="Téléphone"
+          label={t('school.registration.contactPhone')}
           type="tel"
           {...register('contactPerson.phone')}
           error={errors.contactPerson?.phone?.message}
@@ -196,7 +198,7 @@ export function SchoolRegistrationForm() {
         />
         
         <Input
-          label="Email"
+          label={t('school.registration.contactEmail')}
           type="email"
           {...register('contactPerson.email')}
           error={errors.contactPerson?.email?.message}
@@ -205,21 +207,21 @@ export function SchoolRegistrationForm() {
       </div>
 
       <div className="space-y-4 border-t border-gray-200 pt-4">
-        <h3 className="font-medium">Horaires typiques</h3>
+        <h3 className="font-medium">{t('school.registration.schedule')}</h3>
         
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <h4 className="text-sm font-medium text-gray-700 mb-2">Matin</h4>
+            <h4 className="text-sm font-medium text-gray-700 mb-2">{t('school.registration.morning')}</h4>
             <div className="grid grid-cols-2 gap-2">
               <Input
-                label="Début"
+                label={t('school.registration.morningStart')}
                 type="time"
                 {...register('schedule.morningStart')}
                 error={errors.schedule?.morningStart?.message}
                 className="h-14 text-lg"
               />
               <Input
-                label="Fin"
+                label={t('school.registration.morningEnd')}
                 type="time"
                 {...register('schedule.morningEnd')}
                 error={errors.schedule?.morningEnd?.message}
@@ -229,17 +231,17 @@ export function SchoolRegistrationForm() {
           </div>
           
           <div>
-            <h4 className="text-sm font-medium text-gray-700 mb-2">Après-midi</h4>
+            <h4 className="text-sm font-medium text-gray-700 mb-2">{t('school.registration.afternoon')}</h4>
             <div className="grid grid-cols-2 gap-2">
               <Input
-                label="Début"
+                label={t('school.registration.afternoonStart')}
                 type="time"
                 {...register('schedule.afternoonStart')}
                 error={errors.schedule?.afternoonStart?.message}
                 className="h-14 text-lg"
               />
               <Input
-                label="Fin"
+                label={t('school.registration.afternoonEnd')}
                 type="time"
                 {...register('schedule.afternoonEnd')}
                 error={errors.schedule?.afternoonEnd?.message}
@@ -255,7 +257,7 @@ export function SchoolRegistrationForm() {
         disabled={isSubmitting}
         className="btn btn-primary w-full h-14 text-lg"
       >
-        {isSubmitting ? 'Inscription en cours...' : 'S\'inscrire comme école'}
+        {isSubmitting ? t('school.registration.submitting') : t('school.registration.submit')}
       </button>
     </form>
   )

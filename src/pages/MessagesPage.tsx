@@ -4,6 +4,7 @@ import { ConversationList } from '../components/messages/ConversationList'
 import { MessageList } from '../components/messages/MessageList'
 import { MessageInput } from '../components/messages/MessageInput'
 import { useAuth } from '../lib/context/AuthContext'
+import { useTranslation } from '../lib/context/LanguageContext'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../lib/firebase'
 import { ArrowLeft } from 'lucide-react'
@@ -13,6 +14,7 @@ export function MessagesPage() {
   const [selectedConversation, setSelectedConversation] = useState<string | null>(null)
   const [conversationMetadata, setConversationMetadata] = useState<any>(null)
   const { user } = useAuth()
+  const { t } = useTranslation()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -72,7 +74,7 @@ export function MessagesPage() {
                 className="md:hidden flex items-center text-gray-600 hover:text-gray-800 p-4 border-b"
               >
                 <ArrowLeft className="h-5 w-5 mr-2" />
-                Retour aux conversations
+                {t('common.back')}
               </button>
 
               <MessageList 
@@ -86,7 +88,7 @@ export function MessagesPage() {
             </>
           ) : (
             <div className="flex-1 flex items-center justify-center text-gray-500">
-              Sélectionnez une conversation pour commencer
+              {t('messages.selectConversation')}
             </div>
           )}
         </div>

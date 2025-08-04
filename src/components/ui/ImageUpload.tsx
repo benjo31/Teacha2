@@ -3,6 +3,7 @@ import { Upload, X } from 'lucide-react'
 import { Crop } from 'react-image-crop'
 import ReactCrop from 'react-image-crop'
 import 'react-image-crop/dist/ReactCrop.css'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface ImageUploadProps {
   label: string
@@ -23,6 +24,7 @@ export function ImageUpload({
   minHeight = 200,
   currentImageUrl
 }: ImageUploadProps) {
+  const { t } = useTranslation()
   const inputRef = useRef<HTMLInputElement>(null)
   const imgRef = useRef<HTMLImageElement>(null)
   const [preview, setPreview] = useState<string | null>(null)
@@ -52,7 +54,7 @@ export function ImageUpload({
     })
 
     if (img.width < minWidth || img.height < minHeight) {
-      alert(`L'image doit faire au minimum ${minWidth}x${minHeight} pixels`)
+      alert(t('common.imageUpload.minSizeError', { width: minWidth.toString(), height: minHeight.toString() }))
       return
     }
 
@@ -109,7 +111,7 @@ export function ImageUpload({
         onChange(selectedFile, croppedImage)
       }
     } catch (err) {
-      console.error('Erreur lors du crop de l\'image:', err)
+      console.error(t('common.imageUpload.cropError'), err)
     }
   }
 
@@ -128,7 +130,7 @@ export function ImageUpload({
             <Upload className="mx-auto h-12 w-12 text-gray-400" />
             <div className="flex text-sm text-gray-600">
               <label className="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/90">
-                <span>Télécharger une image</span>
+                <span>{t('common.imageUpload.uploadImage')}</span>
                 <input
                   ref={inputRef}
                   type="file"
@@ -139,7 +141,7 @@ export function ImageUpload({
               </label>
             </div>
             <p className="text-xs text-gray-500">
-              PNG ou JPG uniquement
+              {t('common.imageUpload.fileFormats')}
             </p>
           </div>
         </div>
@@ -164,7 +166,7 @@ export function ImageUpload({
                 <img
                   ref={imgRef}
                   src={preview}
-                  alt="Aperçu"
+                  alt={t('common.imageUpload.previewAlt')}
                   className="max-h-64 rounded-md mx-auto"
                 />
               </ReactCrop>
@@ -173,13 +175,13 @@ export function ImageUpload({
                 onClick={handleSave}
                 className="mt-4 w-full btn btn-primary"
               >
-                Valider le recadrage
+                {t('common.imageUpload.validateCrop')}
               </button>
             </>
           ) : (
             <img
               src={currentImageUrl}
-              alt="Photo actuelle"
+              alt={t('common.imageUpload.currentImageAlt')}
               className="max-h-64 rounded-md mx-auto"
             />
           )}

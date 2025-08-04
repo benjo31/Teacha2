@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useAuth } from '../lib/context/AuthContext'
+import { useTranslation } from '../lib/context/LanguageContext'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../lib/firebase'
 import { AvailableOffersList } from '../components/teachers/AvailableOffersList'
@@ -15,6 +16,7 @@ type TeacherData = {
 
 export function TeacherDashboard() {
   const { user } = useAuth()
+  const { t } = useTranslation()
   const [teacherData, setTeacherData] = useState<TeacherData | null>(null)
   const [loading, setLoading] = useState(true)
 
@@ -37,13 +39,13 @@ export function TeacherDashboard() {
   }
 
   if (!teacherData) {
-    return <div>Une erreur est survenue</div>
+    return <div>{t('common.error')}</div>
   }
 
   return (
     <div className="max-w-6xl mx-auto space-y-6">
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Offres disponibles</h2>
+        <h2 className="text-xl font-semibold">{t('teacher.offers.title')}</h2>
         <AvailableOffersList />
       </div>
     </div>

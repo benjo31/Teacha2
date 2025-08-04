@@ -1,11 +1,14 @@
 import { Building, Mail, Book, AlertTriangle, Scale, Shield, Clock, Settings, Gavel } from 'lucide-react'
+import { useTranslation } from '../lib/context/LanguageContext'
 
 export function TermsPage() {
+  const { t } = useTranslation()
+  
   return (
     <div className="max-w-4xl mx-auto py-12 px-4">
       {/* En-tête */}
       <div className="text-center mb-12">
-        <h1 className="text-3xl font-bold mb-4">Conditions Générales de Vente</h1>
+        <h1 className="text-3xl font-bold mb-4">{t('terms.title')}</h1>
       </div>
 
       {/* Contenu principal */}
@@ -14,16 +17,16 @@ export function TermsPage() {
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <div className="flex items-center gap-3 mb-4">
             <Book className="h-6 w-6 text-primary" />
-            <h2 className="text-xl font-semibold">1. Introduction</h2>
+            <h2 className="text-xl font-semibold">{t('terms.introduction.title')}</h2>
           </div>
           <div className="space-y-4 text-gray-600">
             <div>
-              <h3 className="font-medium mb-2">Objet</h3>
-              <p>Les présentes conditions régissent l'utilisation de la plateforme Teacha, qui offre un service de mise en relation entre écoles et enseignants remplaçants.</p>
+              <h3 className="font-medium mb-2">{t('terms.introduction.object.title')}</h3>
+              <p>{t('terms.introduction.object.description')}</p>
             </div>
             <div>
-              <h3 className="font-medium mb-2">Acceptation des conditions</h3>
-              <p>En utilisant la plateforme Teacha, vous acceptez ces conditions générales de vente et de service.</p>
+              <h3 className="font-medium mb-2">{t('terms.introduction.acceptance.title')}</h3>
+              <p>{t('terms.introduction.acceptance.description')}</p>
             </div>
           </div>
         </div>
@@ -32,16 +35,16 @@ export function TermsPage() {
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <div className="flex items-center gap-3 mb-4">
             <Settings className="h-6 w-6 text-primary" />
-            <h2 className="text-xl font-semibold">2. Description du Service</h2>
+            <h2 className="text-xl font-semibold">{t('terms.serviceDescription.title')}</h2>
           </div>
           <div className="space-y-4 text-gray-600">
             <div>
-              <h3 className="font-medium mb-2">Phase pilote</h3>
-              <p>Durant la phase de projet pilote, l'accès à la plateforme est gratuit pour toutes les écoles et remplaçants.</p>
+              <h3 className="font-medium mb-2">{t('terms.serviceDescription.pilot.title')}</h3>
+              <p>{t('terms.serviceDescription.pilot.description')}</p>
             </div>
             <div>
-              <h3 className="font-medium mb-2">Services payants</h3>
-              <p>À l'issue de la phase pilote, l'accès à certains services deviendra payant pour les écoles sous forme d'abonnement.</p>
+              <h3 className="font-medium mb-2">{t('terms.serviceDescription.paidServices.title')}</h3>
+              <p>{t('terms.serviceDescription.paidServices.description')}</p>
             </div>
           </div>
         </div>
@@ -50,16 +53,16 @@ export function TermsPage() {
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <div className="flex items-center gap-3 mb-4">
             <Shield className="h-6 w-6 text-primary" />
-            <h2 className="text-xl font-semibold">3. Création de compte</h2>
+            <h2 className="text-xl font-semibold">{t('terms.accountCreation.title')}</h2>
           </div>
           <div className="space-y-4 text-gray-600">
             <div>
-              <h3 className="font-medium mb-2">Inscription requise</h3>
-              <p>Pour accéder aux services, les écoles et les remplaçants doivent créer un compte en fournissant des informations exactes et complètes.</p>
+              <h3 className="font-medium mb-2">{t('terms.accountCreation.registration.title')}</h3>
+              <p>{t('terms.accountCreation.registration.description')}</p>
             </div>
             <div>
-              <h3 className="font-medium mb-2">Responsabilité</h3>
-              <p>Chaque utilisateur est responsable de la sécurité de son compte et de son mot de passe.</p>
+              <h3 className="font-medium mb-2">{t('terms.accountCreation.responsibility.title')}</h3>
+              <p>{t('terms.accountCreation.responsibility.description')}</p>
             </div>
           </div>
         </div>
@@ -68,16 +71,16 @@ export function TermsPage() {
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <div className="flex items-center gap-3 mb-4">
             <Scale className="h-6 w-6 text-primary" />
-            <h2 className="text-xl font-semibold">4. Conditions Financières</h2>
+            <h2 className="text-xl font-semibold">{t('terms.financialConditions.title')}</h2>
           </div>
           <div className="space-y-4 text-gray-600">
             <div>
-              <h3 className="font-medium mb-2">Modalités de paiement</h3>
-              <p>Les abonnements payants pour les écoles seront facturés via Stripe. Les détails des frais d'abonnement seront fournis avant la souscription.</p>
+              <h3 className="font-medium mb-2">{t('terms.financialConditions.payment.title')}</h3>
+              <p>{t('terms.financialConditions.payment.description')}</p>
             </div>
             <div>
-              <h3 className="font-medium mb-2">Renouvellement et annulation</h3>
-              <p>L'abonnement est renouvelé automatiquement sauf annulation avant la date de renouvellement.</p>
+              <h3 className="font-medium mb-2">{t('terms.financialConditions.renewal.title')}</h3>
+              <p>{t('terms.financialConditions.renewal.description')}</p>
             </div>
           </div>
         </div>
@@ -86,16 +89,16 @@ export function TermsPage() {
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <div className="flex items-center gap-3 mb-4">
             <AlertTriangle className="h-6 w-6 text-primary" />
-            <h2 className="text-xl font-semibold">5. Obligations des Utilisateurs</h2>
+            <h2 className="text-xl font-semibold">{t('terms.userObligations.title')}</h2>
           </div>
           <div className="space-y-4 text-gray-600">
             <div>
-              <h3 className="font-medium mb-2">Conduite des utilisateurs</h3>
-              <p>Les utilisateurs s'engagent à utiliser la plateforme de manière éthique et conforme aux lois en vigueur.</p>
+              <h3 className="font-medium mb-2">{t('terms.userObligations.conduct.title')}</h3>
+              <p>{t('terms.userObligations.conduct.description')}</p>
             </div>
             <div>
-              <h3 className="font-medium mb-2">Confidentialité</h3>
-              <p>Les utilisateurs doivent traiter les informations obtenues via Teacha de manière confidentielle.</p>
+              <h3 className="font-medium mb-2">{t('terms.userObligations.confidentiality.title')}</h3>
+              <p>{t('terms.userObligations.confidentiality.description')}</p>
             </div>
           </div>
         </div>
@@ -104,16 +107,16 @@ export function TermsPage() {
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <div className="flex items-center gap-3 mb-4">
             <Book className="h-6 w-6 text-primary" />
-            <h2 className="text-xl font-semibold">6. Propriété intellectuelle</h2>
+            <h2 className="text-xl font-semibold">{t('terms.intellectualProperty.title')}</h2>
           </div>
           <div className="space-y-4 text-gray-600">
             <div>
-              <h3 className="font-medium mb-2">Droits</h3>
-              <p>Le contenu de Teacha, y compris les textes, graphiques, logos, etc., est protégé par le droit de la propriété intellectuelle et reste la propriété exclusive de Teacha.</p>
+              <h3 className="font-medium mb-2">{t('terms.intellectualProperty.rights.title')}</h3>
+              <p>{t('terms.intellectualProperty.rights.description')}</p>
             </div>
             <div>
-              <h3 className="font-medium mb-2">Interdictions</h3>
-              <p>Il est interdit de reproduire, modifier ou exploiter les contenus de la plateforme sans l'autorisation expresse de Teacha.</p>
+              <h3 className="font-medium mb-2">{t('terms.intellectualProperty.prohibitions.title')}</h3>
+              <p>{t('terms.intellectualProperty.prohibitions.description')}</p>
             </div>
           </div>
         </div>
@@ -122,16 +125,16 @@ export function TermsPage() {
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <div className="flex items-center gap-3 mb-4">
             <Shield className="h-6 w-6 text-primary" />
-            <h2 className="text-xl font-semibold">7. Limitation de responsabilité</h2>
+            <h2 className="text-xl font-semibold">{t('terms.liability.title')}</h2>
           </div>
           <div className="space-y-4 text-gray-600">
             <div>
-              <h3 className="font-medium mb-2">Garanties</h3>
-              <p>Teacha ne garantit pas que le service sera exempt d'interruptions ou d'erreurs.</p>
+              <h3 className="font-medium mb-2">{t('terms.liability.warranties.title')}</h3>
+              <p>{t('terms.liability.warranties.description')}</p>
             </div>
             <div>
-              <h3 className="font-medium mb-2">Limitation de responsabilité</h3>
-              <p>Teacha ne sera pas responsable des dommages indirects découlant de l'utilisation de la plateforme.</p>
+              <h3 className="font-medium mb-2">{t('terms.liability.limitation.title')}</h3>
+              <p>{t('terms.liability.limitation.description')}</p>
             </div>
           </div>
         </div>
@@ -140,16 +143,16 @@ export function TermsPage() {
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <div className="flex items-center gap-3 mb-4">
             <Clock className="h-6 w-6 text-primary" />
-            <h2 className="text-xl font-semibold">8. Modifications des conditions</h2>
+            <h2 className="text-xl font-semibold">{t('terms.modifications.title')}</h2>
           </div>
           <div className="space-y-4 text-gray-600">
             <div>
-              <h3 className="font-medium mb-2">Droit de modification</h3>
-              <p>Teacha se réserve le droit de modifier les conditions générales à tout moment.</p>
+              <h3 className="font-medium mb-2">{t('terms.modifications.right.title')}</h3>
+              <p>{t('terms.modifications.right.description')}</p>
             </div>
             <div>
-              <h3 className="font-medium mb-2">Notification</h3>
-              <p>Les modifications seront notifiées aux utilisateurs par la plateforme ou par email.</p>
+              <h3 className="font-medium mb-2">{t('terms.modifications.notification.title')}</h3>
+              <p>{t('terms.modifications.notification.description')}</p>
             </div>
           </div>
         </div>
@@ -158,16 +161,16 @@ export function TermsPage() {
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <div className="flex items-center gap-3 mb-4">
             <Gavel className="h-6 w-6 text-primary" />
-            <h2 className="text-xl font-semibold">9. Juridiction et droit applicable</h2>
+            <h2 className="text-xl font-semibold">{t('terms.jurisdiction.title')}</h2>
           </div>
           <div className="space-y-4 text-gray-600">
             <div>
-              <h3 className="font-medium mb-2">Droit applicable</h3>
-              <p>Ces conditions sont régies et interprétées conformément au droit suisse.</p>
+              <h3 className="font-medium mb-2">{t('terms.jurisdiction.law.title')}</h3>
+              <p>{t('terms.jurisdiction.law.description')}</p>
             </div>
             <div>
-              <h3 className="font-medium mb-2">Juridiction</h3>
-              <p>Tout litige relatif à l'utilisation de Teacha sera soumis aux tribunaux compétents de Bienne, Suisse.</p>
+              <h3 className="font-medium mb-2">{t('terms.jurisdiction.courts.title')}</h3>
+              <p>{t('terms.jurisdiction.courts.description')}</p>
             </div>
           </div>
         </div>
@@ -176,10 +179,10 @@ export function TermsPage() {
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <div className="flex items-center gap-3 mb-4">
             <Building className="h-6 w-6 text-primary" />
-            <h2 className="text-xl font-semibold">Contact</h2>
+            <h2 className="text-xl font-semibold">{t('terms.contact.title')}</h2>
           </div>
           <div className="space-y-2 text-gray-600">
-            <p>Pour toute question concernant ces conditions, veuillez contacter Teacha :</p>
+            <p>{t('terms.contact.description')}</p>
             <div className="flex items-center gap-2 mt-2">
               <Mail className="h-5 w-5 text-primary" />
               <a href="mailto:hello@teacha.ch" className="text-primary hover:text-primary-dark">

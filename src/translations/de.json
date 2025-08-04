@@ -1,0 +1,1299 @@
+{
+  "errors": {
+    "ADMIN_ALREADY_EXISTS": "Administrator existiert bereits",
+    "EMAIL_ALREADY_USED": "Diese E-Mail-Adresse wird bereits verwendet",
+    "ALREADY_APPLIED": "Sie haben sich bereits für dieses Angebot beworben",
+    "EMAIL_ALREADY_IN_USE": "Diese E-Mail-Adresse wird bereits verwendet",
+    "TEACHER_SCHOOL_ID_REQUIRED": "Lehrer-ID und Schul-ID sind erforderlich",
+    "CONVERSATION_STARTED": "Unterhaltung begonnen",
+    "CONVERSATION_NOT_FOUND": "Unterhaltung nicht gefunden",
+    "TEACHER_ALREADY_INVITED": "Dieser Lehrer wurde bereits eingeladen",
+    "USER_NOT_AUTHENTICATED": "Benutzer nicht authentifiziert",
+    "ERROR_LOADING_MESSAGES": "Fehler beim Laden der Nachrichten",
+    "ERROR_INITIALIZATION": "Fehler bei der Initialisierung",
+    "loadUserData": "Fehler beim Laden der Benutzerdaten"
+  },
+  "common": {
+    "imageUpload": {
+      "uploadImage": "Bild hochladen",
+      "fileFormats": "Nur PNG oder JPG",
+      "previewAlt": "Vorschau",
+      "currentImageAlt": "Aktuelles Foto",
+      "validateCrop": "Zuschnitt bestätigen",
+      "minSizeError": "Bild muss mindestens {{width}}x{{height}} Pixel groß sein",
+      "cropError": "Fehler beim Zuschneiden des Bildes"
+    },
+    "loading": "Laden...",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "close": "Schliessen",
+    "confirm": "Bestätigen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "all": "Alle",
+    "yes": "Ja",
+    "no": "Nein",
+    "or": "oder",
+    "and": "und",
+    "from": "von",
+    "to": "bis",
+    "per": "pro",
+    "of": "von",
+    "logout": "Abmelden",
+    "profile": "Profil",
+    "settings": "Einstellungen",
+    "dashboard": "Dashboard",
+    "home": "Startseite",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "help": "Hilfe",
+    "error": "Fehler",
+    "success": "Erfolgreich",
+    "warning": "Warnung",
+    "info": "Information",
+    "details": "Details",
+    "noResults": "Keine Ergebnisse",
+    "noDataAvailable": "Keine Daten verfügbar",
+    "noNotifications": "Keine Benachrichtigungen"
+  },
+  "auth": {
+    "login": {
+      "title": "Anmelden",
+      "subtitle": "Melden Sie sich in Ihrem Konto an",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "emailPlaceholder": "Ihre E-Mail",
+      "passwordPlaceholder": "Ihr Passwort",
+      "remember": "Angemeldet bleiben",
+      "forgot": "Passwort vergessen?",
+      "submit": "Anmelden",
+      "noAccount": "Noch kein Konto?",
+      "register": "Registrieren",
+      "errors": {
+        "connection": "Verbindungsfehler",
+        "invalidCredentials": "Ungültige Anmeldedaten",
+        "accountNotFound": "Konto nicht gefunden",
+        "emailRequired": "E-Mail ist erforderlich",
+        "passwordRequired": "Passwort ist erforderlich"
+      }
+    },
+    "register": {
+      "title": "Registrieren",
+      "subtitle": "Erstellen Sie Ihr Konto",
+      "asTeacher": "Ich bin Stellvertreter",
+      "asSchool": "Ich bin eine Schule",
+      "hasAccount": "Bereits ein Konto?",
+      "login": "Anmelden",
+      "step": "Schritt {{current}} von {{total}}"
+    },
+    "logout": {
+      "confirm": "Sind Sie sicher, dass Sie sich abmelden möchten?",
+      "button": "Abmelden"
+    },
+    "pendingApproval": {
+      "title": "Genehmigung ausstehend",
+      "message": "Ihr Konto wird überprüft. Sie erhalten eine E-Mail, sobald Ihr Konto genehmigt ist.",
+      "checkLater": "Bitte versuchen Sie es später erneut"
+    }
+  },
+  "navigation": {
+    "main": {
+      "home": "Startseite",
+      "offers": "Angebote",
+      "schools": "Schulen",
+      "pricing": "Preise",
+      "help": "Hilfe"
+    },
+    "teacher": {
+      "dashboard": "Dashboard",
+      "offers": "Verfügbare Angebote",
+      "applications": "Meine Bewerbungen",
+      "messages": "Nachrichten",
+      "profile": "Mein Profil"
+    },
+    "school": {
+      "dashboard": "Dashboard",
+      "offers": "Meine Angebote",
+      "applications": "Bewerbungen",
+      "messages": "Nachrichten",
+      "team": "Team",
+      "profile": "Schulprofil",
+      "history": "Verlauf"
+    },
+    "admin": {
+      "dashboard": "Dashboard"
+    }
+  },
+  "teacher": {
+    "registration": {
+      "title": "Lehrerregistrierung",
+      "personalInfo": "Persönliche Informationen",
+      "civility": "Anrede",
+      "mr": "Herr",
+      "mrs": "Frau",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "age": "Alter",
+      "nativeLanguage": "Muttersprache",
+      "phone": "Telefon (optional)",
+      "address": "Adresse",
+      "street": "Strasse und Nummer",
+      "zipCode": "PLZ",
+      "city": "Ort",
+      "canton": "Kanton",
+      "qualifications": "Qualifikationen",
+      "teachingLevels": "Unterrichtsstufen",
+      "subjects": "Fächer",
+      "documents": "Dokumente",
+      "cv": "Lebenslauf (PDF, max 2 MB)",
+      "photo": "Profilfoto",
+      "account": "Konto",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "confirmPassword": "Passwort bestätigen",
+      "acceptTerms": "Ich akzeptiere die Nutzungsbedingungen",
+      "submit": "Als Stellvertreter registrieren",
+      "submitting": "Registrierung läuft...",
+      "error": "Ein Fehler ist bei der Registrierung aufgetreten",
+      "success": {
+        "photoUploaded": "Foto erfolgreich hochgeladen",
+        "cvUploaded": "Lebenslauf erfolgreich hochgeladen: {{filename}}"
+      }
+    },
+    "dashboard": {
+      "title": "Lehrer Dashboard",
+      "welcome": "Willkommen, {{name}}",
+      "stats": {
+        "applications": "Bewerbungen",
+        "pending": "Ausstehend",
+        "accepted": "Angenommen",
+        "unreadMessages": "Ungelesene Nachrichten"
+      },
+      "recentOffers": "Neueste Angebote",
+      "urgentOffers": "Dringende Angebote"
+    },
+    "home": {
+      "quickActions": "Schnellaktionen",
+      "resourcesTitle": "Nützliche Ressourcen",
+      "documentsTitle": "Nützliche Dokumente",
+      "needHelp": "Brauchen Sie Hilfe?",
+      "helpDescription": "Unser Team hilft Ihnen dabei, Ihre Stellvertretungserfahrung zu optimieren.",
+      "actions": {
+        "searchReplacements": "Stellvertretungen suchen",
+        "searchDescription": "Verfügbare Angebote durchsuchen",
+        "myApplications": "Meine Bewerbungen",
+        "applicationsDescription": "Bewerbungen verfolgen",
+        "viewMessages": "Nachrichten",
+        "messagesDescription": "Unterhaltungen verwalten",
+        "profile": "Mein Profil",
+        "profileDescription": "Informationen aktualisieren"
+      },
+      "resources": {
+        "guide": "Stellvertreter-Leitfaden",
+        "guideDescription": "Tipps und bewährte Praktiken für erfolgreiche Stellvertretungen",
+        "faq": "FAQ & Support",
+        "faqDescription": "Antworten auf häufig gestellte Fragen"
+      },
+      "documents": {
+        "reportTemplate": "Stellvertretungs-Berichtsvorlage",
+        "reportDescription": "Dokument nach jedem Einsatz auszufüllen",
+        "checklist": "Vorbereitungs-Checkliste",
+        "checklistDescription": "Wesentliche Punkte vor einer Stellvertretung",
+        "download": "Herunterladen"
+      }
+    },
+    "offers": {
+      "title": "Verfügbare Angebote",
+      "filter": {
+        "all": "Alle Angebote",
+        "urgent": "Nur dringende",
+        "bySubject": "Nach Fach",
+        "byLevel": "Nach Stufe",
+        "byCanton": "Nach Kanton",
+        "byDate": "Nach Datum"
+      },
+      "card": {
+        "urgent": "Dringend",
+        "apply": "Bewerben",
+        "applied": "Beworben",
+        "details": "Details anzeigen",
+        "from": "Vom",
+        "to": "bis",
+        "subjects": "Fächer",
+        "levels": "Stufen"
+      },
+      "empty": "Momentan sind keine Angebote verfügbar"
+    },
+    "applications": {
+      "title": "Meine Bewerbungen",
+      "status": {
+        "all": "Alle",
+        "pending": "Ausstehend",
+        "accepted": "Angenommen",
+        "rejected": "Abgelehnt"
+      },
+      "empty": "Sie haben sich noch nicht auf Angebote beworben"
+    },
+    "profile": {
+      "title": "Mein Profil",
+      "edit": "Mein Profil bearbeiten",
+      "personalInfo": "Persönliche Informationen",
+      "qualifications": "Qualifikationen",
+      "documents": "Dokumente",
+      "availability": "Verfügbarkeit",
+      "update": "Aktualisieren",
+      "loadError": "Fehler beim Laden des Profils"
+    }
+  },
+  "school": {
+    "registration": {
+      "title": "Schulregistrierung",
+      "schoolInfo": "Schulinformationen",
+      "name": "Schulname",
+      "address": "Adresse",
+      "canton": "Kanton",
+      "website": "Website (optional)",
+      "description": "Schulbeschreibung (optional)",
+      "descriptionPlaceholder": "Beschreiben Sie Ihre Schule kurz...",
+      "teachingLevels": "Unterrichtsstufen",
+      "classCount": "Anzahl Klassen",
+      "specialClasses": "Spezialklassen",
+      "pedagogicalProjects": "Besondere pädagogische Projekte (optional)",
+      "pedagogicalProjectsPlaceholder": "Beschreiben Sie Ihre besonderen pädagogischen Projekte...",
+      "contactPerson": "Hauptkontaktperson",
+      "contactName": "Name",
+      "contactRole": "Funktion",
+      "contactPhone": "Telefon",
+      "contactEmail": "E-Mail",
+      "schedule": "Typischer Stundenplan",
+      "morning": "Morgen",
+      "afternoon": "Nachmittag",
+      "morningStart": "Beginn",
+      "morningEnd": "Ende",
+      "afternoonStart": "Beginn",
+      "afternoonEnd": "Ende",
+      "account": "Konto",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "confirmPassword": "Passwort bestätigen",
+      "acceptTerms": "Ich akzeptiere die Nutzungsbedingungen",
+      "submit": "Als Schule registrieren",
+      "submitting": "Registrierung läuft...",
+      "error": "Ein Fehler ist bei der Registrierung aufgetreten"
+    },
+    "dashboard": {
+      "title": "Schul-Dashboard",
+      "welcome": "Willkommen, {{name}}",
+      "stats": {
+        "activeOffers": "Aktive Angebote",
+        "totalApplications": "Erhaltene Bewerbungen",
+        "filledPositions": "Besetzte Stellen",
+        "teacherCount": "Lehrpersonen"
+      },
+      "quickActions": {
+        "createOffer": "Angebot erstellen",
+        "viewApplications": "Bewerbungen anzeigen",
+        "manageTeam": "Team verwalten"
+      }
+    },
+    "home": {
+      "schoolQuickActions": "Schnellaktionen",
+      "planningTools": "Planungstools",
+      "schoolResources": "Ressourcen & Vorlagen",
+      "templates": "Herunterladbare Vorlagen",
+      "schoolNeedHelp": "Brauchen Sie Hilfe?",
+      "schoolHelpDescription": "Unser Team unterstützt Sie bei der Verwaltung Ihrer Stellvertretungen.",
+      "schoolActions": {
+        "publishOffer": "Angebot veröffentlichen",
+        "publishDescription": "Ein neues Stellvertretungsangebot erstellen",
+        "searchSubstitutes": "Stellvertreter suchen",
+        "schoolSearchDescription": "Unsere Datenbank qualifizierter Stellvertreter durchsuchen",
+        "schoolViewMessages": "Nachrichten",
+        "schoolMessagesDescription": "Unterhaltungen mit Stellvertretern verwalten",
+        "settings": "Einstellungen",
+        "settingsDescription": "Profil und Einstellungen konfigurieren"
+      },
+      "planning": {
+        "absenceCalendar": "Abwesenheitskalender",
+        "absenceDescription": "Kommende Abwesenheiten planen und visualisieren",
+        "periodCalculator": "Periodenrechner",
+        "calculatorDescription": "Stellvertretungsbedarf einschätzen",
+        "favoriteSubstitutes": "Liste der bevorzugten Stellvertreter",
+        "favoritesDescription": "Pool regelmäßiger Stellvertreter verwalten"
+      },
+      "schoolResourcesSection": {
+        "welcomeGuide": "Willkommensleitfaden",
+        "welcomeDescription": "Dokument für Stellvertreter anpassen",
+        "internalProcedures": "Interne Verfahren",
+        "proceduresDescription": "Regeln und Prozesse für Stellvertretungen",
+        "evaluationGrid": "Bewertungsraster",
+        "evaluationDescription": "Zur Verfolgung durchgeführter Stellvertretungen",
+        "download": "Herunterladen"
+      },
+      "schoolTemplates": {
+        "specificationTemplate": "Anforderungsvorlage",
+        "specificationDescription": "Zur Detaillierung von Stellvertretungsaufgaben",
+        "handoverSheet": "Übergabeblatt",
+        "handoverDescription": "Für Übergaben zwischen Lehrpersonen"
+      }
+    },
+    "offers": {
+      "title": "Meine Stellvertretungsangebote",
+      "create": "Angebot erstellen",
+      "status": {
+        "all": "Alle",
+        "active": "Aktiv",
+        "filled": "Besetzt",
+        "expired": "Abgelaufen"
+      },
+      "card": {
+        "applicationsCount": "Bewerbung(en)",
+        "edit": "Bearbeiten",
+        "close": "Schliessen",
+        "reopen": "Wieder öffnen",
+        "delete": "Löschen"
+      },
+      "empty": "Sie haben noch keine Angebote erstellt"
+    },
+    "createOffer": {
+      "title": "Stellvertretungsangebot erstellen",
+      "basicInfo": "Hauptinformationen",
+      "class": "Klasse",
+      "classPlaceholder": "z.B. 3. Klasse",
+      "location": "Ort",
+      "locationPlaceholder": "z.B. Lausanne",
+      "teachingLevel": "Unterrichtsstufe",
+      "selectLevel": "Stufe auswählen",
+      "offerTitle": "Angebotstitel",
+      "description": "Beschreibung",
+      "period": "Zeitraum und Stundenplan",
+      "startDate": "Startdatum",
+      "endDate": "Enddatum",
+      "totalLessons": "Gesamtanzahl Lektionen",
+      "totalLessonsPlaceholder": "z.B. 10",
+      "requirements": "Anforderungen",
+      "subjects": "Zu unterrichtende Fächer",
+      "teachingLevels": "Unterrichtsstufen",
+      "schedule": "Stundenplan",
+      "monday": "Montag",
+      "tuesday": "Dienstag",
+      "wednesday": "Mittwoch",
+      "thursday": "Donnerstag",
+      "friday": "Freitag",
+      "morning": "Morgen",
+      "afternoon": "Nachmittag",
+      "additionalInfo": "Zusätzliche Informationen",
+      "topicLabel": "Stundenplan, Treffpunkt und nützliche Informationen zur Stellvertretung (optional)",
+      "topicPlaceholder": "Geben Sie genaue Zeiten, Treffpunkt und alle nützlichen Informationen für die Stellvertretung an...",
+      "qualifications": "Gewünschte Qualifikationen (optional)",
+      "qualificationsPlaceholder": "Beschreiben Sie die gewünschten Qualifikationen für diese Stellvertretung...",
+      "submit": "Angebot veröffentlichen",
+      "submitting": "Veröffentlichung läuft...",
+      "success": "Angebot erfolgreich erstellt",
+      "saveDraft": "Als Entwurf speichern",
+      "errors": {
+        "notLoggedIn": "Sie müssen angemeldet sein, um ein Angebot zu erstellen",
+        "startDateInvalid": "Das Startdatum muss heute oder später sein",
+        "endDateInvalid": "Das Enddatum muss nach dem Startdatum liegen",
+        "general": "Ein Fehler ist beim Erstellen des Angebots aufgetreten"
+      }
+    },
+    "applications": {
+      "title": "Erhaltene Bewerbungen",
+      "filter": {
+        "all": "Alle",
+        "new": "Neue",
+        "reviewed": "Angeschaut",
+        "accepted": "Angenommen",
+        "rejected": "Abgelehnt"
+      },
+      "actions": {
+        "accept": "Annehmen",
+        "reject": "Ablehnen",
+        "message": "Nachricht senden",
+        "viewProfile": "Profil anzeigen",
+        "downloadCV": "Lebenslauf herunterladen"
+      },
+      "status": {
+        "accepted": "Angenommen",
+        "positionFilled": "Stelle bereits besetzt",
+        "filled": "Besetzt",
+        "open": "Offen"
+      },
+      "candidateMessage": "Nachricht des Bewerbers",
+      "confirmAcceptTitle": "Annahme bestätigen",
+      "confirmAcceptMessage": "Sind Sie sicher, dass Sie diese Bewerbung annehmen möchten? Andere Bewerber werden automatisch benachrichtigt, dass die Stelle besetzt wurde.",
+      "detailsUnavailable": "Details dieser Bewerbung sind nicht mehr verfügbar",
+      "empty": "Keine Bewerbungen erhalten",
+      "successAccept": "Bewerbung erfolgreich angenommen!",
+      "errorAccept": "Fehler beim Annehmen der Bewerbung",
+      "errorLoad": "Fehler beim Laden der Daten"
+    },
+    "team": {
+      "title": "Lehrerteam",
+      "invite": "Lehrperson einladen",
+      "members": "Teammitglieder",
+      "pending": "Ausstehende Einladungen",
+      "seatUsage": "Platznutzung",
+      "seatsUsed": "Plätze verwendet",
+      "upgrade": "Upgrade",
+      "remove": "Entfernen",
+      "resendInvite": "Einladung erneut senden",
+      "inviteForm": {
+        "title": "Lehrperson einladen",
+        "email": "E-Mail der Lehrperson",
+        "message": "Persönliche Nachricht (optional)",
+        "send": "Einladung senden"
+      }
+    },
+    "subscription": {
+      "title": "Abonnement",
+      "currentPlan": "Aktueller Plan",
+      "usage": "Nutzung",
+      "upgrade": "Upgrade",
+      "downgrade": "Downgrade",
+      "cancel": "Abonnement kündigen",
+      "plans": {
+        "basic": "Basic",
+        "standard": "Standard",
+        "premium": "Premium"
+      },
+      "features": {
+        "seats": "{{count}} Lehrpersonen",
+        "unlimitedOffers": "Unbegrenzte Angebote",
+        "messaging": "Integrierte Nachrichten",
+        "support": "Support",
+        "analytics": "Erweiterte Analytics"
+      },
+      "trial": {
+        "status": "Testperiode",
+        "remaining": "{{count}} Angebote verbleibend",
+        "upgrade": "Abonnement aktivieren"
+      }
+    }
+  },
+  "admin": {
+    "createAccount": {
+      "title": "Administrator-Konto erstellen",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "submit": "Admin-Konto erstellen",
+      "success": "Administrator-Konto erfolgreich erstellt",
+      "error": "Fehler beim Erstellen des Admin-Kontos"
+    },
+    "dashboard": {
+      "title": "Admin Dashboard",
+      "tabs": {
+        "pending": "Ausstehende Genehmigungen",
+        "users": "Benutzerverwaltung",
+        "offers": "Alle Angebote",
+        "analytics": "Analytics"
+      }
+    },
+    "pending": {
+      "teachers": "Ausstehende Lehrpersonen",
+      "schools": "Ausstehende Schulen",
+      "approve": "Genehmigen",
+      "reject": "Ablehnen",
+      "viewDetails": "Details anzeigen"
+    },
+    "users": {
+      "title": "Benutzerverwaltung",
+      "filter": {
+        "all": "Alle",
+        "teachers": "Lehrpersonen",
+        "schools": "Schulen",
+        "active": "Aktiv",
+        "suspended": "Gesperrt"
+      },
+      "actions": {
+        "suspend": "Sperren",
+        "activate": "Aktivieren",
+        "delete": "Löschen",
+        "sendMessage": "Nachricht senden"
+      }
+    },
+    "userManagement": {
+      "title": "Benutzerverwaltung",
+      "teachers": "Stellvertreter",
+      "schools": "Schulen",
+      "columns": {
+        "firstName": "Vorname",
+        "lastName": "Nachname",
+        "name": "Name",
+        "email": "E-Mail",
+        "status": "Status",
+        "canton": "Kanton",
+        "classes": "Klassen"
+      }
+    },
+    "offers": {
+      "title": "Alle Angebote",
+      "stats": {
+        "total": "Angebote total",
+        "active": "Aktiv",
+        "urgent": "Dringend",
+        "filled": "Besetzt",
+        "applicationsTotal": "Bewerbungen"
+      },
+      "filter": {
+        "search": "Nach Titel oder Fach suchen...",
+        "school": "Nach Schule filtern...",
+        "status": "Alle Status",
+        "urgentOnly": "Nur dringende"
+      },
+      "noOffersFound": "Keine Angebote gefunden",
+      "empty": "Keine Bewerbungen erhalten",
+      "successAccept": "Bewerbung erfolgreich angenommen!",
+      "errorAccept": "Fehler beim Annehmen der Bewerbung",
+      "errorLoad": "Fehler beim Laden der Daten"
+    },
+    "analytics": {
+      "title": "Analytics",
+      "metrics": {
+        "totalUsers": "Benutzer total",
+        "activeOffers": "Aktive Angebote",
+        "successRate": "Erfolgsrate",
+        "avgTimeToFill": "Durchschnittliche Besetzungszeit"
+      }
+    }
+  },
+  "messages": {
+    "title": "Nachrichten",
+    "conversations": "Unterhaltungen",
+    "newMessage": "Neue Nachricht",
+    "search": "Unterhaltungen suchen...",
+    "empty": "Keine Unterhaltungen",
+    "send": "Senden",
+    "typeMessage": "Ihre Nachricht eingeben...",
+    "attachment": "Datei anhängen",
+    "unread": "ungelesen",
+    "createError": "Fehler beim Erstellen der Unterhaltung",
+    "noMessages": "Keine Nachrichten. Starten Sie die Unterhaltung!",
+    "selectConversation": "Wählen Sie eine Unterhaltung zum Starten"
+  },
+  "status": {
+    "active": "Aktiv",
+    "inactive": "Inaktiv",
+    "pending": "Ausstehend",
+    "approved": "Genehmigt",
+    "rejected": "Abgelehnt",
+    "filled": "Besetzt",
+    "expired": "Abgelaufen",
+    "cancelled": "Abgebrochen",
+    "urgent": "Dringend"
+  },
+  "errors": {
+    "general": "Ein Fehler ist aufgetreten",
+    "network": "Verbindungsfehler",
+    "unauthorized": "Nicht autorisiert",
+    "notFound": "Nicht gefunden",
+    "validation": "Validierungsfehler",
+    "required": "Dieses Feld ist erforderlich",
+    "email": "Ungültige E-Mail",
+    "minLength": "Mindestens {{min}} Zeichen",
+    "maxLength": "Höchstens {{max}} Zeichen",
+    "minValue": "Mindestwert ist {{min}}",
+    "maxValue": "Höchstwert ist {{max}}",
+    "passwordMismatch": "Passwörter stimmen nicht überein",
+    "invalidCredentials": "Ungültige E-Mail oder Passwort",
+    "emailInUse": "Diese E-Mail wird bereits verwendet",
+    "weakPassword": "Passwort ist zu schwach",
+    "tooManyRequests": "Zu viele Versuche. Bitte versuchen Sie es später erneut",
+    "services": {
+      "emailAlreadyExists": "Diese E-Mail-Adresse wird bereits verwendet",
+      "alreadyApplied": "Sie haben sich bereits für dieses Angebot beworben",
+      "profileUpdateError": "Fehler beim Aktualisieren des Profils",
+      "adminAlreadyExists": "Ein Administrator mit dieser E-Mail existiert bereits",
+      "emailAlreadyUsed": "Diese E-Mail wird bereits verwendet. Bitte wählen Sie eine andere.",
+      "userNotAuthenticated": "Benutzer nicht authentifiziert",
+      "teacherAlreadyInvited": "Dieser Lehrer ist bereits eingeladen"
+    }
+  },
+  "success": {
+    "saved": "Erfolgreich gespeichert",
+    "created": "Erfolgreich erstellt",
+    "updated": "Erfolgreich aktualisiert",
+    "deleted": "Erfolgreich gelöscht",
+    "sent": "Erfolgreich gesendet",
+    "approved": "Erfolgreich genehmigt",
+    "rejected": "Erfolgreich abgelehnt",
+    "invited": "Einladung erfolgreich gesendet"
+  },
+  "confirm": {
+    "delete": "Sind Sie sicher, dass Sie löschen möchten?",
+    "cancel": "Sind Sie sicher, dass Sie abbrechen möchten?",
+    "logout": "Sind Sie sicher, dass Sie sich abmelden möchten?",
+    "accept": "Sind Sie sicher, dass Sie annehmen möchten?",
+    "reject": "Sind Sie sicher, dass Sie ablehnen möchten?"
+  },
+  "landing": {
+    "hero": {
+      "badge": "Die innovative Lösung für Schulvertretungen",
+      "title": "Teacha - Die erste Schul-Stellvertreter-Verbindungsplattform in der Schweiz",
+      "subtitle": "Vereinfachen Sie das Management von Schulvertretungen mit unserer innovativen Lösung, die Schulen intelligent mit qualifizierten Stellvertretern verbindet.",
+      "cta": {
+        "teacher": "Ich bin Stellvertreter",
+        "school": "Ich bin eine Schule"
+      }
+    },
+    "benefits": {
+      "title": "Warum Teacha wählen?",
+      "teacher": {
+        "title": "Für Stellvertreter",
+        "items": [
+          "Kostenloser Zugang zu Angeboten",
+          "Benachrichtigungen für dringende Fälle",
+          "Einfache Bewerbungsverwaltung",
+          "Direkte Kommunikation mit Schulen"
+        ]
+      },
+      "school": {
+        "title": "Für Schulen",
+        "items": [
+          "Schnell Stellvertreter finden",
+          "Integrierte Teamverwaltung",
+          "Bewerbungsverfolgung",
+          "Vertretungsverlauf"
+        ]
+      }
+    },
+    "howItWorks": {
+      "title": "Wie es funktioniert",
+      "steps": {
+        "register": "Registrieren",
+        "create": "Angebote erstellen oder durchsuchen",
+        "connect": "Verbinden",
+        "manage": "Vertretungen verwalten"
+      }
+    },
+    "testimonials": {
+      "title": "Sie vertrauen uns"
+    },
+    "cta": {
+      "title": "Bereit, Ihre Vertretungen zu vereinfachen?",
+      "button": "Jetzt starten"
+    },
+    "demo": {
+      "title": "Entdecken Sie Teacha in Aktion",
+      "description": "Eine schnelle Demonstration unserer Vertretungsmanagement-Plattform",
+      "altText": "Video-Vorschau"
+    }
+  },
+  "guide": {
+    "title": "Der vollständige Stellvertreter-Leitfaden",
+    "subtitle": "Eine umfassende Checkliste zur selbstbewussten Vorbereitung Ihrer Stellvertretungen",
+    "beforeReplacement": {
+      "title": "Vor der Stellvertretung",
+      "contact": {
+        "title": "Schule kontaktieren",
+        "description": "Ankunftszeit und Treffpunkt bestätigen"
+      },
+      "schedule": {
+        "title": "Detaillierter Stundenplan",
+        "description": "Genaue Zeiten für Unterricht und Pausen notieren"
+      },
+      "transport": {
+        "title": "Anreise planen",
+        "description": "Route überprüfen und Sicherheitspuffer einplanen"
+      }
+    },
+    "documents": {
+      "title": "Vorzubereitende Dokumente",
+      "materials": {
+        "title": "Programm und Materialien",
+        "description": "Lehrplan und Unterrichtsmaterialien beschaffen"
+      },
+      "emergency": {
+        "title": "Notfallkontakte",
+        "description": "Wichtige Nummern notieren (Verwaltung, Sekretariat)"
+      },
+      "classList": {
+        "title": "Schülerliste",
+        "description": "Liste und Klassenbesonderheiten erfragen"
+      }
+    },
+    "essentialInfo": {
+      "title": "Wesentliche Informationen",
+      "rules": {
+        "title": "Schulregeln",
+        "description": "Hauptregeln der Einrichtung kennen"
+      },
+      "specialNeeds": {
+        "title": "Besondere Bedürfnisse",
+        "description": "Über Schüler informieren, die besondere Aufmerksamkeit benötigen"
+      },
+      "procedures": {
+        "title": "Notfallverfahren",
+        "description": "Sicherheits- und Evakuierungsprotokolle kennen"
+      }
+    },
+    "personalMaterials": {
+      "title": "Persönliche Materialien",
+      "supplies": {
+        "title": "Grundausstattung",
+        "description": "Stifte, Kreide/Marker, Papier, etc."
+      },
+      "backup": {
+        "title": "Ersatzaktivitäten",
+        "description": "Zusätzliche Übungen vorbereiten"
+      },
+      "personal": {
+        "title": "Persönliche Gegenstände",
+        "description": "Ausweis, Schlüssel, Verpflegung, Wasser"
+      }
+    },
+    "practicalTips": {
+      "title": "Praktische Tipps",
+      "arrive": "Kommen Sie mindestens 15 Minuten vor Unterrichtsbeginn an",
+      "introduce": "Stellen Sie sich bei Kollegen in Nachbarklassen vor",
+      "bells": "Machen Sie sich mit den Pausenklingelzeiten vertraut",
+      "cleanup": "Hinterlassen Sie das Klassenzimmer ordentlich"
+    }
+  },
+  "pricing": {
+    "title": "Einfache und transparente Preise",
+    "subtitle": "Wählen Sie den Plan, der Ihren Bedürfnissen entspricht",
+    "teacher": {
+      "title": "Stellvertreter",
+      "price": "Kostenlos",
+      "duration": "für immer",
+      "cta": "Kostenloses Konto erstellen",
+      "benefits": {
+        "unlimited": "Unbegrenzter Zugang zu Stellvertretungsangeboten",
+        "profile": "Personalisierte Profilerstellung",
+        "messaging": "Integriertes Messaging mit Schulen",
+        "applications": "Bewerbungsmanagement",
+        "notifications": "Echtzeit-Benachrichtigungen",
+        "documents": "Zentralisierte Lebensläufe und Dokumente",
+        "tracking": "Missionsverfolgung",
+        "support": "Prioritätssupport"
+      }
+    },
+    "school": {
+      "title": "Schulen",
+      "price": "Kostenlos",
+      "duration": "während des Pilotprojekts",
+      "instead": "Anstatt CHF 250.- pro Jahr",
+      "badge": "Pilotprojekt",
+      "cta": "Am Pilotprojekt teilnehmen",
+      "limitation": "Begrenzt auf 5 Schulen",
+      "benefits": {
+        "unlimited": "Unbegrenzte Angebotsveröffentlichung",
+        "profiles": "Zugang zu allen Stellvertreter-Profilen",
+        "messaging": "Integriertes Messaging",
+        "applications": "Bewerbungsmanagement",
+        "notifications": "Echtzeit-Benachrichtigungen",
+        "dashboard": "Personalisiertes Dashboard",
+        "history": "Stellvertretungsverlauf",
+        "support": "Dedizierter Support"
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "duration": {
+        "question": "Wie lange dauert das Pilotprojekt?",
+        "answer": "Das Pilotprojekt dauert 6 Monate, während denen teilnehmende Schulen kostenlosen Zugang zu allen Funktionen erhalten."
+      },
+      "after": {
+        "question": "Was passiert nach dem Pilotprojekt?",
+        "answer": "Schulen, die am Pilotprojekt teilnehmen, erhalten 50% Rabatt auf ihr erstes Jahresabonnement."
+      },
+      "hidden": {
+        "question": "Gibt es versteckte Gebühren?",
+        "answer": "Nein, unsere Preispolitik ist völlig transparent. Es gibt keine versteckten Gebühren oder langfristige Verpflichtungen."
+      }
+    }
+  },
+  "help": {
+    "title": "Hilfezentrum",
+    "subtitle": "Finden Sie schnell Antworten auf Ihre Fragen",
+    "contact": {
+      "title": "Benötigen Sie weitere Hilfe?",
+      "description": "Unser Team ist da, um Ihnen zu helfen. Zögern Sie nicht, uns zu kontaktieren."
+    },
+    "faq": {
+      "platform": {
+        "question": "Wie funktioniert die Plattform?",
+        "answer": "Schulen veröffentlichen ihre Stellvertretungsbedürfnisse, und Stellvertreter können sich direkt auf Angebote bewerben, die ihrem Profil entsprechen. Die Verbindung ist sofort hergestellt und die Kommunikation wird durch unser integriertes Messaging erleichtert."
+      },
+      "requirements": {
+        "question": "Was sind die Voraussetzungen, um Stellvertreter zu werden?",
+        "answer": "Sie müssen die erforderlichen Qualifikationen zum Unterrichten haben und unseren Verifizierungsprozess durchlaufen. Ihr Profil wird von unserem Team validiert, bevor es aktiviert wird."
+      },
+      "cost": {
+        "question": "Wie viel kostet die Nutzung der Plattform?",
+        "answer": "Die Registrierung ist für Stellvertreter kostenlos. Für Schulen bieten wir derzeit ein spezielles kostenloses 'Pilotprojekt'-Angebot für die ersten 5 Einrichtungen."
+      },
+      "verification": {
+        "question": "Wie werden Stellvertreter-Profile verifiziert?",
+        "answer": "Jedes Profil wird manuell von unserem Team überprüft. Wir kontrollieren Diplome, Referenzen und andere bereitgestellte Dokumente, um die Qualität unseres Service zu gewährleisten."
+      },
+      "response": {
+        "question": "Wie ist die Antwortzeit für eine Bewerbung?",
+        "answer": "Schulen werden sofort über Ihre Bewerbung benachrichtigt und können schnell antworten. Für dringende Stellvertretungen empfehlen wir Schulen, innerhalb von 24 Stunden zu antworten."
+      },
+      "messaging": {
+        "question": "Wie funktioniert das Messaging?",
+        "answer": "Integriertes Messaging ermöglicht es Schulen und Stellvertretern, direkt auf der Plattform zu kommunizieren. Sie erhalten Benachrichtigungen für jede neue Nachricht."
+      },
+      "technical": {
+        "question": "Was tun bei technischen Problemen?",
+        "answer": "Bei technischen Problemen kontaktieren Sie unseren Support unter hello@cta-ecom.com. Unser Team verpflichtet sich, Ihnen so schnell wie möglich zu antworten."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Wie funktioniert es?",
+    "subtitle": "RemplaceProf vereinfacht die Verbindung zwischen Schulen und Stellvertretern. Entdecken Sie, wie unsere Plattform Ihnen helfen kann.",
+    "forTeachers": "Für Stellvertreter",
+    "forSchools": "Für Schulen",
+    "teacher": {
+      "step1": {
+        "title": "1. Erstellen Sie Ihr Profil",
+        "description": "Melden Sie sich als Stellvertreter an und vervollständigen Sie Ihr Profil mit Ihren Fähigkeiten und Verfügbarkeiten."
+      },
+      "step2": {
+        "title": "2. Finden Sie Aufträge",
+        "description": "Durchsuchen Sie Stellvertretungsangebote, die zu Ihrem Profil und Ihren Kriterien passen."
+      },
+      "step3": {
+        "title": "3. Bewerben Sie sich einfach",
+        "description": "Bewerben Sie sich mit wenigen Klicks und kommunizieren Sie direkt mit den Schulen."
+      },
+      "step4": {
+        "title": "4. Verwalten Sie Ihre Aufträge",
+        "description": "Verfolgen Sie Ihre Bewerbungen und organisieren Sie Ihren Vertretungsplan."
+      }
+    },
+    "school": {
+      "step1": {
+        "title": "1. Registrieren Sie Ihre Schule",
+        "description": "Erstellen Sie das Profil Ihrer Schule und geben Sie Ihre spezifischen Bedürfnisse an."
+      },
+      "step2": {
+        "title": "2. Veröffentlichen Sie Ihre Bedürfnisse",
+        "description": "Erstellen Sie detaillierte Stellvertretungsangebote in nur wenigen Minuten."
+      },
+      "step3": {
+        "title": "3. Wählen Sie Ihre Stellvertreter",
+        "description": "Prüfen Sie Bewerbungen und wählen Sie das ideale Profil für Ihre Klasse."
+      },
+      "step4": {
+        "title": "4. Kommunizieren Sie direkt",
+        "description": "Tauschen Sie sich mit Kandidaten aus und organisieren Sie Vertretungen effizient."
+      }
+    },
+    "cta": {
+      "title": "Bereit zu beginnen?",
+      "teacher": "Ich bin Stellvertreter",
+      "school": "Ich bin eine Schule"
+    }
+  },
+  "userMenu": {
+    "account": "Mein Konto",
+    "logout": "Abmelden"
+  },
+  "footer": {
+    "description": "Die erste Schule-Stellvertreter-Verbindungsplattform in der Schweiz",
+    "navigation": "Navigation",
+    "howItWorks": "Wie funktioniert es?",
+    "pricing": "Preise",
+    "help": "Hilfe",
+    "information": "Informationen",
+    "legal": "Impressum",
+    "terms": "Allgemeine Geschäftsbedingungen",
+    "contact": "Kontakt",
+    "copyright": "© {{year}} Teacha. Alle Rechte vorbehalten."
+  },
+  "multiselect": {
+    "addOption": "\"{{option}}\" hinzufügen"
+  },
+  "legal": {
+    "title": "Impressum",
+    "contentRedaction": {
+      "title": "Inhalt und Redaktion",
+      "description": "Teacha ist die sichere Web-Kommunikationslösung für Stellvertreter und Schulen, die allen DSGVO-Bestimmungen entspricht."
+    },
+    "coordinates": {
+      "title": "Kontaktdaten"
+    },
+    "disclaimer": {
+      "title": "Haftungsausschluss",
+      "content1": "Der Inhalt dieser Webseiten wird mit grösster Sorgfalt gepflegt. Dennoch lehnen wir jede Verantwortung für deren Inhalt ab.",
+      "content2": "Druckfehler, Irrtümer und Änderungen vorbehalten.",
+      "content3": "Sämtliche Urheberrechte gehören Teacha. Der Inhalt dieser Website darf ohne Genehmigung von Teacha nicht verwendet werden, und die Quelle muss angegeben werden."
+    },
+    "dataProtection": {
+      "title": "Datenschutz",
+      "description": "Beim Ausfüllen von Formularen übermittelte persönliche Daten sind vertraulich und werden nicht an Dritte weitergegeben."
+    }
+  },
+  "terms": {
+    "title": "Allgemeine Geschäftsbedingungen",
+    "introduction": {
+      "title": "1. Einführung",
+      "object": {
+        "title": "Gegenstand",
+        "description": "Diese Bedingungen regeln die Nutzung der Teacha-Plattform, die einen Verbindungsservice zwischen Schulen und Stellvertretern anbietet."
+      },
+      "acceptance": {
+        "title": "Annahme der Bedingungen",
+        "description": "Durch die Nutzung der Teacha-Plattform akzeptieren Sie diese allgemeinen Verkaufs- und Servicebedingungen."
+      }
+    },
+    "serviceDescription": {
+      "title": "2. Servicebeschreibung",
+      "pilot": {
+        "title": "Pilotphase",
+        "description": "Während der Pilotprojektphase ist der Zugang zur Plattform für alle Schulen und Stellvertreter kostenlos."
+      },
+      "paidServices": {
+        "title": "Kostenpflichtige Services",
+        "description": "Nach der Pilotphase wird der Zugang zu bestimmten Services für Schulen in Form von Abonnements kostenpflichtig."
+      }
+    },
+    "accountCreation": {
+      "title": "3. Kontoerstellung",
+      "registration": {
+        "title": "Registrierung erforderlich",
+        "description": "Um auf Services zuzugreifen, müssen Schulen und Stellvertreter ein Konto erstellen und genaue und vollständige Informationen bereitstellen."
+      },
+      "responsibility": {
+        "title": "Verantwortung",
+        "description": "Jeder Benutzer ist für die Sicherheit seines Kontos und Passworts verantwortlich."
+      }
+    },
+    "financialConditions": {
+      "title": "4. Finanzielle Bedingungen",
+      "payment": {
+        "title": "Zahlungsbedingungen",
+        "description": "Kostenpflichtige Abonnements für Schulen werden über Stripe abgerechnet. Details zu Abonnementgebühren werden vor dem Abonnement bereitgestellt."
+      },
+      "renewal": {
+        "title": "Verlängerung und Kündigung",
+        "description": "Das Abonnement wird automatisch verlängert, es sei denn, es wird vor dem Verlängerungsdatum gekündigt."
+      }
+    },
+    "userObligations": {
+      "title": "5. Benutzerverpflichtungen",
+      "conduct": {
+        "title": "Benutzerverhalten",
+        "description": "Benutzer verpflichten sich, die Plattform ethisch und in Übereinstimmung mit geltendem Recht zu nutzen."
+      },
+      "confidentiality": {
+        "title": "Vertraulichkeit",
+        "description": "Benutzer müssen über Teacha erhaltene Informationen vertraulich behandeln."
+      }
+    },
+    "intellectualProperty": {
+      "title": "6. Geistiges Eigentum",
+      "rights": {
+        "title": "Rechte",
+        "description": "Der Inhalt von Teacha, einschließlich Texte, Grafiken, Logos usw., ist durch das Urheberrecht geschützt und bleibt ausschließliches Eigentum von Teacha."
+      },
+      "prohibitions": {
+        "title": "Verbote",
+        "description": "Es ist verboten, Inhalte der Plattform ohne ausdrückliche Genehmigung von Teacha zu reproduzieren, zu modifizieren oder zu verwerten."
+      }
+    },
+    "liability": {
+      "title": "7. Haftungsbeschränkung",
+      "warranties": {
+        "title": "Garantien",
+        "description": "Teacha garantiert nicht, dass der Service frei von Unterbrechungen oder Fehlern sein wird."
+      },
+      "limitation": {
+        "title": "Haftungsbeschränkung",
+        "description": "Teacha ist nicht verantwortlich für indirekte Schäden, die aus der Nutzung der Plattform entstehen."
+      }
+    },
+    "modifications": {
+      "title": "8. Änderungen der Bedingungen",
+      "right": {
+        "title": "Änderungsrecht",
+        "description": "Teacha behält sich das Recht vor, die allgemeinen Bedingungen jederzeit zu ändern."
+      },
+      "notification": {
+        "title": "Benachrichtigung",
+        "description": "Änderungen werden den Benutzern über die Plattform oder per E-Mail mitgeteilt."
+      }
+    },
+    "jurisdiction": {
+      "title": "9. Gerichtsstand und anwendbares Recht",
+      "law": {
+        "title": "Anwendbares Recht",
+        "description": "Diese Bedingungen unterliegen und werden nach schweizerischem Recht ausgelegt."
+      },
+      "courts": {
+        "title": "Gerichtsstand",
+        "description": "Alle Streitigkeiten im Zusammenhang mit der Nutzung von Teacha unterliegen den zuständigen Gerichten von Biel, Schweiz."
+      }
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Für Fragen zu diesen Bedingungen wenden Sie sich bitte an Teacha:"
+    }
+  },
+  "teacherApplications": {
+    "title": "Meine Bewerbungen",
+    "empty": "Sie haben sich noch nicht für Stellvertretungen beworben",
+    "confirmWithdraw": "Sind Sie sicher, dass Sie Ihre Bewerbung zurückziehen möchten?",
+    "status": {
+      "accepted": "Bewerbung angenommen",
+      "rejected": "Stelle besetzt",
+      "pending": "Ausstehend"
+    },
+    "lessons": "Lektionen",
+    "dateFrom": "Vom",
+    "dateTo": "bis",
+    "message": "Nachricht",
+    "withdraw": "Zurückziehen",
+    "withdrawing": "Zurückziehen...",
+    "offerUnavailable": "Dieses Angebot ist nicht mehr verfügbar",
+    "schoolDefault": "Schule"
+  },
+  "schoolsList": {
+    "title": "Registrierte Schulen",
+    "searchSchool": "Nach einer Schule suchen...",
+    "searchCity": "Nach Stadt suchen...",
+    "allCantons": "Alle Kantone",
+    "showFavoritesOnly": "Nur meine Lieblingsschulen anzeigen",
+    "noSchoolsFound": "Keine Schulen entsprechen Ihren Kriterien",
+    "classes": "Klassen",
+    "viewProfile": "Profil anzeigen",
+    "errorLoading": "Fehler beim Laden der Schulen"
+  },
+  "landingPage": {
+    "teacherSubtitle": "Verwandeln Sie Ihr Fachwissen in bereichernde Möglichkeiten",
+    "schoolSubtitle": "Gewährleisten Sie die pädagogische Kontinuität in aller Ruhe",
+    "featuresTitle": "Innovative Funktionen",
+    "featuresSubtitle": "Mächtige Tools für effizientes Vertretungsmanagement",
+    "platformSubtitle": "Eine umfassende Lösung für Ihre Bedürfnisse",
+    "testimonialsSubtitle": "Entdecken Sie die Erfahrungen unserer Nutzer",
+    "ctaSubtitle": "Treten Sie der Teacha-Community bei und vereinfachen Sie Ihre Vertretungssuche",
+    "teacherBenefits": {
+      "flexible": {
+        "title": "Flexibles Zusatzeinkommen",
+        "description": "Wählen Sie Ihre Aufträge nach Ihrer Verfügbarkeit und Ihren Vorlieben"
+      },
+      "targeted": {
+        "title": "Gezielte Möglichkeiten",
+        "description": "Erhalten Sie Angebote, die Ihren Fähigkeiten und Ihrem geografischen Bereich entsprechen"
+      },
+      "simplified": {
+        "title": "Vereinfachter Prozess",
+        "description": "Ein-Klick-Bewerbung und Echtzeitverfolgung Ihrer Bewerbungen"
+      },
+      "communication": {
+        "title": "Direkte Kommunikation",
+        "description": "Tauschen Sie sich einfach mit Schulen über unser integriertes Messaging aus"
+      }
+    },
+    "schoolBenefits": {
+      "fast": {
+        "title": "Schnelle Antwort",
+        "description": "Finden Sie qualifizierte Stellvertreter in Stunden, auch dringend"
+      },
+      "talent": {
+        "title": "Talentpool",
+        "description": "Zugang zu einer Basis von verifizierten und sofort verfügbaren Stellvertretern"
+      },
+      "management": {
+        "title": "Vereinfachte Verwaltung",
+        "description": "Planen und verwalten Sie Ihre Vertretungen über eine intuitive Oberfläche"
+      },
+      "quality": {
+        "title": "Qualität gewährleistet",
+        "description": "Qualifizierte Profile, die von unserem Expertenteam validiert wurden"
+      }
+    },
+    "features": {
+      "notifications": {
+        "title": "Echtzeit-Benachrichtigungen",
+        "description": "Werden Sie sofort über neue Bewerbungen und Antworten auf Ihre Bewerbungen benachrichtigt"
+      },
+      "geolocation": {
+        "title": "Intelligente Geolokalisierung",
+        "description": "Finden Sie Vertretungen in Ihrer Nähe oder in Gebieten Ihrer Wahl"
+      },
+      "dashboard": {
+        "title": "Personalisiertes Dashboard",
+        "description": "Verfolgen Sie Ihre Statistiken und verwalten Sie Ihre Aktivitäten über eine dedizierte Oberfläche"
+      },
+      "documents": {
+        "title": "Dokumentenverwaltung",
+        "description": "Zentralisieren Sie alle Ihre wichtigen Dokumente (Lebenslauf, Diplome, Bewertungen)"
+      }
+    },
+    "platformAdvantages": {
+      "speed": {
+        "title": "Ausführungsgeschwindigkeit",
+        "description": "Angebotsveröffentlichung und Verbindung in Minuten"
+      },
+      "guarantee": {
+        "title": "Qualität garantiert",
+        "description": "Rigorose Profilüberprüfung und Bewertungssystem"
+      },
+      "support": {
+        "title": "Personalisierter Support",
+        "description": "Ein engagiertes Team, das Ihnen zuhört und Sie begleitet"
+      }
+    },
+    "testimonials": {
+      "marie": {
+        "name": "Marie L.",
+        "role": "Grundschul-Stellvertreterin",
+        "content": "Teacha ermöglichte es mir, schnell Aufträge zu finden, die meiner Verfügbarkeit entsprechen. Die Oberfläche ist super intuitiv und der Support ist sehr reaktionsschnell!"
+      },
+      "school": {
+        "name": "Lilas Schule",
+        "role": "Grundschule, Lausanne",
+        "content": "Erhebliche Zeitersparnis bei unserer Suche nach Stellvertretern. Der Prozess ist reibungslos und ermöglicht es uns, unerwartete Abwesenheiten effizient zu verwalten."
+      },
+      "thomas": {
+        "name": "Thomas R.",
+        "role": "Sekundarschul-Stellvertreter",
+        "content": "Ich kann meine Bewerbungen einfach verwalten und mit Schulen kommunizieren. Die Plattform half mir, mein berufliches Netzwerk zu entwickeln."
+      }
+    }
+  },
+  "teacherInvitations": {
+    "title": "Erhaltene Einladungen",
+    "pendingResponse": "Wartet auf Antwort",
+    "accept": "Annehmen",
+    "reject": "Ablehnen",
+    "noInvitations": "Keine ausstehenden Einladungen",
+    "errorLoading": "Fehler beim Laden der Einladungen",
+    "errorAccepting": "Fehler beim Annehmen der Einladung",
+    "errorRejecting": "Fehler beim Ablehnen der Einladung"
+  },
+  "accountPage": {
+    "title": "Mein Konto",
+    "profile": "Profil",
+    "team": "Team",
+    "security": "Sicherheit",
+    "errorGeneral": "Ein Fehler ist aufgetreten",
+    "errorLoading": "Fehler beim Laden der Daten",
+    "dangerZone": "Gefahrenbereich",
+    "deleteAccount": "Mein Konto löschen",
+    "confirmDeletion": "Löschung bestätigen",
+    "deletionMessage": "Um Ihr Konto zu löschen, senden Sie bitte eine Anfrage per E-Mail an unser Support-Team. Möchten Sie diese Anfrage jetzt senden?",
+    "cancel": "Abbrechen",
+    "sendRequest": "Anfrage senden",
+    "emailSubject": "Antrag auf Kontolöschung",
+    "emailBody": "Hallo,\n\nIch möchte mein Teacha-Konto löschen.\n\nMeine Informationen:\nName: {{name}}\nE-Mail: {{email}}\n\nMit freundlichen Grüßen"
+  },
+  "schoolHistory": {
+    "title": "Vertretungsverlauf",
+    "noReplacements": "Keine Vertretungen durchgeführt",
+    "lessons": "Lektionen",
+    "message": "Nachricht",
+    "details": "Details",
+    "errorConversation": "Unterhaltung kann derzeit nicht erstellt werden"
+  },
+  "constants": {
+    "teachingLevels": {
+      "kindergarten": "Kindergarten",
+      "primary": "Primarstufe",
+      "secondary1": "Sekundarstufe I",
+      "secondary2": "Sekundarstufe II",
+      "tertiary": "Tertiärstufe"
+    },
+    "subjects": {
+      "french": "Französisch",
+      "german": "Deutsch",
+      "english": "Englisch",
+      "italian": "Italienisch",
+      "latin": "Latein",
+      "greek": "Griechisch",
+      "spanish": "Spanisch",
+      "mathematics": "Mathematik",
+      "naturalSciences": "Naturwissenschaften",
+      "biology": "Biologie",
+      "physics": "Physik",
+      "chemistry": "Chemie",
+      "computerScience": "Informatik",
+      "history": "Geschichte",
+      "geography": "Geographie",
+      "citizenship": "Staatsbürgerkunde",
+      "philosophy": "Philosophie",
+      "economics": "Wirtschaft",
+      "law": "Recht",
+      "psychology": "Psychologie",
+      "pedagogy": "Pädagogik",
+      "visualArts": "Bildende Kunst",
+      "music": "Musik",
+      "manualCreativeActivities": "Handwerkliche kreative Aktivitäten",
+      "textileCreativeActivities": "Textile kreative Aktivitäten",
+      "physicalEducation": "Sportunterricht",
+      "healthEducation": "Gesundheitserziehung",
+      "mitic": "MITIC",
+      "generalCulture": "Allgemeinbildung",
+      "accounting": "Buchhaltung",
+      "marketing": "Marketing",
+      "businessManagement": "Unternehmensführung",
+      "technicalSciences": "Technische Wissenschaften",
+      "technicalDrawing": "Technisches Zeichnen",
+      "medicine": "Medizin",
+      "nursing": "Krankenpflege",
+      "architecture": "Architektur",
+      "engineering": "Ingenieurwesen",
+      "communication": "Kommunikation",
+      "journalism": "Journalismus",
+      "design": "Design"
+    },
+    "cantons": {
+      "aargau": "Aargau",
+      "appenzellOuterrhoden": "Appenzell Ausserrhoden",
+      "appenzellInnerrhoden": "Appenzell Innerrhoden",
+      "baselLandschaft": "Basel-Landschaft",
+      "baselStadt": "Basel-Stadt",
+      "bern": "Bern",
+      "fribourg": "Freiburg",
+      "geneva": "Genf",
+      "glarus": "Glarus",
+      "graubunden": "Graubünden",
+      "jura": "Jura",
+      "lucerne": "Luzern",
+      "neuchatel": "Neuenburg",
+      "nidwalden": "Nidwalden",
+      "obwalden": "Obwalden",
+      "stGallen": "St. Gallen",
+      "schaffhausen": "Schaffhausen",
+      "schwyz": "Schwyz",
+      "solothurn": "Solothurn",
+      "ticino": "Tessin",
+      "thurgau": "Thurgau",
+      "uri": "Uri",
+      "valais": "Wallis",
+      "vaud": "Waadt",
+      "zug": "Zug",
+      "zurich": "Zürich"
+    },
+    "specialClasses": {
+      "welcomeClass": "Empfangsklasse",
+      "developmentClass": "Entwicklungsklasse",
+      "reducedSizeClass": "Klasse mit reduzierter Größe",
+      "supportClass": "Förderklasse",
+      "mcdi": "MCDI (Wandernder Entwicklungsklassenlehrer)",
+      "relayClass": "Relaisklasse"
+    },
+    "civility": {
+      "mr": "Herr",
+      "mrs": "Frau",
+      "neutral": "Neutral",
+      "unspecified": "Nicht angegeben"
+    },
+    "nativeLanguages": {
+      "french": "Französisch",
+      "german": "Deutsch",
+      "italian": "Italienisch"
+    }
+  }
+}

@@ -1,0 +1,1299 @@
+{
+  "errors": {
+    "ADMIN_ALREADY_EXISTS": "Admin already exists",
+    "EMAIL_ALREADY_USED": "This email address is already in use",
+    "ALREADY_APPLIED": "You have already applied for this offer",
+    "EMAIL_ALREADY_IN_USE": "This email address is already in use",
+    "TEACHER_SCHOOL_ID_REQUIRED": "Teacher ID and School ID are required",
+    "CONVERSATION_STARTED": "Conversation started",
+    "CONVERSATION_NOT_FOUND": "Conversation not found",
+    "TEACHER_ALREADY_INVITED": "This teacher has already been invited",
+    "USER_NOT_AUTHENTICATED": "User not authenticated",
+    "ERROR_LOADING_MESSAGES": "Error loading messages",
+    "ERROR_INITIALIZATION": "Error during initialization",
+    "loadUserData": "Error loading user data"
+  },
+  "common": {
+    "imageUpload": {
+      "uploadImage": "Upload an image",
+      "fileFormats": "PNG or JPG only",
+      "previewAlt": "Preview",
+      "currentImageAlt": "Current photo",
+      "validateCrop": "Validate crop",
+      "minSizeError": "Image must be at least {{width}}x{{height}} pixels",
+      "cropError": "Error cropping image"
+    },
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "all": "All",
+    "yes": "Yes",
+    "no": "No",
+    "or": "or",
+    "and": "and",
+    "from": "from",
+    "to": "to",
+    "per": "per",
+    "of": "of",
+    "logout": "Log out",
+    "profile": "Profile",
+    "settings": "Settings",
+    "dashboard": "Dashboard",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "help": "Help",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "details": "Details",
+    "noResults": "No results",
+    "noDataAvailable": "No data available",
+    "noNotifications": "No notifications"
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "subtitle": "Sign in to your account",
+      "email": "Email",
+      "password": "Password",
+      "emailPlaceholder": "Your email",
+      "passwordPlaceholder": "Your password",
+      "remember": "Remember me",
+      "forgot": "Forgot password?",
+      "submit": "Sign in",
+      "noAccount": "Don't have an account?",
+      "register": "Sign up",
+      "errors": {
+        "connection": "Connection error",
+        "invalidCredentials": "Invalid credentials",
+        "accountNotFound": "Account not found",
+        "emailRequired": "Email is required",
+        "passwordRequired": "Password is required"
+      }
+    },
+    "register": {
+      "title": "Sign Up",
+      "subtitle": "Create your account",
+      "asTeacher": "I'm a substitute teacher",
+      "asSchool": "I'm a school",
+      "hasAccount": "Already have an account?",
+      "login": "Sign in",
+      "step": "Step {{current}} of {{total}}"
+    },
+    "logout": {
+      "confirm": "Are you sure you want to log out?",
+      "button": "Log out"
+    },
+    "pendingApproval": {
+      "title": "Pending Approval",
+      "message": "Your account is being reviewed. You will receive an email once your account is approved.",
+      "checkLater": "Please check back later"
+    }
+  },
+  "navigation": {
+    "main": {
+      "home": "Home",
+      "offers": "Offers",
+      "schools": "Schools",
+      "pricing": "Pricing",
+      "help": "Help"
+    },
+    "teacher": {
+      "dashboard": "Dashboard",
+      "offers": "Available Offers",
+      "applications": "My Applications",
+      "messages": "Messages",
+      "profile": "My Profile"
+    },
+    "school": {
+      "dashboard": "Dashboard",
+      "offers": "My Offers",
+      "applications": "Applications",
+      "messages": "Messages",
+      "team": "Team",
+      "profile": "School Profile",
+      "history": "History"
+    },
+    "admin": {
+      "dashboard": "Dashboard"
+    }
+  },
+  "teacher": {
+    "registration": {
+      "title": "Teacher Registration",
+      "personalInfo": "Personal Information",
+      "civility": "Title",
+      "mr": "Mr.",
+      "mrs": "Mrs.",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "age": "Age",
+      "nativeLanguage": "Native Language",
+      "phone": "Phone (optional)",
+      "address": "Address",
+      "street": "Street and Number",
+      "zipCode": "Zip Code",
+      "city": "City",
+      "canton": "Canton",
+      "qualifications": "Qualifications",
+      "teachingLevels": "Teaching Levels",
+      "subjects": "Subjects",
+      "documents": "Documents",
+      "cv": "CV (PDF, max 2 MB)",
+      "photo": "Profile Photo",
+      "account": "Account",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "acceptTerms": "I accept the terms of service",
+      "submit": "Register as Substitute",
+      "submitting": "Registration in progress...",
+      "error": "An error occurred during registration",
+      "success": {
+        "photoUploaded": "Photo uploaded successfully",
+        "cvUploaded": "CV uploaded successfully: {{filename}}"
+      }
+    },
+    "dashboard": {
+      "title": "Teacher Dashboard",
+      "welcome": "Welcome, {{name}}",
+      "stats": {
+        "applications": "Applications",
+        "pending": "Pending",
+        "accepted": "Accepted",
+        "unreadMessages": "Unread messages"
+      },
+      "recentOffers": "Recent Offers",
+      "urgentOffers": "Urgent Offers"
+    },
+    "home": {
+      "quickActions": "Quick Actions",
+      "resourcesTitle": "Useful Resources",
+      "documentsTitle": "Useful Documents",
+      "needHelp": "Need Help?",
+      "helpDescription": "Our team is here to help you optimize your substitute teaching experience.",
+      "actions": {
+        "searchReplacements": "Find Replacements",
+        "searchDescription": "Browse available offers",
+        "myApplications": "My Applications",
+        "applicationsDescription": "Track your applications",
+        "viewMessages": "Messages",
+        "messagesDescription": "Manage your conversations",
+        "profile": "My Profile",
+        "profileDescription": "Update your information"
+      },
+      "resources": {
+        "guide": "Substitute Teacher Guide",
+        "guideDescription": "Tips and best practices for successful substitutions",
+        "faq": "FAQ & Support",
+        "faqDescription": "Answers to your frequently asked questions"
+      },
+      "documents": {
+        "reportTemplate": "Replacement Report Template",
+        "reportDescription": "Document to fill out after each assignment",
+        "checklist": "Preparation Checklist",
+        "checklistDescription": "Essential points before a replacement",
+        "download": "Download"
+      }
+    },
+    "offers": {
+      "title": "Available Offers",
+      "filter": {
+        "all": "All offers",
+        "urgent": "Urgent only",
+        "bySubject": "By subject",
+        "byLevel": "By level",
+        "byCanton": "By canton",
+        "byDate": "By date"
+      },
+      "card": {
+        "urgent": "Urgent",
+        "apply": "Apply",
+        "applied": "Applied",
+        "details": "View details",
+        "from": "From",
+        "to": "to",
+        "subjects": "Subjects",
+        "levels": "Levels"
+      },
+      "empty": "No offers available at the moment"
+    },
+    "applications": {
+      "title": "My Applications",
+      "status": {
+        "all": "All",
+        "pending": "Pending",
+        "accepted": "Accepted",
+        "rejected": "Rejected"
+      },
+      "empty": "You haven't applied to any offers yet"
+    },
+    "profile": {
+      "title": "My Profile",
+      "edit": "Edit my profile",
+      "personalInfo": "Personal Information",
+      "qualifications": "Qualifications",
+      "documents": "Documents",
+      "availability": "Availability",
+      "update": "Update",
+      "loadError": "Error loading profile"
+    }
+  },
+  "school": {
+    "registration": {
+      "title": "School Registration",
+      "schoolInfo": "School Information",
+      "name": "School Name",
+      "address": "Address",
+      "canton": "Canton",
+      "website": "Website (optional)",
+      "description": "School Description (optional)",
+      "descriptionPlaceholder": "Briefly describe your school...",
+      "teachingLevels": "Teaching Levels",
+      "classCount": "Number of Classes",
+      "specialClasses": "Special Classes",
+      "pedagogicalProjects": "Special Pedagogical Projects (optional)",
+      "pedagogicalProjectsPlaceholder": "Describe your special pedagogical projects...",
+      "contactPerson": "Main Contact Person",
+      "contactName": "Name",
+      "contactRole": "Role",
+      "contactPhone": "Phone",
+      "contactEmail": "Email",
+      "schedule": "Typical Schedule",
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "morningStart": "Start",
+      "morningEnd": "End",
+      "afternoonStart": "Start",
+      "afternoonEnd": "End",
+      "account": "Account",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "acceptTerms": "I accept the terms of service",
+      "submit": "Register as school",
+      "submitting": "Registration in progress...",
+      "error": "An error occurred during registration"
+    },
+    "dashboard": {
+      "title": "School Dashboard",
+      "welcome": "Welcome, {{name}}",
+      "stats": {
+        "activeOffers": "Active Offers",
+        "totalApplications": "Applications Received",
+        "filledPositions": "Filled Positions",
+        "teacherCount": "Teachers"
+      },
+      "quickActions": {
+        "createOffer": "Create Offer",
+        "viewApplications": "View Applications",
+        "manageTeam": "Manage Team"
+      }
+    },
+    "home": {
+      "schoolQuickActions": "Quick Actions",
+      "planningTools": "Planning Tools",
+      "schoolResources": "Resources & Templates",
+      "templates": "Downloadable Templates",
+      "schoolNeedHelp": "Need Help?",
+      "schoolHelpDescription": "Our team supports you in managing your substitutions.",
+      "schoolActions": {
+        "publishOffer": "Publish Offer",
+        "publishDescription": "Create a new replacement offer",
+        "searchSubstitutes": "Find Substitutes",
+        "schoolSearchDescription": "Browse our database of qualified substitutes",
+        "schoolViewMessages": "Messages",
+        "schoolMessagesDescription": "Manage conversations with substitutes",
+        "settings": "Settings",
+        "settingsDescription": "Configure your profile and preferences"
+      },
+      "planning": {
+        "absenceCalendar": "Absence Calendar",
+        "absenceDescription": "Plan and visualize upcoming absences",
+        "periodCalculator": "Period Calculator",
+        "calculatorDescription": "Estimate replacement needs",
+        "favoriteSubstitutes": "Favorite Substitutes List",
+        "favoritesDescription": "Manage your pool of regular substitutes"
+      },
+      "schoolResourcesSection": {
+        "welcomeGuide": "Welcome Guide",
+        "welcomeDescription": "Document to customize for substitutes",
+        "internalProcedures": "Internal Procedures",
+        "proceduresDescription": "Rules and processes for replacements",
+        "evaluationGrid": "Evaluation Grid",
+        "evaluationDescription": "For tracking completed replacements",
+        "download": "Download"
+      },
+      "schoolTemplates": {
+        "specificationTemplate": "Specification Template",
+        "specificationDescription": "To detail replacement assignments",
+        "handoverSheet": "Handover Sheet",
+        "handoverDescription": "For teacher-to-teacher transitions"
+      }
+    },
+    "offers": {
+      "title": "My Replacement Offers",
+      "create": "Create Offer",
+      "status": {
+        "all": "All",
+        "active": "Active",
+        "filled": "Filled",
+        "expired": "Expired"
+      },
+      "card": {
+        "applicationsCount": "application(s)",
+        "edit": "Edit",
+        "close": "Close",
+        "reopen": "Reopen",
+        "delete": "Delete"
+      },
+      "empty": "You haven't created any offers yet"
+    },
+    "createOffer": {
+      "title": "Create Replacement Offer",
+      "basicInfo": "Main Information",
+      "class": "Class",
+      "classPlaceholder": "e.g. 3rd Grade",
+      "location": "Location",
+      "locationPlaceholder": "e.g. Lausanne",
+      "teachingLevel": "Teaching Level",
+      "selectLevel": "Select a level",
+      "offerTitle": "Offer Title",
+      "description": "Description",
+      "period": "Period and Schedule",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "totalLessons": "Total Number of Lessons",
+      "totalLessonsPlaceholder": "e.g. 10",
+      "requirements": "Requirements",
+      "subjects": "Subjects to Teach",
+      "teachingLevels": "Teaching Levels",
+      "schedule": "Schedule",
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "additionalInfo": "Additional Information",
+      "topicLabel": "Schedule, meeting point and useful information about the replacement (optional)",
+      "topicPlaceholder": "Specify exact times, meeting point and any useful information for the replacement...",
+      "qualifications": "Desired Qualifications (optional)",
+      "qualificationsPlaceholder": "Describe the desired qualifications for this replacement...",
+      "submit": "Publish Offer",
+      "submitting": "Publishing...",
+      "success": "Offer created successfully",
+      "saveDraft": "Save as Draft",
+      "errors": {
+        "notLoggedIn": "You must be logged in to create an offer",
+        "startDateInvalid": "Start date must be equal to or after today",
+        "endDateInvalid": "End date must be after start date",
+        "general": "An error occurred while creating the offer"
+      }
+    },
+    "applications": {
+      "title": "Applications Received",
+      "filter": {
+        "all": "All",
+        "new": "New",
+        "reviewed": "Reviewed",
+        "accepted": "Accepted",
+        "rejected": "Rejected"
+      },
+      "actions": {
+        "accept": "Accept",
+        "reject": "Reject",
+        "message": "Send Message",
+        "viewProfile": "View Profile",
+        "downloadCV": "Download CV"
+      },
+      "status": {
+        "accepted": "Accepted",
+        "positionFilled": "Position already filled",
+        "filled": "Filled",
+        "open": "Open"
+      },
+      "candidateMessage": "Candidate's message",
+      "confirmAcceptTitle": "Confirm acceptance",
+      "confirmAcceptMessage": "Are you sure you want to accept this application? Other candidates will be automatically notified that the position has been filled.",
+      "detailsUnavailable": "Details of this application are no longer available",
+      "empty": "No applications received",
+      "successAccept": "Application accepted successfully!",
+      "errorAccept": "Error accepting application",
+      "errorLoad": "Error loading data"
+    },
+    "team": {
+      "title": "Teaching Team",
+      "invite": "Invite Teacher",
+      "members": "Team Members",
+      "pending": "Pending Invitations",
+      "seatUsage": "Seat Usage",
+      "seatsUsed": "seats used",
+      "upgrade": "Upgrade",
+      "remove": "Remove",
+      "resendInvite": "Resend Invitation",
+      "inviteForm": {
+        "title": "Invite a Teacher",
+        "email": "Teacher's Email",
+        "message": "Personal Message (optional)",
+        "send": "Send Invitation"
+      }
+    },
+    "subscription": {
+      "title": "Subscription",
+      "currentPlan": "Current Plan",
+      "usage": "Usage",
+      "upgrade": "Upgrade",
+      "downgrade": "Downgrade",
+      "cancel": "Cancel Subscription",
+      "plans": {
+        "basic": "Basic",
+        "standard": "Standard",
+        "premium": "Premium"
+      },
+      "features": {
+        "seats": "{{count}} teachers",
+        "unlimitedOffers": "Unlimited offers",
+        "messaging": "Integrated messaging",
+        "support": "Support",
+        "analytics": "Advanced analytics"
+      },
+      "trial": {
+        "status": "Trial Period",
+        "remaining": "{{count}} offers remaining",
+        "upgrade": "Activate Subscription"
+      }
+    }
+  },
+  "admin": {
+    "createAccount": {
+      "title": "Create Administrator Account",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create Admin Account",
+      "success": "Administrator account created successfully",
+      "error": "Error creating admin account"
+    },
+    "dashboard": {
+      "title": "Admin Dashboard",
+      "tabs": {
+        "pending": "Pending Approvals",
+        "users": "User Management",
+        "offers": "All Offers",
+        "analytics": "Analytics"
+      }
+    },
+    "pending": {
+      "teachers": "Pending Teachers",
+      "schools": "Pending Schools",
+      "approve": "Approve",
+      "reject": "Reject",
+      "viewDetails": "View Details"
+    },
+    "users": {
+      "title": "User Management",
+      "filter": {
+        "all": "All",
+        "teachers": "Teachers",
+        "schools": "Schools",
+        "active": "Active",
+        "suspended": "Suspended"
+      },
+      "actions": {
+        "suspend": "Suspend",
+        "activate": "Activate",
+        "delete": "Delete",
+        "sendMessage": "Send Message"
+      }
+    },
+    "userManagement": {
+      "title": "User Management",
+      "teachers": "Substitutes",
+      "schools": "Schools",
+      "columns": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "name": "Name",
+        "email": "Email",
+        "status": "Status",
+        "canton": "Canton",
+        "classes": "Classes"
+      }
+    },
+    "offers": {
+      "title": "All Offers",
+      "stats": {
+        "total": "Total Offers",
+        "active": "Active",
+        "urgent": "Urgent",
+        "filled": "Filled",
+        "applicationsTotal": "Applications"
+      },
+      "filter": {
+        "search": "Search by title or subject...",
+        "school": "Filter by school...",
+        "status": "All statuses",
+        "urgentOnly": "Urgent only"
+      },
+      "noOffersFound": "No offers found",
+      "empty": "No applications received",
+      "successAccept": "Application accepted successfully!",
+      "errorAccept": "Error accepting application",
+      "errorLoad": "Error loading data"
+    },
+    "analytics": {
+      "title": "Analytics",
+      "metrics": {
+        "totalUsers": "Total Users",
+        "activeOffers": "Active Offers",
+        "successRate": "Success Rate",
+        "avgTimeToFill": "Average Time to Fill"
+      }
+    }
+  },
+  "messages": {
+    "title": "Messages",
+    "conversations": "Conversations",
+    "newMessage": "New Message",
+    "search": "Search conversations...",
+    "empty": "No conversations",
+    "send": "Send",
+    "typeMessage": "Type your message...",
+    "attachment": "Attach file",
+    "unread": "unread",
+    "createError": "Error creating conversation",
+    "noMessages": "No messages. Start the conversation!",
+    "selectConversation": "Select a conversation to start"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "filled": "Filled",
+    "expired": "Expired",
+    "cancelled": "Cancelled",
+    "urgent": "Urgent"
+  },
+  "errors": {
+    "general": "An error occurred",
+    "network": "Connection error",
+    "unauthorized": "Unauthorized",
+    "notFound": "Not found",
+    "validation": "Validation error",
+    "required": "This field is required",
+    "email": "Invalid email",
+    "minLength": "Minimum {{min}} characters",
+    "maxLength": "Maximum {{max}} characters",
+    "minValue": "Minimum value is {{min}}",
+    "maxValue": "Maximum value is {{max}}",
+    "passwordMismatch": "Passwords do not match",
+    "invalidCredentials": "Invalid email or password",
+    "emailInUse": "This email is already in use",
+    "weakPassword": "Password is too weak",
+    "tooManyRequests": "Too many attempts. Please try again later",
+    "services": {
+      "emailAlreadyExists": "This email address is already in use",
+      "alreadyApplied": "You have already applied to this offer",
+      "profileUpdateError": "Error updating profile",
+      "adminAlreadyExists": "An administrator with this email already exists",
+      "emailAlreadyUsed": "This email is already in use. Please choose another one.",
+      "userNotAuthenticated": "User not authenticated",
+      "teacherAlreadyInvited": "This teacher is already invited"
+    }
+  },
+  "success": {
+    "saved": "Saved successfully",
+    "created": "Created successfully",
+    "updated": "Updated successfully",
+    "deleted": "Deleted successfully",
+    "sent": "Sent successfully",
+    "approved": "Approved successfully",
+    "rejected": "Rejected successfully",
+    "invited": "Invitation sent successfully"
+  },
+  "confirm": {
+    "delete": "Are you sure you want to delete?",
+    "cancel": "Are you sure you want to cancel?",
+    "logout": "Are you sure you want to log out?",
+    "accept": "Are you sure you want to accept?",
+    "reject": "Are you sure you want to reject?"
+  },
+  "landing": {
+    "hero": {
+      "badge": "The innovative solution for school replacements",
+      "title": "Teacha - The first school-substitute connection platform in Switzerland",
+      "subtitle": "Simplify school replacement management with our innovative solution that intelligently connects schools with qualified substitutes.",
+      "cta": {
+        "teacher": "I'm a substitute",
+        "school": "I'm a school"
+      }
+    },
+    "benefits": {
+      "title": "Why Choose Teacha?",
+      "teacher": {
+        "title": "For Substitutes",
+        "items": [
+          "Free access to offers",
+          "Urgent notifications",
+          "Simple application management",
+          "Direct communication with schools"
+        ]
+      },
+      "school": {
+        "title": "For Schools",
+        "items": [
+          "Find substitutes quickly",
+          "Integrated team management",
+          "Application tracking",
+          "Replacement history"
+        ]
+      }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "steps": {
+        "register": "Sign Up",
+        "create": "Create or Browse Offers",
+        "connect": "Connect",
+        "manage": "Manage Your Replacements"
+      }
+    },
+    "testimonials": {
+      "title": "They Trust Us"
+    },
+    "cta": {
+      "title": "Ready to Simplify Your Replacements?",
+      "button": "Get Started"
+    },
+    "demo": {
+      "title": "Discover Teacha in action",
+      "description": "A quick demonstration of our replacement management platform",
+      "altText": "Video preview"
+    }
+  },
+  "guide": {
+    "title": "The Complete Substitute Teacher Guide",
+    "subtitle": "A comprehensive checklist to prepare your substitutions with confidence",
+    "beforeReplacement": {
+      "title": "Before the replacement",
+      "contact": {
+        "title": "Contact the school",
+        "description": "Confirm arrival time and meeting point"
+      },
+      "schedule": {
+        "title": "Detailed schedule",
+        "description": "Note exact times for classes and breaks"
+      },
+      "transport": {
+        "title": "Plan the journey",
+        "description": "Check the route and allow extra time for safety"
+      }
+    },
+    "documents": {
+      "title": "Documents to prepare",
+      "materials": {
+        "title": "Program and materials",
+        "description": "Get the curriculum and course materials"
+      },
+      "emergency": {
+        "title": "Emergency contacts",
+        "description": "Note important numbers (administration, office)"
+      },
+      "classList": {
+        "title": "Student list",
+        "description": "Request the list and class particulars"
+      }
+    },
+    "essentialInfo": {
+      "title": "Essential information",
+      "rules": {
+        "title": "School rules",
+        "description": "Know the main rules of the institution"
+      },
+      "specialNeeds": {
+        "title": "Special needs",
+        "description": "Learn about students requiring special attention"
+      },
+      "procedures": {
+        "title": "Emergency procedures",
+        "description": "Know safety and evacuation protocols"
+      }
+    },
+    "personalMaterials": {
+      "title": "Personal materials",
+      "supplies": {
+        "title": "Basic supplies",
+        "description": "Pens, chalk/markers, paper, etc."
+      },
+      "backup": {
+        "title": "Backup activities",
+        "description": "Prepare additional exercises"
+      },
+      "personal": {
+        "title": "Personal items",
+        "description": "Badge, keys, meals, water"
+      }
+    },
+    "practicalTips": {
+      "title": "Practical tips",
+      "arrive": "Arrive at least 15 minutes before classes start",
+      "introduce": "Introduce yourself to colleagues in neighboring classes",
+      "bells": "Familiarize yourself with bell schedules",
+      "cleanup": "Leave the classroom tidy when you leave"
+    }
+  },
+  "pricing": {
+    "title": "Simple and transparent pricing",
+    "subtitle": "Choose the plan that fits your needs",
+    "teacher": {
+      "title": "Substitutes",
+      "price": "Free",
+      "duration": "forever",
+      "cta": "Create free account",
+      "benefits": {
+        "unlimited": "Unlimited access to replacement offers",
+        "profile": "Personalized profile creation",
+        "messaging": "Integrated messaging with schools",
+        "applications": "Application management",
+        "notifications": "Real-time notifications",
+        "documents": "Centralized CV and documents",
+        "tracking": "Mission tracking",
+        "support": "Priority support"
+      }
+    },
+    "school": {
+      "title": "Schools",
+      "price": "Free",
+      "duration": "during pilot project",
+      "instead": "Instead of CHF 250.- per year",
+      "badge": "Pilot project",
+      "cta": "Join pilot project",
+      "limitation": "Limited to 5 schools",
+      "benefits": {
+        "unlimited": "Unlimited offer publishing",
+        "profiles": "Access to all substitute profiles",
+        "messaging": "Integrated messaging",
+        "applications": "Application management",
+        "notifications": "Real-time notifications",
+        "dashboard": "Personalized dashboard",
+        "history": "Replacement history",
+        "support": "Dedicated support"
+      }
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "duration": {
+        "question": "How long does the pilot project last?",
+        "answer": "The pilot project lasts 6 months, during which participating schools get free access to all features."
+      },
+      "after": {
+        "question": "What happens after the pilot project?",
+        "answer": "Schools participating in the pilot project will get a 50% discount on their first annual subscription."
+      },
+      "hidden": {
+        "question": "Are there any hidden fees?",
+        "answer": "No, our pricing policy is completely transparent. There are no hidden fees or long-term commitments."
+      }
+    }
+  },
+  "help": {
+    "title": "Help Center",
+    "subtitle": "Find answers to your questions quickly",
+    "contact": {
+      "title": "Need additional help?",
+      "description": "Our team is here to help you. Don't hesitate to contact us."
+    },
+    "faq": {
+      "platform": {
+        "question": "How does the platform work?",
+        "answer": "Schools publish their replacement needs, and substitutes can apply directly to offers that match their profile. The connection is instant and communication is facilitated through our integrated messaging."
+      },
+      "requirements": {
+        "question": "What are the requirements to become a substitute?",
+        "answer": "You must have the required qualifications to teach and go through our verification process. Your profile will be validated by our team before being activated."
+      },
+      "cost": {
+        "question": "How much does using the platform cost?",
+        "answer": "Registration is free for substitutes. For schools, we currently offer a special free 'pilot project' offer for the first 5 institutions."
+      },
+      "verification": {
+        "question": "How are substitute profiles verified?",
+        "answer": "Each profile is manually verified by our team. We check diplomas, references and other documents provided to guarantee the quality of our service."
+      },
+      "response": {
+        "question": "What is the response time for an application?",
+        "answer": "Schools are immediately notified of your application and can respond quickly. For urgent replacements, we recommend schools respond within 24 hours."
+      },
+      "messaging": {
+        "question": "How does messaging work?",
+        "answer": "Integrated messaging allows schools and substitutes to communicate directly on the platform. You receive notifications for each new message."
+      },
+      "technical": {
+        "question": "What to do in case of technical problems?",
+        "answer": "In case of technical problems, contact our support at hello@cta-ecom.com. Our team is committed to responding to you as soon as possible."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "How does it work?",
+    "subtitle": "RemplaceProf simplifies the connection between schools and substitutes. Discover how our platform can help you.",
+    "forTeachers": "For substitutes",
+    "forSchools": "For schools",
+    "teacher": {
+      "step1": {
+        "title": "1. Create your profile",
+        "description": "Sign up as a substitute and complete your profile with your skills and availability."
+      },
+      "step2": {
+        "title": "2. Find assignments",
+        "description": "Browse replacement offers that match your profile and criteria."
+      },
+      "step3": {
+        "title": "3. Apply easily",
+        "description": "Apply in just a few clicks and communicate directly with schools."
+      },
+      "step4": {
+        "title": "4. Manage your assignments",
+        "description": "Track your applications and organize your replacement schedule."
+      }
+    },
+    "school": {
+      "step1": {
+        "title": "1. Register your school",
+        "description": "Create your school's profile and specify your specific needs."
+      },
+      "step2": {
+        "title": "2. Post your needs",
+        "description": "Create detailed replacement offers in just a few minutes."
+      },
+      "step3": {
+        "title": "3. Select your substitutes",
+        "description": "Review applications and choose the ideal profile for your class."
+      },
+      "step4": {
+        "title": "4. Communicate directly",
+        "description": "Exchange with candidates and organize replacements efficiently."
+      }
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "teacher": "I'm a substitute",
+      "school": "I'm a school"
+    }
+  },
+  "userMenu": {
+    "account": "My account",
+    "logout": "Log out"
+  },
+  "footer": {
+    "description": "The first school-substitute connection platform in Switzerland",
+    "navigation": "Navigation",
+    "howItWorks": "How it works?",
+    "pricing": "Pricing",
+    "help": "Help",
+    "information": "Information",
+    "legal": "Legal notice",
+    "terms": "Terms of service",
+    "contact": "Contact",
+    "copyright": "© {{year}} Teacha. All rights reserved."
+  },
+  "multiselect": {
+    "addOption": "Add \"{{option}}\""
+  },
+  "legal": {
+    "title": "Legal Notice",
+    "contentRedaction": {
+      "title": "Content and Writing",
+      "description": "Teacha is the secure web communication solution for substitutes and schools, complying with all GDPR regulations."
+    },
+    "coordinates": {
+      "title": "Contact Details"
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "content1": "The content of these web pages is maintained with the greatest care. However, we disclaim any responsibility for their content.",
+      "content2": "Printing errors, mistakes and modifications reserved.",
+      "content3": "All copyrights belong to Teacha. The content of this website cannot be used without authorization from Teacha, and the source must be indicated."
+    },
+    "dataProtection": {
+      "title": "Data Protection",
+      "description": "Personal data transmitted when filling out forms is confidential and will not be transmitted to third parties."
+    }
+  },
+  "terms": {
+    "title": "Terms and Conditions",
+    "introduction": {
+      "title": "1. Introduction",
+      "object": {
+        "title": "Object",
+        "description": "These conditions govern the use of the Teacha platform, which offers a connection service between schools and substitute teachers."
+      },
+      "acceptance": {
+        "title": "Acceptance of conditions",
+        "description": "By using the Teacha platform, you accept these general terms and conditions of sale and service."
+      }
+    },
+    "serviceDescription": {
+      "title": "2. Service Description",
+      "pilot": {
+        "title": "Pilot phase",
+        "description": "During the pilot project phase, access to the platform is free for all schools and substitutes."
+      },
+      "paidServices": {
+        "title": "Paid services",
+        "description": "After the pilot phase, access to certain services will become paid for schools in the form of subscriptions."
+      }
+    },
+    "accountCreation": {
+      "title": "3. Account Creation",
+      "registration": {
+        "title": "Registration required",
+        "description": "To access services, schools and substitutes must create an account by providing accurate and complete information."
+      },
+      "responsibility": {
+        "title": "Responsibility",
+        "description": "Each user is responsible for the security of their account and password."
+      }
+    },
+    "financialConditions": {
+      "title": "4. Financial Conditions",
+      "payment": {
+        "title": "Payment terms",
+        "description": "Paid subscriptions for schools will be billed via Stripe. Subscription fee details will be provided before subscription."
+      },
+      "renewal": {
+        "title": "Renewal and cancellation",
+        "description": "The subscription is automatically renewed unless canceled before the renewal date."
+      }
+    },
+    "userObligations": {
+      "title": "5. User Obligations",
+      "conduct": {
+        "title": "User conduct",
+        "description": "Users undertake to use the platform ethically and in accordance with applicable laws."
+      },
+      "confidentiality": {
+        "title": "Confidentiality",
+        "description": "Users must treat information obtained via Teacha confidentially."
+      }
+    },
+    "intellectualProperty": {
+      "title": "6. Intellectual Property",
+      "rights": {
+        "title": "Rights",
+        "description": "The content of Teacha, including texts, graphics, logos, etc., is protected by intellectual property law and remains the exclusive property of Teacha."
+      },
+      "prohibitions": {
+        "title": "Prohibitions",
+        "description": "It is forbidden to reproduce, modify or exploit the contents of the platform without express authorization from Teacha."
+      }
+    },
+    "liability": {
+      "title": "7. Limitation of Liability",
+      "warranties": {
+        "title": "Warranties",
+        "description": "Teacha does not guarantee that the service will be free from interruptions or errors."
+      },
+      "limitation": {
+        "title": "Limitation of liability",
+        "description": "Teacha will not be responsible for indirect damages resulting from the use of the platform."
+      }
+    },
+    "modifications": {
+      "title": "8. Modifications of Conditions",
+      "right": {
+        "title": "Right to modify",
+        "description": "Teacha reserves the right to modify the general conditions at any time."
+      },
+      "notification": {
+        "title": "Notification",
+        "description": "Modifications will be notified to users through the platform or by email."
+      }
+    },
+    "jurisdiction": {
+      "title": "9. Jurisdiction and Applicable Law",
+      "law": {
+        "title": "Applicable law",
+        "description": "These conditions are governed and interpreted in accordance with Swiss law."
+      },
+      "courts": {
+        "title": "Jurisdiction",
+        "description": "Any dispute relating to the use of Teacha will be subject to the competent courts of Biel, Switzerland."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "For any questions regarding these conditions, please contact Teacha:"
+    }
+  },
+  "teacherApplications": {
+    "title": "My Applications",
+    "empty": "You haven't applied to any replacements yet",
+    "confirmWithdraw": "Are you sure you want to withdraw your application?",
+    "status": {
+      "accepted": "Application accepted",
+      "rejected": "Position filled",
+      "pending": "Pending"
+    },
+    "lessons": "lessons",
+    "dateFrom": "From",
+    "dateTo": "to",
+    "message": "Message",
+    "withdraw": "Withdraw",
+    "withdrawing": "Withdrawing...",
+    "offerUnavailable": "This offer is no longer available",
+    "schoolDefault": "School"
+  },
+  "schoolsList": {
+    "title": "Registered Schools",
+    "searchSchool": "Search for a school...",
+    "searchCity": "Search by city...",
+    "allCantons": "All cantons",
+    "showFavoritesOnly": "Show only my favorite schools",
+    "noSchoolsFound": "No schools match your criteria",
+    "classes": "classes",
+    "viewProfile": "View profile",
+    "errorLoading": "An error occurred while loading schools"
+  },
+  "landingPage": {
+    "teacherSubtitle": "Transform your expertise into enriching opportunities",
+    "schoolSubtitle": "Ensure educational continuity with complete serenity",
+    "featuresTitle": "Innovative features",
+    "featuresSubtitle": "Powerful tools for efficient replacement management",
+    "platformSubtitle": "A complete solution to meet your needs",
+    "testimonialsSubtitle": "Discover our users' experiences",
+    "ctaSubtitle": "Join the Teacha community and simplify your replacement searches",
+    "teacherBenefits": {
+      "flexible": {
+        "title": "Flexible supplementary income",
+        "description": "Choose your missions according to your availability and preferences"
+      },
+      "targeted": {
+        "title": "Targeted opportunities",
+        "description": "Receive offers matching your skills and geographical area"
+      },
+      "simplified": {
+        "title": "Simplified process",
+        "description": "One-click application and real-time tracking of your applications"
+      },
+      "communication": {
+        "title": "Direct communication",
+        "description": "Easily exchange with schools via our integrated messaging"
+      }
+    },
+    "schoolBenefits": {
+      "fast": {
+        "title": "Fast response",
+        "description": "Find qualified substitutes in hours, even urgently"
+      },
+      "talent": {
+        "title": "Talent pool",
+        "description": "Access a base of verified and immediately available substitutes"
+      },
+      "management": {
+        "title": "Simplified management",
+        "description": "Plan and manage your replacements from an intuitive interface"
+      },
+      "quality": {
+        "title": "Quality assured",
+        "description": "Qualified profiles validated by our team of experts"
+      }
+    },
+    "features": {
+      "notifications": {
+        "title": "Real-time notifications",
+        "description": "Be instantly alerted of new applications and responses to your applications"
+      },
+      "geolocation": {
+        "title": "Smart geolocation",
+        "description": "Find replacements near you or in areas of your choice"
+      },
+      "dashboard": {
+        "title": "Personalized dashboard",
+        "description": "Track your statistics and manage your activities from a dedicated interface"
+      },
+      "documents": {
+        "title": "Document management",
+        "description": "Centralize all your important documents (CV, diplomas, evaluations)"
+      }
+    },
+    "platformAdvantages": {
+      "speed": {
+        "title": "Speed of execution",
+        "description": "Offer publication and connection in minutes"
+      },
+      "guarantee": {
+        "title": "Quality guaranteed",
+        "description": "Rigorous profile verification and evaluation system"
+      },
+      "support": {
+        "title": "Personalized support",
+        "description": "A dedicated team listening to accompany you"
+      }
+    },
+    "testimonials": {
+      "marie": {
+        "name": "Marie L.",
+        "role": "Primary substitute",
+        "content": "Teacha allowed me to quickly find missions that match my availability. The interface is super intuitive and support is very responsive!"
+      },
+      "school": {
+        "name": "Lilas School",
+        "role": "Primary school, Lausanne",
+        "content": "Considerable time savings in our search for substitutes. The process is smooth and allows us to efficiently manage unexpected absences."
+      },
+      "thomas": {
+        "name": "Thomas R.",
+        "role": "Secondary substitute",
+        "content": "I can easily manage my applications and communicate with schools. The platform helped me develop my professional network."
+      }
+    }
+  },
+  "teacherInvitations": {
+    "title": "Received Invitations",
+    "pendingResponse": "Awaiting response",
+    "accept": "Accept",
+    "reject": "Reject",
+    "noInvitations": "No pending invitations",
+    "errorLoading": "An error occurred while loading invitations",
+    "errorAccepting": "An error occurred while accepting the invitation",
+    "errorRejecting": "An error occurred while rejecting the invitation"
+  },
+  "accountPage": {
+    "title": "My Account",
+    "profile": "Profile",
+    "team": "Team",
+    "security": "Security",
+    "errorGeneral": "An error occurred",
+    "errorLoading": "Error loading data",
+    "dangerZone": "Danger Zone",
+    "deleteAccount": "Delete my account",
+    "confirmDeletion": "Confirm deletion",
+    "deletionMessage": "To delete your account, please send a request by email to our support team. Do you want to send this request now?",
+    "cancel": "Cancel",
+    "sendRequest": "Send request",
+    "emailSubject": "Account deletion request",
+    "emailBody": "Hello,\n\nI would like to delete my Teacha account.\n\nMy information:\nName: {{name}}\nEmail: {{email}}\n\nBest regards"
+  },
+  "schoolHistory": {
+    "title": "Replacement History",
+    "noReplacements": "No replacements completed",
+    "lessons": "lessons",
+    "message": "Message",
+    "details": "Details",
+    "errorConversation": "Unable to create conversation at the moment"
+  },
+  "constants": {
+    "teachingLevels": {
+      "kindergarten": "Kindergarten",
+      "primary": "Primary",
+      "secondary1": "Secondary I",
+      "secondary2": "Secondary II",
+      "tertiary": "Tertiary"
+    },
+    "subjects": {
+      "french": "French",
+      "german": "German",
+      "english": "English",
+      "italian": "Italian",
+      "latin": "Latin",
+      "greek": "Greek",
+      "spanish": "Spanish",
+      "mathematics": "Mathematics",
+      "naturalSciences": "Natural Sciences",
+      "biology": "Biology",
+      "physics": "Physics",
+      "chemistry": "Chemistry",
+      "computerScience": "Computer Science",
+      "history": "History",
+      "geography": "Geography",
+      "citizenship": "Citizenship",
+      "philosophy": "Philosophy",
+      "economics": "Economics",
+      "law": "Law",
+      "psychology": "Psychology",
+      "pedagogy": "Pedagogy",
+      "visualArts": "Visual Arts",
+      "music": "Music",
+      "manualCreativeActivities": "Manual Creative Activities",
+      "textileCreativeActivities": "Textile Creative Activities",
+      "physicalEducation": "Physical Education",
+      "healthEducation": "Health Education",
+      "mitic": "MITIC",
+      "generalCulture": "General Culture",
+      "accounting": "Accounting",
+      "marketing": "Marketing",
+      "businessManagement": "Business Management",
+      "technicalSciences": "Technical Sciences",
+      "technicalDrawing": "Technical Drawing",
+      "medicine": "Medicine",
+      "nursing": "Nursing",
+      "architecture": "Architecture",
+      "engineering": "Engineering",
+      "communication": "Communication",
+      "journalism": "Journalism",
+      "design": "Design"
+    },
+    "cantons": {
+      "aargau": "Aargau",
+      "appenzellOuterrhoden": "Appenzell Ausserrhoden",
+      "appenzellInnerrhoden": "Appenzell Innerrhoden",
+      "baselLandschaft": "Basel-Landschaft",
+      "baselStadt": "Basel-Stadt",
+      "bern": "Bern",
+      "fribourg": "Fribourg",
+      "geneva": "Geneva",
+      "glarus": "Glarus",
+      "graubunden": "Graubünden",
+      "jura": "Jura",
+      "lucerne": "Lucerne",
+      "neuchatel": "Neuchâtel",
+      "nidwalden": "Nidwalden",
+      "obwalden": "Obwalden",
+      "stGallen": "St. Gallen",
+      "schaffhausen": "Schaffhausen",
+      "schwyz": "Schwyz",
+      "solothurn": "Solothurn",
+      "ticino": "Ticino",
+      "thurgau": "Thurgau",
+      "uri": "Uri",
+      "valais": "Valais",
+      "vaud": "Vaud",
+      "zug": "Zug",
+      "zurich": "Zurich"
+    },
+    "specialClasses": {
+      "welcomeClass": "Welcome Class",
+      "developmentClass": "Development Class",
+      "reducedSizeClass": "Reduced Size Class",
+      "supportClass": "Support Class",
+      "mcdi": "MCDI (Itinerant Development Class Teacher)",
+      "relayClass": "Relay Class"
+    },
+    "civility": {
+      "mr": "Mr.",
+      "mrs": "Mrs.",
+      "neutral": "Neutral",
+      "unspecified": "Unspecified"
+    },
+    "nativeLanguages": {
+      "french": "French",
+      "german": "German",
+      "italian": "Italian"
+    }
+  }
+}

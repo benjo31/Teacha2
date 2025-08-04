@@ -67,7 +67,7 @@ export async function registerTeacher(data: TeacherData) {
     }
   } catch (error: any) {
     if (error.code === 'auth/email-already-in-use') {
-      throw new Error('Cette adresse email est déjà utilisée')
+      throw new Error('EMAIL_ALREADY_IN_USE')
     }
     console.error('Erreur lors de l\'inscription:', error)
     throw error
@@ -92,7 +92,7 @@ export async function registerSchool(data: SchoolData) {
     return userCredential.user
   } catch (error: any) {
     if (error.code === 'auth/email-already-in-use') {
-      throw new Error('Cette adresse email est déjà utilisée')
+      throw new Error('EMAIL_ALREADY_IN_USE')
     }
     console.error('Erreur lors de l\'inscription:', error)
     throw error

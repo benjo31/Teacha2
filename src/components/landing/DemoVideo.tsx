@@ -1,6 +1,7 @@
 import { Play } from 'lucide-react'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface DemoVideoProps {
   thumbnailUrl?: string
@@ -8,6 +9,7 @@ interface DemoVideoProps {
 
 export function DemoVideo({ thumbnailUrl }: DemoVideoProps) {
   const [isPlaying, setIsPlaying] = useState(false)
+  const { t } = useTranslation()
 
   return (
     <div className="relative max-w-4xl mx-auto mt-12 rounded-2xl overflow-hidden shadow-2xl">
@@ -16,7 +18,7 @@ export function DemoVideo({ thumbnailUrl }: DemoVideoProps) {
           {thumbnailUrl ? (
             <img 
               src={thumbnailUrl} 
-              alt="Aperçu de la vidéo" 
+              alt={t('landing.demo.altText')} 
               className="absolute inset-0 w-full h-full object-cover opacity-75"
             />
           ) : (
@@ -34,10 +36,10 @@ export function DemoVideo({ thumbnailUrl }: DemoVideoProps) {
 
           <div className="absolute bottom-6 left-6 right-6 text-white">
             <h3 className="text-xl font-semibold mb-2">
-              Découvrez Teacha en action
+              {t('landing.demo.title')}
             </h3>
             <p className="text-white/80">
-              Une démonstration rapide de notre plateforme de gestion des remplacements
+              {t('landing.demo.description')}
             </p>
           </div>
         </div>

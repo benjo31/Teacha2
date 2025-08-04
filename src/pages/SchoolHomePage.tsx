@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useAuth } from '../lib/context/AuthContext'
+import { useTranslation } from '../lib/context/LanguageContext'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../lib/firebase'
 import { SchoolStats } from '../components/schools/SchoolStats'
@@ -18,102 +19,103 @@ type SchoolData = {
   teachingLevels: string[]
 }
 
-const quickActions = [
-  {
-    icon: PlusCircle,
-    title: "Publier une offre",
-    description: "Créez une nouvelle offre de remplacement",
-    link: "/school-dashboard",
-    color: "bg-primary/10 text-primary"
-  },
-  {
-    icon: Search,
-    title: "Rechercher des remplaçants",
-    description: "Parcourez notre base de remplaçants qualifiés",
-    link: "/school-applications",
-    color: "bg-green-100 text-green-600"
-  },
-  {
-    icon: MessageCircle,
-    title: "Messages",
-    description: "Gérez vos conversations avec les remplaçants",
-    link: "/messages",
-    color: "bg-blue-100 text-blue-600"
-  },
-  {
-    icon: Settings,
-    title: "Paramètres",
-    description: "Configurez votre profil et vos préférences",
-    link: "/account",
-    color: "bg-gray-100 text-gray-600"
-  }
-]
-
-const planningTools = [
-  {
-    icon: Calendar,
-    title: "Calendrier des absences",
-    description: "Planifiez et visualisez les absences à venir",
-    link: "#",
-    color: "bg-purple-100 text-purple-600"
-  },
-  {
-    icon: Calculator,
-    title: "Calculateur de périodes",
-    description: "Estimez les besoins en remplacement",
-    link: "#",
-    color: "bg-indigo-100 text-indigo-600"
-  },
-  {
-    icon: Users,
-    title: "Liste des remplaçants favoris",
-    description: "Gérez votre pool de remplaçants réguliers",
-    link: "#",
-    color: "bg-pink-100 text-pink-600"
-  }
-]
-
-const resources = [
-  {
-    icon: BookOpen,
-    title: "Guide d'accueil",
-    description: "Document à personnaliser pour les remplaçants",
-    downloadUrl: "#"
-  },
-  {
-    icon: ClipboardList,
-    title: "Procédures internes",
-    description: "Règles et processus pour les remplacements",
-    downloadUrl: "#"
-  },
-  {
-    icon: CheckSquare,
-    title: "Grille d'évaluation",
-    description: "Pour le suivi des remplacements effectués",
-    downloadUrl: "#"
-  }
-]
-
-const templates = [
-  {
-    icon: FileText,
-    title: "Modèle de cahier des charges",
-    description: "Pour détailler les missions de remplacement",
-    downloadUrl: "#"
-  },
-  {
-    icon: FileText,
-    title: "Fiche de transmission",
-    description: "Pour la passation entre enseignants",
-    downloadUrl: "#"
-  }
-]
-
 export function SchoolHomePage() {
   const { user } = useAuth()
+  const { t } = useTranslation()
   const [schoolData, setSchoolData] = useState<SchoolData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+
+  const quickActions = [
+    {
+      icon: PlusCircle,
+      title: t('school.home.actions.publishOffer'),
+      description: t('school.home.actions.publishDescription'),
+      link: "/school-dashboard",
+      color: "bg-primary/10 text-primary"
+    },
+    {
+      icon: Search,
+      title: t('school.home.actions.searchSubstitutes'),
+      description: t('school.home.actions.searchDescription'),
+      link: "/school-applications",
+      color: "bg-green-100 text-green-600"
+    },
+    {
+      icon: MessageCircle,
+      title: t('school.home.actions.viewMessages'),
+      description: t('school.home.actions.messagesDescription'),
+      link: "/messages",
+      color: "bg-blue-100 text-blue-600"
+    },
+    {
+      icon: Settings,
+      title: t('school.home.actions.settings'),
+      description: t('school.home.actions.settingsDescription'),
+      link: "/account",
+      color: "bg-gray-100 text-gray-600"
+    }
+  ]
+
+  const planningTools = [
+    {
+      icon: Calendar,
+      title: t('school.home.planning.absenceCalendar'),
+      description: t('school.home.planning.absenceDescription'),
+      link: "#",
+      color: "bg-purple-100 text-purple-600"
+    },
+    {
+      icon: Calculator,
+      title: t('school.home.planning.periodCalculator'),
+      description: t('school.home.planning.calculatorDescription'),
+      link: "#",
+      color: "bg-indigo-100 text-indigo-600"
+    },
+    {
+      icon: Users,
+      title: t('school.home.planning.favoriteSubstitutes'),
+      description: t('school.home.planning.favoritesDescription'),
+      link: "#",
+      color: "bg-pink-100 text-pink-600"
+    }
+  ]
+
+  const resources = [
+    {
+      icon: BookOpen,
+      title: t('school.home.resources.welcomeGuide'),
+      description: t('school.home.resources.welcomeDescription'),
+      downloadUrl: "#"
+    },
+    {
+      icon: ClipboardList,
+      title: t('school.home.resources.internalProcedures'),
+      description: t('school.home.resources.proceduresDescription'),
+      downloadUrl: "#"
+    },
+    {
+      icon: CheckSquare,
+      title: t('school.home.resources.evaluationGrid'),
+      description: t('school.home.resources.evaluationDescription'),
+      downloadUrl: "#"
+    }
+  ]
+
+  const templates = [
+    {
+      icon: FileText,
+      title: t('school.home.templates.specificationTemplate'),
+      description: t('school.home.templates.specificationDescription'),
+      downloadUrl: "#"
+    },
+    {
+      icon: FileText,
+      title: t('school.home.templates.handoverSheet'),
+      description: t('school.home.templates.handoverDescription'),
+      downloadUrl: "#"
+    }
+  ]
 
   useEffect(() => {
     async function loadData() {
@@ -170,7 +172,7 @@ export function SchoolHomePage() {
 
       {/* Actions rapides */}
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Actions rapides</h2>
+        <h2 className="text-xl font-semibold">{t('school.home.quickActions')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {quickActions.map((action, index) => (
             <Link
@@ -192,7 +194,7 @@ export function SchoolHomePage() {
 
       {/* Outils de planification */}
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Outils de planification</h2>
+        <h2 className="text-xl font-semibold">{t('school.home.planningTools')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {planningTools.map((tool, index) => (
             <Link
@@ -212,7 +214,7 @@ export function SchoolHomePage() {
 
       {/* Ressources et guides */}
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Ressources utiles</h2>
+        <h2 className="text-xl font-semibold">{t('school.home.resources')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {resources.map((resource, index) => (
             <a
@@ -228,7 +230,7 @@ export function SchoolHomePage() {
                 <p className="text-sm text-gray-600 mb-2">{resource.description}</p>
                 <span className="text-primary text-sm flex items-center">
                   <Download className="h-4 w-4 mr-1" />
-                  Télécharger
+                  {t('school.home.resources.download')}
                 </span>
               </div>
             </a>
@@ -238,7 +240,7 @@ export function SchoolHomePage() {
 
       {/* Modèles de documents */}
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Modèles de documents</h2>
+        <h2 className="text-xl font-semibold">{t('school.home.templates')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {templates.map((template, index) => (
             <a
@@ -254,7 +256,7 @@ export function SchoolHomePage() {
                 <p className="text-sm text-gray-600 mb-2">{template.description}</p>
                 <span className="text-primary text-sm flex items-center">
                   <Download className="h-4 w-4 mr-1" />
-                  Télécharger
+                  {t('school.home.resources.download')}
                 </span>
               </div>
             </a>
@@ -269,12 +271,12 @@ export function SchoolHomePage() {
             <HelpCircle className="h-6 w-6" />
           </div>
           <div>
-            <h3 className="font-semibold mb-2">Besoin d'aide ?</h3>
+            <h3 className="font-semibold mb-2">{t('school.home.needHelp')}</h3>
             <p className="text-sm text-gray-600 mb-4">
-              Notre équipe est là pour vous aider à optimiser la gestion de vos remplacements.
+              {t('school.home.helpDescription')}
             </p>
             <Link to="#" className="text-primary hover:text-primary-dark text-sm flex items-center">
-              Consulter le centre d'aide
+              {t('common.help')}
             </Link>
           </div>
         </div>

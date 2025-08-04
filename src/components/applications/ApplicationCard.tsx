@@ -3,6 +3,7 @@ import { MessageCircle, Eye, FileText, ExternalLink, AlertCircle, UserCircle2 } 
 import { Application } from '../../types/application'
 import { findOrCreateConversation } from '../../lib/services/messages'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from '../../lib/context/LanguageContext'
 import { TeacherProfileModal } from '../teachers/TeacherProfileModal'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
@@ -18,6 +19,7 @@ interface ApplicationCardProps {
 }
 
 export const ApplicationCard = ({ application, onAccept, schoolName, isOfferFilled }: ApplicationCardProps) => {
+  const { t } = useTranslation()
   const [showProfile, setShowProfile] = useState(false)
   const [showConfirmation, setShowConfirmation] = useState(false)
   const [isCreatingConversation, setIsCreatingConversation] = useState(false)
@@ -34,7 +36,7 @@ export const ApplicationCard = ({ application, onAccept, schoolName, isOfferFill
       return format(start, 'EEEE d MMMM yyyy', { locale: fr })
     }
     
-    return `Du ${format(start, 'd MMMM', { locale: fr })} au ${format(end, 'd MMMM yyyy', { locale: fr })}`
+    return `${t('common.from')} ${format(start, 'd MMMM', { locale: fr })} ${t('common.to')} ${format(end, 'd MMMM yyyy', { locale: fr })}`
   }
 
   const handleShowProfile = async () => {
@@ -47,7 +49,7 @@ export const ApplicationCard = ({ application, onAccept, schoolName, isOfferFill
         setTeacherFullProfile(teacherDoc.data())
       }
     } catch (error) {
-      console.error('Erreur lors du chargement du profil:', error)
+      console.error(t('teacher.profile.loadError'), error)
     }
     setLoadingProfile(false)
     setShowProfile(true)
@@ -81,7 +83,7 @@ export const ApplicationCard = ({ application, onAccept, schoolName, isOfferFill
 
       navigate(`/messages?conversation=${conversationId}`)
     } catch (error) {
-      console.error('Erreur lors de la création de la conversation:', error)
+      console.error(t('messages.createError'), error)
     } finally {
       setIsCreatingConversation(false)
     }
@@ -111,7 +113,7 @@ export const ApplicationCard = ({ application, onAccept, schoolName, isOfferFill
     return (
       <div className="bg-white p-6 rounded-lg shadow-sm border">
         <p className="text-gray-500">
-          Les détails de cette candidature ne sont plus disponibles
+          {t('school.applications.detailsUnavailable')}
         </p>
       </div>
     )
@@ -152,7 +154,7 @@ export const ApplicationCard = ({ application, onAccept, schoolName, isOfferFill
               className="flex items-center space-x-2 text-primary hover:text-primary/90"
             >
               <Eye className="h-5 w-5" />
-              <span>{loadingProfile ? 'Chargement...' : 'Voir le profil'}</span>
+              <span>{loadingProfile ? t('common.loading') : t('school.applications.actions.viewProfile')}</span>
             </button>
 
             {application.teacher.cvUrl && (
@@ -163,7 +165,7 @@ export const ApplicationCard = ({ application, onAccept, schoolName, isOfferFill
                 className="flex items-center space-x-2 text-primary hover:text-primary/90"
               >
                 <FileText className="h-5 w-5" />
-                <span>Voir le CV</span>
+                <span>{t('school.applications.actions.downloadCV')}</span>
                 <ExternalLink className="h-4 w-4" />
               </a>
             )}
@@ -174,17 +176,17 @@ export const ApplicationCard = ({ application, onAccept, schoolName, isOfferFill
               className="flex items-center space-x-2 text-primary hover:text-primary/90"
             >
               <MessageCircle className="h-5 w-5" />
-              <span>{isCreatingConversation ? 'Chargement...' : 'Message'}</span>
+              <span>{isCreatingConversation ? t('common.loading') : t('school.applications.actions.message')}</span>
             </button>
 
             {application.status === 'accepted' ? (
               <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full">
-                Acceptée
+                {t('school.applications.status.accepted')}
               </span>
             ) : isOfferFilled ? (
               <div className="text-gray-500 flex items-center">
                 <AlertCircle className="h-5 w-5 mr-2" />
-                Poste déjà pourvu
+                {t('school.applications.status.positionFilled')}
               </div>
             ) : (
               <button
@@ -192,7 +194,7 @@ export const ApplicationCard = ({ application, onAccept, schoolName, isOfferFill
                 disabled={acceptingApplication}
                 className="bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90 disabled:opacity-50"
               >
-                {acceptingApplication ? 'En cours...' : 'Accepter'}
+                {acceptingApplication ? t('common.loading') : t('school.applications.actions.accept')}
               </button>
             )}
           </div>
@@ -200,7 +202,7 @@ export const ApplicationCard = ({ application, onAccept, schoolName, isOfferFill
 
         <div className="mt-4 p-4 bg-gray-50 rounded-md">
           <h4 className="text-sm font-medium text-gray-700 mb-2">
-            Message du candidat
+            {t('school.applications.candidateMessage')}
           </h4>
           <p className="text-gray-600">{application.message}</p>
         </div>
@@ -210,23 +212,23 @@ export const ApplicationCard = ({ application, onAccept, schoolName, isOfferFill
       {showConfirmation && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
-            <h3 className="text-lg font-semibold mb-4">Confirmer l'acceptation</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('school.applications.confirmAcceptTitle')}</h3>
             <p className="text-gray-600 mb-6">
-              Êtes-vous sûr de vouloir accepter cette candidature ? Les autres candidats seront automatiquement notifiés que le poste a été pourvu.
+              {t('school.applications.confirmAcceptMessage')}
             </p>
             <div className="flex justify-end space-x-3">
               <button
                 onClick={() => setShowConfirmation(false)}
                 className="px-4 py-2 text-gray-600 hover:text-gray-800"
               >
-                Annuler
+                {t('common.cancel')}
               </button>
               <button
                 onClick={handleConfirmAccept}
                 disabled={acceptingApplication}
                 className="bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90 disabled:opacity-50"
               >
-                {acceptingApplication ? 'En cours...' : 'Confirmer'}
+                {acceptingApplication ? t('common.loading') : t('common.confirm')}
               </button>
             </div>
           </div>

@@ -5,110 +5,113 @@ import {
   Zap, Award, Heart
 } from 'lucide-react'
 
-export const teacherBenefits = [
+// These functions return benefit configurations with translation keys
+// The actual translations are resolved in the components using useTranslation
+
+export const getTeacherBenefits = (t: (key: string) => string) => [
   {
     icon: Wallet,
-    title: 'Revenu complémentaire flexible',
-    description: 'Choisissez vos missions selon vos disponibilités et vos préférences'
+    title: t('landingPage.teacherBenefits.flexible.title'),
+    description: t('landingPage.teacherBenefits.flexible.description')
   },
   {
     icon: Target,
-    title: 'Opportunités ciblées',
-    description: 'Recevez des offres correspondant à vos compétences et votre zone géographique'
+    title: t('landingPage.teacherBenefits.targeted.title'),
+    description: t('landingPage.teacherBenefits.targeted.description')
   },
   {
     icon: ShieldCheck,
-    title: 'Processus simplifié',
-    description: 'Candidature en un clic et suivi en temps réel de vos postulations'
+    title: t('landingPage.teacherBenefits.simplified.title'),
+    description: t('landingPage.teacherBenefits.simplified.description')
   },
   {
     icon: MessageCircle,
-    title: 'Communication directe',
-    description: 'Échangez facilement avec les établissements via notre messagerie intégrée'
+    title: t('landingPage.teacherBenefits.communication.title'),
+    description: t('landingPage.teacherBenefits.communication.description')
   }
 ]
 
-export const schoolBenefits = [
+export const getSchoolBenefits = (t: (key: string) => string) => [
   {
     icon: Clock,
-    title: 'Réponse rapide',
-    description: 'Trouvez des remplaçants qualifiés en quelques heures, même en urgence'
+    title: t('landingPage.schoolBenefits.fast.title'),
+    description: t('landingPage.schoolBenefits.fast.description')
   },
   {
     icon: Users,
-    title: 'Vivier de talents',
-    description: 'Accédez à une base de remplaçants vérifiés et disponibles immédiatement'
+    title: t('landingPage.schoolBenefits.talent.title'),
+    description: t('landingPage.schoolBenefits.talent.description')
   },
   {
     icon: Calendar,
-    title: 'Gestion simplifiée',
-    description: 'Planifiez et gérez vos remplacements depuis une interface intuitive'
+    title: t('landingPage.schoolBenefits.management.title'),
+    description: t('landingPage.schoolBenefits.management.description')
   },
   {
     icon: Sparkles,
-    title: 'Qualité assurée',
-    description: 'Des profils qualifiés et validés par notre équipe d\'experts'
+    title: t('landingPage.schoolBenefits.quality.title'),
+    description: t('landingPage.schoolBenefits.quality.description')
   }
 ]
 
-export const features = [
+export const getFeatures = (t: (key: string) => string) => [
   {
     icon: Bell,
-    title: 'Notifications en temps réel',
-    description: 'Soyez alerté instantanément des nouvelles candidatures et des réponses à vos postulations'
+    title: t('landingPage.features.notifications.title'),
+    description: t('landingPage.features.notifications.description')
   },
   {
     icon: Map,
-    title: 'Géolocalisation intelligente',
-    description: 'Trouvez des remplacements près de chez vous ou dans les zones de votre choix'
+    title: t('landingPage.features.geolocation.title'),
+    description: t('landingPage.features.geolocation.description')
   },
   {
     icon: BarChart,
-    title: 'Tableau de bord personnalisé',
-    description: 'Suivez vos statistiques et gérez vos activités depuis une interface dédiée'
+    title: t('landingPage.features.dashboard.title'),
+    description: t('landingPage.features.dashboard.description')
   },
   {
     icon: Briefcase,
-    title: 'Gestion documentaire',
-    description: 'Centralisez tous vos documents importants (CV, diplômes, évaluations)'
+    title: t('landingPage.features.documents.title'),
+    description: t('landingPage.features.documents.description')
   }
 ]
 
-export const platformAdvantages = [
+export const getPlatformAdvantages = (t: (key: string) => string) => [
   {
     icon: Zap,
-    title: 'Rapidité d\'exécution',
-    description: 'Publication d\'offres et mise en relation en quelques minutes'
+    title: t('landingPage.platformAdvantages.speed.title'),
+    description: t('landingPage.platformAdvantages.speed.description')
   },
   {
     icon: Award,
-    title: 'Qualité garantie',
-    description: 'Vérification rigoureuse des profils et système d\'évaluation'
+    title: t('landingPage.platformAdvantages.guarantee.title'),
+    description: t('landingPage.platformAdvantages.guarantee.description')
   },
   {
     icon: Heart,
-    title: 'Support personnalisé',
-    description: 'Une équipe dédiée à votre écoute pour vous accompagner'
+    title: t('landingPage.platformAdvantages.support.title'),
+    description: t('landingPage.platformAdvantages.support.description')
   }
 ]
 
-export const testimonials = [
+export const getTestimonials = (t: (key: string) => string) => [
   {
-    name: "Marie L.",
-    role: "Remplaçante en primaire",
-    content: "Teacha m'a permis de trouver rapidement des missions qui correspondent à mes disponibilités. L'interface est super intuitive et le support est très réactif !",
+    name: t('landingPage.testimonials.marie.name'),
+    role: t('landingPage.testimonials.marie.role'),
+    content: t('landingPage.testimonials.marie.content'),
     rating: 5
   },
   {
-    name: "École des Lilas",
-    role: "École primaire, Lausanne",
-    content: "Un gain de temps considérable dans notre recherche de remplaçants. Le processus est fluide et nous permet de gérer efficacement les absences imprévues.",
+    name: t('landingPage.testimonials.school.name'),
+    role: t('landingPage.testimonials.school.role'),
+    content: t('landingPage.testimonials.school.content'),
     rating: 5
   },
   {
-    name: "Thomas R.",
-    role: "Remplaçant en secondaire",
-    content: "Je peux facilement gérer mes candidatures et communiquer avec les écoles. La plateforme m'a permis de développer mon réseau professionnel.",
+    name: t('landingPage.testimonials.thomas.name'),
+    role: t('landingPage.testimonials.thomas.role'),
+    content: t('landingPage.testimonials.thomas.content'),
     rating: 5
   }
 ]

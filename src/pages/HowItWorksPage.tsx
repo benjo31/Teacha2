@@ -3,6 +3,7 @@ import {
   UserPlus, Search, MessageSquare, Calendar,
   ClipboardCheck, CheckCircle, School, GraduationCap
 } from 'lucide-react'
+import { useTranslation } from '../lib/context/LanguageContext'
 
 const container = {
   hidden: { opacity: 0 },
@@ -19,53 +20,56 @@ const item = {
   show: { opacity: 1, y: 0 }
 }
 
-const teacherSteps = [
-  {
-    icon: UserPlus,
-    title: "1. Créez votre profil",
-    description: "Inscrivez-vous en tant que remplaçant et complétez votre profil avec vos compétences et disponibilités."
-  },
-  {
-    icon: Search,
-    title: "2. Trouvez des missions",
-    description: "Parcourez les offres de remplacement qui correspondent à votre profil et à vos critères."
-  },
-  {
-    icon: MessageSquare,
-    title: "3. Postulez simplement",
-    description: "Candidatez en quelques clics et échangez directement avec les établissements."
-  },
-  {
-    icon: Calendar,
-    title: "4. Gérez vos missions",
-    description: "Suivez vos candidatures et organisez votre planning de remplacements."
-  }
-]
-
-const schoolSteps = [
-  {
-    icon: UserPlus,
-    title: "1. Inscrivez votre école",
-    description: "Créez le profil de votre établissement et précisez vos besoins spécifiques."
-  },
-  {
-    icon: ClipboardCheck,
-    title: "2. Publiez vos besoins",
-    description: "Créez des offres de remplacement détaillées en quelques minutes."
-  },
-  {
-    icon: CheckCircle,
-    title: "3. Sélectionnez vos remplaçants",
-    description: "Examinez les candidatures et choisissez le profil idéal pour votre classe."
-  },
-  {
-    icon: MessageSquare,
-    title: "4. Communiquez directement",
-    description: "Échangez avec les candidats et organisez les remplacements efficacement."
-  }
-]
 
 export function HowItWorksPage() {
+  const { t } = useTranslation()
+
+  const teacherSteps = [
+    {
+      icon: UserPlus,
+      title: t('howItWorks.teacher.step1.title'),
+      description: t('howItWorks.teacher.step1.description')
+    },
+    {
+      icon: Search,
+      title: t('howItWorks.teacher.step2.title'),
+      description: t('howItWorks.teacher.step2.description')
+    },
+    {
+      icon: MessageSquare,
+      title: t('howItWorks.teacher.step3.title'),
+      description: t('howItWorks.teacher.step3.description')
+    },
+    {
+      icon: Calendar,
+      title: t('howItWorks.teacher.step4.title'),
+      description: t('howItWorks.teacher.step4.description')
+    }
+  ]
+
+  const schoolSteps = [
+    {
+      icon: UserPlus,
+      title: t('howItWorks.school.step1.title'),
+      description: t('howItWorks.school.step1.description')
+    },
+    {
+      icon: ClipboardCheck,
+      title: t('howItWorks.school.step2.title'),
+      description: t('howItWorks.school.step2.description')
+    },
+    {
+      icon: CheckCircle,
+      title: t('howItWorks.school.step3.title'),
+      description: t('howItWorks.school.step3.description')
+    },
+    {
+      icon: MessageSquare,
+      title: t('howItWorks.school.step4.title'),
+      description: t('howItWorks.school.step4.description')
+    }
+  ]
+
   return (
     <div className="min-h-screen py-12">
       <div className="max-w-6xl mx-auto px-4">
@@ -76,10 +80,9 @@ export function HowItWorksPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl font-bold mb-6">Comment ça marche ?</h1>
+          <h1 className="text-4xl font-bold mb-6">{t('howItWorks.title')}</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            RemplaceProf simplifie la mise en relation entre les écoles et les remplaçants. 
-            Découvrez comment notre plateforme peut vous aider.
+            {t('howItWorks.subtitle')}
           </p>
         </motion.div>
 
@@ -92,7 +95,7 @@ export function HowItWorksPage() {
         >
           <div className="flex items-center gap-3 mb-8">
             <GraduationCap className="h-8 w-8 text-primary" />
-            <h2 className="text-2xl font-bold">Pour les remplaçants</h2>
+            <h2 className="text-2xl font-bold">{t('howItWorks.forTeachers')}</h2>
           </div>
 
           <motion.div 
@@ -125,7 +128,7 @@ export function HowItWorksPage() {
         >
           <div className="flex items-center gap-3 mb-8">
             <School className="h-8 w-8 text-primary" />
-            <h2 className="text-2xl font-bold">Pour les écoles</h2>
+            <h2 className="text-2xl font-bold">{t('howItWorks.forSchools')}</h2>
           </div>
 
           <motion.div 
@@ -158,20 +161,20 @@ export function HowItWorksPage() {
           transition={{ duration: 0.6, delay: 0.6 }}
         >
           <h2 className="text-2xl font-bold mb-6">
-            Prêt à commencer ?
+            {t('howItWorks.cta.title')}
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="/register?type=teacher" 
               className="btn btn-primary px-8 py-3"
             >
-              Je suis remplaçant
+              {t('howItWorks.cta.teacher')}
             </a>
             <a 
               href="/register?type=school" 
               className="btn bg-white border border-gray-200 hover:bg-gray-50 px-8 py-3"
             >
-              Je suis une école
+              {t('howItWorks.cta.school')}
             </a>
           </div>
         </motion.div>

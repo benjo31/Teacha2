@@ -1,7 +1,10 @@
 import { GraduationCap } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 export function Footer() {
+  const { t } = useTranslation()
+  
   return (
     <footer className="bg-white border-t mt-auto">
       <div className="container mx-auto px-4 py-12">
@@ -13,27 +16,27 @@ export function Footer() {
               <span className="text-xl font-semibold">Teacha</span>
             </Link>
             <p className="text-gray-600 text-sm">
-              La première plateforme de mise en relation école-remplaçants en Suisse
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h3 className="font-semibold mb-4">Navigation</h3>
+            <h3 className="font-semibold mb-4">{t('footer.navigation')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/how-it-works" className="text-gray-600 hover:text-primary">
-                  Comment ça marche ?
+                  {t('footer.howItWorks')}
                 </Link>
               </li>
               <li>
                 <Link to="/pricing" className="text-gray-600 hover:text-primary">
-                  Prix
+                  {t('footer.pricing')}
                 </Link>
               </li>
               <li>
                 <Link to="/help" className="text-gray-600 hover:text-primary">
-                  Aide
+                  {t('footer.help')}
                 </Link>
               </li>
             </ul>
@@ -41,16 +44,16 @@ export function Footer() {
 
           {/* Informations */}
           <div>
-            <h3 className="font-semibold mb-4">Informations</h3>
+            <h3 className="font-semibold mb-4">{t('footer.information')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/legal" className="text-gray-600 hover:text-primary">
-                  Mentions légales
+                  {t('footer.legal')}
                 </Link>
               </li>
               <li>
                 <Link to="/terms" className="text-gray-600 hover:text-primary">
-                  Conditions générales
+                  {t('footer.terms')}
                 </Link>
               </li>
               <li>
@@ -58,7 +61,7 @@ export function Footer() {
                   href="mailto:hello@teacha.ch" 
                   className="text-gray-600 hover:text-primary"
                 >
-                  Contact
+                  {t('footer.contact')}
                 </a>
               </li>
             </ul>
@@ -67,7 +70,7 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="border-t mt-8 pt-8 text-center text-sm text-gray-600">
-          <p>&copy; {new Date().getFullYear()} Teacha. Tous droits réservés.</p>
+          <p>{t('footer.copyright', { year: new Date().getFullYear() })}</p>
         </div>
       </div>
     </footer>

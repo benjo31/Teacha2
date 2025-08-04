@@ -9,8 +9,10 @@ import { db } from '../../lib/firebase'
 import { useState } from 'react'
 import { format } from 'date-fns'
 import { fr } from 'date-fns/locale'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 export default function TeacherApplications() {
+  const { t } = useTranslation()
   const { user } = useAuth()
   const { applications, loading, error, refresh } = useTeacherApplications(user?.uid)
   const navigate = useNavigate()
@@ -28,7 +30,7 @@ export default function TeacherApplications() {
           teacherId: application.teacherId,
           teacherName: `${application.teacher?.firstName} ${application.teacher?.lastName}`,
           schoolId: application.schoolId,
-          schoolName: application.schoolName || 'École',
+          schoolName: application.schoolName || t('teacherApplications.schoolDefault'),
           offerId: application.offerId,
           offerSubject: application.offer?.subject
         },
@@ -39,12 +41,12 @@ export default function TeacherApplications() {
       const conversationId = await createConversation(conversationData)
       navigate(`/messages?conversation=${conversationId}`)
     } catch (error) {
-      console.error('Erreur lors de la création de la conversation:', error)
+      console.error('Error creating conversation:', error)
     }
   }
 
   const handleWithdraw = async (applicationId: string) => {
-    if (!window.confirm('Êtes-vous sûr de vouloir retirer votre candidature ?')) {
+    if (!window.confirm(t('teacherApplications.confirmWithdraw'))) {
       return
     }
 
@@ -53,7 +55,7 @@ export default function TeacherApplications() {
       await deleteDoc(doc(db, 'applications', applicationId))
       await refresh()
     } catch (error) {
-      console.error('Erreur lors du retrait de la candidature:', error)
+      console.error('Error withdrawing application:', error)
     } finally {
       setWithdrawing(null)
     }
@@ -67,7 +69,7 @@ export default function TeacherApplications() {
       return format(start, 'EEEE d MMMM yyyy', { locale: fr })
     }
     
-    return `Du ${format(start, 'd MMMM', { locale: fr })} au ${format(end, 'd MMMM yyyy', { locale: fr })}`
+    return `${t('teacherApplications.dateFrom')} ${format(start, 'd MMMM', { locale: fr })} ${t('teacherApplications.dateTo')} ${format(end, 'd MMMM yyyy', { locale: fr })}`
   }
 
   const getStatusBadge = (status: string) => {
@@ -76,21 +78,21 @@ export default function TeacherApplications() {
         return (
           <span className="inline-flex items-center text-green-600">
             <CheckCircle className="h-4 w-4 mr-1" />
-            <span className="text-sm">Candidature acceptée</span>
+            <span className="text-sm">{t('teacherApplications.status.accepted')}</span>
           </span>
         )
       case 'rejected':
         return (
           <span className="inline-flex items-center text-gray-600">
             <XCircle className="h-4 w-4 mr-1" />
-            <span className="text-sm">Remplacement pourvu</span>
+            <span className="text-sm">{t('teacherApplications.status.rejected')}</span>
           </span>
         )
       default:
         return (
           <span className="inline-flex items-center text-yellow-600">
             <Clock className="h-4 w-4 mr-1" />
-            <span className="text-sm">En attente</span>
+            <span className="text-sm">{t('teacherApplications.status.pending')}</span>
           </span>
         )
     }
@@ -107,9 +109,9 @@ export default function TeacherApplications() {
   if (applications.length === 0) {
     return (
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-2xl font-bold mb-6">Mes candidatures</h1>
+        <h1 className="text-2xl font-bold mb-6">{t('teacherApplications.title')}</h1>
         <div className="bg-white p-6 rounded-lg shadow-sm border text-center text-gray-500">
-          Vous n'avez pas encore postulé à des remplacements
+          {t('teacherApplications.empty')}
         </div>
       </div>
     )
@@ -148,7 +150,7 @@ export default function TeacherApplications() {
                 <div className="space-y-2 flex-grow">
                   <div className="flex items-center text-gray-600 text-sm">
                     <School className="h-4 w-4 mr-2 flex-shrink-0" />
-                    {application.schoolName || 'École'}
+                    {application.schoolName || t('teacherApplications.schoolDefault')}
                   </div>
                   <div className="flex items-center text-gray-600 text-sm">
                     <MapPin className="h-4 w-4 mr-2 flex-shrink-0" />
@@ -160,7 +162,7 @@ export default function TeacherApplications() {
                   </div>
                   <div className="flex items-center text-gray-600 text-sm">
                     <Clock className="h-4 w-4 mr-2 flex-shrink-0" />
-                    {application.offer.totalLessons} leçons
+                    {application.offer.totalLessons} {t('teacherApplications.lessons')}
                   </div>
                 </div>
 
@@ -177,7 +179,7 @@ export default function TeacherApplications() {
                       className="flex items-center text-primary hover:text-primary-dark"
                     >
                       <MessageCircle className="h-4 w-4 mr-1" />
-                      Message
+                      {t('teacherApplications.message')}
                     </button>
 
                     {application.status === 'pending' && (
@@ -187,7 +189,7 @@ export default function TeacherApplications() {
                         className="flex items-center text-red-500 hover:text-red-600"
                       >
                         <Trash2 className="h-4 w-4 mr-1" />
-                        {withdrawing === application.id ? 'Retrait...' : 'Retirer'}
+                        {withdrawing === application.id ? t('teacherApplications.withdrawing') : t('teacherApplications.withdraw')}
                       </button>
                     )}
                   </div>
@@ -195,7 +197,7 @@ export default function TeacherApplications() {
               </div>
             ) : (
               <div className="text-gray-500">
-                Cette offre n'est plus disponible
+                {t('teacherApplications.offerUnavailable')}
               </div>
             )}
           </div>

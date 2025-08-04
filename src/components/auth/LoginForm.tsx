@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../lib/context/AuthContext'
+import { useTranslation } from '../../lib/context/LanguageContext'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
 import { Input } from '../ui/Input'
@@ -11,6 +12,7 @@ export function LoginForm() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const { signIn } = useAuth()
+  const { t } = useTranslation()
   const navigate = useNavigate()
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -20,7 +22,7 @@ export function LoginForm() {
     try {
       const userCredential = await signIn(email, password)
       if (!userCredential?.user) {
-        setError('Erreur de connexion')
+        setError(t('auth.login.errors.connection'))
         return
       }
       
@@ -53,10 +55,10 @@ export function LoginForm() {
         return
       }
 
-      setError('Compte non trouvé')
+      setError(t('auth.login.errors.accountNotFound'))
     } catch (err) {
       console.error('Erreur de connexion:', err)
-      setError('Identifiants invalides')
+      setError(t('auth.login.errors.invalidCredentials'))
     }
   }
 
@@ -77,7 +79,7 @@ export function LoginForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="pl-12 h-14 text-lg"
-              placeholder="Votre email"
+              placeholder={t('auth.login.emailPlaceholder')}
               required
             />
           </div>
@@ -89,7 +91,7 @@ export function LoginForm() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="pl-12 h-14 text-lg"
-              placeholder="Votre mot de passe"
+              placeholder={t('auth.login.passwordPlaceholder')}
               required
             />
           </div>
@@ -99,7 +101,7 @@ export function LoginForm() {
           type="submit"
           className="btn btn-primary w-full h-14 text-lg"
         >
-          Se connecter
+          {t('auth.login.submit')}
         </button>
       </form>
     </div>

@@ -12,6 +12,7 @@ import {
   Settings,
   School
 } from 'lucide-react'
+import { useTranslation } from '../lib/context/LanguageContext'
 
 type FAQItem = {
   question: string
@@ -19,54 +20,56 @@ type FAQItem = {
   icon: any
 }
 
-const faqItems: FAQItem[] = [
-  {
-    question: "Comment fonctionne la plateforme ?",
-    answer: "Les écoles publient leurs besoins en remplacement, et les remplaçants peuvent postuler directement aux offres qui correspondent à leur profil. La mise en relation est instantanée et la communication facilitée via notre messagerie intégrée.",
-    icon: Search
-  },
-  {
-    question: "Quelles sont les conditions pour devenir remplaçant ?",
-    answer: "Vous devez avoir les qualifications requises pour enseigner et passer par notre processus de vérification. Votre profil sera validé par notre équipe avant d'être activé.",
-    icon: CheckCircle
-  },
-  {
-    question: "Combien coûte l'utilisation de la plateforme ?",
-    answer: "L'inscription est gratuite pour les remplaçants. Pour les écoles, nous proposons actuellement une offre spéciale 'projet pilote' gratuite pour les 5 premiers établissements.",
-    icon: Settings
-  },
-  {
-    question: "Comment sont vérifiés les profils des remplaçants ?",
-    answer: "Chaque profil est vérifié manuellement par notre équipe. Nous contrôlons les diplômes, références et autres documents fournis pour garantir la qualité de notre service.",
-    icon: School
-  },
-  {
-    question: "Quel est le délai de réponse pour une candidature ?",
-    answer: "Les écoles sont notifiées immédiatement de votre candidature et peuvent y répondre rapidement. Pour les remplacements urgents, nous recommandons aux écoles de répondre dans les 24h.",
-    icon: Clock
-  },
-  {
-    question: "Comment fonctionne la messagerie ?",
-    answer: "Une messagerie intégrée permet aux écoles et aux remplaçants de communiquer directement sur la plateforme. Vous recevez des notifications pour chaque nouveau message.",
-    icon: MessageCircle
-  },
-  {
-    question: "Que faire en cas de problème technique ?",
-    answer: "En cas de problème technique, contactez notre support à hello@cta-ecom.com. Notre équipe s'engage à vous répondre dans les plus brefs délais.",
-    icon: AlertTriangle
-  }
-]
 
 export function HelpPage() {
+  const { t } = useTranslation()
   const [openItem, setOpenItem] = useState<number | null>(null)
+
+  const faqItems: FAQItem[] = [
+    {
+      question: t('help.faq.platform.question'),
+      answer: t('help.faq.platform.answer'),
+      icon: Search
+    },
+    {
+      question: t('help.faq.requirements.question'),
+      answer: t('help.faq.requirements.answer'),
+      icon: CheckCircle
+    },
+    {
+      question: t('help.faq.cost.question'),
+      answer: t('help.faq.cost.answer'),
+      icon: Settings
+    },
+    {
+      question: t('help.faq.verification.question'),
+      answer: t('help.faq.verification.answer'),
+      icon: School
+    },
+    {
+      question: t('help.faq.response.question'),
+      answer: t('help.faq.response.answer'),
+      icon: Clock
+    },
+    {
+      question: t('help.faq.messaging.question'),
+      answer: t('help.faq.messaging.answer'),
+      icon: MessageCircle
+    },
+    {
+      question: t('help.faq.technical.question'),
+      answer: t('help.faq.technical.answer'),
+      icon: AlertTriangle
+    }
+  ]
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-4">
       {/* En-tête */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Centre d'aide</h1>
+        <h1 className="text-4xl font-bold mb-4">{t('help.title')}</h1>
         <p className="text-xl text-gray-600">
-          Trouvez rapidement des réponses à vos questions
+          {t('help.subtitle')}
         </p>
       </div>
 
@@ -108,9 +111,9 @@ export function HelpPage() {
             <HelpCircle className="h-6 w-6 text-primary" />
           </div>
           <div>
-            <h2 className="text-xl font-semibold mb-2">Besoin d'aide supplémentaire ?</h2>
+            <h2 className="text-xl font-semibold mb-2">{t('help.contact.title')}</h2>
             <p className="text-gray-600 mb-4">
-              Notre équipe est là pour vous aider. N'hésitez pas à nous contacter.
+              {t('help.contact.description')}
             </p>
             <a
               href="mailto:hello@cta-ecom.com"

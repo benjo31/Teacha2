@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { Layout } from './components/layout/Layout'
 import { AuthProvider } from './lib/context/AuthContext'
+import { LanguageProvider } from './lib/context/LanguageContext'
 import { LandingPage } from './pages/LandingPage'
 import { HowItWorksPage } from './pages/HowItWorksPage'
 import { PricingPage } from './pages/PricingPage'
@@ -30,8 +31,9 @@ import { SchoolProfilePage } from './pages/SchoolProfilePage'
 
 export default function App() {
   return (
-    <AuthProvider>
-      <Layout>
+    <LanguageProvider>
+      <AuthProvider>
+        <Layout>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/how-it-works" element={<HowItWorksPage />} />
@@ -143,7 +145,8 @@ export default function App() {
             }
           />
         </Routes>
-      </Layout>
-    </AuthProvider>
+        </Layout>
+      </AuthProvider>
+    </LanguageProvider>
   )
 }

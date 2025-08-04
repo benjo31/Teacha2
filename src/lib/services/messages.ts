@@ -11,7 +11,7 @@ export async function findOrCreateConversation(data: ConversationData): Promise<
   try {
     // Validation des données requises
     if (!data.metadata?.teacherId || !data.metadata?.schoolId) {
-      throw new Error('Teacher ID and School ID are required')
+      throw new Error('TEACHER_SCHOOL_ID_REQUIRED')
     }
 
     // Rechercher une conversation existante entre ces deux participants
@@ -62,7 +62,7 @@ export async function findOrCreateConversation(data: ConversationData): Promise<
     await addDoc(collection(db, 'messages'), {
       conversationId: conversationRef.id,
       senderId: 'system',
-      content: 'Conversation démarrée',
+      content: 'CONVERSATION_STARTED',
       createdAt: serverTimestamp()
     })
 
@@ -85,7 +85,7 @@ export async function sendMessage(
     const conversationDoc = await getDoc(conversationRef)
     
     if (!conversationDoc.exists()) {
-      throw new Error('Conversation not found')
+      throw new Error('CONVERSATION_NOT_FOUND')
     }
 
     const messageData = {
@@ -120,3 +120,6 @@ export async function sendMessage(
     throw error
   }
 }
+
+// Alias for backward compatibility
+export const createConversation = findOrCreateConversation

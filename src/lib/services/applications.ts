@@ -16,7 +16,7 @@ export async function createApplication(data: ApplicationData) {
   )
 
   if (!existingApplications.empty) {
-    throw new Error('Vous avez déjà postulé à cette offre')
+    throw new Error('ALREADY_APPLIED')
   }
 
   // Créer la candidature avec les données correctement formatées

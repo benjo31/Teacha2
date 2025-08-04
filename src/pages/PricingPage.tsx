@@ -1,29 +1,34 @@
 import { motion } from 'framer-motion'
 import { Check, AlertCircle } from 'lucide-react'
+import { useTranslation } from '../lib/context/LanguageContext'
 
-const teacherBenefits = [
-  "Accès illimité aux offres de remplacement",
-  "Création de profil personnalisé",
-  "Messagerie intégrée avec les écoles",
-  "Gestion des candidatures",
-  "Notifications en temps réel",
-  "CV et documents centralisés",
-  "Suivi des missions effectuées",
-  "Support prioritaire"
-]
 
-const schoolBenefits = [
-  "Publication illimitée d'offres",
-  "Accès à tous les profils de remplaçants",
-  "Messagerie intégrée",
-  "Gestion des candidatures",
-  "Notifications en temps réel",
-  "Tableau de bord personnalisé",
-  "Historique des remplacements",
-  "Support dédié"
-]
 
 export function PricingPage() {
+  const { t } = useTranslation()
+  
+  const teacherBenefits = [
+    t('pricing.teacher.benefits.unlimited'),
+    t('pricing.teacher.benefits.profile'),
+    t('pricing.teacher.benefits.messaging'),
+    t('pricing.teacher.benefits.applications'),
+    t('pricing.teacher.benefits.notifications'),
+    t('pricing.teacher.benefits.documents'),
+    t('pricing.teacher.benefits.tracking'),
+    t('pricing.teacher.benefits.support')
+  ]
+
+  const schoolBenefits = [
+    t('pricing.school.benefits.unlimited'),
+    t('pricing.school.benefits.profiles'),
+    t('pricing.school.benefits.messaging'),
+    t('pricing.school.benefits.applications'),
+    t('pricing.school.benefits.notifications'),
+    t('pricing.school.benefits.dashboard'),
+    t('pricing.school.benefits.history'),
+    t('pricing.school.benefits.support')
+  ]
+
   return (
     <div className="min-h-screen py-12">
       <div className="max-w-6xl mx-auto px-4">
@@ -34,9 +39,9 @@ export function PricingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl font-bold mb-6">Tarifs simples et transparents</h1>
+          <h1 className="text-4xl font-bold mb-6">{t('pricing.title')}</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choisissez la formule qui correspond à vos besoins
+            {t('pricing.subtitle')}
           </p>
         </motion.div>
 
@@ -49,10 +54,10 @@ export function PricingPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-white rounded-2xl shadow-sm border p-8"
           >
-            <h2 className="text-2xl font-bold mb-2">Remplaçants</h2>
+            <h2 className="text-2xl font-bold mb-2">{t('pricing.teacher.title')}</h2>
             <div className="flex items-baseline gap-2 mb-6">
-              <span className="text-4xl font-bold">Gratuit</span>
-              <span className="text-gray-500">pour toujours</span>
+              <span className="text-4xl font-bold">{t('pricing.teacher.price')}</span>
+              <span className="text-gray-500">{t('pricing.teacher.duration')}</span>
             </div>
 
             <div className="space-y-4">
@@ -68,7 +73,7 @@ export function PricingPage() {
               href="/register?type=teacher"
               className="btn btn-primary w-full mt-8"
             >
-              Créer un compte gratuit
+              {t('pricing.teacher.cta')}
             </a>
           </motion.div>
 
@@ -83,17 +88,17 @@ export function PricingPage() {
             <div className="absolute top-6 right-6">
               <span className="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-primary/10 text-primary">
                 <AlertCircle className="h-3.5 w-3.5" />
-                Projet pilote
+                {t('pricing.school.badge')}
               </span>
             </div>
 
-            <h2 className="text-2xl font-bold mb-2">Écoles</h2>
+            <h2 className="text-2xl font-bold mb-2">{t('pricing.school.title')}</h2>
             <div className="flex items-baseline gap-2 mb-2">
-              <span className="text-4xl font-bold">Gratuit</span>
-              <span className="text-gray-500">pendant le projet pilote</span>
+              <span className="text-4xl font-bold">{t('pricing.school.price')}</span>
+              <span className="text-gray-500">{t('pricing.school.duration')}</span>
             </div>
             <p className="text-sm text-gray-500 mb-6">
-              Au lieu de CHF 250.- par année
+              {t('pricing.school.instead')}
             </p>
 
             <div className="space-y-4">
@@ -110,10 +115,10 @@ export function PricingPage() {
                 href="/register?type=school"
                 className="btn btn-primary w-full"
               >
-                Participer au projet pilote
+                {t('pricing.school.cta')}
               </a>
               <p className="text-sm text-center text-gray-500">
-                Places limitées à 5 écoles
+                {t('pricing.school.limitation')}
               </p>
             </div>
           </motion.div>
@@ -126,27 +131,27 @@ export function PricingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-bold text-center mb-8">Questions fréquentes</h2>
+          <h2 className="text-2xl font-bold text-center mb-8">{t('pricing.faq.title')}</h2>
           
           <div className="space-y-6">
             <div>
-              <h3 className="font-semibold mb-2">Combien de temps dure le projet pilote ?</h3>
+              <h3 className="font-semibold mb-2">{t('pricing.faq.duration.question')}</h3>
               <p className="text-gray-600">
-                Le projet pilote dure 6 mois, pendant lesquels les écoles participantes bénéficient d'un accès gratuit à toutes les fonctionnalités.
+                {t('pricing.faq.duration.answer')}
               </p>
             </div>
 
             <div>
-              <h3 className="font-semibold mb-2">Que se passe-t-il après le projet pilote ?</h3>
+              <h3 className="font-semibold mb-2">{t('pricing.faq.after.question')}</h3>
               <p className="text-gray-600">
-                Les écoles participantes au projet pilote bénéficieront d'une réduction de 50% sur leur premier abonnement annuel.
+                {t('pricing.faq.after.answer')}
               </p>
             </div>
 
             <div>
-              <h3 className="font-semibold mb-2">Y a-t-il des frais cachés ?</h3>
+              <h3 className="font-semibold mb-2">{t('pricing.faq.hidden.question')}</h3>
               <p className="text-gray-600">
-                Non, notre politique de tarification est totalement transparente. Il n'y a aucun frais caché ni engagement de durée.
+                {t('pricing.faq.hidden.answer')}
               </p>
             </div>
           </div>

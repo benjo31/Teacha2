@@ -10,6 +10,7 @@ import { fr } from 'date-fns/locale'
 import { MessageCircle, Eye, UserCircle2 } from 'lucide-react'
 import OfferDetailsModal from '../components/teachers/OfferDetailsModal'
 import { getSubjectsDisplay } from '../lib/utils/subjects'
+import { useTranslation } from '../lib/context/LanguageContext'
 
 type HistoryEntry = {
   id: string
@@ -33,6 +34,7 @@ type HistoryEntry = {
 }
 
 export function SchoolReplacementsHistory() {
+  const { t } = useTranslation()
   const { user } = useAuth()
   const [history, setHistory] = useState<HistoryEntry[]>([])
   const [loading, setLoading] = useState(true)
@@ -161,7 +163,7 @@ export function SchoolReplacementsHistory() {
       navigate(`/messages?conversation=${conversationId}`)
     } catch (error) {
       console.error('Erreur lors de la création/récupération de la conversation:', error)
-      setError('Impossible de créer la conversation pour le moment')
+      setError(t('schoolHistory.errorConversation'))
     } finally {
       setIsCreatingConversation(false)
     }
@@ -181,11 +183,11 @@ export function SchoolReplacementsHistory() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Historique des remplacements</h1>
+      <h1 className="text-2xl font-bold mb-6">{t('schoolHistory.title')}</h1>
 
       {history.length === 0 ? (
         <div className="bg-white p-6 rounded-lg shadow-sm border text-center text-gray-500">
-          Aucun remplacement effectué
+          {t('schoolHistory.noReplacements')}
         </div>
       ) : (
         <div className="space-y-4">
@@ -219,7 +221,7 @@ export function SchoolReplacementsHistory() {
                       <p>
                         {format(new Date(entry.offer.startDate), 'EEEE d MMMM yyyy', { locale: fr })}
                       </p>
-                      <p>{entry.offer.totalLessons} leçons</p>
+                      <p>{entry.offer.totalLessons} {t('schoolHistory.lessons')}</p>
                     </div>
                   </div>
                 </div>
@@ -231,7 +233,7 @@ export function SchoolReplacementsHistory() {
                     className="flex items-center text-primary hover:text-primary-dark"
                   >
                     <MessageCircle className="h-5 w-5 mr-1" />
-                    Message
+                    {t('schoolHistory.message')}
                   </button>
                   <button
                     onClick={() => setSelectedOffer({
@@ -242,7 +244,7 @@ export function SchoolReplacementsHistory() {
                     className="flex items-center text-primary hover:text-primary-dark"
                   >
                     <Eye className="h-5 w-5 mr-1" />
-                    Détails
+                    {t('schoolHistory.details')}
                   </button>
                 </div>
               </div>

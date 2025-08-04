@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../lib/context/AuthContext'
+import { useTranslation } from '../lib/context/LanguageContext'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../lib/firebase'
 import { CreateOfferForm } from '../components/schools/CreateOfferForm'
@@ -19,6 +20,7 @@ type SchoolData = {
 
 export function SchoolDashboard() {
   const { user } = useAuth()
+  const { t } = useTranslation()
   const [schoolData, setSchoolData] = useState<SchoolData | null>(null)
   const [showCreateForm, setShowCreateForm] = useState(false)
   const [loading, setLoading] = useState(true)
@@ -43,22 +45,22 @@ export function SchoolDashboard() {
   }
 
   if (!schoolData) {
-    return <div>Une erreur est survenue</div>
+    return <div>{t('common.error')}</div>
   }
 
   return (
     <div className="max-w-6xl mx-auto">
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold">Tableau de bord école</h1>
+          <h1 className="text-2xl font-bold">{t('school.dashboard.title')}</h1>
           <TabsList>
             <TabsTrigger value="offers" className="flex items-center gap-2">
               <FileText className="h-4 w-4" />
-              Offres
+              {t('navigation.school.offers')}
             </TabsTrigger>
             <TabsTrigger value="teachers" className="flex items-center gap-2">
               <Users className="h-4 w-4" />
-              Enseignants
+              {t('school.team.title')}
             </TabsTrigger>
           </TabsList>
         </div>
@@ -69,13 +71,13 @@ export function SchoolDashboard() {
               onClick={() => setShowCreateForm(!showCreateForm)}
               className="btn btn-primary"
             >
-              {showCreateForm ? 'Fermer' : 'Nouvelle offre'}
+              {showCreateForm ? t('common.close') : t('school.offers.create')}
             </button>
           </div>
 
           {showCreateForm && (
             <div className="card p-6 mb-6">
-              <h2 className="text-lg font-semibold mb-4">Créer une offre de remplacement</h2>
+              <h2 className="text-lg font-semibold mb-4">{t('school.createOffer.title')}</h2>
               <CreateOfferForm />
             </div>
           )}

@@ -8,8 +8,10 @@ import { SchoolProfile } from '../components/schools/SchoolProfile'
 import { TeamManagement } from '../components/schools/TeamManagement'
 import { User, Shield, Trash2, Users } from 'lucide-react'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
+import { useTranslation } from '../lib/context/LanguageContext'
 
 export function AccountPage() {
+  const { t } = useTranslation()
   const { user } = useAuth()
   const [userData, setUserData] = useState<any>(null)
   const [loading, setLoading] = useState(true)
@@ -45,7 +47,7 @@ export function AccountPage() {
         setLoading(false)
       } catch (error) {
         console.error('Erreur lors du chargement des données:', error)
-        setError('Erreur lors du chargement des données')
+        setError(t('accountPage.errorLoading'))
         setLoading(false)
       }
     }
@@ -54,9 +56,12 @@ export function AccountPage() {
   }, [user])
 
   const handleRequestDeletion = () => {
-    const subject = encodeURIComponent('Demande de suppression de compte')
+    const subject = encodeURIComponent(t('accountPage.emailSubject'))
     const body = encodeURIComponent(
-      `Bonjour,\n\nJe souhaite supprimer mon compte Teacha.\n\nMes informations :\nNom : ${userData.firstName} ${userData.lastName}\nEmail : ${userData.email}\n\nCordialement`
+      t('accountPage.emailBody', { 
+        name: `${userData.firstName} ${userData.lastName}`, 
+        email: userData.email 
+      })
     )
     window.location.href = `mailto:hello@teacha.ch?subject=${subject}&body=${body}`
     setShowDeleteConfirm(false)
@@ -75,28 +80,28 @@ export function AccountPage() {
   }
 
   if (!userData) {
-    return <div>Une erreur est survenue</div>
+    return <div>{t('accountPage.errorGeneral')}</div>
   }
 
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-8">Mon compte</h1>
+      <h1 className="text-2xl font-bold mb-8">{t('accountPage.title')}</h1>
 
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList>
           <TabsTrigger value="profile" className="flex items-center gap-2">
             <User className="h-4 w-4" />
-            Profil
+            {t('accountPage.profile')}
           </TabsTrigger>
           {userType === 'school' && (
             <TabsTrigger value="team" className="flex items-center gap-2">
               <Users className="h-4 w-4" />
-              Équipe
+              {t('accountPage.team')}
             </TabsTrigger>
           )}
           <TabsTrigger value="security" className="flex items-center gap-2">
             <Shield className="h-4 w-4" />
-            Sécurité
+            {t('accountPage.security')}
           </TabsTrigger>
         </TabsList>
 
@@ -121,16 +126,16 @@ export function AccountPage() {
 
         <TabsContent value="security" className="mt-6">
           <div className="bg-white rounded-lg shadow-sm border p-6 space-y-6">
-            <h2 className="text-lg font-semibold">Sécurité</h2>
+            <h2 className="text-lg font-semibold">{t('accountPage.security')}</h2>
             
             <div className="border-t pt-6">
-              <h3 className="text-red-600 font-medium mb-2">Zone de danger</h3>
+              <h3 className="text-red-600 font-medium mb-2">{t('accountPage.dangerZone')}</h3>
               <button
                 onClick={() => setShowDeleteConfirm(true)}
                 className="flex items-center text-red-600 hover:text-red-700"
               >
                 <Trash2 className="h-5 w-5 mr-2" />
-                Supprimer mon compte
+                {t('accountPage.deleteAccount')}
               </button>
             </div>
           </div>
@@ -141,22 +146,22 @@ export function AccountPage() {
       {showDeleteConfirm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
-            <h3 className="text-lg font-semibold mb-4">Confirmer la suppression</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('accountPage.confirmDeletion')}</h3>
             <p className="text-gray-600 mb-6">
-              Pour supprimer votre compte, nous vous invitons à envoyer une demande par email à notre équipe support. Voulez-vous envoyer cette demande maintenant ?
+              {t('accountPage.deletionMessage')}
             </p>
             <div className="flex justify-end space-x-3">
               <button
                 onClick={() => setShowDeleteConfirm(false)}
                 className="px-4 py-2 text-gray-600 hover:text-gray-800"
               >
-                Annuler
+                {t('accountPage.cancel')}
               </button>
               <button
                 onClick={handleRequestDeletion}
                 className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700"
               >
-                Envoyer la demande
+                {t('accountPage.sendRequest')}
               </button>
             </div>
           </div>

@@ -15,7 +15,7 @@ export async function inviteTeacher(schoolId: string, email: string) {
     const existingDocs = await getDocs(existingQuery)
     
     if (!existingDocs.empty) {
-      throw new Error('Cet enseignant est déjà invité')
+      throw new Error('TEACHER_ALREADY_INVITED')
     }
 
     // Créer l'invitation

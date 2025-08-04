@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { BookOpen } from 'lucide-react'
 import { fadeIn } from '../../lib/animations'
 import { DemoVideo } from './DemoVideo'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface HeroSectionProps {
   renderActionButtons: () => React.ReactNode
@@ -10,6 +11,8 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ renderActionButtons, heroRef, heroInView }: HeroSectionProps) {
+  const { t } = useTranslation()
+  
   return (
     <section className="relative min-h-[90vh] flex items-center">
       <div className="absolute inset-0 bg-grid" />
@@ -35,21 +38,21 @@ export function HeroSection({ renderActionButtons, heroRef, heroInView }: HeroSe
             className="inline-flex items-center px-4 py-2 rounded-full bg-white/30 backdrop-blur-sm border border-white/20 text-primary mb-8"
           >
             <BookOpen className="h-4 w-4 mr-2" />
-            <span className="text-sm font-medium">La solution innovante pour les remplacements scolaires</span>
+            <span className="text-sm font-medium">{t('landing.hero.badge')}</span>
           </motion.div>
 
           <motion.h1 
             variants={fadeIn}
             className="text-4xl md:text-5xl font-bold mb-6"
           >
-            Teacha - La première plateforme de mise en relation école-remplaçants en Suisse
+            {t('landing.hero.title')}
           </motion.h1>
           
           <motion.p 
             variants={fadeIn}
             className="text-xl text-gray-600 mb-12"
           >
-            Simplifiez la gestion des remplacements scolaires grâce à notre solution innovante qui connecte intelligemment les écoles avec des remplaçants qualifiés.
+            {t('landing.hero.subtitle')}
           </motion.p>
 
           <motion.div variants={fadeIn}>

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Check, X } from 'lucide-react'
 import { cn } from '../../lib/utils'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface MultiSelectProps {
   label?: string
@@ -30,6 +31,7 @@ export function MultiSelect({
   const [search, setSearch] = useState('')
   const containerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const { t } = useTranslation()
 
   useOnClickOutside(containerRef, () => setIsOpen(false))
 
@@ -109,7 +111,7 @@ export function MultiSelect({
                 ref={inputRef}
                 type="text"
                 className="flex-1 border-none p-0 text-sm focus:outline-none focus:ring-0"
-                placeholder={value.length === 0 ? placeholder || "Rechercher..." : ""}
+                placeholder={value.length === 0 ? placeholder || t('common.search') + '...' : ""}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 onKeyDown={handleKeyDown}
@@ -123,7 +125,7 @@ export function MultiSelect({
           <div className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-lg border border-gray-200 bg-white py-1 shadow-lg">
             {filteredOptions.length === 0 && !allowCustomValue ? (
               <div className="px-4 py-2 text-sm text-gray-500">
-                Aucun résultat
+                {t('common.noResults')}
               </div>
             ) : (
               <>
@@ -154,7 +156,7 @@ export function MultiSelect({
                     }}
                     className="flex w-full items-center px-4 py-2 text-sm text-primary hover:bg-gray-50"
                   >
-                    Ajouter "{search.trim()}"
+                    {t('multiselect.addOption', { option: search.trim() })}
                   </button>
                 )}
               </>

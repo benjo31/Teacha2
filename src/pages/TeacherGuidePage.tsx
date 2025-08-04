@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { CheckCircle, Clock, BookOpen, FileText, Users, Bell, Coffee, School, AlertTriangle, HelpCircle } from 'lucide-react'
+import { useTranslation } from '../lib/context/LanguageContext'
 
 type ChecklistItem = {
   id: string
@@ -15,99 +16,101 @@ type ChecklistSection = {
 }
 
 export function TeacherGuidePage() {
+  const { t } = useTranslation()
+  
   const [sections, setSections] = useState<ChecklistSection[]>([
     {
-      title: "Avant le remplacement",
+      title: t('guide.beforeReplacement.title'),
       icon: Clock,
       items: [
         {
           id: "contact",
-          title: "Contacter l'école",
-          description: "Confirmer l'heure d'arrivée et le point de rendez-vous",
+          title: t('guide.beforeReplacement.contact.title'),
+          description: t('guide.beforeReplacement.contact.description'),
           checked: false
         },
         {
           id: "schedule",
-          title: "Horaires détaillés",
-          description: "Noter les heures exactes des cours et des pauses",
+          title: t('guide.beforeReplacement.schedule.title'),
+          description: t('guide.beforeReplacement.schedule.description'),
           checked: false
         },
         {
           id: "transport",
-          title: "Planifier le trajet",
-          description: "Vérifier l'itinéraire et prévoir une marge de sécurité",
+          title: t('guide.beforeReplacement.transport.title'),
+          description: t('guide.beforeReplacement.transport.description'),
           checked: false
         }
       ]
     },
     {
-      title: "Documents à préparer",
+      title: t('guide.documents.title'),
       icon: FileText,
       items: [
         {
           id: "materials",
-          title: "Programme et matériel",
-          description: "Récupérer le programme et les supports de cours",
+          title: t('guide.documents.materials.title'),
+          description: t('guide.documents.materials.description'),
           checked: false
         },
         {
           id: "emergency",
-          title: "Contacts d'urgence",
-          description: "Noter les numéros importants (direction, secrétariat)",
+          title: t('guide.documents.emergency.title'),
+          description: t('guide.documents.emergency.description'),
           checked: false
         },
         {
           id: "class-list",
-          title: "Liste des élèves",
-          description: "Demander la liste et les particularités de la classe",
+          title: t('guide.documents.classList.title'),
+          description: t('guide.documents.classList.description'),
           checked: false
         }
       ]
     },
     {
-      title: "Informations essentielles",
+      title: t('guide.essentialInfo.title'),
       icon: AlertTriangle,
       items: [
         {
           id: "rules",
-          title: "Règlement de l'école",
-          description: "Connaître les règles principales de l'établissement",
+          title: t('guide.essentialInfo.rules.title'),
+          description: t('guide.essentialInfo.rules.description'),
           checked: false
         },
         {
           id: "special-needs",
-          title: "Besoins particuliers",
-          description: "S'informer des élèves nécessitant une attention spéciale",
+          title: t('guide.essentialInfo.specialNeeds.title'),
+          description: t('guide.essentialInfo.specialNeeds.description'),
           checked: false
         },
         {
           id: "procedures",
-          title: "Procédures d'urgence",
-          description: "Connaître les protocoles de sécurité et d'évacuation",
+          title: t('guide.essentialInfo.procedures.title'),
+          description: t('guide.essentialInfo.procedures.description'),
           checked: false
         }
       ]
     },
     {
-      title: "Matériel personnel",
+      title: t('guide.personalMaterials.title'),
       icon: BookOpen,
       items: [
         {
           id: "supplies",
-          title: "Fournitures de base",
-          description: "Stylos, craies/feutres, papier, etc.",
+          title: t('guide.personalMaterials.supplies.title'),
+          description: t('guide.personalMaterials.supplies.description'),
           checked: false
         },
         {
           id: "backup",
-          title: "Activités de secours",
-          description: "Prévoir des exercices supplémentaires",
+          title: t('guide.personalMaterials.backup.title'),
+          description: t('guide.personalMaterials.backup.description'),
           checked: false
         },
         {
           id: "personal",
-          title: "Effets personnels",
-          description: "Badge, clés, repas, eau",
+          title: t('guide.personalMaterials.personal.title'),
+          description: t('guide.personalMaterials.personal.description'),
           checked: false
         }
       ]
@@ -128,9 +131,9 @@ export function TeacherGuidePage() {
     <div className="max-w-4xl mx-auto py-8 px-4">
       {/* En-tête */}
       <div className="text-center mb-12">
-        <h1 className="text-3xl font-bold mb-4">Le guide complet du remplaçant</h1>
+        <h1 className="text-3xl font-bold mb-4">{t('guide.title')}</h1>
         <p className="text-lg text-gray-600">
-          Une checklist exhaustive pour préparer vos remplacements sereinement
+          {t('guide.subtitle')}
         </p>
       </div>
 
@@ -177,24 +180,24 @@ export function TeacherGuidePage() {
       <div className="mt-12 bg-primary/5 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
           <HelpCircle className="h-6 w-6 text-primary" />
-          <h2 className="text-xl font-semibold">Conseils pratiques</h2>
+          <h2 className="text-xl font-semibold">{t('guide.practicalTips.title')}</h2>
         </div>
         <ul className="space-y-3 text-gray-600">
           <li className="flex items-center gap-2">
             <Coffee className="h-4 w-4 text-primary" />
-            <span>Arrivez au moins 15 minutes avant le début des cours</span>
+            <span>{t('guide.practicalTips.arrive')}</span>
           </li>
           <li className="flex items-center gap-2">
             <Users className="h-4 w-4 text-primary" />
-            <span>Présentez-vous aux collègues des classes voisines</span>
+            <span>{t('guide.practicalTips.introduce')}</span>
           </li>
           <li className="flex items-center gap-2">
             <Bell className="h-4 w-4 text-primary" />
-            <span>Familiarisez-vous avec les horaires des sonneries</span>
+            <span>{t('guide.practicalTips.bells')}</span>
           </li>
           <li className="flex items-center gap-2">
             <School className="h-4 w-4 text-primary" />
-            <span>Laissez la salle de classe en ordre à votre départ</span>
+            <span>{t('guide.practicalTips.cleanup')}</span>
           </li>
         </ul>
       </div>
