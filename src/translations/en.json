@@ -362,7 +362,13 @@
     "details": "Details",
     "noResults": "No results",
     "noDataAvailable": "No data available",
-    "noNotifications": "No notifications"
+    "noNotifications": "No notifications",
+    "apply": "Apply",
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "submit": "Submit",
+    "send": "Send"
   },
   "auth": {
     "login": {
@@ -1352,5 +1358,74 @@
       "german": "German",
       "italian": "Italian"
     }
+  },
+  "schoolProfile": {
+    "loading": "Loading...",
+    "error": "An error occurred while loading data",
+    "noData": "No data available",
+    "backToList": "Back to list",
+    "tabs": {
+      "profile": "Profile",
+      "offers": "Current offers"
+    },
+    "contact": {
+      "mainContact": "Main contact",
+      "classes": "classes"
+    },
+    "sections": {
+      "teachingLevels": "Teaching levels",
+      "specialClasses": "Special classes",
+      "typicalSchedule": "Typical schedule",
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "aboutSchool": "About the school",
+      "pedagogicalProjects": "Pedagogical projects"
+    },
+    "offers": {
+      "title": "Current replacement offers"
+    }
+  },
+  "offersFilter": {
+    "subjects": "Subjects",
+    "levels": "Levels",
+    "location": "Location",
+    "locationPlaceholder": "Enter a city or municipality...",
+    "favoriteSchoolsOnly": "Favorite schools only"
+  },
+  "loadingSpinner": {
+    "loading": "Loading..."
+  },
+  "updateProfileForm": {
+    "profilePhoto": "Profile photo",
+    "personalInfo": "Personal information",
+    "civility": "Civility",
+    "nativeLanguage": "Native language",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "phone": "Phone",
+    "age": "Age",
+    "address": "Address",
+    "street": "Street",
+    "zipCode": "ZIP code",
+    "city": "City",
+    "canton": "Canton",
+    "skills": "Skills",
+    "teachingLevels": "Teaching levels",
+    "subjects": "Subjects",
+    "cv": "CV",
+    "viewCurrentCV": "View current CV",
+    "newCV": "New CV (PDF, max 2 MB)",
+    "updating": "Updating...",
+    "saveChanges": "Save changes",
+    "successMessage": "Profile updated successfully",
+    "errorMessage": "An error occurred during update"
+  },
+  "inviteTeacherForm": {
+    "teacherEmail": "Teacher's email",
+    "emailPlaceholder": "example@school.ch",
+    "sending": "Sending...",
+    "inviteTeacher": "Invite teacher",
+    "errorMessage": "An error occurred"
   }
 }

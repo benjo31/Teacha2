@@ -362,7 +362,13 @@
     "details": "Details",
     "noResults": "Keine Ergebnisse",
     "noDataAvailable": "Keine Daten verfügbar",
-    "noNotifications": "Keine Benachrichtigungen"
+    "noNotifications": "Keine Benachrichtigungen",
+    "apply": "Bewerben",
+    "pending": "Wartend",
+    "approved": "Genehmigt",
+    "rejected": "Abgelehnt",
+    "submit": "Senden",
+    "send": "Senden"
   },
   "auth": {
     "login": {
@@ -1352,5 +1358,74 @@
       "german": "Deutsch",
       "italian": "Italienisch"
     }
+  },
+  "schoolProfile": {
+    "loading": "Wird geladen...",
+    "error": "Beim Laden der Daten ist ein Fehler aufgetreten",
+    "noData": "Keine Daten verfügbar",
+    "backToList": "Zurück zur Liste",
+    "tabs": {
+      "profile": "Profil",
+      "offers": "Aktuelle Angebote"
+    },
+    "contact": {
+      "mainContact": "Hauptkontakt",
+      "classes": "Klassen"
+    },
+    "sections": {
+      "teachingLevels": "Unterrichtsstufen",
+      "specialClasses": "Spezialklassen",
+      "typicalSchedule": "Typische Unterrichtszeiten",
+      "morning": "Morgen",
+      "afternoon": "Nachmittag",
+      "aboutSchool": "Über die Schule",
+      "pedagogicalProjects": "Pädagogische Projekte"
+    },
+    "offers": {
+      "title": "Aktuelle Stellvertretungsangebote"
+    }
+  },
+  "offersFilter": {
+    "subjects": "Fächer",
+    "levels": "Stufen",
+    "location": "Ort",
+    "locationPlaceholder": "Stadt oder Gemeinde eingeben...",
+    "favoriteSchoolsOnly": "Nur Lieblings-Schulen"
+  },
+  "loadingSpinner": {
+    "loading": "Wird geladen..."
+  },
+  "updateProfileForm": {
+    "profilePhoto": "Profilbild",
+    "personalInfo": "Persönliche Informationen",
+    "civility": "Anrede",
+    "nativeLanguage": "Muttersprache",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "age": "Alter",
+    "address": "Adresse",
+    "street": "Straße",
+    "zipCode": "PLZ",
+    "city": "Stadt",
+    "canton": "Kanton",
+    "skills": "Kompetenzen",
+    "teachingLevels": "Unterrichtsstufen",
+    "subjects": "Fächer",
+    "cv": "Lebenslauf",
+    "viewCurrentCV": "Aktuellen Lebenslauf anzeigen",
+    "newCV": "Neuer Lebenslauf (PDF, max 2 MB)",
+    "updating": "Wird aktualisiert...",
+    "saveChanges": "Änderungen speichern",
+    "successMessage": "Profil erfolgreich aktualisiert",
+    "errorMessage": "Fehler beim Aktualisieren aufgetreten"
+  },
+  "inviteTeacherForm": {
+    "teacherEmail": "E-Mail des Lehrers",
+    "emailPlaceholder": "beispiel@schule.ch",
+    "sending": "Senden...",
+    "inviteTeacher": "Lehrer einladen",
+    "errorMessage": "Ein Fehler ist aufgetreten"
   }
 }

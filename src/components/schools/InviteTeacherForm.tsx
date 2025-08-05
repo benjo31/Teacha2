@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Input } from '../ui/Input'
 import { inviteTeacher } from '../../lib/services/schoolTeachers'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 const inviteSchema = z.object({
   email: z.string().email('Email invalide')
@@ -15,6 +16,7 @@ interface InviteTeacherFormProps {
 }
 
 export function InviteTeacherForm({ schoolId, onSuccess }: InviteTeacherFormProps) {
+  const { t } = useTranslation()
   const [error, setError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -35,7 +37,7 @@ export function InviteTeacherForm({ schoolId, onSuccess }: InviteTeacherFormProp
       reset()
       onSuccess()
     } catch (err: any) {
-      setError(err.message || 'Une erreur est survenue')
+      setError(err.message || t('inviteTeacherForm.errorMessage'))
     } finally {
       setIsSubmitting(false)
     }
@@ -50,11 +52,11 @@ export function InviteTeacherForm({ schoolId, onSuccess }: InviteTeacherFormProp
       )}
 
       <Input
-        label="Email de l'enseignant"
+        label={t('inviteTeacherForm.teacherEmail')}
         type="email"
         {...register('email')}
         error={errors.email?.message}
-        placeholder="exemple@ecole.ch"
+        placeholder={t('inviteTeacherForm.emailPlaceholder')}
       />
 
       <button
@@ -62,7 +64,7 @@ export function InviteTeacherForm({ schoolId, onSuccess }: InviteTeacherFormProp
         disabled={isSubmitting}
         className="btn btn-primary w-full"
       >
-        {isSubmitting ? 'Envoi...' : 'Inviter l\'enseignant'}
+        {isSubmitting ? t('inviteTeacherForm.sending') : t('inviteTeacherForm.inviteTeacher')}
       </button>
     </form>
   )

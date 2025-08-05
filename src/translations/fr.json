@@ -362,7 +362,13 @@
     "details": "Détails",
     "noResults": "Aucun résultat",
     "noDataAvailable": "Aucune donnée disponible",
-    "noNotifications": "Aucune notification"
+    "noNotifications": "Aucune notification",
+    "apply": "Postuler",
+    "pending": "En attente",
+    "approved": "Approuvé",
+    "rejected": "Rejeté",
+    "submit": "Soumettre",
+    "send": "Envoyer"
   },
   "auth": {
     "login": {
@@ -1348,5 +1354,74 @@
       "german": "Allemand",
       "italian": "Italien"
     }
+  },
+  "schoolProfile": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue lors du chargement des données",
+    "noData": "Aucune donnée disponible",
+    "backToList": "Retour à la liste",
+    "tabs": {
+      "profile": "Profil",
+      "offers": "Offres en cours"
+    },
+    "contact": {
+      "mainContact": "Contact principal",
+      "classes": "classes"
+    },
+    "sections": {
+      "teachingLevels": "Niveaux d'enseignement",
+      "specialClasses": "Classes spéciales",
+      "typicalSchedule": "Horaires typiques",
+      "morning": "Matin",
+      "afternoon": "Après-midi",
+      "aboutSchool": "À propos de l'établissement",
+      "pedagogicalProjects": "Projets pédagogiques"
+    },
+    "offers": {
+      "title": "Offres de remplacement en cours"
+    }
+  },
+  "offersFilter": {
+    "subjects": "Branches",
+    "levels": "Niveaux",
+    "location": "Lieu",
+    "locationPlaceholder": "Entrez une ville ou une commune...",
+    "favoriteSchoolsOnly": "Écoles favorites uniquement"
+  },
+  "loadingSpinner": {
+    "loading": "Chargement en cours"
+  },
+  "updateProfileForm": {
+    "profilePhoto": "Photo de profil",
+    "personalInfo": "Informations personnelles",
+    "civility": "Civilité",
+    "nativeLanguage": "Langue natale",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "Email",
+    "phone": "Téléphone",
+    "age": "Âge",
+    "address": "Adresse",
+    "street": "Rue",
+    "zipCode": "NPA",
+    "city": "Ville",
+    "canton": "Canton",
+    "skills": "Compétences",
+    "teachingLevels": "Niveaux d'enseignement",
+    "subjects": "Branches",
+    "cv": "CV",
+    "viewCurrentCV": "Voir le CV actuel",
+    "newCV": "Nouveau CV (PDF, max 2 Mo)",
+    "updating": "Mise à jour...",
+    "saveChanges": "Enregistrer les modifications",
+    "successMessage": "Profil mis à jour avec succès",
+    "errorMessage": "Une erreur est survenue lors de la mise à jour"
+  },
+  "inviteTeacherForm": {
+    "teacherEmail": "Email de l'enseignant",
+    "emailPlaceholder": "exemple@ecole.ch",
+    "sending": "Envoi...",
+    "inviteTeacher": "Inviter l'enseignant",
+    "errorMessage": "Une erreur est survenue"
   }
 }

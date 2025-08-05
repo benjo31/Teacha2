@@ -10,6 +10,7 @@ import { ImageUpload } from '../ui/ImageUpload'
 import { updateTeacherProfile } from '../../lib/services/profile'
 import { TEACHING_LEVELS, SUBJECTS, CANTONS, CIVILITY, NATIVE_LANGUAGES } from '../../lib/constants'
 import { CheckCircle, FileText } from 'lucide-react'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 type TeacherProfileData = z.infer<typeof teacherProfileSchema>
 
@@ -19,6 +20,7 @@ interface UpdateProfileFormProps {
 }
 
 export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormProps) {
+  const { t } = useTranslation()
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
   const [updating, setUpdating] = useState(false)
@@ -40,12 +42,12 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
       setUpdating(true)
       setError('')
       await updateTeacherProfile(data, newPhoto || undefined, newCV || undefined)
-      setSuccess('Profil mis à jour avec succès')
+      setSuccess(t('updateProfileForm.successMessage'))
       onSuccess()
       setTimeout(() => setSuccess(''), 3000)
     } catch (err) {
       console.error('Erreur lors de la mise à jour:', err)
-      setError('Une erreur est survenue lors de la mise à jour')
+      setError(t('updateProfileForm.errorMessage'))
     } finally {
       setUpdating(false)
     }
@@ -69,9 +71,9 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
       <div className="bg-white rounded-lg shadow-sm border p-6 space-y-6">
         {/* Photo de profil */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Photo de profil</h3>
+          <h3 className="text-lg font-semibold mb-4">{t('updateProfileForm.profilePhoto')}</h3>
           <ImageUpload
-            label="Photo de profil"
+            label={t('updateProfileForm.profilePhoto')}
             onChange={(file) => setNewPhoto(file)}
             currentImageUrl={initialData.photoUrl}
           />
@@ -79,7 +81,7 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
 
         {/* Informations personnelles */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Informations personnelles</h3>
+          <h3 className="text-lg font-semibold mb-4">{t('updateProfileForm.personalInfo')}</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Controller
@@ -87,7 +89,7 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
               control={control}
               render={({ field }) => (
                 <MultiSelect
-                  label="Civilité"
+                  label={t('updateProfileForm.civility')}
                   options={CIVILITY}
                   value={field.value ? [field.value] : []}
                   onChange={(values) => field.onChange(values[0])}
@@ -101,7 +103,7 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
               control={control}
               render={({ field }) => (
                 <MultiSelect
-                  label="Langue natale"
+                  label={t('updateProfileForm.nativeLanguage')}
                   options={NATIVE_LANGUAGES}
                   value={field.value ? [field.value] : []}
                   onChange={(values) => field.onChange(values[0])}
@@ -113,12 +115,12 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             <Input
-              label="Prénom"
+              label={t('updateProfileForm.firstName')}
               {...register('firstName')}
               error={errors.firstName?.message}
             />
             <Input
-              label="Nom"
+              label={t('updateProfileForm.lastName')}
               {...register('lastName')}
               error={errors.lastName?.message}
             />
@@ -126,13 +128,13 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             <Input
-              label="Email"
+              label={t('updateProfileForm.email')}
               type="email"
               {...register('email')}
               error={errors.email?.message}
             />
             <Input
-              label="Téléphone"
+              label={t('updateProfileForm.phone')}
               type="tel"
               {...register('phone')}
               error={errors.phone?.message}
@@ -141,7 +143,7 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
 
           <div className="mt-4">
             <Input
-              label="Âge"
+              label={t('updateProfileForm.age')}
               type="number"
               {...register('age', { valueAsNumber: true })}
               error={errors.age?.message}
@@ -151,23 +153,23 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
 
         {/* Adresse */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Adresse</h3>
+          <h3 className="text-lg font-semibold mb-4">{t('updateProfileForm.address')}</h3>
           
           <div className="space-y-4">
             <Input
-              label="Rue"
+              label={t('updateProfileForm.street')}
               {...register('street')}
               error={errors.street?.message}
             />
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Input
-                label="NPA"
+                label={t('updateProfileForm.zipCode')}
                 {...register('zipCode')}
                 error={errors.zipCode?.message}
               />
               <Input
-                label="Ville"
+                label={t('updateProfileForm.city')}
                 {...register('city')}
                 error={errors.city?.message}
               />
@@ -178,7 +180,7 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
               control={control}
               render={({ field }) => (
                 <MultiSelect
-                  label="Canton"
+                  label={t('updateProfileForm.canton')}
                   options={CANTONS}
                   value={field.value ? [field.value] : []}
                   onChange={(values) => field.onChange(values[0])}
@@ -191,7 +193,7 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
 
         {/* Compétences */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Compétences</h3>
+          <h3 className="text-lg font-semibold mb-4">{t('updateProfileForm.skills')}</h3>
           
           <div className="space-y-4">
             <Controller
@@ -199,7 +201,7 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
               control={control}
               render={({ field }) => (
                 <MultiSelect
-                  label="Niveaux d'enseignement"
+                  label={t('updateProfileForm.teachingLevels')}
                   options={TEACHING_LEVELS}
                   value={field.value || []}
                   onChange={field.onChange}
@@ -213,7 +215,7 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
               control={control}
               render={({ field }) => (
                 <MultiSelect
-                  label="Branches"
+                  label={t('updateProfileForm.subjects')}
                   options={SUBJECTS}
                   value={field.value || []}
                   onChange={field.onChange}
@@ -226,7 +228,7 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
 
         {/* CV */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">CV</h3>
+          <h3 className="text-lg font-semibold mb-4">{t('updateProfileForm.cv')}</h3>
           
           {initialData.cvUrl && (
             <a
@@ -236,12 +238,12 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
               className="inline-flex items-center space-x-2 text-primary hover:text-primary-dark mb-4"
             >
               <FileText className="h-5 w-5" />
-              <span>Voir le CV actuel</span>
+              <span>{t('updateProfileForm.viewCurrentCV')}</span>
             </a>
           )}
 
           <FileUpload
-            label="Nouveau CV (PDF, max 2 Mo)"
+            label={t('updateProfileForm.newCV')}
             accept="application/pdf"
             onChange={(file) => setNewCV(file)}
           />
@@ -254,7 +256,7 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
           disabled={updating}
           className="btn btn-primary px-8"
         >
-          {updating ? 'Mise à jour...' : 'Enregistrer les modifications'}
+          {updating ? t('updateProfileForm.updating') : t('updateProfileForm.saveChanges')}
         </button>
       </div>
     </form>
