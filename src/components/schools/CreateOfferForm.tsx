@@ -73,7 +73,7 @@ export function CreateOfferForm() {
       setSuccess(true)
       setTimeout(() => setSuccess(false), 3000)
     } catch (err: any) {
-      console.error('Erreur lors de la création de l\'offre:', err)
+      console.error('Error creating offer:', err)
       setError(err.message || t('school.createOffer.errors.general'))
     } finally {
       setIsSubmitting(false)

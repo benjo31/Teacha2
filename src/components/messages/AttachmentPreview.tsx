@@ -21,7 +21,7 @@ export function AttachmentPreview({ attachment, onRemove, showRemove = false }: 
       const url = await getMessageAttachment(attachment.path)
       window.open(url, '_blank')
     } catch (error) {
-      console.error('Erreur lors du téléchargement:', error)
+      console.error('Error downloading attachment:', error)
     } finally {
       setLoading(false)
     }

@@ -59,7 +59,7 @@ export function SchoolReplacementsHistory() {
         setSchoolData(schoolDoc.data())
       }
     } catch (err) {
-      console.error('Erreur lors du chargement des données de l\'école:', err)
+      console.error('Error loading school data:', err)
     }
   }
 
@@ -70,7 +70,7 @@ export function SchoolReplacementsHistory() {
       setLoading(true)
       setError('')
 
-      // Récupérer toutes les candidatures acceptées
+      // Get all accepted applications
       const applicationsQuery = query(
         collection(db, 'applications'),
         where('schoolId', '==', user.uid),
@@ -80,12 +80,12 @@ export function SchoolReplacementsHistory() {
       
       const snapshot = await getDocs(applicationsQuery)
       
-      // Traiter chaque candidature
+      // Process each application
       const historyPromises = snapshot.docs.map(async (applicationDoc) => {
         const applicationData = applicationDoc.data()
         
         try {
-          // Récupérer les données du remplaçant
+          // Get substitute teacher data
           const teacherDoc = await getDoc(doc(db, 'teachers', applicationData.teacherId))
           if (!teacherDoc.exists()) {
             console.warn(`Teacher ${applicationData.teacherId} not found`)
@@ -93,7 +93,7 @@ export function SchoolReplacementsHistory() {
           }
           const teacherData = teacherDoc.data()
 
-          // Récupérer les données de l'offre
+          // Get offer data
           const offerDoc = await getDoc(doc(db, 'replacement-offers', applicationData.offerId))
           if (!offerDoc.exists()) {
             console.warn(`Offer ${applicationData.offerId} not found`)
@@ -107,7 +107,7 @@ export function SchoolReplacementsHistory() {
             teacher: {
               firstName: teacherData.firstName,
               lastName: teacherData.lastName,
-              photoUrl: teacherData.photoUrl
+              photoUrl: teacherData.photoUrl || undefined
             },
             offer: {
               subject: offerData.subject,
@@ -122,19 +122,19 @@ export function SchoolReplacementsHistory() {
             createdAt: applicationData.createdAt
           }
         } catch (err) {
-          console.error('Erreur lors du chargement des détails:', err)
+          console.error('Error loading details:', err)
           return null
         }
       })
 
       const historyResults = await Promise.all(historyPromises)
-      const validHistory = historyResults.filter((entry): entry is HistoryEntry => entry !== null)
+      const validHistory = historyResults.filter(entry => entry !== null) as HistoryEntry[]
       
       setHistory(validHistory)
       setError('')
     } catch (err) {
-      console.error('Erreur lors du chargement de l\'historique:', err)
-      setError('Une erreur est survenue lors du chargement de l\'historique')
+      console.error('Error loading history:', err)
+      setError(t('schoolHistory.errorLoading'))
     } finally {
       setLoading(false)
     }
@@ -162,7 +162,7 @@ export function SchoolReplacementsHistory() {
 
       navigate(`/messages?conversation=${conversationId}`)
     } catch (error) {
-      console.error('Erreur lors de la création/récupération de la conversation:', error)
+      console.error('Error creating/retrieving conversation:', error)
       setError(t('schoolHistory.errorConversation'))
     } finally {
       setIsCreatingConversation(false)
@@ -195,7 +195,7 @@ export function SchoolReplacementsHistory() {
             <div key={entry.id} className="bg-white rounded-lg shadow-sm border p-6">
               <div className="flex justify-between items-start">
                 <div className="flex items-start space-x-4">
-                  {/* Photo de profil */}
+                  {/* Profile photo */}
                   <div className="flex-shrink-0">
                     {entry.teacher.photoUrl ? (
                       <img

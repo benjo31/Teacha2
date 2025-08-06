@@ -202,7 +202,9 @@
         "reopen": "Rouvrir",
         "delete": "Supprimer"
       },
-      "empty": "Vous n'avez pas encore créé d'offres"
+      "empty": "Vous n'avez pas encore créé d'offres",
+      "searchPlaceholder": "Rechercher une offre...",
+      "errorLoad": "Erreur lors du chargement des offres"
     },
     "createOffer": {
       "title": "Créer une offre de remplacement",
@@ -347,6 +349,7 @@
     "per": "par",
     "of": "de",
     "logout": "Se déconnecter",
+    "changeLanguage": "Changer de langue",
     "profile": "Profil",
     "settings": "Paramètres",
     "dashboard": "Tableau de bord",
@@ -590,7 +593,8 @@
         "suspend": "Suspendre",
         "activate": "Activer",
         "delete": "Supprimer",
-        "sendMessage": "Envoyer un message"
+        "sendMessage": "Envoyer un message",
+        "title": "Actions"
       }
     },
     "offers": {
@@ -608,7 +612,11 @@
         "status": "Tous les statuts",
         "urgentOnly": "Urgentes uniquement"
       },
-      "noOffersFound": "Aucune offre trouvée"
+      "noOffersFound": "Aucune offre trouvée",
+      "empty": "Aucune candidature reçue",
+      "errorLoad": "Erreur lors du chargement des candidatures",
+      "errorAccept": "Erreur lors de l'acceptation de la candidature",
+      "successAccept": "Candidature acceptée avec succès"
     },
     "userManagement": {
       "title": "Gestion des utilisateurs",
@@ -661,7 +669,8 @@
     "unread": "non lu(s)",
     "createError": "Erreur lors de la création de la conversation",
     "noMessages": "Aucun message. Commencez la conversation !",
-    "selectConversation": "Sélectionnez une conversation pour commencer"
+    "selectConversation": "Sélectionnez une conversation pour commencer",
+    "clickToViewProfile": "Cliquez pour voir le profil"
   },
   "status": {
     "active": "Actif",
@@ -1423,5 +1432,132 @@
     "sending": "Envoi...",
     "inviteTeacher": "Inviter l'enseignant",
     "errorMessage": "Une erreur est survenue"
+  },
+  "analytics": {
+    "errorLoading": "Erreur lors du chargement des statistiques",
+    "charts": {
+      "teachers": "Remplaçants",
+      "schools": "Écoles",
+      "offers": "Offres",
+      "total": "Total",
+      "approved": "Approuvés",
+      "filled": "Pourvues"
+    },
+    "stats": {
+      "totalTeachers": "Total remplaçants",
+      "totalSchools": "Total écoles",
+      "activeOffers": "Offres actives",
+      "applications": "Candidatures",
+      "approvedTeachers": "approuvés",
+      "pendingTeachers": "en attente",
+      "approvedSchools": "approuvées",
+      "pendingSchools": "en attente",
+      "filledOffers": "offres pourvues",
+      "applicationsPerOffer": "candidatures par offre"
+    },
+    "overview": "Vue d'ensemble"
+  },
+  "pdfPreview": {
+    "errorOpening": "Erreur lors de l'ouverture du PDF",
+    "defaultTitle": "CV",
+    "download": "Télécharger",
+    "open": "Ouvrir",
+    "previewTitle": "Prévisualisation du CV"
+  },
+  "fileUpload": {
+    "uploadFile": "Télécharger un fichier",
+    "dragDropText": "Cliquez ou glissez-déposez"
+  },
+  "applicationModal": {
+    "checkingApplication": "Vérification de votre candidature...",
+    "existingApplicationTitle": "Candidature existante",
+    "alreadyApplied": "Vous avez déjà postulé à cette offre",
+    "existingApplicationMessage": "Vous pouvez consulter votre candidature dans votre espace personnel ou contacter l'école via la messagerie.",
+    "viewApplication": "Voir ma candidature",
+    "sendMessage": "Envoyer un message",
+    "loading": "Chargement...",
+    "applyTitle": "Postuler",
+    "schoolAt": "École à {{location}}",
+    "message": "Message",
+    "yourMessage": "Votre message",
+    "messagePlaceholder": "Présentez brièvement votre motivation et votre expérience...",
+    "cancel": "Annuler",
+    "sending": "Envoi...",
+    "sendApplication": "Envoyer ma candidature",
+    "errors": {
+      "connectionRequired": "Vous devez être connecté pour postuler",
+      "profileNotFound": "Profil remplaçant non trouvé",
+      "approvalRequired": "Votre compte doit être approuvé pour postuler",
+      "schoolNotFound": "École non trouvée",
+      "userDataNotFound": "Données utilisateur non trouvées",
+      "permissionDenied": "Vous n'avez pas les permissions nécessaires pour postuler",
+      "general": "Une erreur est survenue lors de la candidature",
+      "conversationCreation": "Erreur lors de la création de la conversation"
+    }
+  },
+  "editOfferModal": {
+    "title": "Modifier l'offre",
+    "scheduleAndLocation": "Horaires, lieu de rendez-vous et informations utiles",
+    "scheduleLocationPlaceholder": "Précisez les horaires exacts, le lieu de rendez-vous et toute information utile pour le bon déroulement du remplacement...",
+    "qualifications": "Qualifications souhaitées",
+    "qualificationsPlaceholder": "Décrivez les qualifications souhaitées pour ce remplacement...",
+    "cancel": "Annuler",
+    "updating": "Mise à jour...",
+    "saveChanges": "Enregistrer les modifications",
+    "updateError": "Une erreur est survenue lors de la mise à jour"
+  },
+  "loginForm": {
+    "connectionError": "Erreur de connexion:"
+  },
+  "messageInput": {
+    "placeholder": "Votre message...",
+    "sendError": "Erreur lors de l'envoi du message:"
+  },
+  "conversationList": {
+    "noConversations": "Aucune conversation"
+  },
+  "notificationsDropdown": {
+    "title": "Notifications",
+    "markAllAsRead": "Tout marquer comme lu"
+  },
+  "teacherStats": {
+    "currentApplications": "Candidatures en cours",
+    "acceptedThisMonth": "Acceptées ce mois",
+    "completedLessons": "Leçons effectuées",
+    "upcomingLessons": "leçons prévues",
+    "totalReplacements": "Total remplacements",
+    "topSubjects": "Branches les plus demandées"
+  },
+  "schoolStats": {
+    "activeOffers": "Offres actives",
+    "receivedApplications": "Candidatures reçues",
+    "filledPositions": "Postes pourvus",
+    "expiringOffers": "Offres expirant bientôt"
+  },
+  "daySchedule": {
+    "addLesson": "Ajouter une leçon"
+  },
+  "schoolOffers": {
+    "errorLoad": "Une erreur est survenue lors du chargement des offres",
+    "usefulInfo": "Informations utiles"
+  },
+  "availableOffersList": {
+    "errorLoad": "Impossible de charger les offres. Veuillez réessayer.",
+    "noMatchingOffers": "Aucune offre ne correspond à vos critères"
+  },
+  "favoriteButton": {
+    "add": "Ajouter aux favoris",
+    "remove": "Retirer des favoris"
+  },
+  "offerDetails": {
+    "schedule": "Horaires",
+    "subjectsToTeach": "Branches à enseigner",
+    "desiredQualifications": "Qualifications souhaitées"
+  },
+  "teacherProfile": {
+    "title": "Profil de l'enseignant",
+    "yearsOld": "ans",
+    "viewCV": "Voir le CV",
+    "noCVAvailable": "Pas de CV disponible"
   }
 }

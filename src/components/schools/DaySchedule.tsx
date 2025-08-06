@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Plus, Minus, Clock } from 'lucide-react'
 import { Input } from '../ui/Input'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface Lesson {
   startTime: string
@@ -16,6 +17,7 @@ interface DayScheduleProps {
 }
 
 export function DaySchedule({ date, lessons, onUpdate, onRemove, showRemove = true }: DayScheduleProps) {
+  const { t } = useTranslation()
   const addLesson = () => {
     onUpdate([...lessons, { startTime: '', endTime: '' }])
   }
@@ -67,7 +69,7 @@ export function DaySchedule({ date, lessons, onUpdate, onRemove, showRemove = tr
                 onChange={(e) => updateLesson(index, 'startTime', e.target.value)}
                 className="flex-1"
               />
-              <span className="text-gray-500">à</span>
+              <span className="text-gray-500">{t('common.to')}</span>
               <Input
                 type="time"
                 value={lesson.endTime}
@@ -93,7 +95,7 @@ export function DaySchedule({ date, lessons, onUpdate, onRemove, showRemove = tr
           className="flex items-center space-x-2 text-primary hover:text-primary-dark"
         >
           <Plus className="h-5 w-5" />
-          <span>Ajouter une leçon</span>
+          <span>{t('daySchedule.addLesson')}</span>
         </button>
       </div>
     </div>

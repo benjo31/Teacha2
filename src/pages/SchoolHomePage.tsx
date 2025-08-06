@@ -127,15 +127,15 @@ export function SchoolHomePage() {
       try {
         const schoolDoc = await getDoc(doc(db, 'schools', user.uid))
         if (!schoolDoc.exists()) {
-          throw new Error('École non trouvée')
+          throw new Error('School not found')
         }
 
         const schoolData = schoolDoc.data() as SchoolData
         setSchoolData(schoolData)
         setLoading(false)
       } catch (error) {
-        console.error('Erreur lors du chargement des données:', error)
-        setError('Une erreur est survenue lors du chargement des données')
+        console.error('Error loading data:', error)
+        setError(t('schoolHome.errorLoading'))
         setLoading(false)
       }
     }
@@ -192,7 +192,7 @@ export function SchoolHomePage() {
         </div>
       </div>
 
-      {/* Outils de planification */}
+      {/* Planning tools */}
       <div className="space-y-4">
         <h2 className="text-xl font-semibold">{t('school.home.planningTools')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -212,7 +212,7 @@ export function SchoolHomePage() {
         </div>
       </div>
 
-      {/* Ressources et guides */}
+      {/* Resources and guides */}
       <div className="space-y-4">
         <h2 className="text-xl font-semibold">{t('school.home.resourcesTitle')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -238,7 +238,7 @@ export function SchoolHomePage() {
         </div>
       </div>
 
-      {/* Modèles de documents */}
+      {/* Document templates */}
       <div className="space-y-4">
         <h2 className="text-xl font-semibold">{t('school.home.templatesTitle')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -264,7 +264,7 @@ export function SchoolHomePage() {
         </div>
       </div>
 
-      {/* Centre d'aide */}
+      {/* Help center */}
       <div className="card p-6 bg-gradient-to-r from-primary/5 to-primary/10">
         <div className="flex items-start space-x-4">
           <div className="rounded-full bg-primary/10 text-primary w-12 h-12 flex items-center justify-center flex-shrink-0">

@@ -17,7 +17,7 @@ export function UserManagement() {
   useEffect(() => {
     async function loadUsers() {
       try {
-        // Charger les remplaçants
+        // Load teachers
         const teachersQuery = query(collection(db, 'teachers'))
         const teachersSnapshot = await getDocs(teachersQuery)
         const teachersData = teachersSnapshot.docs.map(doc => ({
@@ -26,7 +26,7 @@ export function UserManagement() {
         }))
         setTeachers(teachersData)
 
-        // Charger les écoles
+        // Load schools
         const schoolsQuery = query(collection(db, 'schools'))
         const schoolsSnapshot = await getDocs(schoolsQuery)
         const schoolsData = schoolsSnapshot.docs.map(doc => ({
@@ -37,7 +37,7 @@ export function UserManagement() {
 
         setLoading(false)
       } catch (error) {
-        console.error('Erreur lors du chargement des utilisateurs:', error)
+        console.error('Error loading users:', error)
         setLoading(false)
       }
     }

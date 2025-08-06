@@ -10,12 +10,10 @@ import { User, Shield, Trash2, Users } from 'lucide-react'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { useTranslation } from '../lib/context/LanguageContext'
 import { PermissionGuard } from '../components/auth/PermissionGuard'
-import { usePermissions } from '../lib/hooks/usePermissions'
 
 export function AccountPage() {
   const { t } = useTranslation()
   const { user } = useAuth()
-  const { isDirector } = usePermissions()
   const [userData, setUserData] = useState<any>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -23,38 +21,38 @@ export function AccountPage() {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [userType, setUserType] = useState<'teacher' | 'school' | null>(null)
 
-  useEffect(() => {
-    async function loadUserData() {
-      if (!user) return
+  const loadUserData = async () => {
+    if (!user) return
 
-      try {
-        const teacherDoc = await getDoc(doc(db, 'teachers', user.uid))
-        const schoolDoc = await getDoc(doc(db, 'schools', user.uid))
+    try {
+      const teacherDoc = await getDoc(doc(db, 'teachers', user.uid))
+      const schoolDoc = await getDoc(doc(db, 'schools', user.uid))
 
-        if (teacherDoc.exists()) {
-          const data = teacherDoc.data()
-          setUserData({ 
-            ...data, 
-            id: user.uid,
-            type: 'teacher',
-            street: data.address?.street,
-            zipCode: data.address?.zipCode,
-            city: data.address?.city
-          })
-          setUserType('teacher')
-        } else if (schoolDoc.exists()) {
-          setUserData({ ...schoolDoc.data(), type: 'school' })
-          setUserType('school')
-        }
-
-        setLoading(false)
-      } catch (error) {
-        console.error('Erreur lors du chargement des données:', error)
-        setError(t('accountPage.errorLoading'))
-        setLoading(false)
+      if (teacherDoc.exists()) {
+        const data = teacherDoc.data()
+        setUserData({ 
+          ...data, 
+          id: user.uid,
+          type: 'teacher',
+          street: data.address?.street,
+          zipCode: data.address?.zipCode,
+          city: data.address?.city
+        })
+        setUserType('teacher')
+      } else if (schoolDoc.exists()) {
+        setUserData({ ...schoolDoc.data(), type: 'school' })
+        setUserType('school')
       }
-    }
 
+      setLoading(false)
+    } catch (error) {
+      console.error('Error loading user data:', error)
+      setError(t('accountPage.errorLoading'))
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
     loadUserData()
   }, [user])
 
@@ -145,7 +143,7 @@ export function AccountPage() {
         </TabsContent>
       </Tabs>
 
-      {/* Modal de confirmation de suppression */}
+      {/* Deletion confirmation modal */}
       {showDeleteConfirm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">

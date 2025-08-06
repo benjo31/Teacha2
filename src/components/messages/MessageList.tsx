@@ -36,21 +36,21 @@ export function MessageList({ conversationId, metadata }: MessageListProps) {
   const otherPartyId = isTeacher ? metadata.schoolId : metadata.teacherId
 
   useEffect(() => {
-    // Charger la photo de profil de l'autre participant
+    // Load the profile photo of the other participant
     async function loadOtherPartyPhoto() {
       try {
         if (isTeacher) {
-          // Si l'utilisateur est un enseignant, pas de photo pour l'école
+          // If the user is a teacher, no photo for the school
           setOtherPartyPhoto(null)
         } else {
-          // Si l'utilisateur est une école, charger la photo de l'enseignant
+          // If the user is a school, load the teacher's photo
           const teacherDoc = await getDoc(doc(db, 'teachers', metadata.teacherId))
           if (teacherDoc.exists()) {
             setOtherPartyPhoto(teacherDoc.data().photoUrl || null)
           }
         }
       } catch (error) {
-        console.error('Erreur lors du chargement de la photo:', error)
+        console.error('Error loading profile photo:', error)
       }
     }
 
@@ -58,7 +58,7 @@ export function MessageList({ conversationId, metadata }: MessageListProps) {
   }, [isTeacher, metadata.teacherId])
 
   const handleShowProfile = async () => {
-    // Ne montrer le profil que pour les enseignants
+    // Only show profile for teachers
     if (isTeacher) return
 
     try {
@@ -74,7 +74,7 @@ export function MessageList({ conversationId, metadata }: MessageListProps) {
         setShowProfile(true)
       }
     } catch (error) {
-      console.error('Erreur lors du chargement du profil:', error)
+      console.error('Error loading profile:', error)
     }
   }
 
@@ -146,7 +146,7 @@ export function MessageList({ conversationId, metadata }: MessageListProps) {
           >
             <h3 className="font-semibold">{otherPartyName}</h3>
             {!isTeacher && (
-              <p className="text-xs text-gray-500">Cliquez pour voir le profil</p>
+              <p className="text-xs text-gray-500">{t('messages.clickToViewProfile')}</p>
             )}
           </button>
         </div>

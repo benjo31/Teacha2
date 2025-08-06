@@ -202,7 +202,9 @@
         "reopen": "Reopen",
         "delete": "Delete"
       },
-      "empty": "You haven't created any offers yet"
+      "empty": "You haven't created any offers yet",
+      "searchPlaceholder": "Search for an offer...",
+      "errorLoad": "Error loading offers"
     },
     "createOffer": {
       "title": "Create Replacement Offer",
@@ -347,6 +349,7 @@
     "per": "per",
     "of": "of",
     "logout": "Log out",
+    "changeLanguage": "Change language",
     "profile": "Profile",
     "settings": "Settings",
     "dashboard": "Dashboard",
@@ -590,7 +593,8 @@
         "suspend": "Suspend",
         "activate": "Activate",
         "delete": "Delete",
-        "sendMessage": "Send Message"
+        "sendMessage": "Send Message",
+        "title": "Actions"
       }
     },
     "userManagement": {
@@ -665,7 +669,8 @@
     "unread": "unread",
     "createError": "Error creating conversation",
     "noMessages": "No messages. Start the conversation!",
-    "selectConversation": "Select a conversation to start"
+    "selectConversation": "Select a conversation to start",
+    "clickToViewProfile": "Click to view profile"
   },
   "status": {
     "active": "Active",
@@ -1427,5 +1432,132 @@
     "sending": "Sending...",
     "inviteTeacher": "Invite teacher",
     "errorMessage": "An error occurred"
+  },
+  "analytics": {
+    "errorLoading": "Error loading statistics",
+    "charts": {
+      "teachers": "Teachers",
+      "schools": "Schools", 
+      "offers": "Offers",
+      "total": "Total",
+      "approved": "Approved",
+      "filled": "Filled"
+    },
+    "stats": {
+      "totalTeachers": "Total teachers",
+      "totalSchools": "Total schools",
+      "activeOffers": "Active offers",
+      "applications": "Applications",
+      "approvedTeachers": "approved",
+      "pendingTeachers": "pending",
+      "approvedSchools": "approved",
+      "pendingSchools": "pending",
+      "filledOffers": "offers filled",
+      "applicationsPerOffer": "applications per offer"
+    },
+    "overview": "Overview"
+  },
+  "pdfPreview": {
+    "errorOpening": "Error opening PDF",
+    "defaultTitle": "CV",
+    "download": "Download",
+    "open": "Open",
+    "previewTitle": "CV Preview"
+  },
+  "fileUpload": {
+    "uploadFile": "Upload a file",
+    "dragDropText": "Click or drag and drop"
+  },
+  "applicationModal": {
+    "alreadyApplied": "You have already applied for this offer",
+    "applyTitle": "Apply",
+    "cancel": "Cancel",
+    "checkingApplication": "Checking your application...",
+    "errors": {
+      "approvalRequired": "Your account must be approved to apply",
+      "connectionRequired": "You must be logged in to apply",
+      "conversationCreation": "Error creating conversation",
+      "general": "An error occurred during application",
+      "permissionDenied": "You don't have the necessary permissions to apply",
+      "profileNotFound": "Teacher profile not found",
+      "schoolNotFound": "School not found",
+      "userDataNotFound": "User data not found"
+    },
+    "existingApplicationMessage": "You can view your application in your personal area or contact the school via messaging.",
+    "existingApplicationTitle": "Existing Application",
+    "loading": "Loading...",
+    "message": "Message",
+    "messagePlaceholder": "Briefly present your motivation and experience...",
+    "schoolAt": "School at {{location}}",
+    "sendApplication": "Send my application",
+    "sendMessage": "Send a message",
+    "sending": "Sending...",
+    "viewApplication": "View my application",
+    "yourMessage": "Your message"
+  },
+  "availableOffersList": {
+    "errorLoad": "Unable to load offers. Please try again.",
+    "noMatchingOffers": "No offers match your criteria"
+  },
+  "conversationList": {
+    "noConversations": "No conversations"
+  },
+  "daySchedule": {
+    "addLesson": "Add a lesson"
+  },
+  "editOfferModal": {
+    "cancel": "Cancel",
+    "qualifications": "Desired qualifications",
+    "qualificationsPlaceholder": "Describe the desired qualifications for this replacement...",
+    "saveChanges": "Save changes",
+    "scheduleAndLocation": "Schedule, meeting point and useful information",
+    "scheduleLocationPlaceholder": "Specify exact schedule, meeting point and any useful information for the replacement...",
+    "title": "Edit offer",
+    "updateError": "An error occurred during update",
+    "updating": "Updating..."
+  },
+  "favoriteButton": {
+    "add": "Add to favorites",
+    "remove": "Remove from favorites"
+  },
+  "loginForm": {
+    "connectionError": "Connection error:"
+  },
+  "messageInput": {
+    "placeholder": "Your message...",
+    "sendError": "Error sending message:"
+  },
+  "notificationsDropdown": {
+    "markAllAsRead": "Mark all as read",
+    "title": "Notifications"
+  },
+  "offerDetails": {
+    "desiredQualifications": "Desired qualifications",
+    "schedule": "Schedule",
+    "subjectsToTeach": "Subjects to teach"
+  },
+  "schoolOffers": {
+    "errorLoad": "An error occurred while loading offers",
+    "usefulInfo": "Useful information"
+  },
+  "schoolStats": {
+    "activeOffers": "Active offers",
+    "expiringOffers": "Expiring soon",
+    "filledPositions": "Filled positions",
+    "receivedApplications": "Received applications"
+  },
+  "teacherProfile": {
+    "noCVAvailable": "No CV available",
+    "title": "Teacher profile",
+    "viewCV": "View CV",
+    "yearsOld": "years old"
+  },
+  "teacherStats": {
+    "acceptedThisMonth": "Accepted this month",
+    "completedLessons": "Completed lessons",
+    "currentApplications": "Current applications",
+    "topSubjects": "Top subjects",
+    "totalReplacements": "Total replacements",
+    "upcomingLessons": "upcoming lessons"
   }
 }

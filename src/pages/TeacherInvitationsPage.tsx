@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../lib/context/AuthContext'
-import { collection, query, where, getDocs, doc, updateDoc, deleteDoc } from 'firebase/firestore'
+import { collection, query, where, getDocs, doc, updateDoc } from 'firebase/firestore'
 import { db } from '../lib/firebase'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { School, Clock, CheckCircle, XCircle } from 'lucide-react'
 import { useTranslation } from '../lib/context/LanguageContext'
 
 type Invitation = {
+  id: string
   schoolId: string
   schoolName: string
   status: 'pending' | 'accepted' | 'rejected'
@@ -30,7 +31,7 @@ export function TeacherInvitationsPage() {
     if (!user) return
 
     try {
-      // Charger toutes les invitations de l'enseignant
+      // Load all teacher invitations
       const invitationsQuery = query(
         collection(db, 'school_invitations'),
         where('teacherEmail', '==', user.email),
@@ -52,12 +53,12 @@ export function TeacherInvitationsPage() {
 
   const handleAccept = async (invitationId: string, schoolId: string) => {
     try {
-      // Mettre à jour le statut de l'invitation
+      // Update invitation status
       await updateDoc(doc(db, 'school_invitations', invitationId), {
         status: 'accepted'
       })
 
-      // Ajouter l'enseignant à la liste des enseignants de l'école
+      // Add teacher to school's teacher list
       await updateDoc(doc(db, `schools/${schoolId}/teachers`, user?.uid || ''), {
         status: 'active'
       })

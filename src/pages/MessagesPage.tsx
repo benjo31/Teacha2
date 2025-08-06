@@ -32,14 +32,14 @@ export function MessagesPage() {
         setConversationMetadata(conversationDoc.data().metadata)
       }
     } catch (error) {
-      console.error('Erreur lors du chargement des métadonnées:', error)
+      console.error('Error loading conversation metadata:', error)
     }
   }
 
   const handleSelectConversation = (id: string) => {
     setSelectedConversation(id)
     loadConversationMetadata(id)
-    // Sur mobile, ajouter le paramètre à l'URL pour la navigation
+    // On mobile, add parameter to URL for navigation
     navigate(`/messages?conversation=${id}`)
   }
 
@@ -52,7 +52,7 @@ export function MessagesPage() {
   return (
     <div className="max-w-6xl mx-auto h-[calc(100vh-4rem-2rem)] p-4">
       <div className="bg-white rounded-lg shadow-sm border h-full flex">
-        {/* Liste des conversations - Toujours visible sur desktop, cachée sur mobile quand une conversation est sélectionnée */}
+        {/* Conversations list - Always visible on desktop, hidden on mobile when a conversation is selected */}
         <div className={`w-full md:w-1/3 border-r flex flex-col min-h-0 ${
           selectedConversation ? 'hidden md:flex' : 'flex'
         }`}>
@@ -62,13 +62,13 @@ export function MessagesPage() {
           />
         </div>
 
-        {/* Zone de messages - Visible sur desktop, remplace la liste sur mobile */}
+        {/* Messages area - Visible on desktop, replaces list on mobile */}
         <div className={`flex-1 flex flex-col min-h-0 ${
           selectedConversation ? 'flex' : 'hidden md:flex'
         }`}>
           {selectedConversation && conversationMetadata ? (
             <>
-              {/* Bouton retour sur mobile */}
+              {/* Back button on mobile */}
               <button
                 onClick={handleBack}
                 className="md:hidden flex items-center text-gray-600 hover:text-gray-800 p-4 border-b"

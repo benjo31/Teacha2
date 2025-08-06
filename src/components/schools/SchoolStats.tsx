@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react'
 import { collection, query, where, getDocs, orderBy } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
 import { Calendar, Clock, CheckCircle, AlertTriangle } from 'lucide-react'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface SchoolStatsProps {
   schoolId: string
 }
 
 export function SchoolStats({ schoolId }: SchoolStatsProps) {
+  const { t } = useTranslation()
   const [stats, setStats] = useState({
     activeOffers: 0,
     receivedApplications: 0,
@@ -19,7 +21,7 @@ export function SchoolStats({ schoolId }: SchoolStatsProps) {
   useEffect(() => {
     async function loadStats() {
       try {
-        // Requête pour les offres actives
+        // Query for active offers
         const activeOffersQuery = query(
           collection(db, 'replacement-offers'),
           where('schoolId', '==', schoolId),
@@ -28,7 +30,7 @@ export function SchoolStats({ schoolId }: SchoolStatsProps) {
         const activeOffersSnapshot = await getDocs(activeOffersQuery)
         const activeOffersCount = activeOffersSnapshot.size
 
-        // Requête pour les candidatures reçues
+        // Query for received applications
         const applicationsQuery = query(
           collection(db, 'applications'),
           where('schoolId', '==', schoolId)
@@ -36,7 +38,7 @@ export function SchoolStats({ schoolId }: SchoolStatsProps) {
         const applicationsSnapshot = await getDocs(applicationsQuery)
         const applicationsCount = applicationsSnapshot.size
 
-        // Requête pour les postes pourvus
+        // Query for filled positions
         const filledOffersQuery = query(
           collection(db, 'replacement-offers'),
           where('schoolId', '==', schoolId),
@@ -45,7 +47,7 @@ export function SchoolStats({ schoolId }: SchoolStatsProps) {
         const filledOffersSnapshot = await getDocs(filledOffersQuery)
         const filledOffersCount = filledOffersSnapshot.size
 
-        // Calcul des offres qui expirent bientôt (dans les 7 jours)
+        // Calculate offers expiring soon (within 7 days)
         const now = new Date()
         const nextWeek = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000)
         let expiringCount = 0
@@ -66,7 +68,7 @@ export function SchoolStats({ schoolId }: SchoolStatsProps) {
 
         setLoading(false)
       } catch (error) {
-        console.error('Erreur lors du chargement des statistiques:', error)
+        console.error('Error loading statistics:', error)
         setLoading(false)
       }
     }
@@ -89,7 +91,7 @@ export function SchoolStats({ schoolId }: SchoolStatsProps) {
       <div className="card p-4">
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-sm font-medium text-gray-500">Offres actives</p>
+            <p className="text-sm font-medium text-gray-500">{t('schoolStats.activeOffers')}</p>
             <p className="text-2xl font-semibold mt-1">{stats.activeOffers}</p>
           </div>
           <span className="p-2 bg-blue-50 rounded-lg">
@@ -101,7 +103,7 @@ export function SchoolStats({ schoolId }: SchoolStatsProps) {
       <div className="card p-4">
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-sm font-medium text-gray-500">Candidatures reçues</p>
+            <p className="text-sm font-medium text-gray-500">{t('schoolStats.receivedApplications')}</p>
             <p className="text-2xl font-semibold mt-1">{stats.receivedApplications}</p>
           </div>
           <span className="p-2 bg-green-50 rounded-lg">
@@ -113,7 +115,7 @@ export function SchoolStats({ schoolId }: SchoolStatsProps) {
       <div className="card p-4">
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-sm font-medium text-gray-500">Postes pourvus</p>
+            <p className="text-sm font-medium text-gray-500">{t('schoolStats.filledPositions')}</p>
             <p className="text-2xl font-semibold mt-1">{stats.filledPositions}</p>
           </div>
           <span className="p-2 bg-orange-50 rounded-lg">
@@ -125,7 +127,7 @@ export function SchoolStats({ schoolId }: SchoolStatsProps) {
       <div className="card p-4">
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-sm font-medium text-gray-500">Offres expirant bientôt</p>
+            <p className="text-sm font-medium text-gray-500">{t('schoolStats.expiringOffers')}</p>
             <p className="text-2xl font-semibold mt-1">{stats.expiringOffers}</p>
           </div>
           <span className="p-2 bg-yellow-50 rounded-lg">

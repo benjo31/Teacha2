@@ -57,7 +57,7 @@ export function NotificationsDropdown() {
         read: true
       })
     } catch (error) {
-      console.error('Erreur lors du marquage de la notification comme lue:', error)
+      console.error('Error marking notification as read:', error)
     }
   }
 
@@ -75,7 +75,7 @@ export function NotificationsDropdown() {
     try {
       await batch.commit()
     } catch (error) {
-      console.error('Erreur lors du marquage des notifications comme lues:', error)
+      console.error('Error marking all notifications as read:', error)
     }
   }
 
@@ -108,13 +108,13 @@ export function NotificationsDropdown() {
       {isOpen && (
         <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border py-2 z-50">
           <div className="px-4 py-2 border-b flex justify-between items-center">
-            <h3 className="font-semibold">Notifications</h3>
+            <h3 className="font-semibold">{t('notificationsDropdown.title')}</h3>
             {unreadCount > 0 && (
               <button
                 onClick={markAllAsRead}
                 className="text-sm text-primary hover:text-primary-dark"
               >
-                Tout marquer comme lu
+{t('notificationsDropdown.markAllAsRead')}
               </button>
             )}
           </div>

@@ -11,6 +11,7 @@ import { fr } from 'date-fns/locale'
 import { calculateOfferStatus } from '../../lib/utils/offerStatus'
 import { StatusBadge } from '../ui/StatusBadge'
 import { getSubjectsDisplay } from '../../lib/utils/subjects'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface SchoolOffersProps {
   schoolId: string
@@ -18,6 +19,7 @@ interface SchoolOffersProps {
 }
 
 export function SchoolOffers({ schoolId, schoolName }: SchoolOffersProps) {
+  const { t } = useTranslation()
   const [offers, setOffers] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -52,8 +54,8 @@ export function SchoolOffers({ schoolId, schoolName }: SchoolOffersProps) {
       const activeOffers = offersData.filter(offer => offer.status === 'active')
       setOffers(activeOffers)
     } catch (err) {
-      console.error('Erreur lors du chargement des offres:', err)
-      setError('Une erreur est survenue lors du chargement des offres')
+      console.error('Error loading offers:', err)
+      setError(t('schoolOffers.errorLoad'))
     } finally {
       setLoading(false)
     }
@@ -83,7 +85,7 @@ export function SchoolOffers({ schoolId, schoolName }: SchoolOffersProps) {
   if (offers.length === 0) {
     return (
       <div className="bg-white p-6 rounded-lg shadow-sm border text-center text-gray-500">
-        Aucune offre active pour le moment
+        {t('common.noResults')}
       </div>
     )
   }
@@ -114,20 +116,20 @@ export function SchoolOffers({ schoolId, schoolName }: SchoolOffersProps) {
               </div>
               <div className="flex items-center text-gray-600">
                 <Clock className="h-4 w-4 mr-2" />
-                {offer.totalLessons} leçons
+                {offer.totalLessons} {t('teacherApplications.lessons')}
               </div>
               {offer.periods && offer.periods.length > 0 && (
                 <div className="flex items-center gap-4 text-sm text-gray-600">
                   {offer.periods.includes('morning') && (
                     <div className="flex items-center">
                       <Sun className="h-4 w-4 mr-1 text-yellow-500" />
-                      Matin
+                      {t('school.registration.morning')}
                     </div>
                   )}
                   {offer.periods.includes('afternoon') && (
                     <div className="flex items-center">
                       <Moon className="h-4 w-4 mr-1 text-blue-500" />
-                      Après-midi
+                      {t('school.registration.afternoon')}
                     </div>
                   )}
                 </div>
@@ -136,7 +138,7 @@ export function SchoolOffers({ schoolId, schoolName }: SchoolOffersProps) {
 
             {offer.topic && (
               <div className="mt-4 p-3 bg-gray-50 rounded-md">
-                <h4 className="text-sm font-medium mb-1">Informations utiles</h4>
+                <h4 className="text-sm font-medium mb-1">{t('schoolOffers.usefulInfo')}</h4>
                 <p className="text-sm text-gray-600 line-clamp-2">
                   {offer.topic}
                 </p>
@@ -149,14 +151,14 @@ export function SchoolOffers({ schoolId, schoolName }: SchoolOffersProps) {
                 className="flex items-center text-primary hover:text-primary-dark"
               >
                 <Eye className="h-4 w-4 mr-1" />
-                Détails
+                {t('common.details')}
               </button>
               <button
                 onClick={() => handleApply(offer)}
                 className="flex items-center space-x-1 bg-primary text-primary-foreground px-3 py-1.5 rounded-md hover:bg-primary/90"
               >
                 <Send className="h-4 w-4" />
-                <span>Postuler</span>
+                <span>{t('common.apply')}</span>
               </button>
             </div>
           </div>

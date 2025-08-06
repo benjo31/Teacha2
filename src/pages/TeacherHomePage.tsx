@@ -87,7 +87,7 @@ export function TeacherHomePage() {
           setLoading(false)
         }
       } catch (error) {
-        console.error('Erreur lors du chargement des données:', error)
+        console.error('Error loading data:', error)
         setLoading(false)
       }
     }
@@ -103,7 +103,7 @@ export function TeacherHomePage() {
     <div className="max-w-6xl mx-auto space-y-6">
       <TeacherStats teacherId={user?.uid || ''} />
 
-      {/* Actions rapides */}
+      {/* Quick actions */}
       <div className="space-y-4">
         <h2 className="text-xl font-semibold">{t('teacher.home.quickActions')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -125,7 +125,7 @@ export function TeacherHomePage() {
         </div>
       </div>
 
-      {/* Ressources et guides */}
+      {/* Resources and guides */}
       <div className="space-y-4">
         <h2 className="text-xl font-semibold">{t('teacher.home.resourcesTitle')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -145,7 +145,7 @@ export function TeacherHomePage() {
         </div>
       </div>
 
-      {/* Documents utiles */}
+      {/* Useful documents */}
       <div className="space-y-4">
         <h2 className="text-xl font-semibold">{t('teacher.home.documentsTitle')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -171,7 +171,7 @@ export function TeacherHomePage() {
         </div>
       </div>
 
-      {/* Centre d'aide */}
+      {/* Help center */}
       <div className="card p-6 bg-gradient-to-r from-primary/5 to-primary/10">
         <div className="flex items-start space-x-4">
           <div className="rounded-full bg-primary/10 text-primary w-12 h-12 flex items-center justify-center flex-shrink-0">

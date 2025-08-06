@@ -4,8 +4,10 @@ import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../lib/firebase'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { SchoolProfile } from '../components/schools/SchoolProfile'
+import { useTranslation } from '../lib/context/LanguageContext'
 
 export function SchoolProfilePage() {
+  const { t } = useTranslation()
   const { id } = useParams<{ id: string }>()
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -20,11 +22,11 @@ export function SchoolProfilePage() {
         if (schoolDoc.exists()) {
           setSchoolData({ id, ...schoolDoc.data() })
         } else {
-          setError('École non trouvée')
+          setError(t('schoolProfile.schoolNotFound'))
         }
       } catch (err) {
-        console.error('Erreur lors du chargement des données:', err)
-        setError('Une erreur est survenue lors du chargement des données')
+        console.error('Error loading school data:', err)
+        setError(t('schoolProfile.errorLoading'))
       } finally {
         setLoading(false)
       }
@@ -46,7 +48,7 @@ export function SchoolProfilePage() {
   }
 
   if (!schoolData) {
-    return <div>École non trouvée</div>
+    return <div>{t('schoolProfile.schoolNotFound')}</div>
   }
 
   return (

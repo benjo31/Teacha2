@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Search } from 'lucide-react'
 import { TeacherProfileModal } from '../teachers/TeacherProfileModal'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface Column {
   key: string
@@ -14,6 +15,7 @@ interface UserListProps {
 }
 
 export function UserList({ users, type, columns }: UserListProps) {
+  const { t } = useTranslation()
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedUser, setSelectedUser] = useState<any>(null)
 
@@ -38,11 +40,11 @@ export function UserList({ users, type, columns }: UserListProps) {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'approved':
-        return <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">Approuvé</span>
+        return <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">{t('common.approved')}</span>
       case 'pending':
-        return <span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">En attente</span>
+        return <span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">{t('common.pending')}</span>
       case 'rejected':
-        return <span className="px-2 py-1 bg-red-100 text-red-800 rounded-full text-sm">Rejeté</span>
+        return <span className="px-2 py-1 bg-red-100 text-red-800 rounded-full text-sm">{t('common.rejected')}</span>
       default:
         return <span className="px-2 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">{status}</span>
     }
@@ -61,7 +63,7 @@ export function UserList({ users, type, columns }: UserListProps) {
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
         <input
           type="text"
-          placeholder="Rechercher..."
+          placeholder={t('common.search')}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="pl-10 pr-4 py-2 w-full rounded-lg border border-gray-300 focus:border-primary focus:ring-primary"
@@ -81,7 +83,7 @@ export function UserList({ users, type, columns }: UserListProps) {
                 </th>
               ))}
               <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Actions
+                {t('admin.users.actions.title')}
               </th>
             </tr>
           </thead>
@@ -98,7 +100,7 @@ export function UserList({ users, type, columns }: UserListProps) {
                     onClick={() => setSelectedUser(user)}
                     className="text-primary hover:text-primary-dark"
                   >
-                    Voir détails
+                    {t('admin.pending.viewDetails')}
                   </button>
                 </td>
               </tr>

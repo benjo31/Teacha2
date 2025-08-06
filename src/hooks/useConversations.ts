@@ -8,6 +8,7 @@ export type Conversation = {
   participantsMap: Record<string, boolean>
   lastMessageAt: Timestamp
   lastMessage?: string
+  unreadCount?: Record<string, number>
   metadata: {
     teacherId: string
     teacherName: string

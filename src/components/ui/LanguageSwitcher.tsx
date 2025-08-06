@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { ChevronDown, Globe } from 'lucide-react'
-import { useLanguage } from '../../lib/context/LanguageContext'
+import { useLanguage, useTranslation } from '../../lib/context/LanguageContext'
 
 type LanguageSwitcherProps = {
   showIcon?: boolean
@@ -9,6 +9,7 @@ type LanguageSwitcherProps = {
 
 export function LanguageSwitcher({ showIcon = true, variant = 'default' }: LanguageSwitcherProps) {
   const { language, setLanguage, languages } = useLanguage()
+  const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -37,7 +38,7 @@ export function LanguageSwitcher({ showIcon = true, variant = 'default' }: Langu
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center gap-1 px-2 py-1 text-sm rounded hover:bg-gray-100 transition-colors"
-          aria-label="Changer de langue"
+          aria-label={t('common.changeLanguage')}
         >
           <span className="text-lg">{currentLanguage?.flag}</span>
           <span className="hidden sm:inline text-gray-700">{currentLanguage?.code.toUpperCase()}</span>
@@ -69,7 +70,7 @@ export function LanguageSwitcher({ showIcon = true, variant = 'default' }: Langu
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 px-3 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-        aria-label="Changer de langue"
+        aria-label={t('common.changeLanguage')}
       >
         {showIcon && <Globe className="h-4 w-4 text-gray-500" />}
         <span className="text-lg">{currentLanguage?.flag}</span>

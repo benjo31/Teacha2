@@ -46,7 +46,7 @@ export function UpdateProfileForm({ initialData, onSuccess }: UpdateProfileFormP
       onSuccess()
       setTimeout(() => setSuccess(''), 3000)
     } catch (err) {
-      console.error('Erreur lors de la mise à jour:', err)
+      console.error('Error updating profile:', err)
       setError(t('updateProfileForm.errorMessage'))
     } finally {
       setUpdating(false)

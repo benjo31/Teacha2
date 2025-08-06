@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { Paperclip, Send } from 'lucide-react'
 import { sendMessage } from '../../lib/services/messages'
 import { AttachmentPreview } from './AttachmentPreview'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface MessageInputProps {
   conversationId: string
@@ -9,6 +10,7 @@ interface MessageInputProps {
 }
 
 export function MessageInput({ conversationId, senderId }: MessageInputProps) {
+  const { t } = useTranslation()
   const [content, setContent] = useState('')
   const [attachments, setAttachments] = useState<File[]>([])
   const [sending, setSending] = useState(false)
@@ -24,7 +26,7 @@ export function MessageInput({ conversationId, senderId }: MessageInputProps) {
       setContent('')
       setAttachments([])
     } catch (error) {
-      console.error('Erreur lors de l\'envoi du message:', error)
+      console.error('Error sending message:', error)
     } finally {
       setSending(false)
     }
@@ -68,7 +70,7 @@ export function MessageInput({ conversationId, senderId }: MessageInputProps) {
             onChange={(e) => setContent(e.target.value)}
             className="w-full resize-none rounded-lg border border-gray-300 focus:border-primary focus:ring-primary p-2"
             rows={2}
-            placeholder="Votre message..."
+            placeholder={t('messageInput.placeholder')}
           />
         </div>
 

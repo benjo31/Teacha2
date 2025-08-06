@@ -35,7 +35,7 @@ export function SchoolProfile({ schoolData: initialData, showBackButton = false 
         }
         setLoading(false)
       } catch (err) {
-        console.error('Erreur lors du chargement des données:', err)
+        console.error('Error loading school data:', err)
         setError(t('schoolProfile.error'))
         setLoading(false)
       }

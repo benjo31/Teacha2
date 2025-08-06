@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useConversations } from '../../hooks/useConversations'
 import { useAuth } from '../../lib/context/AuthContext'
+import { useTranslation } from '../../lib/context/LanguageContext'
 import { formatDistanceToNow } from 'date-fns'
 import { fr } from 'date-fns/locale'
 import { UserCircle2 } from 'lucide-react'
@@ -15,6 +16,7 @@ interface ConversationListProps {
 
 export function ConversationList({ onSelect, selectedId }: ConversationListProps) {
   const { user } = useAuth()
+  const { t } = useTranslation()
   const { conversations, loading } = useConversations(user?.uid)
   const [userPhotos, setUserPhotos] = useState<{ [key: string]: string | null }>({})
 
@@ -59,7 +61,7 @@ export function ConversationList({ onSelect, selectedId }: ConversationListProps
   if (conversations.length === 0) {
     return (
       <div className="h-full flex items-center justify-center p-4 text-center text-gray-500">
-        Aucune conversation
+        {t('conversationList.noConversations')}
       </div>
     )
   }

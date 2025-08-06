@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react'
 import { collection, query, where, getDocs, orderBy } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
 import { Calendar, Clock, CheckCircle, Award } from 'lucide-react'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface TeacherStatsProps {
   teacherId: string
 }
 
 export function TeacherStats({ teacherId }: TeacherStatsProps) {
+  const { t } = useTranslation()
   const [stats, setStats] = useState({
     currentApplications: 0,
     acceptedThisMonth: 0,
@@ -25,7 +27,7 @@ export function TeacherStats({ teacherId }: TeacherStatsProps) {
         const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1)
         const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0)
 
-        // Requête pour les candidatures en cours
+        // Query for current applications
         const currentApplicationsQuery = query(
           collection(db, 'applications'),
           where('teacherId', '==', teacherId),
@@ -34,7 +36,7 @@ export function TeacherStats({ teacherId }: TeacherStatsProps) {
         const currentApplicationsSnapshot = await getDocs(currentApplicationsQuery)
         const currentApplicationsCount = currentApplicationsSnapshot.size
 
-        // Requête pour les candidatures acceptées ce mois
+        // Query for applications accepted this month
         const acceptedThisMonthQuery = query(
           collection(db, 'applications'),
           where('teacherId', '==', teacherId),
@@ -45,7 +47,7 @@ export function TeacherStats({ teacherId }: TeacherStatsProps) {
         const acceptedThisMonthSnapshot = await getDocs(acceptedThisMonthQuery)
         const acceptedThisMonthCount = acceptedThisMonthSnapshot.size
 
-        // Calcul des leçons effectuées et à venir
+        // Calculate completed and upcoming lessons
         let completedLessons = 0
         let upcomingLessons = 0
         let subjects = new Map<string, number>()
@@ -78,7 +80,7 @@ export function TeacherStats({ teacherId }: TeacherStatsProps) {
           }
         }
 
-        // Trier les sujets par nombre d'occurrences
+        // Sort subjects by number of occurrences
         const topSubjects = Array.from(subjects.entries())
           .sort((a, b) => b[1] - a[1])
           .slice(0, 3)
@@ -95,7 +97,7 @@ export function TeacherStats({ teacherId }: TeacherStatsProps) {
 
         setLoading(false)
       } catch (error) {
-        console.error('Erreur lors du chargement des statistiques:', error)
+        console.error('Error loading statistics:', error)
         setLoading(false)
       }
     }
@@ -118,7 +120,7 @@ export function TeacherStats({ teacherId }: TeacherStatsProps) {
       <div className="card p-4">
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-sm font-medium text-gray-500">Candidatures en cours</p>
+            <p className="text-sm font-medium text-gray-500">{t('teacherStats.currentApplications')}</p>
             <p className="text-2xl font-semibold mt-1">{stats.currentApplications}</p>
           </div>
           <span className="p-2 bg-blue-50 rounded-lg">
@@ -130,7 +132,7 @@ export function TeacherStats({ teacherId }: TeacherStatsProps) {
       <div className="card p-4">
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-sm font-medium text-gray-500">Acceptées ce mois</p>
+            <p className="text-sm font-medium text-gray-500">{t('teacherStats.acceptedThisMonth')}</p>
             <p className="text-2xl font-semibold mt-1">{stats.acceptedThisMonth}</p>
           </div>
           <span className="p-2 bg-green-50 rounded-lg">
@@ -142,7 +144,7 @@ export function TeacherStats({ teacherId }: TeacherStatsProps) {
       <div className="card p-4">
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-sm font-medium text-gray-500">Leçons effectuées</p>
+            <p className="text-sm font-medium text-gray-500">{t('teacherStats.completedLessons')}</p>
             <p className="text-2xl font-semibold mt-1">{stats.completedLessons}</p>
           </div>
           <span className="p-2 bg-orange-50 rounded-lg">
@@ -150,14 +152,14 @@ export function TeacherStats({ teacherId }: TeacherStatsProps) {
           </span>
         </div>
         <p className="text-sm text-gray-500 mt-2">
-          {stats.upcomingLessons} leçons prévues
+          {stats.upcomingLessons} {t('teacherStats.upcomingLessons')}
         </p>
       </div>
 
       <div className="card p-4">
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-sm font-medium text-gray-500">Total remplacements</p>
+            <p className="text-sm font-medium text-gray-500">{t('teacherStats.totalReplacements')}</p>
             <p className="text-2xl font-semibold mt-1">{stats.totalReplacements}</p>
           </div>
           <span className="p-2 bg-purple-50 rounded-lg">
@@ -166,7 +168,7 @@ export function TeacherStats({ teacherId }: TeacherStatsProps) {
         </div>
         {stats.topSubjects.length > 0 && (
           <div className="mt-2">
-            <p className="text-xs text-gray-500">Branches les plus demandées :</p>
+            <p className="text-xs text-gray-500">{t('teacherStats.topSubjects')}:</p>
             <div className="space-y-1 mt-1">
               {stats.topSubjects.map((subject, index) => (
                 <p key={index} className="text-sm">

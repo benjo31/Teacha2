@@ -4,6 +4,7 @@ import { fr } from 'date-fns/locale'
 import { calculateOfferStatus } from '../../lib/utils/offerStatus'
 import { StatusBadge } from '../ui/StatusBadge'
 import { getSubjectsDisplay } from '../../lib/utils/subjects'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface OfferDetailsModalProps {
   offer: {
@@ -30,6 +31,7 @@ interface OfferDetailsModalProps {
 }
 
 export default function OfferDetailsModal({ offer, onClose, onApply, hideApplyButton = false }: OfferDetailsModalProps) {
+  const { t } = useTranslation()
   const status = calculateOfferStatus(offer.endDate, offer.status)
   
   const formatDateRange = () => {
@@ -90,21 +92,21 @@ export default function OfferDetailsModal({ offer, onClose, onApply, hideApplyBu
           <div className="bg-gray-50 p-4 rounded-lg space-y-3">
             <h3 className="font-medium mb-2 flex items-center">
               <Clock className="h-5 w-5 mr-2 text-gray-400" />
-              Horaires
+              {t('offerDetails.schedule')}
             </h3>
-            <p className="text-gray-600">{offer.totalLessons} leçons</p>
+            <p className="text-gray-600">{offer.totalLessons} {t('teacherApplications.lessons')}</p>
             {offer.periods && (
               <div className="flex items-center text-gray-600">
                 {offer.periods.includes('morning') && (
                   <div className="flex items-center mr-4">
                     <Sun className="h-4 w-4 mr-1 text-yellow-500" />
-                    Matin
+                    {t('school.registration.morning')}
                   </div>
                 )}
                 {offer.periods.includes('afternoon') && (
                   <div className="flex items-center">
                     <Moon className="h-4 w-4 mr-1 text-blue-500" />
-                    Après-midi
+                    {t('school.registration.afternoon')}
                   </div>
                 )}
               </div>
@@ -114,7 +116,7 @@ export default function OfferDetailsModal({ offer, onClose, onApply, hideApplyBu
           {/* Branches */}
           {offer.subjects && offer.subjects.length > 1 && (
             <div className="bg-gray-50 p-4 rounded-lg">
-              <h3 className="font-medium mb-2">Branches à enseigner</h3>
+              <h3 className="font-medium mb-2">{t('offerDetails.subjectsToTeach')}</h3>
               <div className="flex flex-wrap gap-2">
                 {offer.subjects.map((subject) => (
                   <span
@@ -131,7 +133,7 @@ export default function OfferDetailsModal({ offer, onClose, onApply, hideApplyBu
           {/* Informations utiles */}
           {offer.topic && (
             <div className="bg-gray-50 p-4 rounded-lg">
-              <h3 className="font-medium mb-2">Informations utiles</h3>
+              <h3 className="font-medium mb-2">{t('schoolOffers.usefulInfo')}</h3>
               <p className="text-gray-600 whitespace-pre-wrap">{offer.topic}</p>
             </div>
           )}
@@ -140,7 +142,7 @@ export default function OfferDetailsModal({ offer, onClose, onApply, hideApplyBu
           {offer.qualifications && (
             <div className="bg-primary/5 p-4 rounded-lg">
               <h3 className="font-medium mb-2 text-primary">
-                Qualifications souhaitées
+                {t('offerDetails.desiredQualifications')}
               </h3>
               <p className="text-gray-600">{offer.qualifications}</p>
             </div>
@@ -154,14 +156,14 @@ export default function OfferDetailsModal({ offer, onClose, onApply, hideApplyBu
               onClick={onClose}
               className="px-4 py-2 text-gray-600 hover:text-gray-800"
             >
-              Fermer
+              {t('common.close')}
             </button>
             {!hideApplyButton && onApply && status === 'active' && (
               <button
                 onClick={onApply}
                 className="btn btn-primary"
               >
-                Postuler
+                {t('common.apply')}
               </button>
             )}
           </div>

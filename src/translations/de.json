@@ -202,7 +202,9 @@
         "reopen": "Wieder öffnen",
         "delete": "Löschen"
       },
-      "empty": "Sie haben noch keine Angebote erstellt"
+      "empty": "Sie haben noch keine Angebote erstellt",
+      "searchPlaceholder": "Nach einem Angebot suchen...",
+      "errorLoad": "Fehler beim Laden der Angebote"
     },
     "createOffer": {
       "title": "Stellvertretungsangebot erstellen",
@@ -347,6 +349,7 @@
     "per": "pro",
     "of": "von",
     "logout": "Abmelden",
+    "changeLanguage": "Sprache wechseln",
     "profile": "Profil",
     "settings": "Einstellungen",
     "dashboard": "Dashboard",
@@ -590,7 +593,8 @@
         "suspend": "Sperren",
         "activate": "Aktivieren",
         "delete": "Löschen",
-        "sendMessage": "Nachricht senden"
+        "sendMessage": "Nachricht senden",
+        "title": "Aktionen"
       }
     },
     "userManagement": {
@@ -665,7 +669,8 @@
     "unread": "ungelesen",
     "createError": "Fehler beim Erstellen der Unterhaltung",
     "noMessages": "Keine Nachrichten. Starten Sie die Unterhaltung!",
-    "selectConversation": "Wählen Sie eine Unterhaltung zum Starten"
+    "selectConversation": "Wählen Sie eine Unterhaltung zum Starten",
+    "clickToViewProfile": "Klicken Sie, um das Profil anzuzeigen"
   },
   "status": {
     "active": "Aktiv",
@@ -1427,5 +1432,132 @@
     "sending": "Senden...",
     "inviteTeacher": "Lehrer einladen",
     "errorMessage": "Ein Fehler ist aufgetreten"
+  },
+  "analytics": {
+    "errorLoading": "Fehler beim Laden der Statistiken",
+    "charts": {
+      "teachers": "Lehrer",
+      "schools": "Schulen",
+      "offers": "Angebote",
+      "total": "Gesamt",
+      "approved": "Genehmigt",
+      "filled": "Besetzt"
+    },
+    "stats": {
+      "totalTeachers": "Lehrer gesamt",
+      "totalSchools": "Schulen gesamt",
+      "activeOffers": "Aktive Angebote",
+      "applications": "Bewerbungen",
+      "approvedTeachers": "genehmigt",
+      "pendingTeachers": "wartend",
+      "approvedSchools": "genehmigt",
+      "pendingSchools": "wartend",
+      "filledOffers": "Angebote besetzt",
+      "applicationsPerOffer": "Bewerbungen pro Angebot"
+    },
+    "overview": "Übersicht"
+  },
+  "pdfPreview": {
+    "errorOpening": "Fehler beim Öffnen der PDF",
+    "defaultTitle": "Lebenslauf",
+    "download": "Herunterladen",
+    "open": "Öffnen",
+    "previewTitle": "Lebenslauf-Vorschau"
+  },
+  "fileUpload": {
+    "uploadFile": "Datei hochladen",
+    "dragDropText": "Klicken oder per Drag & Drop"
+  },
+  "applicationModal": {
+    "alreadyApplied": "Sie haben bereits für dieses Angebot beworben",
+    "applyTitle": "Bewerben",
+    "cancel": "Abbrechen",
+    "checkingApplication": "Überprüfung Ihrer Bewerbung...",
+    "errors": {
+      "approvalRequired": "Ihr Konto muss genehmigt werden, um sich zu bewerben",
+      "connectionRequired": "Sie müssen eingeloggt sein, um sich zu bewerben",
+      "conversationCreation": "Fehler beim Erstellen der Unterhaltung",
+      "general": "Ein Fehler ist bei der Bewerbung aufgetreten",
+      "permissionDenied": "Sie haben nicht die erforderlichen Berechtigungen, um sich zu bewerben",
+      "profileNotFound": "Lehrerprofil nicht gefunden",
+      "schoolNotFound": "Schule nicht gefunden",
+      "userDataNotFound": "Benutzerdaten nicht gefunden"
+    },
+    "existingApplicationMessage": "Sie können Ihre Bewerbung in Ihrem persönlichen Bereich einsehen oder die Schule über die Nachrichtenfunktion kontaktieren.",
+    "existingApplicationTitle": "Bestehende Bewerbung",
+    "loading": "Wird geladen...",
+    "message": "Nachricht",
+    "messagePlaceholder": "Stellen Sie kurz Ihre Motivation und Erfahrung vor...",
+    "schoolAt": "Schule in {{location}}",
+    "sendApplication": "Meine Bewerbung senden",
+    "sendMessage": "Eine Nachricht senden",
+    "sending": "Wird gesendet...",
+    "viewApplication": "Meine Bewerbung ansehen",
+    "yourMessage": "Ihre Nachricht"
+  },
+  "availableOffersList": {
+    "errorLoad": "Angebote können nicht geladen werden. Bitte versuchen Sie es erneut.",
+    "noMatchingOffers": "Keine Angebote entsprechen Ihren Kriterien"
+  },
+  "conversationList": {
+    "noConversations": "Keine Unterhaltungen"
+  },
+  "daySchedule": {
+    "addLesson": "Eine Lektion hinzufügen"
+  },
+  "editOfferModal": {
+    "cancel": "Abbrechen",
+    "qualifications": "Gewünschte Qualifikationen",
+    "qualificationsPlaceholder": "Beschreiben Sie die gewünschten Qualifikationen für diese Vertretung...",
+    "saveChanges": "Änderungen speichern",
+    "scheduleAndLocation": "Zeitplan, Treffpunkt und nützliche Informationen",
+    "scheduleLocationPlaceholder": "Geben Sie den genauen Zeitplan, Treffpunkt und alle nützlichen Informationen für die Vertretung an...",
+    "title": "Angebot bearbeiten",
+    "updateError": "Ein Fehler ist bei der Aktualisierung aufgetreten",
+    "updating": "Wird aktualisiert..."
+  },
+  "favoriteButton": {
+    "add": "Zu Favoriten hinzufügen",
+    "remove": "Aus Favoriten entfernen"
+  },
+  "loginForm": {
+    "connectionError": "Verbindungsfehler:"
+  },
+  "messageInput": {
+    "placeholder": "Ihre Nachricht...",
+    "sendError": "Fehler beim Senden der Nachricht:"
+  },
+  "notificationsDropdown": {
+    "markAllAsRead": "Alle als gelesen markieren",
+    "title": "Benachrichtigungen"
+  },
+  "offerDetails": {
+    "desiredQualifications": "Gewünschte Qualifikationen",
+    "schedule": "Zeitplan",
+    "subjectsToTeach": "Zu unterrichtende Fächer"
+  },
+  "schoolOffers": {
+    "errorLoad": "Ein Fehler ist beim Laden der Angebote aufgetreten",
+    "usefulInfo": "Nützliche Informationen"
+  },
+  "schoolStats": {
+    "activeOffers": "Aktive Angebote",
+    "expiringOffers": "Läuft bald ab",
+    "filledPositions": "Besetzte Stellen",
+    "receivedApplications": "Erhaltene Bewerbungen"
+  },
+  "teacherProfile": {
+    "noCVAvailable": "Kein Lebenslauf verfügbar",
+    "title": "Lehrerprofil",
+    "viewCV": "Lebenslauf ansehen",
+    "yearsOld": "Jahre alt"
+  },
+  "teacherStats": {
+    "acceptedThisMonth": "Diesen Monat akzeptiert",
+    "completedLessons": "Abgeschlossene Lektionen",
+    "currentApplications": "Laufende Bewerbungen",
+    "topSubjects": "Top-Fächer",
+    "totalReplacements": "Gesamte Vertretungen",
+    "upcomingLessons": "bevorstehende Lektionen"
   }
 }
