@@ -57,7 +57,7 @@ export function LoginForm() {
 
       setError(t('auth.login.errors.accountNotFound'))
     } catch (err) {
-      console.error('Erreur de connexion:', err)
+      console.error('Login error:', err)
       setError(t('auth.login.errors.invalidCredentials'))
     }
   }

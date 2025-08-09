@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'fire
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore'
 import { z } from 'zod'
 import { teacherSchema, schoolSchema } from '../schemas/auth'
+import { createSchoolSchema } from '../schemas/validationSchemas'
 import { uploadCV, uploadPhoto } from './storage'
 
 type TeacherData = z.infer<typeof teacherSchema>
@@ -74,7 +75,7 @@ export async function registerTeacher(data: TeacherData) {
   }
 }
 
-export async function registerSchool(data: SchoolData) {
+export async function registerSchool(data: any) {
   const { email, password, ...schoolData } = data
   
   try {

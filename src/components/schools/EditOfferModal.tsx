@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { X } from 'lucide-react'
 import { doc, updateDoc } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface EditOfferModalProps {
   offer: {
@@ -14,6 +15,7 @@ interface EditOfferModalProps {
 }
 
 export function EditOfferModal({ offer, onClose, onSuccess }: EditOfferModalProps) {
+  const { t } = useTranslation()
   const [topic, setTopic] = useState(offer.topic || '')
   const [qualifications, setQualifications] = useState(offer.qualifications || '')
   const [error, setError] = useState('')
@@ -34,8 +36,8 @@ export function EditOfferModal({ offer, onClose, onSuccess }: EditOfferModalProp
       onSuccess()
       onClose()
     } catch (err) {
-      console.error('Erreur lors de la mise à jour de l\'offre:', err)
-      setError('Une erreur est survenue lors de la mise à jour')
+      console.error('Error updating offer:', err)
+      setError(t('editOfferModal.updateError'))
     } finally {
       setIsSubmitting(false)
     }
@@ -46,7 +48,7 @@ export function EditOfferModal({ offer, onClose, onSuccess }: EditOfferModalProp
       <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full">
         <div className="flex justify-between items-center p-6 border-b">
           <h2 className="text-xl font-semibold">
-            Modifier l'offre
+            {t('editOfferModal.title')}
           </h2>
           <button
             onClick={onClose}
@@ -65,25 +67,25 @@ export function EditOfferModal({ offer, onClose, onSuccess }: EditOfferModalProp
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Horaires, lieu de rendez-vous et informations utiles
+              {t('editOfferModal.scheduleAndLocation')}
             </label>
             <textarea
               value={topic}
               onChange={(e) => setTopic(e.target.value)}
               className="input min-h-[100px] resize-none w-full"
-              placeholder="Précisez les horaires exacts, le lieu de rendez-vous et toute information utile pour le bon déroulement du remplacement..."
+              placeholder={t('editOfferModal.scheduleLocationPlaceholder')}
             />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Qualifications souhaitées
+              {t('editOfferModal.qualifications')}
             </label>
             <textarea
               value={qualifications}
               onChange={(e) => setQualifications(e.target.value)}
               className="input min-h-[100px] resize-none w-full"
-              placeholder="Décrivez les qualifications souhaitées pour ce remplacement..."
+              placeholder={t('editOfferModal.qualificationsPlaceholder')}
             />
           </div>
 
@@ -93,14 +95,14 @@ export function EditOfferModal({ offer, onClose, onSuccess }: EditOfferModalProp
               onClick={onClose}
               className="px-4 py-2 text-gray-600 hover:text-gray-800"
             >
-              Annuler
+              {t('editOfferModal.cancel')}
             </button>
             <button
               type="submit"
               disabled={isSubmitting}
               className="btn btn-primary"
             >
-              {isSubmitting ? 'Mise à jour...' : 'Enregistrer les modifications'}
+              {isSubmitting ? t('editOfferModal.updating') : t('editOfferModal.saveChanges')}
             </button>
           </div>
         </form>

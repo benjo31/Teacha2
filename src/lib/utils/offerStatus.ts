@@ -31,14 +31,28 @@ export function getStatusColor(status: OfferStatus) {
   }
 }
 
-export function getStatusLabel(status: OfferStatus) {
+export function getStatusLabel(status: OfferStatus, t?: (key: string) => string) {
+  if (!t) {
+    // Fallback to French labels when translation function is not available
+    switch (status) {
+      case 'active':
+        return 'Actif'
+      case 'filled':
+        return 'Pourvu'
+      case 'expired':
+        return 'Expiré'
+      default:
+        return status
+    }
+  }
+
   switch (status) {
     case 'active':
-      return 'Actif'
+      return t('status.active')
     case 'filled':
-      return 'Pourvu'
+      return t('status.filled')
     case 'expired':
-      return 'Expiré'
+      return t('status.expired')
     default:
       return status
   }

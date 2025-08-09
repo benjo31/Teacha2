@@ -11,9 +11,10 @@ import OfferDetailsModal from '../teachers/OfferDetailsModal'
 import { EditOfferModal } from './EditOfferModal'
 import { calculateOfferStatus } from '../../lib/utils/offerStatus'
 import { getSubjectsDisplay } from '../../lib/utils/subjects'
-import type { OfferStatus } from '../../lib/utils/offerStatus'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 export function OffersList() {
+  const { t } = useTranslation()
   const { user } = useAuth()
   const [offers, setOffers] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
@@ -45,14 +46,14 @@ export function OffersList() {
       setOffers(offersData)
     } catch (err) {
       console.error('Error loading offers:', err)
-      setError('Error loading offers')
+      setError(t('school.offers.errorLoad'))
     } finally {
       setLoading(false)
     }
   }
 
   const handleDelete = async (offerId: string) => {
-    if (!window.confirm('Êtes-vous sûr de vouloir supprimer cette offre ?')) {
+    if (!window.confirm(t('confirm.delete'))) {
       return
     }
 
@@ -61,7 +62,7 @@ export function OffersList() {
       await loadOffers() // Reload the list
     } catch (err) {
       console.error('Error deleting offer:', err)
-      setError('Error deleting offer')
+      setError(t('errors.general'))
     }
   }
 
@@ -93,7 +94,7 @@ export function OffersList() {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
               type="text"
-              placeholder="Rechercher une offre..."
+              placeholder={t('school.offers.searchPlaceholder')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10 pr-4 py-2 w-full rounded-lg border border-gray-300 focus:border-primary focus:ring-primary"
@@ -105,7 +106,7 @@ export function OffersList() {
       {/* Liste des offres */}
       {filteredOffers.length === 0 ? (
         <div className="text-center py-8 text-gray-500">
-          Aucune offre ne correspond à vos critères
+          {t('common.noResults')}
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -132,7 +133,7 @@ export function OffersList() {
                 </div>
                 <div className="flex items-center text-gray-600">
                   <Clock className="h-4 w-4 mr-2" />
-                  {offer.totalLessons} leçons
+                  {offer.totalLessons} {t('teacherApplications.lessons')}
                 </div>
               </div>
 

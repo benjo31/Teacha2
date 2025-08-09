@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react'
 import { cn } from '../../lib/utils'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface PeriodSelectorProps {
   value: string[]
@@ -8,9 +9,11 @@ interface PeriodSelectorProps {
 }
 
 export function PeriodSelector({ value, onChange, error }: PeriodSelectorProps) {
+  const { t } = useTranslation()
+  
   const periods = [
-    { id: 'morning', label: 'Matin' },
-    { id: 'afternoon', label: 'Après-midi' }
+    { id: 'morning', label: t('school.periods.morning') },
+    { id: 'afternoon', label: t('school.periods.afternoon') }
   ]
 
   const togglePeriod = (periodId: string) => {
@@ -24,7 +27,7 @@ export function PeriodSelector({ value, onChange, error }: PeriodSelectorProps) 
   return (
     <div className="space-y-2">
       <label className="block text-sm font-medium text-gray-700">
-        Périodes
+        {t('school.periods.title')}
       </label>
       <div className="flex gap-4">
         {periods.map(period => (

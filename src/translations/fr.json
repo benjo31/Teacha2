@@ -1,4 +1,39 @@
 {
+  "validation": {
+    "required": "Ce champ est requis",
+    "email": "Email invalide",
+    "minLength": "Doit contenir au moins {{min}} caractères",
+    "maxLength": "Ne doit pas dépasser {{max}} caractères", 
+    "minValue": "La valeur minimale est {{min}}",
+    "maxValue": "La valeur maximale est {{max}}",
+    "addressRequired": "L'adresse est requise",
+    "civilityRequired": "La civilité est requise",
+    "nativeLanguageRequired": "La langue natale est requise",
+    "cantonRequired": "Le canton est requis",
+    "selectAtLeastOneLevel": "Sélectionnez au moins un niveau",
+    "selectAtLeastOneSubject": "Sélectionnez au moins une branche",
+    "fileSizeLimit": "Le fichier ne doit pas dépasser {{size}} Mo",
+    "pdfOnly": "Seuls les fichiers PDF sont acceptés",
+    "imageFormat": "Format accepté : JPG ou PNG",
+    "invalidUrl": "URL invalide",
+    "invalidTimeFormat": "Format invalide (HH:MM)",
+    "minAge": "Vous devez avoir au moins {{age}} ans",
+    "phoneRequired": "Le numéro de téléphone est requis",
+    "schoolNameRequired": "Le nom de l'école est requis",
+    "classCountRequired": "Le nombre de classes est requis",
+    "class": "La classe est requise",
+    "location": "Le lieu est requis",
+    "subjects": "Sélectionnez au moins une branche",
+    "teachingLevel": "Le niveau d'enseignement est requis",
+    "startDate": "La date de début est requise",
+    "endDate": "La date de fin est requise",
+    "totalLessons": "Le nombre de leçons est requis",
+    "periods": "Sélectionnez au moins une période",
+    "nameRequired": "Le nom est requis",
+    "roleRequired": "Le rôle est requis",
+    "streetRequired": "La rue est requise",
+    "cityRequired": "La ville est requise"
+  },
   "errors": {
     "ADMIN_ALREADY_EXISTS": "Un administrateur existe déjà",
     "EMAIL_ALREADY_USED": "Cette adresse email est déjà utilisée",
@@ -11,7 +46,290 @@
     "USER_NOT_AUTHENTICATED": "Utilisateur non authentifié",
     "ERROR_LOADING_MESSAGES": "Erreur lors du chargement des messages",
     "ERROR_INITIALIZATION": "Erreur lors de l'initialisation",
-    "loadUserData": "Erreur lors du chargement des données utilisateur"
+    "loadUserData": "Erreur lors du chargement des données utilisateur",
+    "SCHOOL_NOT_FOUND": "École non trouvée",
+    "INVITATION_LIMIT_REACHED": "Limite d'invitations atteinte",
+    "notLoggedIn": "Vous devez être connecté pour créer une offre",
+    "startDateInvalid": "La date de début doit être égale ou postérieure à aujourd'hui",
+    "endDateInvalid": "La date de fin doit être postérieure à la date de début",
+    "general": "Une erreur est survenue",
+    "connection": "Erreur de connexion",
+    "invalidCredentials": "Email ou mot de passe incorrect",
+    "accountNotFound": "Compte non trouvé",
+    "emailRequired": "L'email est requis",
+    "passwordRequired": "Le mot de passe est requis",
+    "network": "Erreur de connexion",
+    "unauthorized": "Non autorisé",
+    "notFound": "Non trouvé",
+    "validation": "Erreur de validation",
+    "required": "Ce champ est requis",
+    "email": "Email invalide",
+    "minLength": "Minimum {{min}} caractères",
+    "maxLength": "Maximum {{max}} caractères",
+    "minValue": "La valeur minimale est {{min}}",
+    "maxValue": "La valeur maximale est {{max}}",
+    "passwordMismatch": "Les mots de passe ne correspondent pas",
+    "emailInUse": "Cette adresse email est déjà utilisée",
+    "weakPassword": "Le mot de passe est trop faible",
+    "tooManyRequests": "Trop de tentatives. Veuillez réessayer plus tard",
+    "services": {
+      "emailAlreadyExists": "Cette adresse email est déjà utilisée",
+      "alreadyApplied": "Vous avez déjà postulé à cette offre",
+      "profileUpdateError": "Erreur lors de la mise à jour du profil",
+      "adminAlreadyExists": "Un administrateur avec cet email existe déjà",
+      "emailAlreadyUsed": "Cet email est déjà utilisé. Veuillez en choisir un autre.",
+      "userNotAuthenticated": "Utilisateur non authentifié",
+      "teacherAlreadyInvited": "Cet enseignant est déjà invité"
+    }
+  },
+  "roles": {
+    "director": "Directeur",
+    "teacher": "Enseignant"
+  },
+  "team": {
+    "title": "Gestion d'équipe",
+    "inviteTeacher": "Inviter un enseignant",
+    "invitationLimit": "{{used}}/{{max}} invitations utilisées",
+    "limitReached": "Limite d'invitations atteinte",
+    "nearLimit": "Proche de la limite",
+    "activeTeachers": "Enseignants actifs",
+    "pendingInvitations": "Invitations en attente",
+    "acceptanceRate": "Taux d'acceptation",
+    "removeTeacher": "Retirer de l'équipe",
+    "changeRole": "Modifier le rôle",
+    "confirmRemove": "Êtes-vous sûr de vouloir retirer cet enseignant de l'équipe ?",
+    "invitationSent": "Invitation envoyée avec succès",
+    "teacherRemoved": "Enseignant retiré de l'équipe",
+    "roleUpdated": "Rôle mis à jour avec succès"
+  },
+  "school": {
+    "periods": {
+      "title": "Périodes",
+      "morning": "Matin",
+      "afternoon": "Après-midi"
+    },
+    "home": {
+      "quickActions": "Actions rapides",
+      "planningTools": "Outils de planification",
+      "resourcesTitle": "Ressources et guides",
+      "templatesTitle": "Modèles de documents",
+      "needHelp": "Besoin d'aide ?",
+      "helpDescription": "Notre équipe est là pour vous accompagner dans l'utilisation de la plateforme.",
+      "actions": {
+        "publishOffer": "Publier une offre",
+        "publishDescription": "Créez une nouvelle demande de suppléance",
+        "searchSubstitutes": "Rechercher des suppléants",
+        "searchDescription": "Parcourez les candidatures reçues",
+        "viewMessages": "Voir les messages",
+        "messagesDescription": "Communiquez avec vos suppléants",
+        "settings": "Paramètres",
+        "settingsDescription": "Gérez votre profil et préférences"
+      },
+      "planning": {
+        "absenceCalendar": "Calendrier d'absences",
+        "absenceDescription": "Planifiez vos demandes de suppléance",
+        "periodCalculator": "Calculateur de périodes",
+        "calculatorDescription": "Calculez la durée de vos remplacements",
+        "favoriteSubstitutes": "Suppléants favoris",
+        "favoritesDescription": "Gérez votre liste de suppléants préférés"
+      },
+      "resources": {
+        "download": "Télécharger",
+        "welcomeGuide": "Guide de bienvenue",
+        "welcomeDescription": "Découvrez comment utiliser la plateforme efficacement",
+        "internalProcedures": "Procédures internes",
+        "proceduresDescription": "Consultez les procédures de votre établissement",
+        "evaluationGrid": "Grille d'évaluation",
+        "evaluationDescription": "Évaluez la qualité des suppléances"
+      },
+      "templates": {
+        "specificationTemplate": "Modèle de cahier des charges",
+        "specificationDescription": "Template pour définir les attentes de suppléance",
+        "handoverSheet": "Fiche de passation",
+        "handoverDescription": "Document de transition pour les suppléants"
+      }
+    },
+    "registration": {
+      "title": "Inscription école",
+      "schoolInfo": "Informations de l'école",
+      "name": "Nom de l'école",
+      "address": "Adresse",
+      "canton": "Canton",
+      "website": "Site web (facultatif)",
+      "websitePlaceholder": "https://www.example.com",
+      "description": "Description de l'établissement (facultatif)",
+      "descriptionPlaceholder": "Décrivez brièvement votre établissement...",
+      "teachingLevels": "Niveaux d'enseignement",
+      "classCount": "Nombre de classes",
+      "specialClasses": "Classes spéciales",
+      "pedagogicalProjects": "Projets pédagogiques particuliers (facultatif)",
+      "pedagogicalProjectsPlaceholder": "Décrivez vos projets pédagogiques particuliers...",
+      "contactPerson": "Personne de contact principale",
+      "contactName": "Nom",
+      "contactRole": "Rôle",
+      "contactPhone": "Téléphone",
+      "contactEmail": "Email",
+      "schedule": "Horaires typiques",
+      "morning": "Matin",
+      "afternoon": "Après-midi",
+      "morningStart": "Début",
+      "morningEnd": "Fin",
+      "afternoonStart": "Début",
+      "afternoonEnd": "Fin",
+      "account": "Compte",
+      "email": "Email",
+      "password": "Mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "acceptTerms": "J'accepte les conditions d'utilisation",
+      "submit": "S'inscrire comme école",
+      "submitting": "Inscription en cours...",
+      "error": "Une erreur est survenue lors de l'inscription"
+    },
+    "dashboard": {
+      "title": "Tableau de bord école",
+      "welcome": "Bienvenue, {{name}}",
+      "stats": {
+        "activeOffers": "Offres actives",
+        "totalApplications": "Candidatures reçues",
+        "filledPositions": "Postes pourvus",
+        "teacherCount": "Enseignants"
+      },
+      "quickActions": {
+        "createOffer": "Créer une offre",
+        "viewApplications": "Voir les candidatures",
+        "manageTeam": "Gérer l'équipe"
+      }
+    },
+    "offers": {
+      "title": "Mes offres de remplacement",
+      "create": "Créer une offre",
+      "status": {
+        "all": "Toutes",
+        "active": "Actives",
+        "filled": "Pourvues",
+        "expired": "Expirées"
+      },
+      "card": {
+        "applicationsCount": "candidature(s)",
+        "edit": "Modifier",
+        "close": "Clôturer",
+        "reopen": "Rouvrir",
+        "delete": "Supprimer"
+      },
+      "empty": "Vous n'avez pas encore créé d'offres",
+      "searchPlaceholder": "Rechercher une offre...",
+      "errorLoad": "Erreur lors du chargement des offres"
+    },
+    "createOffer": {
+      "title": "Créer une offre de remplacement",
+      "basicInfo": "Informations principales",
+      "class": "Classe",
+      "classPlaceholder": "ex: 3H",
+      "location": "Lieu",
+      "locationPlaceholder": "ex: Lausanne",
+      "teachingLevel": "Niveau d'enseignement",
+      "selectLevel": "Sélectionner un niveau",
+      "offerTitle": "Titre de l'offre",
+      "description": "Description",
+      "period": "Période et horaires",
+      "startDate": "Date de début",
+      "endDate": "Date de fin",
+      "totalLessons": "Nombre total de leçons",
+      "totalLessonsPlaceholder": "ex: 10",
+      "requirements": "Exigences",
+      "subjects": "Matières à enseigner",
+      "teachingLevels": "Niveaux d'enseignement",
+      "schedule": "Horaires",
+      "monday": "Lundi",
+      "tuesday": "Mardi",
+      "wednesday": "Mercredi",
+      "thursday": "Jeudi",
+      "friday": "Vendredi",
+      "morning": "Matin",
+      "afternoon": "Après-midi",
+      "additionalInfo": "Informations complémentaires",
+      "topicLabel": "Horaires, lieu de rendez-vous et informations utiles sur le remplacement (facultatif)",
+      "topicPlaceholder": "Précisez les horaires exacts, le lieu de rendez-vous et toute information utile pour le bon déroulement du remplacement...",
+      "qualifications": "Qualifications souhaitées (facultatif)",
+      "qualificationsPlaceholder": "Décrivez les qualifications souhaitées pour ce remplacement...",
+      "submit": "Publier l'offre",
+      "submitting": "Publication en cours...",
+      "success": "Offre créée avec succès",
+      "saveDraft": "Enregistrer comme brouillon"
+    },
+    "applications": {
+      "title": "Candidatures reçues",
+      "filter": {
+        "all": "Toutes",
+        "new": "Nouvelles",
+        "reviewed": "Consultées",
+        "accepted": "Acceptées",
+        "rejected": "Refusées"
+      },
+      "actions": {
+        "accept": "Accepter",
+        "reject": "Refuser",
+        "message": "Envoyer un message",
+        "viewProfile": "Voir le profil",
+        "downloadCV": "Télécharger le CV"
+      },
+      "status": {
+        "accepted": "Acceptée",
+        "positionFilled": "Poste déjà pourvu",
+        "filled": "Pourvu",
+        "open": "Ouvert"
+      },
+      "candidateMessage": "Message du candidat",
+      "confirmAcceptTitle": "Confirmer l'acceptation",
+      "confirmAcceptMessage": "Êtes-vous sûr de vouloir accepter cette candidature ? Les autres candidats seront automatiquement notifiés que le poste a été pourvu.",
+      "detailsUnavailable": "Les détails de cette candidature ne sont plus disponibles",
+      "empty": "Aucune candidature reçue",
+      "successAccept": "Candidature acceptée avec succès !",
+      "errorAccept": "Erreur lors de l'acceptation de la candidature",
+      "errorLoad": "Erreur lors du chargement des données"
+    },
+    "team": {
+      "title": "Équipe enseignante",
+      "invite": "Inviter un enseignant",
+      "members": "Membres de l'équipe",
+      "pending": "Invitations en attente",
+      "seatUsage": "Utilisation des sièges",
+      "seatsUsed": "sièges utilisés",
+      "upgrade": "Mettre à niveau",
+      "remove": "Retirer",
+      "resendInvite": "Renvoyer l'invitation",
+      "inviteForm": {
+        "title": "Inviter un enseignant",
+        "email": "Email de l'enseignant",
+        "message": "Message personnalisé (optionnel)",
+        "send": "Envoyer l'invitation"
+      }
+    },
+    "subscription": {
+      "title": "Abonnement",
+      "currentPlan": "Plan actuel",
+      "usage": "Utilisation",
+      "upgrade": "Mettre à niveau",
+      "downgrade": "Rétrograder",
+      "cancel": "Annuler l'abonnement",
+      "plans": {
+        "basic": "Basique",
+        "standard": "Standard",
+        "premium": "Premium"
+      },
+      "features": {
+        "seats": "{{count}} enseignants",
+        "unlimitedOffers": "Offres illimitées",
+        "messaging": "Messagerie intégrée",
+        "support": "Support",
+        "analytics": "Analytics avancées"
+      },
+      "trial": {
+        "status": "Période d'essai",
+        "remaining": "{{count}} offres restantes",
+        "upgrade": "Activer l'abonnement"
+      }
+    }
   },
   "common": {
     "imageUpload": {
@@ -45,6 +363,7 @@
     "per": "par",
     "of": "de",
     "logout": "Se déconnecter",
+    "changeLanguage": "Changer de langue",
     "profile": "Profil",
     "settings": "Paramètres",
     "dashboard": "Tableau de bord",
@@ -54,12 +373,19 @@
     "help": "Aide",
     "error": "Erreur",
     "success": "Succès",
+    "statistics": "Statistiques",
     "warning": "Attention",
     "info": "Information",
     "details": "Détails",
     "noResults": "Aucun résultat",
     "noDataAvailable": "Aucune donnée disponible",
-    "noNotifications": "Aucune notification"
+    "noNotifications": "Aucune notification",
+    "apply": "Postuler",
+    "pending": "En attente",
+    "approved": "Approuvé",
+    "rejected": "Rejeté",
+    "submit": "Soumettre",
+    "send": "Envoyer"
   },
   "auth": {
     "login": {
@@ -73,20 +399,13 @@
       "forgot": "Mot de passe oublié ?",
       "submit": "Se connecter",
       "noAccount": "Pas encore de compte ?",
-      "register": "S'inscrire",
-      "errors": {
-        "connection": "Erreur de connexion",
-        "invalidCredentials": "Identifiants invalides",
-        "accountNotFound": "Compte non trouvé",
-        "emailRequired": "L'email est requis",
-        "passwordRequired": "Le mot de passe est requis"
-      }
+      "register": "S'inscrire"
     },
     "register": {
       "title": "Inscription",
       "subtitle": "Créez votre compte",
       "asTeacher": "Je suis remplaçant",
-      "asSchool": "Je suis une école",
+      "asSchool": "Je suis admin",
       "hasAccount": "Déjà un compte ?",
       "login": "Se connecter",
       "step": "Étape {{current}} sur {{total}}"
@@ -250,233 +569,6 @@
       "loadError": "Erreur lors du chargement du profil"
     }
   },
-  "school": {
-    "registration": {
-      "title": "Inscription école",
-      "schoolInfo": "Informations de l'école",
-      "name": "Nom de l'école",
-      "address": "Adresse",
-      "canton": "Canton",
-      "website": "Site web (facultatif)",
-      "description": "Description de l'établissement (facultatif)",
-      "descriptionPlaceholder": "Décrivez brièvement votre établissement...",
-      "teachingLevels": "Niveaux d'enseignement",
-      "classCount": "Nombre de classes",
-      "specialClasses": "Classes spéciales",
-      "pedagogicalProjects": "Projets pédagogiques particuliers (facultatif)",
-      "pedagogicalProjectsPlaceholder": "Décrivez vos projets pédagogiques particuliers...",
-      "contactPerson": "Personne de contact principale",
-      "contactName": "Nom",
-      "contactRole": "Rôle",
-      "contactPhone": "Téléphone",
-      "contactEmail": "Email",
-      "schedule": "Horaires typiques",
-      "morning": "Matin",
-      "afternoon": "Après-midi",
-      "morningStart": "Début",
-      "morningEnd": "Fin",
-      "afternoonStart": "Début",
-      "afternoonEnd": "Fin",
-      "account": "Compte",
-      "email": "Email",
-      "password": "Mot de passe",
-      "confirmPassword": "Confirmer le mot de passe",
-      "acceptTerms": "J'accepte les conditions d'utilisation",
-      "submit": "S'inscrire comme école",
-      "submitting": "Inscription en cours...",
-      "error": "Une erreur est survenue lors de l'inscription"
-    },
-    "dashboard": {
-      "title": "Tableau de bord école",
-      "welcome": "Bienvenue, {{name}}",
-      "stats": {
-        "activeOffers": "Offres actives",
-        "totalApplications": "Candidatures reçues",
-        "filledPositions": "Postes pourvus",
-        "teacherCount": "Enseignants"
-      },
-      "quickActions": {
-        "createOffer": "Créer une offre",
-        "viewApplications": "Voir les candidatures",
-        "manageTeam": "Gérer l'équipe"
-      }
-    },
-    "home": {
-      "schoolQuickActions": "Actions rapides",
-      "planningTools": "Outils de planification",
-      "schoolResources": "Ressources et modèles",
-      "templates": "Modèles téléchargeables",
-      "schoolNeedHelp": "Besoin d'aide ?",
-      "schoolHelpDescription": "Notre équipe vous accompagne dans la gestion de vos remplacements.",
-      "schoolActions": {
-        "publishOffer": "Publier une offre",
-        "publishDescription": "Créez une nouvelle offre de remplacement",
-        "searchSubstitutes": "Rechercher des remplaçants",
-        "schoolSearchDescription": "Parcourez notre base de remplaçants qualifiés",
-        "schoolViewMessages": "Messages",
-        "schoolMessagesDescription": "Gérez vos conversations avec les remplaçants",
-        "settings": "Paramètres",
-        "settingsDescription": "Configurez votre profil et vos préférences"
-      },
-      "planning": {
-        "absenceCalendar": "Calendrier des absences",
-        "absenceDescription": "Planifiez et visualisez les absences à venir",
-        "periodCalculator": "Calculateur de périodes",
-        "calculatorDescription": "Estimez les besoins en remplacement",
-        "favoriteSubstitutes": "Liste des remplaçants favoris",
-        "favoritesDescription": "Gérez votre pool de remplaçants réguliers"
-      },
-      "schoolResourcesSection": {
-        "welcomeGuide": "Guide d'accueil",
-        "welcomeDescription": "Document à personnaliser pour les remplaçants",
-        "internalProcedures": "Procédures internes",
-        "proceduresDescription": "Règles et processus pour les remplacements",
-        "evaluationGrid": "Grille d'évaluation",
-        "evaluationDescription": "Pour le suivi des remplacements effectués",
-        "download": "Télécharger"
-      },
-      "schoolTemplates": {
-        "specificationTemplate": "Modèle de cahier des charges",
-        "specificationDescription": "Pour détailler les missions de remplacement",
-        "handoverSheet": "Fiche de transmission",
-        "handoverDescription": "Pour la passation entre enseignants"
-      }
-    },
-    "offers": {
-      "title": "Mes offres de remplacement",
-      "create": "Créer une offre",
-      "status": {
-        "all": "Toutes",
-        "active": "Actives",
-        "filled": "Pourvues",
-        "expired": "Expirées"
-      },
-      "card": {
-        "applicationsCount": "candidature(s)",
-        "edit": "Modifier",
-        "close": "Clôturer",
-        "reopen": "Rouvrir",
-        "delete": "Supprimer"
-      },
-      "empty": "Vous n'avez pas encore créé d'offres"
-    },
-    "createOffer": {
-      "title": "Créer une offre de remplacement",
-      "basicInfo": "Informations principales",
-      "class": "Classe",
-      "classPlaceholder": "ex: 3H",
-      "location": "Lieu",
-      "locationPlaceholder": "ex: Lausanne",
-      "teachingLevel": "Niveau d'enseignement",
-      "selectLevel": "Sélectionner un niveau",
-      "offerTitle": "Titre de l'offre",
-      "description": "Description",
-      "period": "Période et horaires",
-      "startDate": "Date de début",
-      "endDate": "Date de fin",
-      "totalLessons": "Nombre total de leçons",
-      "totalLessonsPlaceholder": "ex: 10",
-      "requirements": "Exigences",
-      "subjects": "Matières à enseigner",
-      "teachingLevels": "Niveaux d'enseignement",
-      "schedule": "Horaires",
-      "monday": "Lundi",
-      "tuesday": "Mardi",
-      "wednesday": "Mercredi",
-      "thursday": "Jeudi",
-      "friday": "Vendredi",
-      "morning": "Matin",
-      "afternoon": "Après-midi",
-      "additionalInfo": "Informations complémentaires",
-      "topicLabel": "Horaires, lieu de rendez-vous et informations utiles sur le remplacement (facultatif)",
-      "topicPlaceholder": "Précisez les horaires exacts, le lieu de rendez-vous et toute information utile pour le bon déroulement du remplacement...",
-      "qualifications": "Qualifications souhaitées (facultatif)",
-      "qualificationsPlaceholder": "Décrivez les qualifications souhaitées pour ce remplacement...",
-      "submit": "Publier l'offre",
-      "submitting": "Publication en cours...",
-      "success": "Offre créée avec succès",
-      "saveDraft": "Enregistrer comme brouillon",
-      "errors": {
-        "notLoggedIn": "Vous devez être connecté pour créer une offre",
-        "startDateInvalid": "La date de début doit être égale ou postérieure à aujourd'hui",
-        "endDateInvalid": "La date de fin doit être postérieure à la date de début",
-        "general": "Une erreur est survenue lors de la création de l'offre"
-      }
-    },
-    "applications": {
-      "title": "Candidatures reçues",
-      "filter": {
-        "all": "Toutes",
-        "new": "Nouvelles",
-        "reviewed": "Consultées",
-        "accepted": "Acceptées",
-        "rejected": "Refusées"
-      },
-      "actions": {
-        "accept": "Accepter",
-        "reject": "Refuser",
-        "message": "Envoyer un message",
-        "viewProfile": "Voir le profil",
-        "downloadCV": "Télécharger le CV"
-      },
-      "status": {
-        "accepted": "Acceptée",
-        "positionFilled": "Poste déjà pourvu",
-        "filled": "Pourvu",
-        "open": "Ouvert"
-      },
-      "candidateMessage": "Message du candidat",
-      "confirmAcceptTitle": "Confirmer l'acceptation",
-      "confirmAcceptMessage": "Êtes-vous sûr de vouloir accepter cette candidature ? Les autres candidats seront automatiquement notifiés que le poste a été pourvu.",
-      "detailsUnavailable": "Les détails de cette candidature ne sont plus disponibles",
-      "empty": "Aucune candidature reçue",
-      "successAccept": "Candidature acceptée avec succès !",
-      "errorAccept": "Erreur lors de l'acceptation de la candidature",
-      "errorLoad": "Erreur lors du chargement des données"
-    },
-    "team": {
-      "title": "Équipe enseignante",
-      "invite": "Inviter un enseignant",
-      "members": "Membres de l'équipe",
-      "pending": "Invitations en attente",
-      "seatUsage": "Utilisation des sièges",
-      "seatsUsed": "sièges utilisés",
-      "upgrade": "Mettre à niveau",
-      "remove": "Retirer",
-      "resendInvite": "Renvoyer l'invitation",
-      "inviteForm": {
-        "title": "Inviter un enseignant",
-        "email": "Email de l'enseignant",
-        "message": "Message personnalisé (optionnel)",
-        "send": "Envoyer l'invitation"
-      }
-    },
-    "subscription": {
-      "title": "Abonnement",
-      "currentPlan": "Plan actuel",
-      "usage": "Utilisation",
-      "upgrade": "Mettre à niveau",
-      "downgrade": "Rétrograder",
-      "cancel": "Annuler l'abonnement",
-      "plans": {
-        "basic": "Basique",
-        "standard": "Standard",
-        "premium": "Premium"
-      },
-      "features": {
-        "seats": "{{count}} enseignants",
-        "unlimitedOffers": "Offres illimitées",
-        "messaging": "Messagerie intégrée",
-        "support": "Support",
-        "analytics": "Analytics avancées"
-      },
-      "trial": {
-        "status": "Période d'essai",
-        "remaining": "{{count}} offres restantes",
-        "upgrade": "Activer l'abonnement"
-      }
-    }
-  },
   "admin": {
     "createAccount": {
       "title": "Créer un compte administrateur",
@@ -515,7 +607,8 @@
         "suspend": "Suspendre",
         "activate": "Activer",
         "delete": "Supprimer",
-        "sendMessage": "Envoyer un message"
+        "sendMessage": "Envoyer un message",
+        "title": "Actions"
       }
     },
     "offers": {
@@ -533,7 +626,11 @@
         "status": "Tous les statuts",
         "urgentOnly": "Urgentes uniquement"
       },
-      "noOffersFound": "Aucune offre trouvée"
+      "noOffersFound": "Aucune offre trouvée",
+      "empty": "Aucune candidature reçue",
+      "errorLoad": "Erreur lors du chargement des candidatures",
+      "errorAccept": "Erreur lors de l'acceptation de la candidature",
+      "successAccept": "Candidature acceptée avec succès"
     },
     "userManagement": {
       "title": "Gestion des utilisateurs",
@@ -557,6 +654,21 @@
         "successRate": "Taux de succès",
         "avgTimeToFill": "Temps moyen de remplacement"
       }
+    },
+    "loading": "Chargement...",
+    "noPendingSchools": "Aucune école en attente de validation",
+    "noPendingTeachers": "Aucun remplaçant en attente de validation",
+    "schoolDetails": {
+      "address": "Adresse",
+      "canton": "Canton",
+      "levels": "Niveaux",
+      "classCount": "Nombre de classes"
+    },
+    "teacherDetails": {
+      "age": "Âge",
+      "yearsOld": "{{age}} ans",
+      "levels": "Niveaux",
+      "subjects": "Branches"
     }
   },
   "messages": {
@@ -571,7 +683,8 @@
     "unread": "non lu(s)",
     "createError": "Erreur lors de la création de la conversation",
     "noMessages": "Aucun message. Commencez la conversation !",
-    "selectConversation": "Sélectionnez une conversation pour commencer"
+    "selectConversation": "Sélectionnez une conversation pour commencer",
+    "clickToViewProfile": "Cliquez pour voir le profil"
   },
   "status": {
     "active": "Actif",
@@ -583,33 +696,6 @@
     "expired": "Expiré",
     "cancelled": "Annulé",
     "urgent": "Urgent"
-  },
-  "errors": {
-    "general": "Une erreur est survenue",
-    "network": "Erreur de connexion",
-    "unauthorized": "Non autorisé",
-    "notFound": "Non trouvé",
-    "validation": "Erreur de validation",
-    "required": "Ce champ est requis",
-    "email": "Email invalide",
-    "minLength": "Minimum {{min}} caractères",
-    "maxLength": "Maximum {{max}} caractères",
-    "minValue": "La valeur minimale est {{min}}",
-    "maxValue": "La valeur maximale est {{max}}",
-    "passwordMismatch": "Les mots de passe ne correspondent pas",
-    "invalidCredentials": "Email ou mot de passe incorrect",
-    "emailInUse": "Cette adresse email est déjà utilisée",
-    "weakPassword": "Le mot de passe est trop faible",
-    "tooManyRequests": "Trop de tentatives. Veuillez réessayer plus tard",
-    "services": {
-      "emailAlreadyExists": "Cette adresse email est déjà utilisée",
-      "alreadyApplied": "Vous avez déjà postulé à cette offre",
-      "profileUpdateError": "Erreur lors de la mise à jour du profil",
-      "adminAlreadyExists": "Un administrateur avec cet email existe déjà",
-      "emailAlreadyUsed": "Cet email est déjà utilisé. Veuillez en choisir un autre.",
-      "userNotAuthenticated": "Utilisateur non authentifié",
-      "teacherAlreadyInvited": "Cet enseignant est déjà invité"
-    }
   },
   "success": {
     "saved": "Enregistré avec succès",
@@ -635,7 +721,7 @@
       "subtitle": "Simplifiez la gestion des remplacements scolaires grâce à notre solution innovante qui connecte intelligemment les écoles avec des remplaçants qualifiés.",
       "cta": {
         "teacher": "Je suis remplaçant",
-        "school": "Je suis une école"
+        "school": "Je suis admin"
       }
     },
     "benefits": {
@@ -888,7 +974,7 @@
     "cta": {
       "title": "Prêt à commencer ?",
       "teacher": "Je suis remplaçant",
-      "school": "Je suis une école"
+      "school": "Je suis admin"
     }
   },
   "userMenu": {
@@ -1291,5 +1377,201 @@
       "german": "Allemand",
       "italian": "Italien"
     }
+  },
+  "schoolProfile": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue lors du chargement des données",
+    "noData": "Aucune donnée disponible",
+    "backToList": "Retour à la liste",
+    "tabs": {
+      "profile": "Profil",
+      "offers": "Offres en cours"
+    },
+    "contact": {
+      "mainContact": "Contact principal",
+      "classes": "classes"
+    },
+    "sections": {
+      "teachingLevels": "Niveaux d'enseignement",
+      "specialClasses": "Classes spéciales",
+      "typicalSchedule": "Horaires typiques",
+      "morning": "Matin",
+      "afternoon": "Après-midi",
+      "aboutSchool": "À propos de l'établissement",
+      "pedagogicalProjects": "Projets pédagogiques"
+    },
+    "offers": {
+      "title": "Offres de remplacement en cours"
+    }
+  },
+  "offersFilter": {
+    "subjects": "Branches",
+    "levels": "Niveaux",
+    "location": "Lieu",
+    "locationPlaceholder": "Entrez une ville ou une commune...",
+    "favoriteSchoolsOnly": "Écoles favorites uniquement"
+  },
+  "loadingSpinner": {
+    "loading": "Chargement en cours"
+  },
+  "updateProfileForm": {
+    "profilePhoto": "Photo de profil",
+    "personalInfo": "Informations personnelles",
+    "civility": "Civilité",
+    "nativeLanguage": "Langue natale",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "Email",
+    "phone": "Téléphone",
+    "age": "Âge",
+    "address": "Adresse",
+    "street": "Rue",
+    "zipCode": "NPA",
+    "city": "Ville",
+    "canton": "Canton",
+    "skills": "Compétences",
+    "teachingLevels": "Niveaux d'enseignement",
+    "subjects": "Branches",
+    "cv": "CV",
+    "viewCurrentCV": "Voir le CV actuel",
+    "newCV": "Nouveau CV (PDF, max 2 Mo)",
+    "updating": "Mise à jour...",
+    "saveChanges": "Enregistrer les modifications",
+    "successMessage": "Profil mis à jour avec succès",
+    "errorMessage": "Une erreur est survenue lors de la mise à jour"
+  },
+  "inviteTeacherForm": {
+    "teacherEmail": "Email de l'enseignant",
+    "emailPlaceholder": "exemple@ecole.ch",
+    "sending": "Envoi...",
+    "inviteTeacher": "Inviter l'enseignant",
+    "errorMessage": "Une erreur est survenue"
+  },
+  "analytics": {
+    "errorLoading": "Erreur lors du chargement des statistiques",
+    "charts": {
+      "teachers": "Remplaçants",
+      "schools": "Écoles",
+      "offers": "Offres",
+      "total": "Total",
+      "approved": "Approuvés",
+      "filled": "Pourvues"
+    },
+    "stats": {
+      "totalTeachers": "Total remplaçants",
+      "totalSchools": "Total écoles",
+      "activeOffers": "Offres actives",
+      "applications": "Candidatures",
+      "approvedTeachers": "approuvés",
+      "pendingTeachers": "en attente",
+      "approvedSchools": "approuvées",
+      "pendingSchools": "en attente",
+      "filledOffers": "offres pourvues",
+      "applicationsPerOffer": "candidatures par offre"
+    },
+    "overview": "Vue d'ensemble"
+  },
+  "pdfPreview": {
+    "errorOpening": "Erreur lors de l'ouverture du PDF",
+    "defaultTitle": "CV",
+    "download": "Télécharger",
+    "open": "Ouvrir",
+    "previewTitle": "Prévisualisation du CV"
+  },
+  "fileUpload": {
+    "uploadFile": "Télécharger un fichier",
+    "dragDropText": "Cliquez ou glissez-déposez"
+  },
+  "applicationModal": {
+    "checkingApplication": "Vérification de votre candidature...",
+    "existingApplicationTitle": "Candidature existante",
+    "alreadyApplied": "Vous avez déjà postulé à cette offre",
+    "existingApplicationMessage": "Vous pouvez consulter votre candidature dans votre espace personnel ou contacter l'école via la messagerie.",
+    "viewApplication": "Voir ma candidature",
+    "sendMessage": "Envoyer un message",
+    "loading": "Chargement...",
+    "applyTitle": "Postuler",
+    "schoolAt": "École à {{location}}",
+    "message": "Message",
+    "yourMessage": "Votre message",
+    "messagePlaceholder": "Présentez brièvement votre motivation et votre expérience...",
+    "cancel": "Annuler",
+    "sending": "Envoi...",
+    "sendApplication": "Envoyer ma candidature",
+    "errors": {
+      "connectionRequired": "Vous devez être connecté pour postuler",
+      "profileNotFound": "Profil remplaçant non trouvé",
+      "approvalRequired": "Votre compte doit être approuvé pour postuler",
+      "schoolNotFound": "École non trouvée",
+      "userDataNotFound": "Données utilisateur non trouvées",
+      "permissionDenied": "Vous n'avez pas les permissions nécessaires pour postuler",
+      "general": "Une erreur est survenue lors de la candidature",
+      "conversationCreation": "Erreur lors de la création de la conversation"
+    }
+  },
+  "editOfferModal": {
+    "title": "Modifier l'offre",
+    "scheduleAndLocation": "Horaires, lieu de rendez-vous et informations utiles",
+    "scheduleLocationPlaceholder": "Précisez les horaires exacts, le lieu de rendez-vous et toute information utile pour le bon déroulement du remplacement...",
+    "qualifications": "Qualifications souhaitées",
+    "qualificationsPlaceholder": "Décrivez les qualifications souhaitées pour ce remplacement...",
+    "cancel": "Annuler",
+    "updating": "Mise à jour...",
+    "saveChanges": "Enregistrer les modifications",
+    "updateError": "Une erreur est survenue lors de la mise à jour"
+  },
+  "loginForm": {
+    "connectionError": "Erreur de connexion:"
+  },
+  "messageInput": {
+    "placeholder": "Votre message...",
+    "sendError": "Erreur lors de l'envoi du message:"
+  },
+  "conversationList": {
+    "noConversations": "Aucune conversation"
+  },
+  "notificationsDropdown": {
+    "title": "Notifications",
+    "markAllAsRead": "Tout marquer comme lu"
+  },
+  "teacherStats": {
+    "currentApplications": "Candidatures en cours",
+    "acceptedThisMonth": "Acceptées ce mois",
+    "completedLessons": "Leçons effectuées",
+    "upcomingLessons": "leçons prévues",
+    "totalReplacements": "Total remplacements",
+    "topSubjects": "Branches les plus demandées"
+  },
+  "schoolStats": {
+    "activeOffers": "Offres actives",
+    "receivedApplications": "Candidatures reçues",
+    "filledPositions": "Postes pourvus",
+    "expiringOffers": "Offres expirant bientôt"
+  },
+  "daySchedule": {
+    "addLesson": "Ajouter une leçon"
+  },
+  "schoolOffers": {
+    "errorLoad": "Une erreur est survenue lors du chargement des offres",
+    "usefulInfo": "Informations utiles"
+  },
+  "availableOffersList": {
+    "errorLoad": "Impossible de charger les offres. Veuillez réessayer.",
+    "noMatchingOffers": "Aucune offre ne correspond à vos critères"
+  },
+  "favoriteButton": {
+    "add": "Ajouter aux favoris",
+    "remove": "Retirer des favoris"
+  },
+  "offerDetails": {
+    "schedule": "Horaires",
+    "subjectsToTeach": "Branches à enseigner",
+    "desiredQualifications": "Qualifications souhaitées"
+  },
+  "teacherProfile": {
+    "title": "Profil de l'enseignant",
+    "yearsOld": "ans",
+    "viewCV": "Voir le CV",
+    "noCVAvailable": "Pas de CV disponible"
   }
 }

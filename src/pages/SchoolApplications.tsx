@@ -60,7 +60,7 @@ export function SchoolApplications() {
         setSchoolData(schoolDoc.data())
       }
     } catch (err) {
-      console.error('Erreur lors du chargement des données de l\'école:', err)
+      console.error('Error loading school data:', err)
       setError(t('admin.offers.errorLoad'))
     }
   }
@@ -107,7 +107,7 @@ export function SchoolApplications() {
       
       await refresh()
     } catch (err) {
-      console.error('Erreur lors de l\'acceptation de la candidature:', err)
+      console.error('Error accepting application:', err)
       setError(t('admin.offers.errorAccept'))
     }
   }
@@ -133,7 +133,7 @@ export function SchoolApplications() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Candidatures reçues</h1>
+      <h1 className="text-2xl font-bold mb-6">{t('school.applications.title')}</h1>
 
       {successMessage && (
         <div className="mb-4 p-4 bg-green-50 text-green-600 rounded-lg flex items-center">

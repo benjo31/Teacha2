@@ -6,7 +6,7 @@ import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface MultiSelectProps {
   label?: string
-  options: string[]
+  options: readonly string[]
   value: string[]
   onChange: (value: string[]) => void
   error?: string

@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../lib/context/AuthContext'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../lib/firebase'
+import { useTranslation } from '../lib/context/LanguageContext'
 
 export function AdminLoginPage() {
+  const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -22,18 +24,18 @@ export function AdminLoginPage() {
       if (adminDoc.exists()) {
         navigate('/admin')
       } else {
-        setError('Accès non autorisé. Ce compte n\'est pas un compte administrateur.')
-        await signIn(email, password) // Déconnexion
+        setError(t('adminLogin.unauthorizedAccess'))
+        await signIn(email, password) // Sign out
       }
     } catch (err) {
-      console.error('Erreur de connexion:', err)
-      setError('Identifiants invalides')
+      console.error('Login error:', err)
+      setError(t('adminLogin.invalidCredentials'))
     }
   }
 
   return (
     <div className="max-w-md mx-auto mt-8">
-      <h1 className="text-2xl font-bold text-center mb-6">Connexion Administrateur</h1>
+      <h1 className="text-2xl font-bold text-center mb-6">{t('adminLogin.title')}</h1>
       
       {error && (
         <div className="bg-red-50 text-red-500 p-3 rounded-md mb-4">
@@ -44,7 +46,7 @@ export function AdminLoginPage() {
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            Email
+            {t('adminLogin.email')}
           </label>
           <input
             type="email"
@@ -57,7 +59,7 @@ export function AdminLoginPage() {
 
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            Mot de passe
+            {t('adminLogin.password')}
           </label>
           <input
             type="password"
@@ -72,7 +74,7 @@ export function AdminLoginPage() {
           type="submit"
           className="w-full bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90"
         >
-          Se connecter
+          {t('adminLogin.signIn')}
         </button>
       </form>
     </div>

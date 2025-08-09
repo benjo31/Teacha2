@@ -46,7 +46,7 @@ export function SchoolsListPage() {
           })) as School[]
         setSchools(schoolsData)
       } catch (err) {
-        console.error('Erreur lors du chargement des écoles:', err)
+        console.error('Error loading schools:', err)
         setError(t('schoolsList.errorLoading'))
       } finally {
         setLoading(false)
@@ -90,10 +90,10 @@ export function SchoolsListPage() {
         <h1 className="text-2xl font-bold">{t('schoolsList.title')}</h1>
       </div>
 
-      {/* Filtres */}
+      {/* Filters */}
       <div className="mb-8 space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Recherche par nom */}
+          {/* Search by name */}
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -105,7 +105,7 @@ export function SchoolsListPage() {
             />
           </div>
 
-          {/* Recherche par ville */}
+          {/* Search by city */}
           <div className="relative">
             <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -117,7 +117,7 @@ export function SchoolsListPage() {
             />
           </div>
 
-          {/* Sélection du canton */}
+          {/* Canton selection */}
           <select
             value={selectedCanton}
             onChange={(e) => setSelectedCanton(e.target.value)}
@@ -143,7 +143,7 @@ export function SchoolsListPage() {
         </div>
       </div>
 
-      {/* Liste des écoles */}
+      {/* Schools list */}
       {filteredSchools.length === 0 ? (
         <div className="text-center py-8 text-gray-500">
           {t('schoolsList.noSchoolsFound')}

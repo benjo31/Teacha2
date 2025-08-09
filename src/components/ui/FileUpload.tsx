@@ -1,5 +1,6 @@
 import { ChangeEvent, useRef } from 'react'
 import { Upload } from 'lucide-react'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface FileUploadProps {
   label: string
@@ -9,6 +10,7 @@ interface FileUploadProps {
 }
 
 export function FileUpload({ label, accept, onChange, error }: FileUploadProps) {
+  const { t } = useTranslation()
   const inputRef = useRef<HTMLInputElement>(null)
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +31,7 @@ export function FileUpload({ label, accept, onChange, error }: FileUploadProps) 
           <Upload className="mx-auto h-12 w-12 text-gray-400" />
           <div className="flex text-sm text-gray-600">
             <label className="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/90">
-              <span>Télécharger un fichier</span>
+              <span>{t('fileUpload.uploadFile')}</span>
               <input
                 ref={inputRef}
                 type="file"
@@ -40,7 +42,7 @@ export function FileUpload({ label, accept, onChange, error }: FileUploadProps) 
             </label>
           </div>
           <p className="text-xs text-gray-500">
-            Cliquez ou glissez-déposez
+            {t('fileUpload.dragDropText')}
           </p>
         </div>
       </div>

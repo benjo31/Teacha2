@@ -68,5 +68,10 @@ export const schoolSchema = z.object({
     morningEnd: z.string().regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, 'Format invalide (HH:MM)'),
     afternoonStart: z.string().regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, 'Format invalide (HH:MM)'),
     afternoonEnd: z.string().regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, 'Format invalide (HH:MM)')
-  })
+  }),
+  plan: z.object({
+    name: z.enum(['basic', 'premium']).default('basic'),
+    maxInvitations: z.number().default(20),
+    usedInvitations: z.number().default(0)
+  }).optional()
 })

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Star } from 'lucide-react'
 import { addSchoolToFavorites, removeSchoolFromFavorites } from '../../lib/services/favorites'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface FavoriteSchoolButtonProps {
   teacherId: string
@@ -15,6 +16,7 @@ export function FavoriteSchoolButton({
   isFavorite, 
   onToggle 
 }: FavoriteSchoolButtonProps) {
+  const { t } = useTranslation()
   const [isLoading, setIsLoading] = useState(false)
 
   const handleToggle = async () => {
@@ -44,7 +46,7 @@ export function FavoriteSchoolButton({
           ? 'text-yellow-500 hover:text-yellow-600' 
           : 'text-gray-400 hover:text-gray-500'
       }`}
-      title={isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'}
+      title={isFavorite ? t('favoriteButton.remove') : t('favoriteButton.add')}
     >
       <Star className={`h-5 w-5 ${isFavorite ? 'fill-current' : ''}`} />
     </button>

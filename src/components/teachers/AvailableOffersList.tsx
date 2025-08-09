@@ -16,9 +16,11 @@ import { OffersFilter } from './OffersFilter'
 import { useFavoriteSchools } from '../../hooks/useFavoriteSchools'
 import { FavoriteSchoolButton } from './FavoriteSchoolButton'
 import { getSubjectsDisplay } from '../../lib/utils/subjects'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 export function AvailableOffersList() {
   const { user } = useAuth()
+  const { t } = useTranslation()
   const [offers, setOffers] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -51,7 +53,7 @@ export function AvailableOffersList() {
         }
       }
     } catch (error) {
-      console.error('Erreur lors du chargement des données utilisateur:', error)
+      console.error('Error loading user data:', error)
     }
   }
 
@@ -70,8 +72,8 @@ export function AvailableOffersList() {
       
       setOffers(filteredOffers)
     } catch (err) {
-      console.error('Erreur lors du chargement des offres:', err)
-      setError('Impossible de charger les offres. Veuillez réessayer.')
+      console.error('Error loading offers:', err)
+      setError(t('availableOffersList.errorLoad'))
     } finally {
       setLoading(false)
     }
@@ -144,7 +146,7 @@ export function AvailableOffersList() {
 
       {filteredOffers.length === 0 ? (
         <div className="text-center py-8 text-gray-500">
-          Aucune offre ne correspond à vos critères
+          {t('availableOffersList.noMatchingOffers')}
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
@@ -180,20 +182,20 @@ export function AvailableOffersList() {
                 </div>
                 <div className="flex items-center text-gray-600">
                   <Clock className="h-4 w-4 mr-2" />
-                  {offer.totalLessons} leçons
+                  {offer.totalLessons} {t('teacherApplications.lessons')}
                 </div>
                 {offer.periods && offer.periods.length > 0 && (
                   <div className="flex items-center gap-4 text-sm text-gray-600">
                     {offer.periods.includes('morning') && (
                       <div className="flex items-center">
                         <Sun className="h-4 w-4 mr-1 text-yellow-500" />
-                        Matin
+                        {t('school.registration.morning')}
                       </div>
                     )}
                     {offer.periods.includes('afternoon') && (
                       <div className="flex items-center">
                         <Moon className="h-4 w-4 mr-1 text-blue-500" />
-                        Après-midi
+                        {t('school.registration.afternoon')}
                       </div>
                     )}
                   </div>
@@ -202,7 +204,7 @@ export function AvailableOffersList() {
 
               {offer.topic && (
                 <div className="mt-4 p-3 bg-gray-50 rounded-md">
-                  <h4 className="text-sm font-medium mb-1">Informations utiles</h4>
+                  <h4 className="text-sm font-medium mb-1">{t('schoolOffers.usefulInfo')}</h4>
                   <p className="text-sm text-gray-600 line-clamp-2">
                     {offer.topic}
                   </p>
@@ -215,7 +217,7 @@ export function AvailableOffersList() {
                   className="flex items-center text-primary hover:text-primary-dark"
                 >
                   <Eye className="h-4 w-4 mr-1" />
-                  Détails
+                  {t('common.details')}
                 </button>
                 {offer.status === 'active' && (
                   <button
@@ -223,7 +225,7 @@ export function AvailableOffersList() {
                     className="flex items-center space-x-1 bg-primary text-primary-foreground px-3 py-1.5 rounded-md hover:bg-primary/90"
                   >
                     <Send className="h-4 w-4" />
-                    <span>Postuler</span>
+                    <span>{t('common.apply')}</span>
                   </button>
                 )}
               </div>

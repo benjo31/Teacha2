@@ -8,6 +8,7 @@ import { FavoriteSchoolButton } from '../teachers/FavoriteSchoolButton'
 import { useFavoriteSchools } from '../../hooks/useFavoriteSchools'
 import { SchoolOffers } from './SchoolOffers'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '../ui/Tabs'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface SchoolProfileProps {
   schoolData?: any
@@ -15,6 +16,7 @@ interface SchoolProfileProps {
 }
 
 export function SchoolProfile({ schoolData: initialData, showBackButton = false }: SchoolProfileProps) {
+  const { t } = useTranslation()
   const { user } = useAuth()
   const [schoolData, setSchoolData] = useState<any>(initialData)
   const [loading, setLoading] = useState(!initialData)
@@ -33,8 +35,8 @@ export function SchoolProfile({ schoolData: initialData, showBackButton = false 
         }
         setLoading(false)
       } catch (err) {
-        console.error('Erreur lors du chargement des données:', err)
-        setError('Une erreur est survenue lors du chargement des données')
+        console.error('Error loading school data:', err)
+        setError(t('schoolProfile.error'))
         setLoading(false)
       }
     }
@@ -43,7 +45,7 @@ export function SchoolProfile({ schoolData: initialData, showBackButton = false 
   }, [user, initialData])
 
   if (loading) {
-    return <div>Chargement...</div>
+    return <div>{t('schoolProfile.loading')}</div>
   }
 
   if (error) {
@@ -55,7 +57,7 @@ export function SchoolProfile({ schoolData: initialData, showBackButton = false 
   }
 
   if (!schoolData) {
-    return <div>Aucune donnée disponible</div>
+    return <div>{t('schoolProfile.noData')}</div>
   }
 
   return (
@@ -68,7 +70,7 @@ export function SchoolProfile({ schoolData: initialData, showBackButton = false 
             className="flex items-center text-gray-600 hover:text-gray-800"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
-            Retour à la liste
+            {t('schoolProfile.backToList')}
           </Link>
         )}
         
@@ -84,8 +86,8 @@ export function SchoolProfile({ schoolData: initialData, showBackButton = false 
 
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList>
-          <TabsTrigger value="profile">Profil</TabsTrigger>
-          <TabsTrigger value="offers">Offres en cours</TabsTrigger>
+          <TabsTrigger value="profile">{t('schoolProfile.tabs.profile')}</TabsTrigger>
+          <TabsTrigger value="offers">{t('schoolProfile.tabs.offers')}</TabsTrigger>
         </TabsList>
 
         <TabsContent value="profile">
@@ -122,13 +124,13 @@ export function SchoolProfile({ schoolData: initialData, showBackButton = false 
                 )}
                 <div className="flex items-center text-gray-600">
                   <Users className="h-5 w-5 mr-3" />
-                  <span>{schoolData.classCount} classes</span>
+                  <span>{schoolData.classCount} {t('schoolProfile.contact.classes')}</span>
                 </div>
               </div>
 
               {schoolData.contactPerson && (
                 <div className="space-y-4">
-                  <h3 className="font-medium">Contact principal</h3>
+                  <h3 className="font-medium">{t('schoolProfile.contact.mainContact')}</h3>
                   <div className="space-y-2">
                     <p className="text-gray-600">{schoolData.contactPerson.name}</p>
                     <p className="text-gray-600">{schoolData.contactPerson.role}</p>
@@ -150,7 +152,7 @@ export function SchoolProfile({ schoolData: initialData, showBackButton = false 
           <div className="bg-white rounded-lg shadow-sm border p-6 mt-6">
             <h2 className="text-lg font-semibold mb-4 flex items-center">
               <BookOpen className="h-5 w-5 mr-2" />
-              Niveaux d'enseignement
+              {t('schoolProfile.sections.teachingLevels')}
             </h2>
             <div className="flex flex-wrap gap-2">
               {schoolData.teachingLevels?.map((level: string) => (
@@ -169,7 +171,7 @@ export function SchoolProfile({ schoolData: initialData, showBackButton = false 
             <div className="bg-white rounded-lg shadow-sm border p-6 mt-6">
               <h2 className="text-lg font-semibold mb-4 flex items-center">
                 <Users className="h-5 w-5 mr-2" />
-                Classes spéciales
+                {t('schoolProfile.sections.specialClasses')}
               </h2>
               <div className="flex flex-wrap gap-2">
                 {schoolData.specialClasses.map((specialClass: string) => (
@@ -189,17 +191,17 @@ export function SchoolProfile({ schoolData: initialData, showBackButton = false 
             <div className="bg-white rounded-lg shadow-sm border p-6 mt-6">
               <h2 className="text-lg font-semibold mb-4 flex items-center">
                 <Clock className="h-5 w-5 mr-2" />
-                Horaires typiques
+                {t('schoolProfile.sections.typicalSchedule')}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="font-medium mb-2">Matin</h3>
+                  <h3 className="font-medium mb-2">{t('schoolProfile.sections.morning')}</h3>
                   <p className="text-gray-600">
                     {schoolData.schedule.morningStart} - {schoolData.schedule.morningEnd}
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-medium mb-2">Après-midi</h3>
+                  <h3 className="font-medium mb-2">{t('schoolProfile.sections.afternoon')}</h3>
                   <p className="text-gray-600">
                     {schoolData.schedule.afternoonStart} - {schoolData.schedule.afternoonEnd}
                   </p>
@@ -215,7 +217,7 @@ export function SchoolProfile({ schoolData: initialData, showBackButton = false 
                 <div className="mb-6">
                   <h2 className="text-lg font-semibold mb-4 flex items-center">
                     <Building className="h-5 w-5 mr-2" />
-                    À propos de l'établissement
+                    {t('schoolProfile.sections.aboutSchool')}
                   </h2>
                   <p className="text-gray-600 whitespace-pre-wrap">{schoolData.description}</p>
                 </div>
@@ -223,7 +225,7 @@ export function SchoolProfile({ schoolData: initialData, showBackButton = false 
               
               {schoolData.pedagogicalProjects && (
                 <div>
-                  <h2 className="text-lg font-semibold mb-4">Projets pédagogiques</h2>
+                  <h2 className="text-lg font-semibold mb-4">{t('schoolProfile.sections.pedagogicalProjects')}</h2>
                   <p className="text-gray-600 whitespace-pre-wrap">{schoolData.pedagogicalProjects}</p>
                 </div>
               )}
@@ -233,7 +235,7 @@ export function SchoolProfile({ schoolData: initialData, showBackButton = false 
 
         <TabsContent value="offers">
           <div className="bg-white rounded-lg shadow-sm border p-6">
-            <h2 className="text-lg font-semibold mb-6">Offres de remplacement en cours</h2>
+            <h2 className="text-lg font-semibold mb-6">{t('schoolProfile.offers.title')}</h2>
             <SchoolOffers schoolId={schoolData.id} schoolName={schoolData.name} />
           </div>
         </TabsContent>

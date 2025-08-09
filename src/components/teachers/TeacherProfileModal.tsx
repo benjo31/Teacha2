@@ -1,4 +1,5 @@
 import { X, Mail, Phone, MapPin, GraduationCap, BookOpen, FileText, ExternalLink, User, Globe } from 'lucide-react'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface TeacherProfileModalProps {
   teacher: {
@@ -22,16 +23,17 @@ interface TeacherProfileModalProps {
 }
 
 export function TeacherProfileModal({ teacher, onClose }: TeacherProfileModalProps) {
+  const { t } = useTranslation()
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] flex flex-col">
         {/* En-tête avec bouton de fermeture */}
         <div className="p-6 border-b flex justify-between items-center sticky top-0 bg-white rounded-t-lg z-10">
-          <h2 className="text-2xl font-semibold">Profil de l'enseignant</h2>
+          <h2 className="text-2xl font-semibold">{t('teacherProfile.title')}</h2>
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-            aria-label="Fermer"
+            aria-label={t('common.close')}
           >
             <X className="h-6 w-6" />
           </button>
@@ -61,7 +63,7 @@ export function TeacherProfileModal({ teacher, onClose }: TeacherProfileModalPro
               </h3>
               <div className="flex items-center text-gray-600 mt-1">
                 <User className="h-4 w-4 mr-2" />
-                <span>{teacher.civility || 'Non spécifié'}</span>
+                <span>{teacher.civility || t('constants.civility.unspecified')}</span>
               </div>
             </div>
           </div>
@@ -69,7 +71,7 @@ export function TeacherProfileModal({ teacher, onClose }: TeacherProfileModalPro
           {/* Informations personnelles */}
           <div className="space-y-6">
             <div>
-              <h3 className="font-semibold text-lg mb-4">Informations personnelles</h3>
+              <h3 className="font-semibold text-lg mb-4">{t('teacher.registration.personalInfo')}</h3>
               <div className="space-y-3">
                 <div className="flex items-center text-gray-600">
                   <Mail className="h-5 w-5 mr-3" />
@@ -84,13 +86,13 @@ export function TeacherProfileModal({ teacher, onClose }: TeacherProfileModalPro
                 {teacher.age && (
                   <div className="flex items-center text-gray-600">
                     <User className="h-5 w-5 mr-3" />
-                    <span>{teacher.age} ans</span>
+                    <span>{teacher.age} {t('teacherProfile.yearsOld')}</span>
                   </div>
                 )}
                 {teacher.nativeLanguage && (
                   <div className="flex items-center text-gray-600">
                     <Globe className="h-5 w-5 mr-3" />
-                    <span>Langue maternelle: {teacher.nativeLanguage}</span>
+                    <span>{t('teacher.registration.nativeLanguage')}: {teacher.nativeLanguage}</span>
                   </div>
                 )}
               </div>
@@ -99,7 +101,7 @@ export function TeacherProfileModal({ teacher, onClose }: TeacherProfileModalPro
             {/* Adresse */}
             {(teacher.street || teacher.city || teacher.canton) && (
               <div>
-                <h3 className="font-semibold text-lg mb-4">Adresse</h3>
+                <h3 className="font-semibold text-lg mb-4">{t('teacher.registration.address')}</h3>
                 <div className="flex items-start text-gray-600">
                   <MapPin className="h-5 w-5 mr-3 mt-1" />
                   <div>
@@ -116,7 +118,7 @@ export function TeacherProfileModal({ teacher, onClose }: TeacherProfileModalPro
 
             {/* CV */}
             <div>
-              <h3 className="font-semibold text-lg mb-4">CV</h3>
+              <h3 className="font-semibold text-lg mb-4">{t('teacher.registration.cv')}</h3>
               {teacher.cvUrl ? (
                 <a
                   href={teacher.cvUrl}
@@ -125,24 +127,24 @@ export function TeacherProfileModal({ teacher, onClose }: TeacherProfileModalPro
                   className="inline-flex items-center space-x-2 text-primary hover:text-primary-dark bg-primary/5 px-4 py-2 rounded-lg transition-colors"
                 >
                   <FileText className="h-5 w-5" />
-                  <span>Voir le CV</span>
+                  <span>{t('teacherProfile.viewCV')}</span>
                   <ExternalLink className="h-4 w-4" />
                 </a>
               ) : (
                 <div className="text-gray-500 italic">
-                  Pas de CV disponible
+                  {t('teacherProfile.noCVAvailable')}
                 </div>
               )}
             </div>
 
             {/* Compétences */}
             <div>
-              <h3 className="font-semibold text-lg mb-4">Compétences</h3>
+              <h3 className="font-semibold text-lg mb-4">{t('teacher.registration.qualifications')}</h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <GraduationCap className="h-5 w-5 mr-3 mt-1 text-gray-400" />
                   <div>
-                    <h4 className="font-medium mb-2">Niveaux d'enseignement</h4>
+                    <h4 className="font-medium mb-2">{t('teacher.registration.teachingLevels')}</h4>
                     <div className="flex flex-wrap gap-2">
                       {teacher.teachingLevels.map((level) => (
                         <span
@@ -159,7 +161,7 @@ export function TeacherProfileModal({ teacher, onClose }: TeacherProfileModalPro
                 <div className="flex items-start">
                   <BookOpen className="h-5 w-5 mr-3 mt-1 text-gray-400" />
                   <div>
-                    <h4 className="font-medium mb-2">Branches</h4>
+                    <h4 className="font-medium mb-2">{t('teacher.registration.subjects')}</h4>
                     <div className="flex flex-wrap gap-2">
                       {teacher.subjects.map((subject) => (
                         <span

@@ -2,6 +2,7 @@ import { MultiSelect } from '../ui/MultiSelect'
 import { SUBJECTS, TEACHING_LEVELS } from '../../lib/constants'
 import { LocationFilter } from '../ui/LocationFilter'
 import { Star } from 'lucide-react'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface OffersFilterProps {
   searchTerm: string
@@ -34,6 +35,7 @@ export function OffersFilter({
   showFavoritesOnly,
   onFavoritesChange
 }: OffersFilterProps) {
+  const { t } = useTranslation()
   const locationValue = locationSearch ? [locationSearch] : []
 
   return (
@@ -42,7 +44,7 @@ export function OffersFilter({
         {/* Filtre par branches */}
         <div>
           <MultiSelect
-            label="Branches"
+            label={t('offersFilter.subjects')}
             options={SUBJECTS}
             value={selectedSubjects}
             onChange={onSubjectsChange}
@@ -53,7 +55,7 @@ export function OffersFilter({
         {/* Filtre par niveaux */}
         <div>
           <MultiSelect
-            label="Niveaux"
+            label={t('offersFilter.levels')}
             options={TEACHING_LEVELS}
             value={selectedLevels}
             onChange={onLevelsChange}
@@ -64,13 +66,13 @@ export function OffersFilter({
         {/* Filtre par lieu */}
         <div>
           <MultiSelect
-            label="Lieu"
+            label={t('offersFilter.location')}
             options={[]}
             value={locationValue}
             onChange={(values) => onLocationChange(values[0] || '')}
             searchable
             allowCustomValue
-            placeholder="Entrez une ville ou une commune..."
+            placeholder={t('offersFilter.locationPlaceholder')}
           />
         </div>
       </div>
@@ -86,7 +88,7 @@ export function OffersFilter({
           }`}
         >
           <Star className={`h-4 w-4 ${showFavoritesOnly ? 'fill-current' : ''}`} />
-          <span>Écoles favorites uniquement</span>
+          <span>{t('offersFilter.favoriteSchoolsOnly')}</span>
         </button>
 
         {/* Filtre de proximité */}

@@ -9,6 +9,7 @@ import { TeamManagement } from '../components/schools/TeamManagement'
 import { User, Shield, Trash2, Users } from 'lucide-react'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { useTranslation } from '../lib/context/LanguageContext'
+import { PermissionGuard } from '../components/auth/PermissionGuard'
 
 export function AccountPage() {
   const { t } = useTranslation()
@@ -20,38 +21,38 @@ export function AccountPage() {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [userType, setUserType] = useState<'teacher' | 'school' | null>(null)
 
-  useEffect(() => {
-    async function loadUserData() {
-      if (!user) return
+  const loadUserData = async () => {
+    if (!user) return
 
-      try {
-        const teacherDoc = await getDoc(doc(db, 'teachers', user.uid))
-        const schoolDoc = await getDoc(doc(db, 'schools', user.uid))
+    try {
+      const teacherDoc = await getDoc(doc(db, 'teachers', user.uid))
+      const schoolDoc = await getDoc(doc(db, 'schools', user.uid))
 
-        if (teacherDoc.exists()) {
-          const data = teacherDoc.data()
-          setUserData({ 
-            ...data, 
-            id: user.uid,
-            type: 'teacher',
-            street: data.address?.street,
-            zipCode: data.address?.zipCode,
-            city: data.address?.city
-          })
-          setUserType('teacher')
-        } else if (schoolDoc.exists()) {
-          setUserData({ ...schoolDoc.data(), type: 'school' })
-          setUserType('school')
-        }
-
-        setLoading(false)
-      } catch (error) {
-        console.error('Erreur lors du chargement des données:', error)
-        setError(t('accountPage.errorLoading'))
-        setLoading(false)
+      if (teacherDoc.exists()) {
+        const data = teacherDoc.data()
+        setUserData({ 
+          ...data, 
+          id: user.uid,
+          type: 'teacher',
+          street: data.address?.street,
+          zipCode: data.address?.zipCode,
+          city: data.address?.city
+        })
+        setUserType('teacher')
+      } else if (schoolDoc.exists()) {
+        setUserData({ ...schoolDoc.data(), type: 'school' })
+        setUserType('school')
       }
-    }
 
+      setLoading(false)
+    } catch (error) {
+      console.error('Error loading user data:', error)
+      setError(t('accountPage.errorLoading'))
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
     loadUserData()
   }, [user])
 
@@ -93,12 +94,12 @@ export function AccountPage() {
             <User className="h-4 w-4" />
             {t('accountPage.profile')}
           </TabsTrigger>
-          {userType === 'school' && (
+          <PermissionGuard permission="team:view_all">
             <TabsTrigger value="team" className="flex items-center gap-2">
               <Users className="h-4 w-4" />
-              {t('accountPage.team')}
+              {t('team.title')}
             </TabsTrigger>
-          )}
+          </PermissionGuard>
           <TabsTrigger value="security" className="flex items-center gap-2">
             <Shield className="h-4 w-4" />
             {t('accountPage.security')}
@@ -142,7 +143,7 @@ export function AccountPage() {
         </TabsContent>
       </Tabs>
 
-      {/* Modal de confirmation de suppression */}
+      {/* Deletion confirmation modal */}
       {showDeleteConfirm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">

@@ -27,7 +27,7 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
           setUserStatus(schoolDoc.data().status)
         }
       } catch (error) {
-        console.error('Erreur lors de la vérification du statut:', error)
+        console.error('Error checking status:', error)
       }
 
       setCheckingStatus(false)

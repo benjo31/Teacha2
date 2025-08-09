@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
-import { collection, query, getDocs, where } from 'firebase/firestore'
+import { collection, query, getDocs } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
 import { LoadingSpinner } from '../ui/LoadingSpinner'
-import { Users, School, FileText, CheckCircle, Clock } from 'lucide-react'
+import { Users, School, FileText, CheckCircle } from 'lucide-react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 export function Analytics() {
+  const { t } = useTranslation()
   const [stats, setStats] = useState({
     totalTeachers: 0,
     totalSchools: 0,
@@ -64,7 +66,7 @@ export function Analytics() {
 
         setLoading(false)
       } catch (error) {
-        console.error('Erreur lors du chargement des statistiques:', error)
+        console.error(t('analytics.errorLoading'), error)
         setLoading(false)
       }
     }
@@ -77,9 +79,9 @@ export function Analytics() {
   }
 
   const chartData = [
-    { name: 'Remplaçants', total: stats.totalTeachers, approved: stats.approvedTeachers },
-    { name: 'Écoles', total: stats.totalSchools, approved: stats.approvedSchools },
-    { name: 'Offres', total: stats.totalOffers, filled: stats.filledOffers }
+    { name: t('analytics.charts.teachers'), total: stats.totalTeachers, approved: stats.approvedTeachers },
+    { name: t('analytics.charts.schools'), total: stats.totalSchools, approved: stats.approvedSchools },
+    { name: t('analytics.charts.offers'), total: stats.totalOffers, filled: stats.filledOffers }
   ]
 
   return (
@@ -88,7 +90,7 @@ export function Analytics() {
         <div className="bg-white p-6 rounded-lg shadow-sm border">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600">Total remplaçants</p>
+              <p className="text-sm font-medium text-gray-600">{t('analytics.stats.totalTeachers')}</p>
               <p className="text-2xl font-semibold mt-1">{stats.totalTeachers}</p>
             </div>
             <div className="p-3 bg-primary/10 rounded-full">
@@ -96,14 +98,14 @@ export function Analytics() {
             </div>
           </div>
           <div className="mt-4 text-sm text-gray-500">
-            {stats.approvedTeachers} approuvés · {stats.pendingTeachers} en attente
+            {stats.approvedTeachers} {t('analytics.stats.approvedTeachers')} · {stats.pendingTeachers} {t('analytics.stats.pendingTeachers')}
           </div>
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-sm border">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600">Total écoles</p>
+              <p className="text-sm font-medium text-gray-600">{t('analytics.stats.totalSchools')}</p>
               <p className="text-2xl font-semibold mt-1">{stats.totalSchools}</p>
             </div>
             <div className="p-3 bg-primary/10 rounded-full">
@@ -111,14 +113,14 @@ export function Analytics() {
             </div>
           </div>
           <div className="mt-4 text-sm text-gray-500">
-            {stats.approvedSchools} approuvées · {stats.pendingSchools} en attente
+            {stats.approvedSchools} {t('analytics.stats.approvedSchools')} · {stats.pendingSchools} {t('analytics.stats.pendingSchools')}
           </div>
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-sm border">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600">Offres actives</p>
+              <p className="text-sm font-medium text-gray-600">{t('analytics.stats.activeOffers')}</p>
               <p className="text-2xl font-semibold mt-1">{stats.activeOffers}</p>
             </div>
             <div className="p-3 bg-primary/10 rounded-full">
@@ -126,14 +128,14 @@ export function Analytics() {
             </div>
           </div>
           <div className="mt-4 text-sm text-gray-500">
-            {stats.filledOffers} offres pourvues
+            {stats.filledOffers} {t('analytics.stats.filledOffers')}
           </div>
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-sm border">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600">Candidatures</p>
+              <p className="text-sm font-medium text-gray-600">{t('analytics.stats.applications')}</p>
               <p className="text-2xl font-semibold mt-1">{stats.totalApplications}</p>
             </div>
             <div className="p-3 bg-primary/10 rounded-full">
@@ -141,13 +143,13 @@ export function Analytics() {
             </div>
           </div>
           <div className="mt-4 text-sm text-gray-500">
-            {(stats.totalApplications / stats.totalOffers).toFixed(1)} candidatures par offre
+            {(stats.totalApplications / stats.totalOffers).toFixed(1)} {t('analytics.stats.applicationsPerOffer')}
           </div>
         </div>
       </div>
 
       <div className="bg-white p-6 rounded-lg shadow-sm border">
-        <h3 className="text-lg font-semibold mb-6">Vue d'ensemble</h3>
+        <h3 className="text-lg font-semibold mb-6">{t('analytics.overview')}</h3>
         <div className="h-80">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={chartData}>
@@ -155,9 +157,9 @@ export function Analytics() {
               <XAxis dataKey="name" />
               <YAxis />
               <Tooltip />
-              <Bar dataKey="total" fill="#6366f1" name="Total" />
-              <Bar dataKey="approved" fill="#22c55e" name="Approuvés" />
-              <Bar dataKey="filled" fill="#22c55e" name="Pourvues" />
+              <Bar dataKey="total" fill="#6366f1" name={t('analytics.charts.total')} />
+              <Bar dataKey="approved" fill="#22c55e" name={t('analytics.charts.approved')} />
+              <Bar dataKey="filled" fill="#22c55e" name={t('analytics.charts.filled')} />
             </BarChart>
           </ResponsiveContainer>
         </div>

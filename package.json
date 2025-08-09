@@ -4,11 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --force",
+    "dev:clean": "rm -rf dist && rm -rf .vite && rm -rf node_modules/.vite && vite --force",
     "build": "tsc && vite build",
+    "clean": "rm -rf dist && rm -rf .vite && rm -rf node_modules/.vite",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "firebase": "firebase"
+    "firebase": "firebase",
+    "start": "npm run clean && tsc && vite build && vite --force"
   },
   "dependencies": {
     "react": "^18.2.0",
