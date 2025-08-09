@@ -3,6 +3,7 @@ import { fr } from 'date-fns/locale'
 import { Message } from '../../hooks/useMessages'
 import { AttachmentPreview } from './AttachmentPreview'
 import { UserCircle2 } from 'lucide-react'
+import { useTranslation } from '../../lib/context/LanguageContext'
 
 interface MessageBubbleProps {
   message: Message
@@ -11,6 +12,7 @@ interface MessageBubbleProps {
 }
 
 export function MessageBubble({ message, isOwnMessage, senderPhoto }: MessageBubbleProps) {
+  const { t } = useTranslation()
   // Gérer le cas où createdAt est null ou undefined
   const timestamp = message.createdAt?.toDate?.()
   const formattedTime = timestamp ? format(timestamp, 'HH:mm', { locale: fr }) : ''
@@ -28,7 +30,7 @@ export function MessageBubble({ message, isOwnMessage, senderPhoto }: MessageBub
               {senderPhoto ? (
                 <img 
                   src={senderPhoto} 
-                  alt="Photo de profil"
+                  alt={t('common.profilePhoto')}
                   className="h-full w-full object-cover"
                 />
               ) : (
@@ -47,9 +49,9 @@ export function MessageBubble({ message, isOwnMessage, senderPhoto }: MessageBub
             </div>
           </div>
 
-          {message.attachments?.length > 0 && (
+          {message.attachments && message.attachments.length > 0 && (
             <div className={`mt-2 space-y-2 ${isOwnMessage ? 'self-end' : 'self-start'}`}>
-              {message.attachments.map((attachment, index) => (
+              {message.attachments?.map((attachment, index) => (
                 <AttachmentPreview
                   key={index}
                   attachment={attachment}

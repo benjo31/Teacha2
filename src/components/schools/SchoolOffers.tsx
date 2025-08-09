@@ -7,11 +7,13 @@ import ApplicationModal from '../teachers/ApplicationModal'
 import OfferDetailsModal from '../teachers/OfferDetailsModal'
 import { MapPin, Calendar, Clock, School, Send, Eye, Sun, Moon } from 'lucide-react'
 import { format } from 'date-fns'
-import { fr } from 'date-fns/locale'
 import { calculateOfferStatus } from '../../lib/utils/offerStatus'
 import { StatusBadge } from '../ui/StatusBadge'
 import { getSubjectsDisplay } from '../../lib/utils/subjects'
 import { useTranslation } from '../../lib/context/LanguageContext'
+import { useContext } from 'react'
+import { LanguageContext } from '../../lib/context/LanguageContext'
+import { getDateLocale } from '../../lib/utils/dateLocale'
 
 interface SchoolOffersProps {
   schoolId: string
@@ -20,11 +22,14 @@ interface SchoolOffersProps {
 
 export function SchoolOffers({ schoolId, schoolName }: SchoolOffersProps) {
   const { t } = useTranslation()
+  const { language } = useContext(LanguageContext)
   const [offers, setOffers] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [selectedOffer, setSelectedOffer] = useState<any>(null)
   const [showApplicationModal, setShowApplicationModal] = useState(false)
+  
+  const dateLocale = getDateLocale(language)
 
   useEffect(() => {
     loadOffers()
@@ -112,7 +117,7 @@ export function SchoolOffers({ schoolId, schoolName }: SchoolOffersProps) {
               </div>
               <div className="flex items-center text-gray-600">
                 <Calendar className="h-4 w-4 mr-2" />
-                {format(new Date(offer.startDate), 'EEEE d MMMM yyyy', { locale: fr })}
+                {format(new Date(offer.startDate), 'EEEE d MMMM yyyy', { locale: dateLocale })}
               </div>
               <div className="flex items-center text-gray-600">
                 <Clock className="h-4 w-4 mr-2" />

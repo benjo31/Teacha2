@@ -133,7 +133,7 @@ export function SchoolRegistrationForm() {
         />
         {errors.description?.message && (
           <p className="mt-1 text-sm text-error animate-fade-in">
-            {errors.description.message}
+            {errors.description?.message as string}
           </p>
         )}
       </div>
@@ -144,7 +144,7 @@ export function SchoolRegistrationForm() {
         {...register('website')}
         error={errors.website?.message}
         className="h-14 text-lg"
-        placeholder="https://www.example.com"
+        placeholder={t('school.registration.websitePlaceholder')}
       />
 
       <Controller
@@ -172,7 +172,7 @@ export function SchoolRegistrationForm() {
         />
         {errors.pedagogicalProjects?.message && (
           <p className="mt-1 text-sm text-error animate-fade-in">
-            {errors.pedagogicalProjects.message}
+            {errors.pedagogicalProjects?.message as string}
           </p>
         )}
       </div>

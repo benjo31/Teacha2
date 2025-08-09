@@ -21,6 +21,14 @@
     "phoneRequired": "Telefonnummer ist erforderlich",
     "schoolNameRequired": "Schulname ist erforderlich",
     "classCountRequired": "Anzahl Klassen ist erforderlich",
+    "class": "Klasse ist erforderlich",
+    "location": "Ort ist erforderlich",
+    "subjects": "Wählen Sie mindestens ein Fach",
+    "teachingLevel": "Unterrichtsstufe ist erforderlich",
+    "startDate": "Startdatum ist erforderlich",
+    "endDate": "Enddatum ist erforderlich",
+    "totalLessons": "Anzahl Lektionen ist erforderlich",
+    "periods": "Wählen Sie mindestens eine Periode",
     "nameRequired": "Name ist erforderlich",
     "roleRequired": "Rolle ist erforderlich",
     "streetRequired": "Strasse ist erforderlich",
@@ -95,6 +103,11 @@
     "roleUpdated": "Rolle erfolgreich aktualisiert"
   },
   "school": {
+    "periods": {
+      "title": "Zeiträume",
+      "morning": "Morgen",
+      "afternoon": "Nachmittag"
+    },
     "registration": {
       "title": "Schulregistrierung",
       "schoolInfo": "Schulinformationen",
@@ -102,6 +115,7 @@
       "address": "Adresse",
       "canton": "Kanton",
       "website": "Website (optional)",
+      "websitePlaceholder": "https://www.example.com",
       "description": "Schulbeschreibung (optional)",
       "descriptionPlaceholder": "Beschreiben Sie Ihre Schule kurz...",
       "teachingLevels": "Unterrichtsstufen",

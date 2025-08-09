@@ -89,6 +89,12 @@ service cloud.firestore {
       allow delete: if isAuthenticated() && resource.data.teacherId == request.auth.uid;
     }
 
+    // Rules for team invitations
+    match /team_invitations/{invitationId} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated();
+    }
+
     // Catch-all rule for any other collections (temporary for debugging)
     match /{document=**} {
       allow read: if isAuthenticated();

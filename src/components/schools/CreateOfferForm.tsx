@@ -4,10 +4,10 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useAuth } from '../../lib/context/AuthContext'
 import { useTranslation } from '../../lib/context/LanguageContext'
-import { replacementOfferSchema, type ReplacementOffer } from '../../lib/schemas/offer'
+import { createReplacementOfferSchema, type ReplacementOffer } from '../../lib/schemas/offer'
 import { Input } from '../ui/Input'
 import { Select } from '../ui/Select'
-import { TEACHING_LEVELS } from '../../lib/constants'
+import { getTeachingLevels, TEACHING_LEVELS } from '../../lib/constants'
 import { createOffer } from '../../lib/services/offers'
 import { Calendar, Clock } from 'lucide-react'
 import { PeriodSelector } from './PeriodSelector'
@@ -21,6 +21,8 @@ export function CreateOfferForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const today = new Date().toISOString().split('T')[0]
+  
+  const offerSchema = createReplacementOfferSchema(t)
 
   const {
     register,
@@ -29,7 +31,7 @@ export function CreateOfferForm() {
     reset,
     formState: { errors }
   } = useForm<ReplacementOffer>({
-    resolver: zodResolver(replacementOfferSchema),
+    resolver: zodResolver(offerSchema),
     defaultValues: {
       schoolId: user?.uid,
       status: 'active',
@@ -150,7 +152,7 @@ export function CreateOfferForm() {
                   className="h-12"
                 >
                   <option value="">{t('school.createOffer.selectLevel')}</option>
-                  {TEACHING_LEVELS.map((level) => (
+                  {getTeachingLevels(t).map((level) => (
                     <option key={level} value={level}>{level}</option>
                   ))}
                 </Select>

@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../lib/context/AuthContext'
-import { collection, query, where, getDocs, doc, updateDoc } from 'firebase/firestore'
-import { db } from '../lib/firebase'
+import { getTeacherInvitations, acceptInvitation, rejectInvitation } from '../lib/services/applications'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { School, Clock, CheckCircle, XCircle } from 'lucide-react'
 import { useTranslation } from '../lib/context/LanguageContext'
 
 type Invitation = {
   id: string
+  offerId: string
   schoolId: string
   schoolName: string
-  status: 'pending' | 'accepted' | 'rejected'
+  status: string
+  message?: string
   createdAt: any
 }
 
@@ -28,21 +29,12 @@ export function TeacherInvitationsPage() {
   }, [user])
 
   async function loadInvitations() {
-    if (!user) return
+    if (!user || !user.email) return
 
     try {
-      // Load all teacher invitations
-      const invitationsQuery = query(
-        collection(db, 'school_invitations'),
-        where('teacherEmail', '==', user.email),
-        where('status', '==', 'pending')
-      )
-      const snapshot = await getDocs(invitationsQuery)
-      const invitationsData = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      })) as Invitation[]
-      setInvitations(invitationsData)
+      // Load all teacher invitations using the new system
+      const invitationsData = await getTeacherInvitations(user.email)
+      setInvitations(invitationsData as Invitation[])
     } catch (err) {
       console.error('Error loading invitations:', err)
       setError(t('teacherInvitations.errorLoading'))
@@ -51,18 +43,12 @@ export function TeacherInvitationsPage() {
     }
   }
 
-  const handleAccept = async (invitationId: string, schoolId: string) => {
+  const handleAccept = async (invitationId: string) => {
+    if (!user) return
+    
     try {
-      // Update invitation status
-      await updateDoc(doc(db, 'school_invitations', invitationId), {
-        status: 'accepted'
-      })
-
-      // Add teacher to school's teacher list
-      await updateDoc(doc(db, `schools/${schoolId}/teachers`, user?.uid || ''), {
-        status: 'active'
-      })
-
+      // Accept invitation - this converts it to a pending application
+      await acceptInvitation(invitationId, user.uid)
       await loadInvitations()
     } catch (err) {
       console.error('Error accepting invitation:', err)
@@ -72,9 +58,7 @@ export function TeacherInvitationsPage() {
 
   const handleReject = async (invitationId: string) => {
     try {
-      await updateDoc(doc(db, 'school_invitations', invitationId), {
-        status: 'rejected'
-      })
+      await rejectInvitation(invitationId)
       await loadInvitations()
     } catch (err) {
       console.error('Error rejecting invitation:', err)
@@ -106,6 +90,9 @@ export function TeacherInvitationsPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold">{invitation.schoolName}</h3>
+                  {invitation.message && (
+                    <p className="text-sm text-gray-600 mt-1">{invitation.message}</p>
+                  )}
                   <div className="flex items-center text-yellow-600 mt-1">
                     <Clock className="h-4 w-4 mr-1" />
                     <span className="text-sm">{t('teacherInvitations.pendingResponse')}</span>
@@ -115,7 +102,7 @@ export function TeacherInvitationsPage() {
 
               <div className="flex space-x-2">
                 <button
-                  onClick={() => handleAccept(invitation.id, invitation.schoolId)}
+                  onClick={() => handleAccept(invitation.id)}
                   className="flex items-center space-x-1 bg-green-500 text-white px-3 py-1.5 rounded-md hover:bg-green-600"
                 >
                   <CheckCircle className="h-4 w-4" />
